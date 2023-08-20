@@ -49,6 +49,8 @@ Route::middleware('admin')->prefix('user')->group(function(){
 require __DIR__.'/auth.php';
 
 
+
+//below route is for vue route
 Route::get('/{any?}', function () {
     return view('vuecheck');
 })->where('any', '^(?!api\/)[\/\w\.\,-]*');
