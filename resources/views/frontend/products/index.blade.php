@@ -31,11 +31,11 @@
                     <div class="shop__sidebar--widget widget__area d-md-none">
                         <div class="single__widget widget__bg">
                             <h2 class="widget__title position__relative h3">Search</h2>
-                            <form class="widget__search--form" action="#">
+                            <form id="searchProductForm" class="widget__search--form">
                                 <label>
-                                    <input class="widget__search--form__input border-0" placeholder="Search by" type="text">
+                                    <input name="searchProduct" class="widget__search--form__input border-0" value="" placeholder="Search by" type="text" required>
                                 </label>
-                                <button class="widget__search--form__btn"  type="submit">
+                                <button class="widget__search--form__btn searchProductButton"  type="submit">
                                     Search 
                                 </button>
                             </form>
@@ -43,192 +43,41 @@
                         <div class="single__widget widget__bg">
                             <h2 class="widget__title position__relative h3">Categories</h2>
                             <ul class="widget__categories--menu">
+                                @forelse($categories as $category)
                                 <li class="widget__categories--menu__list">
                                     <label class="widget__categories--menu__label d-flex align-items-center">
                                         <img class="widget__categories--menu__img" src="{{asset('newtheme/assets/img/product/small-product1.webp')}}" alt="categories-img">
-                                        <span class="widget__categories--menu__text">Denim Jacket</span>
+                                        <span class="widget__categories--menu__text">{{$category->title}}</span>
                                         <svg class="widget__categories--menu__arrowdown--icon" xmlns="http://www.w3.org/2000/svg" width="12.355" height="8.394">
                                             <path  d="M15.138,8.59l-3.961,3.952L7.217,8.59,6,9.807l5.178,5.178,5.178-5.178Z" transform="translate(-6 -8.59)" fill="currentColor"></path>
                                         </svg>
                                     </label>
                                     <ul class="widget__categories--sub__menu">
+                                        @forelse($category->subcategories as $subcat)
                                         <li class="widget__categories--sub__menu--list">
-                                            <a class="widget__categories--sub__menu--link d-flex align-items-center" href="shop.html">
+                                            <a class="widget__categories--sub__menu--link d-flex align-items-center" href="{{route('allproducts.index',['subcategory_id'=>$subcat->id])}}">
                                                 <img class="widget__categories--sub__menu--img" src="{{asset('newtheme/assets/img/product/small-product2.webp')}}" alt="categories-img">
-                                                <span class="widget__categories--sub__menu--text">Jacket, Women</span>
+                                                <span class="widget__categories--sub__menu--text">{{$subcat->title}}</span>
                                             </a>
                                         </li>
-                                        <li class="widget__categories--sub__menu--list">
-                                            <a class="widget__categories--sub__menu--link d-flex align-items-center" href="shop.html">
-                                                <img class="widget__categories--sub__menu--img" src="{{asset('newtheme/assets/img/product/small-product3.webp')}}" alt="categories-img">
-                                                <span class="widget__categories--sub__menu--text">Woolend Jacket</span>
-                                            </a>
-                                        </li>
-                                        <li class="widget__categories--sub__menu--list">
-                                            <a class="widget__categories--sub__menu--link d-flex align-items-center" href="shop.html">
-                                                <img class="widget__categories--sub__menu--img" src="{{asset('newtheme/assets/img/product/small-product4.webp')}}" alt="categories-img">
-                                                <span class="widget__categories--sub__menu--text">Western denim</span>
-                                            </a>
-                                        </li>
-                                        <li class="widget__categories--sub__menu--list">
-                                            <a class="widget__categories--sub__menu--link d-flex align-items-center" href="shop.html">
-                                                <img class="widget__categories--sub__menu--img" src="{{asset('newtheme/assets/img/product/small-product5.webp')}}" alt="categories-img">
-                                                <span class="widget__categories--sub__menu--text">Mini Dresss</span>
-                                            </a>
-                                        </li>
+                                        @empty
+                                        @endforelse
                                     </ul>
                                 </li>
-                                <li class="widget__categories--menu__list">
-                                    <label class="widget__categories--menu__label d-flex align-items-center">
-                                        <img class="widget__categories--menu__img" src="{{asset('newtheme/assets/img/product/small-product2.webp')}}" alt="categories-img">
-                                        <span class="widget__categories--menu__text">Oversize Cotton</span>
-                                        <svg class="widget__categories--menu__arrowdown--icon" xmlns="http://www.w3.org/2000/svg" width="12.355" height="8.394" >
-                                            <path  d="M15.138,8.59l-3.961,3.952L7.217,8.59,6,9.807l5.178,5.178,5.178-5.178Z" transform="translate(-6 -8.59)" fill="currentColor"></path>
-                                        </svg>
-                                    </label>
-                                    <ul class="widget__categories--sub__menu">
-                                        <li class="widget__categories--sub__menu--list">
-                                            <a class="widget__categories--sub__menu--link d-flex align-items-center" href="shop.html">
-                                                <img class="widget__categories--sub__menu--img" src="{{asset('newtheme/assets/img/product/small-product2.webp')}}" alt="categories-img">
-                                                <span class="widget__categories--sub__menu--text">Jacket, Women</span>
-                                            </a>
-                                        </li>
-                                        <li class="widget__categories--sub__menu--list">
-                                            <a class="widget__categories--sub__menu--link d-flex align-items-center" href="shop.html">
-                                                <img class="widget__categories--sub__menu--img" src="{{asset('newtheme/assets/img/product/small-product3.webp')}}" alt="categories-img">
-                                                <span class="widget__categories--sub__menu--text">Woolend Jacket</span>
-                                            </a>
-                                        </li>
-                                        <li class="widget__categories--sub__menu--list">
-                                            <a class="widget__categories--sub__menu--link d-flex align-items-center" href="shop.html">
-                                                <img class="widget__categories--sub__menu--img" src="{{asset('newtheme/assets/img/product/small-product4.webp')}}" alt="categories-img">
-                                                <span class="widget__categories--sub__menu--text">Western denim</span>
-                                            </a>
-                                        </li>
-                                        <li class="widget__categories--sub__menu--list">
-                                            <a class="widget__categories--sub__menu--link d-flex align-items-center" href="shop.html">
-                                                <img class="widget__categories--sub__menu--img" src="{{asset('newtheme/assets/img/product/small-product5.webp')}}" alt="categories-img">
-                                                <span class="widget__categories--sub__menu--text">Mini Dresss</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="widget__categories--menu__list">
-                                    <label class="widget__categories--menu__label d-flex align-items-center">
-                                        <img class="widget__categories--menu__img" src="{{asset('newtheme/assets/img/product/small-product3.webp')}}" alt="categories-img">
-                                        <span class="widget__categories--menu__text">Dairy & chesse</span>
-                                        <svg class="widget__categories--menu__arrowdown--icon" xmlns="http://www.w3.org/2000/svg" width="12.355" height="8.394">
-                                            <path  d="M15.138,8.59l-3.961,3.952L7.217,8.59,6,9.807l5.178,5.178,5.178-5.178Z" transform="translate(-6 -8.59)" fill="currentColor"></path>
-                                        </svg>
-                                    </label>
-                                    <ul class="widget__categories--sub__menu">
-                                        <li class="widget__categories--sub__menu--list">
-                                            <a class="widget__categories--sub__menu--link d-flex align-items-center" href="shop.html">
-                                                <img class="widget__categories--sub__menu--img" src="{{asset('newtheme/assets/img/product/small-product2.webp')}}" alt="categories-img">
-                                                <span class="widget__categories--sub__menu--text">Jacket, Women</span>
-                                            </a>
-                                        </li>
-                                        <li class="widget__categories--sub__menu--list">
-                                            <a class="widget__categories--sub__menu--link d-flex align-items-center" href="shop.html">
-                                                <img class="widget__categories--sub__menu--img" src="{{asset('newtheme/assets/img/product/small-product3.webp')}}" alt="categories-img">
-                                                <span class="widget__categories--sub__menu--text">Woolend Jacket</span>
-                                            </a>
-                                        </li>
-                                        <li class="widget__categories--sub__menu--list">
-                                            <a class="widget__categories--sub__menu--link d-flex align-items-center" href="shop.html">
-                                                <img class="widget__categories--sub__menu--img" src="{{asset('newtheme/assets/img/product/small-product4.webp')}}" alt="categories-img">
-                                                <span class="widget__categories--sub__menu--text">Western denim</span>
-                                            </a>
-                                        </li>
-                                        <li class="widget__categories--sub__menu--list">
-                                            <a class="widget__categories--sub__menu--link d-flex align-items-center" href="shop.html">
-                                                <img class="widget__categories--sub__menu--img" src="{{asset('newtheme/assets/img/product/small-product5.webp')}}" alt="categories-img">
-                                                <span class="widget__categories--sub__menu--text">Mini Dresss</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="widget__categories--menu__list">
-                                    <label class="widget__categories--menu__label d-flex align-items-center">
-                                        <img class="widget__categories--menu__img" src="{{asset('newtheme/assets/img/product/small-product4.webp')}}" alt="categories-img">
-                                        <span class="widget__categories--menu__text">Shoulder Bag</span>
-                                        <svg class="widget__categories--menu__arrowdown--icon" xmlns="http://www.w3.org/2000/svg" width="12.355" height="8.394">
-                                            <path  d="M15.138,8.59l-3.961,3.952L7.217,8.59,6,9.807l5.178,5.178,5.178-5.178Z" transform="translate(-6 -8.59)" fill="currentColor"></path>
-                                        </svg>
-                                    </label>
-                                    <ul class="widget__categories--sub__menu">
-                                        <li class="widget__categories--sub__menu--list">
-                                            <a class="widget__categories--sub__menu--link d-flex align-items-center" href="shop.html">
-                                                <img class="widget__categories--sub__menu--img" src="{{asset('newtheme/assets/img/product/small-product2.webp')}}" alt="categories-img">
-                                                <span class="widget__categories--sub__menu--text">Jacket, Women</span>
-                                            </a>
-                                        </li>
-                                        <li class="widget__categories--sub__menu--list">
-                                            <a class="widget__categories--sub__menu--link d-flex align-items-center" href="shop.html">
-                                                <img class="widget__categories--sub__menu--img" src="{{asset('newtheme/assets/img/product/small-product3.webp')}}" alt="categories-img">
-                                                <span class="widget__categories--sub__menu--text">Woolend Jacket</span>
-                                            </a>
-                                        </li>
-                                        <li class="widget__categories--sub__menu--list">
-                                            <a class="widget__categories--sub__menu--link d-flex align-items-center" href="shop.html">
-                                                <img class="widget__categories--sub__menu--img" src="{{asset('newtheme/assets/img/product/small-product4.webp')}}" alt="categories-img">
-                                                <span class="widget__categories--sub__menu--text">Western denim</span>
-                                            </a>
-                                        </li>
-                                        <li class="widget__categories--sub__menu--list">
-                                            <a class="widget__categories--sub__menu--link d-flex align-items-center" href="shop.html">
-                                                <img class="widget__categories--sub__menu--img" src="{{asset('newtheme/assets/img/product/small-product5.webp')}}" alt="categories-img">
-                                                <span class="widget__categories--sub__menu--text">Mini Dresss</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="widget__categories--menu__list">
-                                    <label class="widget__categories--menu__label d-flex align-items-center">
-                                        <img class="widget__categories--menu__img" src="{{asset('newtheme/assets/img/product/small-product5.webp')}}" alt="categories-img">
-                                        <span class="widget__categories--menu__text">Denim Jacket</span>
-                                        <svg class="widget__categories--menu__arrowdown--icon" xmlns="http://www.w3.org/2000/svg" width="12.355" height="8.394">
-                                            <path  d="M15.138,8.59l-3.961,3.952L7.217,8.59,6,9.807l5.178,5.178,5.178-5.178Z" transform="translate(-6 -8.59)" fill="currentColor"></path>
-                                        </svg>
-                                    </label>
-                                    <ul class="widget__categories--sub__menu">
-                                        <li class="widget__categories--sub__menu--list">
-                                            <a class="widget__categories--sub__menu--link d-flex align-items-center" href="shop.html">
-                                                <img class="widget__categories--sub__menu--img" src="{{asset('newtheme/assets/img/product/small-product2.webp')}}" alt="categories-img">
-                                                <span class="widget__categories--sub__menu--text">Jacket, Women</span>
-                                            </a>
-                                        </li>
-                                        <li class="widget__categories--sub__menu--list">
-                                            <a class="widget__categories--sub__menu--link d-flex align-items-center" href="shop.html">
-                                                <img class="widget__categories--sub__menu--img" src="{{asset('newtheme/assets/img/product/small-product3.webp')}}" alt="categories-img">
-                                                <span class="widget__categories--sub__menu--text">Woolend Jacket</span>
-                                            </a>
-                                        </li>
-                                        <li class="widget__categories--sub__menu--list">
-                                            <a class="widget__categories--sub__menu--link d-flex align-items-center" href="shop.html">
-                                                <img class="widget__categories--sub__menu--img" src="{{asset('newtheme/assets/img/product/small-product4.webp')}}" alt="categories-img">
-                                                <span class="widget__categories--sub__menu--text">Western denim</span>
-                                            </a>
-                                        </li>
-                                        <li class="widget__categories--sub__menu--list">
-                                            <a class="widget__categories--sub__menu--link d-flex align-items-center" href="shop.html">
-                                                <img class="widget__categories--sub__menu--img" src="{{asset('newtheme/assets/img/product/small-product5.webp')}}" alt="categories-img">
-                                                <span class="widget__categories--sub__menu--text">Mini Dresss</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
+                                @empty
+                                @endforelse
+                                
                             </ul>
                         </div>
                         <div class="single__widget price__filter widget__bg">
                             <h2 class="widget__title position__relative h3">Filter By Price</h2>
-                            <form class="price__filter--form" action="#"> 
+                            <form id="fromToPrice" class="price__filter--form"> 
                                 <div class="price__filter--form__inner mb-15 d-flex align-items-center">
                                     <div class="price__filter--group">
                                         <label class="price__filter--label" for="Filter-Price-GTE1">From</label>
                                         <div class="price__filter--input border-radius-5 d-flex align-items-center">
                                             <span class="price__filter--currency">$</span>
-                                            <input class="price__filter--input__field border-0" id="Filter-Price-GTE1" name="filter.v.price.gte" type="number" placeholder="0" min="0" max="250.00">
+                                            <input name="from" value="0" class="price__filter--input__field border-0" id="Filter-Price-GTE1"  type="number" placeholder="0" min="0" max="250.00">
                                         </div>
                                     </div>
                                     <div class="price__divider">
@@ -238,57 +87,30 @@
                                         <label class="price__filter--label" for="Filter-Price-LTE1">To</label>
                                         <div class="price__filter--input border-radius-5 d-flex align-items-center">
                                             <span class="price__filter--currency">$</span>
-                                            <input class="price__filter--input__field border-0" id="Filter-Price-LTE1" name="filter.v.price.lte" type="number" min="0" placeholder="250.00" max="250.00"> 
+                                            <input name="to" value="" required class="price__filter--input__field border-0" id="Filter-Price-LTE1"  type="number" min="0" placeholder="250.00" max="1000.00"> 
                                         </div>	
                                     </div>
                                 </div>
                                 <button class="price__filter--btn primary__btn" type="submit">Filter</button>
                             </form>
                         </div>
-                        <div class="single__widget widget__bg">
-                            <h2 class="widget__title position__relative h3">Dietary Needs</h2>
-                            <ul class="widget__form--check">
-                                <li class="widget__form--check__list">
-                                    <label class="widget__form--check__label" for="check1">Denim shirt</label>
-                                    <input class="widget__form--check__input" id="check1" type="checkbox">
-                                    <span class="widget__form--checkmark"></span>
-                                </li>
-                                <li class="widget__form--check__list">
-                                    <label class="widget__form--check__label" for="check2">Need Winter</label>
-                                    <input class="widget__form--check__input" id="check2" type="checkbox">
-                                    <span class="widget__form--checkmark"></span>
-                                </li>
-                                <li class="widget__form--check__list">
-                                    <label class="widget__form--check__label" for="check3">Fashion Trends</label>
-                                    <input class="widget__form--check__input" id="check3" type="checkbox">
-                                    <span class="widget__form--checkmark"></span>
-                                </li>
-                                <li class="widget__form--check__list">
-                                    <label class="widget__form--check__label" for="check4">Oversize Cotton</label>
-                                    <input class="widget__form--check__input" id="check4" type="checkbox">
-                                    <span class="widget__form--checkmark"></span>
-                                </li>
-                                <li class="widget__form--check__list">
-                                    <label class="widget__form--check__label" for="check5">Baking material</label>
-                                    <input class="widget__form--check__input" id="check5" type="checkbox">
-                                    <span class="widget__form--checkmark"></span>
-                                </li>
-                            </ul>
-                        </div>
+                        
                         <div class="single__widget widget__bg">
                             <h2 class="widget__title position__relative h3">Top Rated Product</h2>
                             <div class="product__grid--inner">
+                                @if(count($trending_products) > 0)
+                                @foreach($trending_products as $trending)
                                 <div class="product__items product__items--grid d-flex align-items-center">
                                     <div class="product__items--grid__thumbnail position__relative">
                                         <a class="product__items--link" href="product-details.html">
-                                            <img class="product__items--img product__primary--img" src="{{asset('newtheme/assets/img/product/small-product1.webp')}}" alt="product-img">
-                                            <img class="product__items--img product__secondary--img" src="{{asset('newtheme/assets/img/product/small-product2.webp')}}" alt="product-img">
+                                            <img class="product__items--img product__primary--img" src="{{$trending->images[0]->url}}" alt="product-img">
+                                            <img class="product__items--img product__secondary--img" src="{{$trending->images[1]->url}}" alt="product-img">
                                         </a>
                                     </div>
                                     <div class="product__items--grid__content">
-                                        <h3 class="product__items--content__title h4"><a href="product-details.html">Modern Chair</a></h3>
+                                        <h3 class="product__items--content__title h4"><a href="product-details.html">{{$trending->title}}</a></h3>
                                         <div class="product__items--price">
-                                            <span class="current__price">$165.00</span>
+                                            <span class="current__price">${{$trending->discount_price}}</span>
                                         </div>
                                         <div class="product__items--color">
                                             <ul class="product__items--color__wrapper d-flex">
@@ -300,65 +122,11 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="product__items product__items--grid d-flex align-items-center">
-                                    <div class="product__items--grid__thumbnail position__relative">
-                                        <a class="product__items--link" href="product-details.html">
-                                            <img class="product__items--img product__primary--img" src="{{asset('newtheme/assets/img/product/small-product3.webp')}}" alt="product-img">
-                                            <img class="product__items--img product__secondary--img" src="{{asset('newtheme/assets/img/product/small-product4.webp')}}" alt="product-img">
-                                        </a>
-                                    </div>
-                                    <div class="product__items--grid__content">
-                                        <h3 class="product__items--content__title h4"><a href="product-details.html">Plastic Chair</a></h3>
-                                        <div class="product__items--price">
-                                            <span class="current__price">$165.00</span>
-                                        </div>
-                                        <div class="product__items--color">
-                                            <ul class="product__items--color__wrapper d-flex">
-                                                <li class="product__items--color__list"><a class="product__items--color__link one" href="javascript:void(0)"><span class="visually-hidden">Color 1</span></a></li>
-                                                <li class="product__items--color__list"><a class="product__items--color__link two" href="javascript:void(0)"><span class="visually-hidden">Color 2</span></a></li>
-                                                <li class="product__items--color__list"><a class="product__items--color__link three" href="javascript:void(0)"><span class="visually-hidden">Color 3</span></a></li>
-                                                <li class="product__items--color__list"><a class="product__items--color__link four" href="javascript:void(0)"><span class="visually-hidden">Color 4</span></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product__items product__items--grid d-flex align-items-center">
-                                    <div class="product__items--grid__thumbnail position__relative">
-                                        <a class="product__items--link" href="product-details.html">
-                                            <img class="product__items--img product__primary--img" src="{{asset('newtheme/assets/img/product/small-product5.webp')}}" alt="product-img">
-                                            <img class="product__items--img product__secondary--img" src="{{asset('newtheme/assets/img/product/small-product6.webp')}}" alt="product-img">
-                                        </a>
-                                    </div>
-                                    <div class="product__items--grid__content">
-                                        <h3 class="product__items--content__title h4"><a href="product-details.html">Design Rooms</a></h3>
-                                        <div class="product__items--price">
-                                            <span class="current__price">$165.00</span>
-                                        </div>
-                                        <div class="product__items--color">
-                                            <ul class="product__items--color__wrapper d-flex">
-                                                <li class="product__items--color__list"><a class="product__items--color__link one" href="javascript:void(0)"><span class="visually-hidden">Color 1</span></a></li>
-                                                <li class="product__items--color__list"><a class="product__items--color__link two" href="javascript:void(0)"><span class="visually-hidden">Color 2</span></a></li>
-                                                <li class="product__items--color__list"><a class="product__items--color__link three" href="javascript:void(0)"><span class="visually-hidden">Color 3</span></a></li>
-                                                <li class="product__items--color__list"><a class="product__items--color__link four" href="javascript:void(0)"><span class="visually-hidden">Color 4</span></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
+                                @endif
                             </div>
                         </div>
-                        <div class="single__widget widget__bg">
-                            <h2 class="widget__title position__relative h3">Brands</h2>
-                            <ul class="widget__tagcloud">
-                                <li class="widget__tagcloud--list"><a class="widget__tagcloud--link" href="shop.html">Wooden</a></li>
-                                <li class="widget__tagcloud--list"><a class="widget__tagcloud--link" href="shop.html">Chair</a></li>
-                                <li class="widget__tagcloud--list"><a class="widget__tagcloud--link" href="shop.html">Modern</a></li>
-                                <li class="widget__tagcloud--list"><a class="widget__tagcloud--link" href="shop.html">Fabric  </a></li>
-                                <li class="widget__tagcloud--list"><a class="widget__tagcloud--link" href="shop.html">Shoulder </a></li>
-                                <li class="widget__tagcloud--list"><a class="widget__tagcloud--link" href="shop.html">Winter</a></li>
-                                <li class="widget__tagcloud--list"><a class="widget__tagcloud--link" href="shop.html">Accessories</a></li>
-                                <li class="widget__tagcloud--list"><a class="widget__tagcloud--link" href="shop.html">Dress </a></li>
-                            </ul>
-                        </div>
+                        
                     </div>
                 </div>
                 <div class="col-xl-9 col-lg-8">
@@ -368,26 +136,15 @@
                             <span class="widget__filter--btn__text">Filter</span>
                         </button>
                         <div class="product__view--mode d-flex align-items-center">
-                            <div class="product__view--mode__list product__short--by align-items-center d-none d-lg-flex">
-                                <label class="product__view--label">Prev Page :</label>
-                                <div class="select shop__header--select">
-                                    <select class="product__view--select">
-                                        <option selected value="1">65</option>
-                                        <option value="2">40</option>
-                                        <option value="3">42</option>
-                                        <option value="4">57 </option>
-                                        <option value="5">60 </option>
-                                    </select>
-                                </div>
-                            </div>
+                            
                             <div class="product__view--mode__list product__short--by align-items-center d-none d-lg-flex">
                                 <label class="product__view--label">Sort By :</label>
                                 <div class="select shop__header--select">
-                                    <select class="product__view--select">
-                                        <option selected value="1">Sort by latest</option>
-                                        <option value="2">Sort by popularity</option>
-                                        <option value="3">Sort by newness</option>
-                                        <option value="4">Sort by  rating </option>
+                                    <select id="sortBy" class="product__view--select">
+                                        <option selected value="latest">Sort by latest</option>
+                                        <option value="trending">Sort by trending</option>
+                                        <option value="highToLow">Sort by price high to low</option>
+                                        <option value="lowToHigh">Sort by  price low to high </option>
                                     </select>
                                 </div>
                             </div>
@@ -438,7 +195,7 @@
                                         <div class="col mb-30">
                                             <div class="product__items ">
                                                 <div class="product__items--thumbnail">
-                                                    <a class="product__items--link" href="product-details.html">
+                                                    <a class="product__items--link" href="{{route('allproducts.show',[$product->id])}}">
                                                         <img class="product__items--img product__primary--img" src="{{$product->images[0]->url}}" alt="product-img">
                                                         <img class="product__items--img product__secondary--img" src="{{$product->images[1]->url}}" alt="product-img">
                                                     </a>
@@ -658,5 +415,35 @@
     <!-- End Newsletter banner section -->
 </main>
 
+
+@push('script')
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(document).on('change','#sortBy',function(){
+
+            location.href = '{{url()->current()}}?type=' + $(this).val()
+        })
+        @if(request('type') != "")
+        $('#sortBy').find('option[value="' + "{{request('type')}}" + '"]').attr('selected', true);
+        @endif
+    })
+
+    $('#searchProductForm').submit(function(e){
+        e.preventDefault()
+        var search = $('input[name~="searchProduct"]').val()
+        location.href = '{{url()->current()}}?search=' + search;
+    })
+
+    $("#fromToPrice").submit(function(e){
+
+        e.preventDefault()
+        var from = $('input[name~="from"]').val()
+        var to = $('input[name~="to"]').val()
+        
+        location.href = '{{url()->current()}}?from=' + from + '&to=' + to;
+    })
+</script>
+@endpush
 
 @endsection

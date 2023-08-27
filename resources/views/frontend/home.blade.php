@@ -271,7 +271,7 @@
                                         </div>
                                         <div class="product__items--content style2 position__relative">
                                             
-                                            <h3 class="product__items--content__title h4"><a href="product-details.html">Fashion Chair</a></h3>
+                                            <h3 class="product__items--content__title h4"><a href="product-details.html">{{$trending->title}}</a></h3>
                                             <div class="product__items--price style2">
                                                 <span class="current__price style2">${{$trending->discount_price}}</span>
                                                 <span class="old__price style2">${{$trending->strike_price}}</span>
