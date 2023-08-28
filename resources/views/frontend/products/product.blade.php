@@ -6,21 +6,7 @@
     <main class="main__content_wrapper">
             
             <!-- Start breadcrumb section -->
-            <section class="breadcrumb__section breadcrumb__bg">
-                <div class="container">
-                    <div class="row row-cols-1">
-                        <div class="col">
-                            <div class="breadcrumb__content">
-                                <h1 class="breadcrumb__content--title text-white mb-10">Product Details</h1>
-                                <ul class="breadcrumb__content--menu d-flex">
-                                    <li class="breadcrumb__content--menu__items"><a class="text-white" href="index.html">Home</a></li>
-                                    <li class="breadcrumb__content--menu__items"><span class="text-white">Product Details</span></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            
             <!-- End breadcrumb section -->
 
             <!-- Start product details section -->
@@ -31,160 +17,37 @@
                             <div class="product__details--media">
                                 <div class="product__media--preview  swiper">
                                     <div class="swiper-wrapper">
+
+                                        @forelse($product->images as $image)
                                         <div class="swiper-slide">
                                             <div class="product__media--preview__items">
-                                                <a class="product__media--preview__items--link glightbox" data-gallery="product-media-preview" href="assets/img/product/big-product1.webp"><img class="product__media--preview__items--img" src="{{asset('newtheme/assets/img/product/big-product1.webp')}}" alt="product-media-img"></a>
+                                                <a class="product__media--preview__items--link glightbox" data-gallery="product-media-preview" href="{{$image->url}}"><img class="product__media--preview__items--img" src="{{$image->url}}" alt="product-media-img"></a>
                                                 <div class="product__media--view__icon">
                                                     <a class="product__media--view__icon--link glightbox" href="assets/img/product/big-product1.webp" data-gallery="product-media-preview">
                                                         <svg class="product__media--view__icon--svg" xmlns="http://www.w3.org/2000/svg" width="22.51" height="22.443" viewBox="0 0 512 512"><path d="M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"></path><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="32" d="M338.29 338.29L448 448"></path></svg>
                                                         <span class="visually-hidden">Media Gallery</span>
                                                     </a>
                                                 </div>
-                                                <div class="product__media--view__icon media__play">
-                                                    <a class="media__play--icon__link glightbox" data-gallery="video" href="https://vimeo.com/115041822">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" width="35.51" height="35.443" stroke="currentColor">
-                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                                        </svg>
-                                                        <span class="visually-hidden">play</span>
-                                                    </a>
-                                                </div>
+                                                
                                             </div>
                                         </div>
-                                        <div class="swiper-slide">
-                                            <div class="product__media--preview__items">
-                                                <a class="product__media--preview__items--link glightbox" data-gallery="product-media-preview" href="assets/img/product/big-product2.webp"><img class="product__media--preview__items--img" src="{{asset('newtheme/assets/img/product/big-product2.webp" alt="product-media-img')}}"></a>
-                                                <div class="product__media--view__icon">
-                                                    <a class="product__media--view__icon--link glightbox" href="assets/img/product/big-product1.webp" data-gallery="product-media-preview">
-                                                        <svg class="product__media--view__icon--svg" xmlns="http://www.w3.org/2000/svg" width="22.51" height="22.443" viewBox="0 0 512 512"><path d="M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"></path><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="32" d="M338.29 338.29L448 448"></path></svg>
-                                                        <span class="visually-hidden">Media Gallery</span>
-                                                    </a>
-                                                </div>
-                                                <div class="product__media--view__icon media__play">
-                                                    <a class="media__play--icon__link glightbox" data-gallery="video" href="https://vimeo.com/115041822">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" width="35.51" height="35.443" stroke="currentColor">
-                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                                        </svg>
-                                                        <span class="visually-hidden">play</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="product__media--preview__items">
-                                                <a class="product__media--preview__items--link glightbox" data-gallery="product-media-preview" href="assets/img/product/big-product3.webp"><img class="product__media--preview__items--img" src="{{asset('newtheme/assets/img/product/big-product3.webp" alt="product-media-img')}}"></a>
-                                                <div class="product__media--view__icon">
-                                                    <a class="product__media--view__icon--link glightbox" href="assets/img/product/big-product1.webp" data-gallery="product-media-preview">
-                                                        <svg class="product__media--view__icon--svg" xmlns="http://www.w3.org/2000/svg" width="22.51" height="22.443" viewBox="0 0 512 512"><path d="M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"></path><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="32" d="M338.29 338.29L448 448"></path></svg>
-                                                        <span class="visually-hidden">Media Gallery</span>
-                                                    </a>
-                                                </div>
-                                                <div class="product__media--view__icon media__play">
-                                                    <a class="media__play--icon__link glightbox" data-gallery="video" href="https://vimeo.com/115041822">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" width="35.51" height="35.443" stroke="currentColor">
-                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                                        </svg>
-                                                        <span class="visually-hidden">play</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="product__media--preview__items">
-                                                <a class="product__media--preview__items--link glightbox" data-gallery="product-media-preview" href="assets/img/product/big-product4.webp"><img class="product__media--preview__items--img" src="{{asset('newtheme/assets/img/product/big-product4.webp')}}" alt="product-media-img"></a>
-                                                <div class="product__media--view__icon">
-                                                    <a class="product__media--view__icon--link glightbox" href="assets/img/product/big-product1.webp" data-gallery="product-media-preview">
-                                                        <svg class="product__media--view__icon--svg" xmlns="http://www.w3.org/2000/svg" width="22.51" height="22.443" viewBox="0 0 512 512"><path d="M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"></path><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="32" d="M338.29 338.29L448 448"></path></svg>
-                                                        <span class="visually-hidden">Media Gallery</span>
-                                                    </a>
-                                                </div>
-                                                <div class="product__media--view__icon media__play">
-                                                    <a class="media__play--icon__link glightbox" data-gallery="video" href="https://vimeo.com/115041822">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" width="35.51" height="35.443" stroke="currentColor">
-                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                                        </svg>
-                                                        <span class="visually-hidden">play</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="product__media--preview__items">
-                                                <a class="product__media--preview__items--link glightbox" data-gallery="product-media-preview" href="assets/img/product/big-product5.webp"><img class="product__media--preview__items--img" src="{{asset('newtheme/assets/img/product/big-product5.webp')}}" alt="product-media-img"></a>
-                                                <div class="product__media--view__icon">
-                                                    <a class="product__media--view__icon--link glightbox" href="assets/img/product/big-product1.webp" data-gallery="product-media-preview">
-                                                        <svg class="product__media--view__icon--svg" xmlns="http://www.w3.org/2000/svg" width="22.51" height="22.443" viewBox="0 0 512 512"><path d="M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"></path><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="32" d="M338.29 338.29L448 448"></path></svg>
-                                                        <span class="visually-hidden">Media Gallery</span>
-                                                    </a>
-                                                </div>
-                                                <div class="product__media--view__icon media__play">
-                                                    <a class="media__play--icon__link glightbox" data-gallery="video" href="https://vimeo.com/115041822">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" width="35.51" height="35.443" stroke="currentColor">
-                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                                        </svg>
-                                                        <span class="visually-hidden">play</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="product__media--preview__items">
-                                                <a class="product__media--preview__items--link glightbox" data-gallery="product-media-preview" href="assets/img/product/big-product6.webp"><img class="product__media--preview__items--img" src="{{asset('newtheme/assets/img/product/big-product6.webp')}}" alt="product-media-img"></a>
-                                                <div class="product__media--view__icon">
-                                                    <a class="product__media--view__icon--link glightbox" href="assets/img/product/big-product1.webp" data-gallery="product-media-preview">
-                                                        <svg class="product__media--view__icon--svg" xmlns="http://www.w3.org/2000/svg" width="22.51" height="22.443" viewBox="0 0 512 512"><path d="M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"></path><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="32" d="M338.29 338.29L448 448"></path></svg>
-                                                        <span class="visually-hidden">Media Gallery</span>
-                                                    </a>
-                                                </div>
-                                                <div class="product__media--view__icon media__play">
-                                                    <a class="media__play--icon__link glightbox" data-gallery="video" href="https://vimeo.com/115041822">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" width="35.51" height="35.443" stroke="currentColor">
-                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                                        </svg>
-                                                        <span class="visually-hidden">play</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        @empty
+                                        @endforelse
+                                        
                                     </div>
                                 </div>
                                 <div class="product__media--nav swiper">
                                     <div class="swiper-wrapper">
+                                        @forelse($product->images as $image)
                                         <div class="swiper-slide">
                                             <div class="product__media--nav__items">
-                                                <img class="product__media--nav__items--img" src="{{asset('newtheme/assets/img/product/small-product1.webp')}}" alt="product-nav-img">
+                                                <img class="product__media--nav__items--img" src="{{$image->url}}" alt="product-nav-img">
                                             </div>
                                         </div>
-                                        <div class="swiper-slide">
-                                            <div class="product__media--nav__items">
-                                                <img class="product__media--nav__items--img" src="{{asset('newtheme/assets/img/product/small-product2.webp')}}" alt="product-nav-img">
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="product__media--nav__items">
-                                                <img class="product__media--nav__items--img" src="{{asset('newtheme/assets/img/product/small-product3.webp')}}" alt="product-nav-img">
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="product__media--nav__items">
-                                                <img class="product__media--nav__items--img" src="{{asset('newtheme/assets/img/product/small-product4.webp')}}" alt="product-nav-img">
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="product__media--nav__items">
-                                                <img class="product__media--nav__items--img" src="{{asset('newtheme/assets/img/product/small-product5.webp')}}" alt="product-nav-img">
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="product__media--nav__items">
-                                                <img class="product__media--nav__items--img" src="{{asset('newtheme/assets/img/product/small-product6.webp')}}" alt="product-nav-img">
-                                            </div>
-                                        </div>
+                                        @empty
+                                        @endforelse
+
+                                        
                                     </div>
                                     <div class="swiper__nav--btn swiper-button-next"></div>
                                     <div class="swiper__nav--btn swiper-button-prev"></div>
@@ -194,10 +57,10 @@
                         <div class="col">
                             <div class="product__details--info">
                                 <form action="#">
-                                    <h2 class="product__details--info__title mb-15">Fashion Plastic Chair</h2>
+                                    <h2 class="product__details--info__title mb-15">{{$product->title}}</h2>
                                     <div class="product__details--info__price mb-10">
-                                        <span class="current__price">$299.00</span>
-                                        <span class="old__price">$320.00</span>
+                                        <span class="current__price">${{$product->discount_price}}</span>
+                                        <span class="old__price">${{$product->strike_price}}</span>
                                     </div>
                                     <div class="product__details--info__rating d-flex align-items-center mb-15">
                                         <ul class="rating product__list--rating d-flex">
@@ -239,50 +102,9 @@
                                             <li class="rating__list"><span class="rating__list--text">( 5.0)</span></li>
                                         </ul>
                                     </div>
-                                    <p class="product__details--info__desc mb-20">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut numquam ullam is recusandae laborum explicabo id sequi quisquam, ab sunt deleniti quidem ea animi facilis quod nostrum odit! Repellendus voluptas suscipit.</p>
+                                    <p class="product__details--info__desc mb-20">{{$product->short_description}}</p>
                                     <div class="product__variant">
-                                        <div class="product__variant--list mb-20">
-                                            <fieldset class="variant__input--fieldset">
-                                                <legend class="product__variant--title mb-8">Color :</legend>
-                                                <div class="variant__color d-flex">
-                                                    <div class="variant__color--list">
-                                                        <input id="color-red1" name="color" type="radio" checked>
-                                                        <label class="variant__color--value red" for="color-red1" title="Red"><img class="variant__color--value__img" src="{{asset('newtheme/assets/img/product/product1.webp')}}" alt="variant-color-img"></label>
-                                                    </div>
-                                                    <div class="variant__color--list">
-                                                        <input id="color-red2" name="color" type="radio">
-                                                        <label class="variant__color--value red" for="color-red2" title="Black"><img class="variant__color--value__img" src="{{asset('newtheme/assets/img/product/product6.webp')}}" alt="variant-color-img"></label>
-                                                    </div>
-                                                    <div class="variant__color--list">
-                                                        <input id="color-red3" name="color" type="radio">
-                                                        <label class="variant__color--value red" for="color-red3" title="Pink"><img class="variant__color--value__img" src="{{asset('newtheme/assets/img/product/product7.webp')}}" alt="variant-color-img"></label>
-                                                    </div>
-                                                    <div class="variant__color--list">
-                                                        <input id="color-red4" name="color" type="radio">
-                                                        <label class="variant__color--value red" for="color-red4" title="Orange"><img class="variant__color--value__img" src="{{asset('newtheme/assets/img/product/product4.webp')}}" alt="variant-color-img"></label>
-                                                    </div>
-                                                </div>
-                                            </fieldset>
-                                        </div>
-                                        <div class="product__variant--list mb-20">
-                                            <fieldset class="variant__input--fieldset">
-                                                <legend class="product__variant--title mb-8">Weight :</legend>
-                                                <ul class="variant__size d-flex">
-                                                    <li class="variant__size--list">
-                                                        <input id="weight1" name="weight" type="radio" checked>
-                                                        <label class="variant__size--value red" for="weight1">5 kg</label>
-                                                    </li>
-                                                    <li class="variant__size--list">
-                                                        <input id="weight2" name="weight" type="radio">
-                                                        <label class="variant__size--value red" for="weight2">3 kg</label>
-                                                    </li>
-                                                    <li class="variant__size--list">
-                                                        <input id="weight3" name="weight" type="radio">
-                                                        <label class="variant__size--value red" for="weight3">2 kg</label>
-                                                    </li>
-                                                </ul>
-                                            </fieldset>
-                                        </div>
+                                        
                                         <div class="product__variant--list quantity d-flex align-items-center mb-20">
                                             <div class="quantity__box">
                                                 <button type="button" class="quantity__value quickview__value--quantity decrease" aria-label="quantity value" value="Decrease Value">-</button>
@@ -302,10 +124,8 @@
                                         </div>
                                         <div class="product__variant--list mb-15">
                                             <div class="product__details--info__meta">
-                                                <p class="product__details--info__meta--list"><strong>Barcode:</strong>  <span>565461</span> </p>
-                                                <p class="product__details--info__meta--list"><strong>Sky:</strong>  <span>4420</span> </p>
-                                                <p class="product__details--info__meta--list"><strong>Vendor:</strong>  <span>Belo</span> </p>
-                                                <p class="product__details--info__meta--list"><strong>Type:</strong>  <span>Sofa</span> </p>
+                                                
+                                                <p class="product__details--info__meta--list"><strong>Type:</strong>  <span>{{$product->subcategory->category->title}}</span> </p>
                                             </div>
                                         </div>
                                     </div>
@@ -366,8 +186,7 @@
                             <ul class="product__details--tab d-flex mb-30">
                                 <li class="product__details--tab__list active" data-toggle="tab" data-target="#description">Description</li>
                                 <li class="product__details--tab__list" data-toggle="tab" data-target="#reviews">Product Reviews</li>
-                                <li class="product__details--tab__list" data-toggle="tab" data-target="#information">Additional Info</li>
-                                <li class="product__details--tab__list" data-toggle="tab" data-target="#custom">Custom Content</li>
+                                
                             </ul>
                             <div class="product__details--tab__inner border-radius-10">
                                 <div class="tab_content">
@@ -375,12 +194,12 @@
                                         <div class="product__tab--content">
                                             <div class="product__tab--content__items mb-40 d-flex align-items-center">
                                                 <div class="product__tab--content__thumbnail">
-                                                    <img class="product__tab--content__thumbnail--img display-block" src="{{asset('newtheme/assets/img/product/product1.webp')}}" alt="product-tab">
+                                                    <img class="product__tab--content__thumbnail--img display-block" src="{{$product->images[0]->url}}" alt="product-tab">
                                                 </div>
                                                 <div class="product__tab--content__right">
                                                     <div class="product__tab--content__step mb-20">
-                                                        <h4 class="product__tab--content__title">Modern Swivel Chair</h4>
-                                                        <p class="product__tab--content__desc">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum,</p>
+                                                        <h4 class="product__tab--content__title">{{$product->title}}</h4>
+                                                        <p class="product__tab--content__desc">{!! $product->long_description !!}</p>
                                                     </div>
                                                     <div class="product__tab--content__step">
                                                         <h4 class="product__tab--content__title">Fashion Plastic Chair</h4>
@@ -388,21 +207,7 @@
                                                     </div>
                                                 </div>
                                             </div> 
-                                            <div class="product__tab--content__items d-flex align-items-center">
-                                                <div class="product__tab--content__thumbnail">
-                                                    <img class="product__tab--content__thumbnail--img display-block" src="{{asset('newtheme/assets/img/product/product2.webp')}}" alt="product-tab">
-                                                </div>
-                                                <div class="product__tab--content__right">
-                                                    <div class="product__tab--content__step mb-20">
-                                                        <h4 class="product__tab--content__title">Design Living Sofa</h4>
-                                                        <p class="product__tab--content__desc">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum,</p>
-                                                    </div>
-                                                    <div class="product__tab--content__step">
-                                                        <h4 class="product__tab--content__title">Folding Tables Chairs</h4>
-                                                        <p class="product__tab--content__desc">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum,</p>
-                                                    </div>
-                                                </div>
-                                            </div> 
+                                            
                                         </div> 
                                     </div>
                                     <div id="reviews" class="tab_pane">
@@ -656,49 +461,7 @@
                                             </div> 
                                         </div>    
                                     </div>
-                                    <div id="information" class="tab_pane">
-                                        <div class="product__tab--conten">
-                                            <div class="product__tab--content">
-                                                <div class="product__tab--content__step mb-30">
-                                                    <h4 class="product__tab--content__title mb-10">Nam provident sequi</h4>
-                                                    <p class="product__tab--content__desc">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>
-                                                </div>
-                                                <div class="product__tab--content__step">
-                                                    <h4 class="product__tab--content__title mb-10">More Details</h4>
-                                                    <ul>
-                                                        <li class="product__tab--content__list">
-                                                            <svg class="product__tab--content__list--icon" xmlns="http://www.w3.org/2000/svg" width="22.51" height="20.443" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M268 112l144 144-144 144M392 256H100"></path></svg>
-                                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, dolorum?
-                                                        </li>
-                                                        <li class="product__tab--content__list">
-                                                            <svg class="product__tab--content__list--icon" xmlns="http://www.w3.org/2000/svg" width="22.51" height="20.443" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M268 112l144 144-144 144M392 256H100"></path></svg>
-                                                            Magnam enim modi, illo harum suscipit tempore aut dolore?
-                                                        </li>
-                                                        <li class="product__tab--content__list">
-                                                            <svg class="product__tab--content__list--icon" xmlns="http://www.w3.org/2000/svg" width="22.51" height="20.443" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M268 112l144 144-144 144M392 256H100"></path></svg>
-                                                            Numquam eaque mollitia fugiat laborum dolor tempora;
-                                                        </li>
-                                                        <li class="product__tab--content__list">
-                                                            <svg class="product__tab--content__list--icon" xmlns="http://www.w3.org/2000/svg" width="22.51" height="20.443" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M268 112l144 144-144 144M392 256H100"></path></svg>
-                                                            Sit amet consectetur adipisicing elit.  Quo delectus repellat facere maiores.
-                                                        </li>
-                                                        <li class="product__tab--content__list">
-                                                            <svg class="product__tab--content__list--icon" xmlns="http://www.w3.org/2000/svg" width="22.51" height="20.443" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M268 112l144 144-144 144M392 256H100"></path></svg>
-                                                            Repellendus itaque sit quia consequuntur, unde veritatis. dolorum?
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div> 
-                                        </div> 
-                                    </div>
-                                    <div id="custom" class="tab_pane">
-                                        <div class="product__tab--content">
-                                            <div class="product__tab--content__step mb-30">
-                                                <h4 class="product__tab--content__title mb-10">Nam provident sequi</h4>
-                                                <p class="product__tab--content__desc">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum, est porro? Ducimus dolore accusamus impedit ipsum maiores, ea iusto temporibus numquam eaque mollitia fugiat laborum dolor tempora eligendi voluptatem quis necessitatibus nam ab?</p>
-                                            </div>
-                                        </div> 
-                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -714,13 +477,15 @@
                         <h2 class="section__heading--maintitle">You may also like</h2>
                     </div>
                     <div class="product__section--inner product__swiper--column4 swiper">
+
+                        @forelse($similar_products as $similar_product)
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
                                 <div class="product__items ">
                                     <div class="product__items--thumbnail">
                                         <a class="product__items--link" href="product-details.html">
-                                            <img class="product__items--img product__primary--img" src="{{asset('newtheme/assets/img/product/product1.webp')}}" alt="product-img">
-                                            <img class="product__items--img product__secondary--img" src="{{asset('newtheme/assets/img/product/product2.webp')}}" alt="product-img">
+                                            <img class="product__items--img product__primary--img" src="{{$similar_product->images[0]->url}}" alt="product-img">
+                                            <img class="product__items--img product__secondary--img" src="{{$similar_product->images[1]->url}}" alt="product-img">
                                         </a>
                                         <div class="product__badge">
                                             <span class="product__badge--items sale">New</span>
@@ -740,16 +505,7 @@
                                                     <span class="visually-hidden">Wishlist</span>
                                                 </a>
                                             </li>
-                                            <li class="product__items--action__list">
-                                                <a class="product__items--action__btn" href="compare.html">
-                                                    <svg class="product__items--action__btn--svg" xmlns="http://www.w3.org/2000/svg" width="16.47" height="13.088" viewBox="0 0 15.47 11.088">
-                                                        <g  transform="translate(0 -72.508)">
-                                                          <path  data-name="Path 114" d="M15.359,80.9l-2.011-2.011a.525.525,0,0,0-.374-.155H11.291a.287.287,0,0,0-.2.49l1.106,1.106H10.576L8.3,78.052l2.273-2.274h1.618l-1.106,1.106a.287.287,0,0,0,.2.49h1.683a.531.531,0,0,0,.374-.155l2.011-2.011a.38.38,0,0,0,0-.535l-.859-.859a.227.227,0,1,0-.32.321l.806.806L13.027,76.9a.075.075,0,0,1-.053.022H11.692l1.054-1.054a.317.317,0,0,0-.224-.542h-2.04a.227.227,0,0,0-.16.066l-2.34,2.34-.544-.544,2.519-2.519a.382.382,0,0,1,.272-.112h2.293a.317.317,0,0,0,.225-.542l-1.054-1.054h1.282a.076.076,0,0,1,.053.022l.4.4a.227.227,0,1,0,.32-.321l-.4-.4a.531.531,0,0,0-.374-.155H11.291a.287.287,0,0,0-.2.49L12.194,74.1H10.229a.832.832,0,0,0-.592.245L7.118,76.867,4.6,74.349a.832.832,0,0,0-.592-.245H.378A.378.378,0,0,0,0,74.481v.92a.378.378,0,0,0,.378.378H3.66l2.273,2.274L3.66,80.326H.378A.378.378,0,0,0,0,80.7v.92A.378.378,0,0,0,.378,82H4.007a.835.835,0,0,0,.592-.245l2.519-2.519.8.8a.227.227,0,1,0,.32-.32L3.914,75.392a.227.227,0,0,0-.16-.066H.453v-.769H4.007a.382.382,0,0,1,.272.113l6.043,6.043a.227.227,0,0,0,.16.066h2.04a.317.317,0,0,0,.224-.542l-1.054-1.054h1.282a.075.075,0,0,1,.053.022l1.958,1.958-1.958,1.958a.075.075,0,0,1-.053.022H11.692l1.054-1.054a.317.317,0,0,0-.224-.542H10.229a.383.383,0,0,1-.272-.113l-.968-.968a.227.227,0,0,0-.32.32l.968.968a.833.833,0,0,0,.592.245h1.965l-1.105,1.105a.287.287,0,0,0,.2.49h1.683a.525.525,0,0,0,.374-.155l2.011-2.011A.379.379,0,0,0,15.359,80.9Zm-11.08.539a.389.389,0,0,1-.272.113H.453v-.769h3.3a.226.226,0,0,0,.16-.066l2.34-2.34.543.544Z" transform="translate(0 0)" fill="currentColor"/>
-                                                        </g>
-                                                    </svg>
-                                                    <span class="visually-hidden">Compare</span>
-                                                </a>
-                                            </li>
+                                            
                                         </ul>
                                     </div>
                                     <div class="product__items--content text-center">
@@ -761,10 +517,10 @@
                                                 <li class="product__items--color__list"><a class="product__items--color__link four" href="javascript:void(0)"><span class="visually-hidden">Color 4</span></a></li>
                                             </ul>
                                         </div>
-                                        <h3 class="product__items--content__title h4"><a href="product-details.html">Fashion Plastic Chair</a></h3>
+                                        <h3 class="product__items--content__title h4"><a href="product-details.html">{{$similar_product->title}}</a></h3>
                                         <div class="product__items--price">
-                                            <span class="current__price">$150.00</span>
-                                            <span class="old__price">$200.00</span>
+                                            <span class="current__price">${{$similar_product->discount_price}}</span>
+                                            <span class="old__price">${{$similar_product->strike_price}}</span>
                                         </div>
                                         <a class="product__items--action__cart--btn primary__btn" href="cart.html">
                                             <svg class="product__items--action__cart--btn__icon" xmlns="http://www.w3.org/2000/svg" width="13.897" height="14.565" viewBox="0 0 18.897 21.565">
@@ -777,6 +533,8 @@
                             </div>
                             
                         </div>
+                        @empty
+                        @endforelse
                         <div class="swiper__nav--btn swiper-button-next"></div>
                         <div class="swiper__nav--btn swiper-button-prev"></div>
                     </div>
