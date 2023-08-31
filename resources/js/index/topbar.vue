@@ -5,26 +5,17 @@
 	        <span class="widget__filter--btn__text">Filter</span>
 	    </button>
 	    <div class="product__view--mode d-flex align-items-center">
-	        <div class="product__view--mode__list product__short--by align-items-center d-none d-lg-flex">
-	            <label class="product__view--label">Prev Page :</label>
-	            <div class="select shop__header--select">
-	                <select class="product__view--select">
-	                    <option selected value="1">65</option>
-	                    <option value="2">40</option>
-	                    <option value="3">42</option>
-	                    <option value="4">57 </option>
-	                    <option value="5">60 </option>
-	                </select>
-	            </div>
-	        </div>
+	        
 	        <div class="product__view--mode__list product__short--by align-items-center d-none d-lg-flex">
 	            <label class="product__view--label">Sort By :</label>
 	            <div class="select shop__header--select">
-	                <select class="product__view--select">
-	                    <option selected value="1">Sort by latest</option>
-	                    <option value="2">Sort by popularity</option>
-	                    <option value="3">Sort by newness</option>
-	                    <option value="4">Sort by  rating </option>
+	            	
+	                <select class="product__view--select" v-model="sortByDropdown">
+	                	<option disabled value="">Please select one</option>
+	                    <option selected value="latest">Sort by latest</option>
+	                    <option value="trending">Sort by trendign</option>
+	                    <option value="highToLow">Sort by price high to low</option>
+	                    <option value="lowToHigh">Sort by price low to high </option>
 	                </select>
 	            </div>
 	        </div>
@@ -66,3 +57,15 @@
 	    <p class="product__showing--count">Showing 1–9 of 21 results</p>
 	</div>
 </template>
+<script type="text/javascript">
+	
+	export default{
+
+		data(){
+			return{
+
+				sortByDropdown : '',
+			}
+		}
+	}
+</script>
