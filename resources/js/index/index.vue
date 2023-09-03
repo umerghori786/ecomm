@@ -26,7 +26,7 @@
 	                <!-- here -->
 	                <sidebar></sidebar>
 	                <div class="col-xl-9 col-lg-8">
-	                    <topbar></topbar>
+	                    <topbar @clicked="onClickTobarComponent"></topbar>
 	                    <div class="shop__product--wrapper">
 	                        <div class="tab_content">
 	                            <grid v-bind:data="gridProducts"></grid>
@@ -68,17 +68,30 @@
 
 				gridProducts : [],
 				loading : false,
+				type : null,
 			}
 		},
 		created()
 		{	
-			this.getData()
+			this.getData();
+			this.onClickTobarComponent()
+
 			
 		},
 		methods:{
 			getData()
 			{
 				const req = axios.get(`/api/products?subcategory_id=${this.$route.query.subcategory_id ? this.$route.query.subcategory_id : null}`)
+						.then((response)=>{
+							this.gridProducts = response.data.products;
+						}).then(()=>{
+							this.loading = true;
+						})
+			},
+			onClickTobarComponent(value)
+			{
+				this.type = value
+				const req = axios.get(`/api/products?type=${this.type}&subcategory_id=${this.$route.query.subcategory_id ? this.$route.query.subcategory_id : null}`)
 						.then((response)=>{
 							this.gridProducts = response.data.products;
 						}).then(()=>{

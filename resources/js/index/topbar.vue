@@ -10,12 +10,10 @@
 	            <label class="product__view--label">Sort By :</label>
 	            <div class="select shop__header--select">
 	            	
-	                <select class="product__view--select" v-model="sortByDropdown">
+	                <select class="product__view--select" @change="onChangeSort($event)" v-model="sortByDropdown">
 	                	<option disabled value="">Please select one</option>
-	                    <option selected value="latest">Sort by latest</option>
-	                    <option value="trending">Sort by trendign</option>
-	                    <option value="highToLow">Sort by price high to low</option>
-	                    <option value="lowToHigh">Sort by price low to high </option>
+	                    <option v-for="i in SortdropDown" v-bind:value="i.id">{{i.title}}</option>
+	                    
 	                </select>
 	            </div>
 	        </div>
@@ -65,6 +63,35 @@
 			return{
 
 				sortByDropdown : '',
+				gridProducts : [],
+				loading : false,
+				SortdropDown : [
+
+				{
+					id : 'latest',
+					title : 'Sort by latest'
+				},
+				{
+					id : 'trending',
+					title : 'Sort by trending'
+				},
+				{
+					id : 'highToLow',
+					title : 'Sort by price high to low'
+				},
+				{
+					id : 'lowToHigh',
+					title : 'Sort by price low to high '
+				}
+
+				],
+			}
+		},
+		methods: {
+			onChangeSort(e)
+			{
+				this.sortByDropdown = e.target.value
+				this.$emit('clicked', this.sortByDropdown)
 			}
 		}
 	}

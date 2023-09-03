@@ -3,11 +3,13 @@
     <div class="shop__sidebar--widget widget__area d-md-none">
         <div class="single__widget widget__bg">
             <h2 class="widget__title position__relative h3">Search</h2>
-            <form class="widget__search--form" action="#">
+            <form v-on:submit.prevent="searchProduct" class="widget__search--form" action="#">
                 <label>
-                    <input class="widget__search--form__input border-0" placeholder="Search by" type="text">
+
+                    <input class="widget__search--form__input border-0" required v-model="search" placeholder="Search by" type="text">
+
                 </label>
-                <button class="widget__search--form__btn"  type="submit">
+                <button  class="widget__search--form__btn"  type="submit">
                     Search 
                 </button>
             </form>
@@ -334,3 +336,23 @@
     </div>
 </div>
 </template>
+<script type="text/javascript">
+    export default{
+
+        data(){
+
+            return{
+
+                search : null,
+            }
+        },
+
+        methods : {
+
+            searchProduct()
+            {
+                console.log(this.search);
+            }
+        }
+    }
+</script>
