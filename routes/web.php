@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ImageController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController as UserProductController;
+use App\Http\Controllers\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,10 @@ Route::get('/new',[HomeController::class,'index'])->name('home');
 Route::resource('/allproducts',UserProductController::class)->only([
     'index','show'
 ]);
+Route::resource('/shopingcart',CartController::class)->only([
+    'index'
+]);
+Route::get('/add-to-cart/{id}',[CartController::class,'addToCart']);
 /*end*/
 
 Route::middleware('admin')->prefix('user')->group(function(){
