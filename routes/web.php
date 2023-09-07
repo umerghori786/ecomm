@@ -35,7 +35,8 @@ Route::resource('/allproducts',UserProductController::class)->only([
 Route::resource('/shopingcart',CartController::class)->only([
     'index'
 ]);
-Route::get('/add-to-cart/{id}',[CartController::class,'addToCart']);
+Route::get('/add-to-cart',[CartController::class,'addToCart'])->name('addToCart');
+Route::get('/show-cart',[CartController::class,'showCart']);
 /*end*/
 
 Route::middleware('admin')->prefix('user')->group(function(){

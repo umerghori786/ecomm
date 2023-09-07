@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Product;
 
 class CartController extends Controller
 {
@@ -23,7 +24,7 @@ class CartController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function addToCart($id)
+    public function addToCart(Request $request)
     {   
 
         $array = array();
@@ -31,31 +32,40 @@ class CartController extends Controller
         $array[2] = ['hola'];
         $array[3] = ['hola'];
         unset($array[3]);
-        dd($array);
-        $cart = session()->get('cart',[]);
-        if(isset($cart[2])) {
-            $cart[2]['quantity']++;
+
+        $product = Product::findOrFail($request->product_id);
+
+        $cart = $request->session()->get('cart',[]);
+        
+        if(isset($cart[$product->id])) {
+            $cart[$product->id]['quantity']++;
         } else {
-            $cart[2] = [
-                "name" => 'samsung',
+            $cart[$product->id] = [
+                "name" => $product->title,
                 "quantity" => 1,
-                "price" => 10000,
-                
+                "price" => $product->discount_price,
+                "image" => $product->images[0]->url
             ];
         }
-        session()->put('cart', $cart);
+        
+        $request->session()->put('cart', $cart);
         
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * 
+     * 
      */
-    public function show($id)
+    public function showCart()
     {
-        //
+        $data = request()->session()->get('cart');
+
+        foreach ($data as $key => $value) {
+            
+            dd($key);
+        }
     }
 
     
