@@ -144,7 +144,7 @@
                                     <svg xmlns="http://www.w3.org/2000/svg" width="18.897" height="21.565" viewBox="0 0 18.897 21.565">
                                         <path  d="M16.84,8.082V6.091a4.725,4.725,0,1,0-9.449,0v4.725a.675.675,0,0,0,1.35,0V9.432h5.4V8.082h-5.4V6.091a3.375,3.375,0,0,1,6.75,0v4.691a.675.675,0,1,0,1.35,0V9.433h3.374V21.581H4.017V9.432H6.041V8.082H2.667V21.641a1.289,1.289,0,0,0,1.289,1.29h16.32a1.289,1.289,0,0,0,1.289-1.29V8.082Z" transform="translate(-2.667 -1.366)" fill="currentColor"/>
                                     </svg>
-                                    <span class="items__count">02</span> 
+                                    <span class="items__count cart-items__count">{{session('cart') ? count(request()->session()->get('cart')) : 0}}</span> 
                                 </a>
                             </li>
                         </ul>
@@ -322,64 +322,59 @@
                         <svg class="minicart__close--icon" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 512 512"><path fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M368 368L144 144M368 144L144 368"/></svg>
                     </button>
                 </div>
-                <p class="minicart__header--desc">The organic foods products are limited</p>
+                <p class="minicart__header--desc">Detail Of Your Shopping Cart</p>
             </div>
+            <div class="mini-cart-append">
             <div class="minicart__product">
+                @if(session('cart'))
+                @forelse(collect(request()->session()->get('cart')) as $cart)
+
                 <div class="minicart__product--items d-flex">
                     <div class="minicart__thumbnail">
-                        <a href="product-details.html"><img src="{{asset('newtheme/assets/img/product/product1.webp')}}" alt="prduct-img"></a>
+
+                        <a href="product-details.html"><img src="{{$cart['image']}}" alt="prduct-img"></a>
                     </div>
                     <div class="minicart__text">
-                        <h4 class="minicart__subtitle"><a href="product-details.html">The is Garden Vegetable.</a></h4>
-                        <span class="color__variant"><b>Color:</b> Beige</span>
+                        <h4 class="minicart__subtitle"><a href="product-details.html">{{$cart['title']}}</a></h4>
+                        
                         <div class="minicart__price">
-                            <span class="current__price">$125.00</span>
-                            <span class="old__price">$140.00</span>
+                            <span class="current__price">${{$cart['discount_price']}}</span>
+                            <span class="old__price">${{$cart['strike_price']}}</span>
                         </div>
                         <div class="minicart__text--footer d-flex align-items-center">
                             <div class="quantity__box minicart__quantity">
-                                <button type="button" class="quantity__value decrease" aria-label="quantity value" value="Decrease Value">-</button>
+                                {{-- <button type="button" class="quantity__value decrease" aria-label="quantity value" value="Decrease Value">-</button> --}}
                                 <label>
-                                    <input type="number" class="quantity__number" value="1" />
+                                    <input type="number"  readonly class="quantity__number" value="{{$cart['quantity']}}" />
                                 </label>
-                                <button type="button" class="quantity__value increase" aria-label="quantity value" value="Increase Value">+</button>
+                                {{-- <button type="button" class="quantity__value increase" aria-label="quantity value" value="Increase Value">+</button> --}}
                             </div>
                             <button class="minicart__product--remove" aria-label="minicart remove btn">Remove</button>
                         </div>
                     </div>
                 </div>
-                <div class="minicart__product--items d-flex">
-                    <div class="minicart__thumbnail">
-                        <a href="product-details.html"><img src="{{asset('newtheme/assets/img/product/product2.webp')}}" alt="prduct-img"></a>
-                    </div>
-                    <div class="minicart__text">
-                        <h4 class="minicart__subtitle"><a href="product-details.html">Fresh Tomatoe is organic.</a></h4>
-                        <span class="color__variant"><b>Color:</b> Green</span>
-                        <div class="minicart__price">
-                            <span class="current__price">$115.00</span>
-                            <span class="old__price">$130.00</span>
-                        </div>
-                        <div class="minicart__text--footer d-flex align-items-center">
-                            <div class="quantity__box minicart__quantity">
-                                <button type="button" class="quantity__value decrease" aria-label="quantity value" value="Decrease Value">-</button>
-                                <label>
-                                    <input type="number" class="quantity__number" value="1" />
-                                </label>
-                                <button type="button" class="quantity__value increase" aria-label="quantity value" value="Increase Value">+</button>
-                            </div>
-                            <button class="minicart__product--remove" aria-label="minicart remove btn">Remove</button>
-                        </div>
-                    </div>
-                </div>
+                @empty
+                @endforelse
+                @endif
             </div>
+            @php 
+            $cart_total = 0;
+            if(session('cart')){
+            foreach (request()->session()->get('cart') as $key => $product) {
+                
+                $cart_total+= $product['quantity'] * $product['discount_price'];
+            }
+            }
+            @endphp
+            
             <div class="minicart__amount">
                 <div class="minicart__amount_list d-flex justify-content-between">
                     <span>Sub Total:</span>
-                    <span><b>$240.00</b></span>
+                    <span><b>${{number_format((float)$cart_total, 2, '.', '')}}</b></span>
                 </div>
                 <div class="minicart__amount_list d-flex justify-content-between">
                     <span>Total:</span>
-                    <span><b>$240.00</b></span>
+                    <span><b>${{number_format((float)$cart_total, 2, '.', '')}}</b></span>
                 </div>
             </div>
             <div class="minicart__conditions text-center">
@@ -389,6 +384,7 @@
             <div class="minicart__button d-flex justify-content-center">
                 <a class="primary__btn minicart__button--link" href="cart.html">View cart</a>
                 <a class="primary__btn minicart__button--link" href="checkout.html">Checkout</a>
+            </div>
             </div>
         </div>
         <!-- End offCanvas minicart -->

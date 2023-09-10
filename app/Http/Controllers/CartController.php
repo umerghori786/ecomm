@@ -7,16 +7,6 @@ use App\Models\Product;
 
 class CartController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
     
     /**
      * Store a newly created resource in storage.
@@ -41,15 +31,26 @@ class CartController extends Controller
             $cart[$product->id]['quantity']++;
         } else {
             $cart[$product->id] = [
-                "name" => $product->title,
+                "title" => $product->title,
                 "quantity" => 1,
-                "price" => $product->discount_price,
+                "discount_price" => $product->discount_price,
+                "strike_price" => $product->strike_price,
                 "image" => $product->images[0]->url
             ];
         }
         
         $request->session()->put('cart', $cart);
-        
+
+        $cart_products = collect(request()->session()->get('cart'));
+        $cart_total = 0;
+        foreach ($cart_products as $key => $product) {
+            
+            $cart_total+= $product['quantity'] * $product['discount_price'];
+        }
+
+        $renderHTML = view('frontend.cart.mini-cart-render',compact('cart_products','cart_total'))->render();
+        $total_products_count = count(request()->session()->get('cart'));
+        return response()->json(['renderHTML'=>$renderHTML,'total_products_count'=>$total_products_count],200);
     }
 
     /**
@@ -60,12 +61,21 @@ class CartController extends Controller
      */
     public function showCart()
     {
-        $data = request()->session()->get('cart');
+        $cart_products = collect(request()->session()->get('cart'));
 
-        foreach ($data as $key => $value) {
-            
-            dd($key);
+        $cart_total = 0;
+        if(session('cart')){
+            foreach ($cart_products as $key => $product) {
+                
+                $cart_total+= $product['quantity'] * $product['discount_price'];
+            }
         }
+        
+        /*dd($cart_total);*/
+        $products = Product::has('images')->with('images')->latest()->limit(10)->get();        
+        $total_products_count = request()->session()->get('cart') ? count(request()->session()->get('cart')) : 0;
+        return view('frontend.cart.cart',compact('products','cart_products','cart_total','total_products_count'));
+        //return view('frontend.cart.mini-cart-render',compact('cart_products'));
     }
 
     
@@ -76,19 +86,32 @@ class CartController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        if(isset($request->product_id) && isset($request->quantity))
+        {
+            $cart = $request->session()->get('cart');
+
+            $cart[$request->product_id]['quantity'] = $request->quantity;
+            $request->session()->put('cart', $cart);
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * 
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $id = $request->product_id;
+
+        $cart = $request->session()->get('cart');
+        if (isset($cart[$id])) {
+            
+            unset($cart[$id]);
+        }
+        $request->session()->put('cart',$cart);
     }
 }
