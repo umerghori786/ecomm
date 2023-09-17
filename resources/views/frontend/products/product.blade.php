@@ -56,7 +56,7 @@
                         </div>   
                         <div class="col">
                             <div class="product__details--info">
-                                <form action="#">
+                                
                                     <h2 class="product__details--info__title mb-15">{{$product->title}}</h2>
                                     <div class="product__details--info__price mb-10">
                                         <span class="current__price">${{$product->discount_price}}</span>
@@ -109,11 +109,21 @@
                                             <div class="quantity__box">
                                                 <button type="button" class="quantity__value quickview__value--quantity decrease" aria-label="quantity value" value="Decrease Value">-</button>
                                                 <label>
-                                                    <input type="number" class="quantity__number quickview__value--number" value="1" />
+                                                    @php 
+                                                    $quantity = 1;
+                                                    if(session('cart')){
+
+                                                        $quantity = request()->session()->get('cart')[$product->id]['quantity'] ?? 1 ;
+                                                        
+                                                    }
+                                                        
+                                                    
+                                                    @endphp
+                                                    <input type="number" class="quantity__number show-product-quantity quickview__value--number" value="{{$quantity}}" />
                                                 </label>
                                                 <button type="button" class="quantity__value quickview__value--quantity increase" aria-label="quantity value" value="Increase Value">+</button>
                                             </div>
-                                            <button class="quickview__cart--btn primary__btn" type="submit">Add To Cart</button>  
+                                            <button class="quickview__cart--btn primary__btn" type="submit" onclick="addToCart(`{{$product->id}}`)">Add To Cart</button>  
                                         </div>
                                         <div class="product__variant--list mb-15">
                                             <a class="variant__wishlist--icon mb-15" href="wishlist.html" title="Add to wishlist">
@@ -170,7 +180,7 @@
                                         <h5 class="guarantee__safe--checkout__title">Guaranteed Safe Checkout</h5>
                                         <img class="guarantee__safe--checkout__img" src="{{asset('newtheme/assets/img/other/safe-checkout.webp')}}" alt="Payment Image">
                                     </div>
-                                </form>
+                                
                             </div>
                         </div>
                     </div>
@@ -526,7 +536,7 @@
                                             <svg class="product__items--action__cart--btn__icon" xmlns="http://www.w3.org/2000/svg" width="13.897" height="14.565" viewBox="0 0 18.897 21.565">
                                                 <path  d="M16.84,8.082V6.091a4.725,4.725,0,1,0-9.449,0v4.725a.675.675,0,0,0,1.35,0V9.432h5.4V8.082h-5.4V6.091a3.375,3.375,0,0,1,6.75,0v4.691a.675.675,0,1,0,1.35,0V9.433h3.374V21.581H4.017V9.432H6.041V8.082H2.667V21.641a1.289,1.289,0,0,0,1.289,1.29h16.32a1.289,1.289,0,0,0,1.289-1.29V8.082Z" transform="translate(-2.667 -1.366)" fill="currentColor"></path>
                                             </svg>
-                                            <span class="add__to--cart__text"> Add to cart</span>
+                                            <span class="add__to--cart__text" onclick="addToCart(`{{$similar_product->id}}`)"> Add to cart</span>
                                         </a>
                                     </div>
                                 </div>
@@ -570,6 +580,31 @@
        
 
 
+@push('script')
+<script type="text/javascript">
+    const addToCart = (id)=>{
+        var quantity = $('.show-product-quantity').val();
+        var product_id = id;
+        var add_or_update_product = true;
+        $.ajax({
 
+            type : "get",
+            url : "{{url('/add-to-cart')}}",
+            data : {product_id : product_id, quantity : quantity ,add_or_update_product :add_or_update_product},
+
+            success:function(data)
+            {   
+                $('.mini-cart-append').empty()
+                $('.mini-cart-append').html(data.renderHTML)
+                $('.offCanvas__minicart').addClass('active')
+                $('.cart-items__count').html(data.total_products_count)
+                
+            }
+
+        })
+    }
+
+</script>
+@endpush
 
 @endsection

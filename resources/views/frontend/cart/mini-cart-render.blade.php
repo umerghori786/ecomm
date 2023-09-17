@@ -32,11 +32,11 @@
 <div class="minicart__amount">
     <div class="minicart__amount_list d-flex justify-content-between">
         <span>Sub Total:</span>
-        <span><b>${{number_format((float)$cart_total, 2, '.', '')}}</b></span>
+        <span><b>${{number_format($cart_total, 2)}}</b></span>
     </div>
     <div class="minicart__amount_list d-flex justify-content-between">
         <span>Total:</span>
-        <span><b>${{number_format((float)$cart_total, 2, '.', '')}}</b></span>
+        <span><b>${{number_format($cart_total, 2)}}</b></span>
     </div>
 </div>
 <div class="minicart__conditions text-center">

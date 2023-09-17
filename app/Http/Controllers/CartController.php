@@ -27,12 +27,15 @@ class CartController extends Controller
 
         $cart = $request->session()->get('cart',[]);
         
-        if(isset($cart[$product->id])) {
+        if (isset($cart[$product->id]) && isset($request->add_or_update_product) && $request->quantity > 0) {
+            $cart[$product->id]['quantity'] = $request->quantity;
+        }
+        elseif(isset($cart[$product->id])) {
             $cart[$product->id]['quantity']++;
         } else {
             $cart[$product->id] = [
                 "title" => $product->title,
-                "quantity" => 1,
+                "quantity" => $request->quantity,
                 "discount_price" => $product->discount_price,
                 "strike_price" => $product->strike_price,
                 "image" => $product->images[0]->url
@@ -87,13 +90,27 @@ class CartController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request)
-    {
+    {   
+
         if(isset($request->product_id) && isset($request->quantity))
         {
             $cart = $request->session()->get('cart');
 
             $cart[$request->product_id]['quantity'] = $request->quantity;
             $request->session()->put('cart', $cart);
+
+            $update_amount_of_product = $cart[$request->product_id]['quantity'] * $cart[$request->product_id]['discount_price'];
+
+            $cart_products = collect(request()->session()->get('cart'));
+            $cart_total = 0;
+            if(session('cart')){
+                foreach ($cart_products as $key => $product) {
+                    
+                    $cart_total+= $product['quantity'] * $product['discount_price'];
+                }
+            }
+
+            return response()->json(['success'=>true,'update_amount_of_product'=>$update_amount_of_product,'cart_total'=>$cart_total]);
         }
     }
 

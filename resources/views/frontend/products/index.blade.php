@@ -796,11 +796,12 @@
     const addToCart = (id)=>{
 
         var product_id = id;
+        var quantity = 1;
         $.ajax({
 
             type : "get",
             url : "{{url('/add-to-cart')}}",
-            data : {product_id : product_id},
+            data : {product_id : product_id, quantity : quantity},
 
             success:function(data)
             {   

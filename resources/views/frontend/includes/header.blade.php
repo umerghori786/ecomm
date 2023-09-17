@@ -343,11 +343,11 @@
                         </div>
                         <div class="minicart__text--footer d-flex align-items-center">
                             <div class="quantity__box minicart__quantity">
-                                {{-- <button type="button" class="quantity__value decrease" aria-label="quantity value" value="Decrease Value">-</button> --}}
+                                <button style="display: none;" type="button" class="quantity__value decrease" aria-label="quantity value" value="Decrease Value">-</button>
                                 <label>
                                     <input type="number"  readonly class="quantity__number" value="{{$cart['quantity']}}" />
                                 </label>
-                                {{-- <button type="button" class="quantity__value increase" aria-label="quantity value" value="Increase Value">+</button> --}}
+                                <button style="display:none;" type="button" class="quantity__value increase" aria-label="quantity value" value="Increase Value">+</button>
                             </div>
                             <button class="minicart__product--remove" aria-label="minicart remove btn">Remove</button>
                         </div>
@@ -370,11 +370,11 @@
             <div class="minicart__amount">
                 <div class="minicart__amount_list d-flex justify-content-between">
                     <span>Sub Total:</span>
-                    <span><b>${{number_format((float)$cart_total, 2, '.', '')}}</b></span>
+                    <span><b>${{number_format($cart_total, 2)}}</b></span>
                 </div>
                 <div class="minicart__amount_list d-flex justify-content-between">
                     <span>Total:</span>
-                    <span><b>${{number_format((float)$cart_total, 2, '.', '')}}</b></span>
+                    <span><b>${{number_format($cart_total, 2)}}</b></span>
                 </div>
             </div>
             <div class="minicart__conditions text-center">
