@@ -809,36 +809,20 @@
                 $('.mini-cart-append').html(data.renderHTML)
                 $('.offCanvas__minicart').addClass('active')
                 $('.cart-items__count').html(data.total_products_count)
+
+                const myTimeout = setTimeout(showminicart, 2000);
+                function showminicart() {
+                  $('.offCanvas__minicart').removeClass('active')
+                }
                 
             }
 
         })
     }
 
-    const deleteFromCart = (id)=>{
+    
 
-        var product_id = id;
-        $.ajax({
-
-            type : "get",
-            url : "{{url('/delete-from-cart')}}",
-            data : {product_id : product_id}
-
-        })
-    }
-
-    const updateCart = (id)=>{
-
-        var product_id = id;
-        var quantity   = 6;
-        $.ajax({
-
-            type : "get",
-            url : "{{url('/update-cart')}}",
-            data : {product_id : product_id , quantity : quantity}
-
-        })
-    }
+    
 </script>
 @endpush
 

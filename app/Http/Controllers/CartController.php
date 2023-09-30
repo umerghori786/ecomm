@@ -99,7 +99,7 @@ class CartController extends Controller
             $cart[$request->product_id]['quantity'] = $request->quantity;
             $request->session()->put('cart', $cart);
 
-            $update_amount_of_product = $cart[$request->product_id]['quantity'] * $cart[$request->product_id]['discount_price'];
+            $update_amount_of_product = number_format($cart[$request->product_id]['quantity'] * $cart[$request->product_id]['discount_price'],2);
 
             $cart_products = collect(request()->session()->get('cart'));
             $cart_total = 0;
@@ -110,7 +110,7 @@ class CartController extends Controller
                 }
             }
 
-            return response()->json(['success'=>true,'update_amount_of_product'=>$update_amount_of_product,'cart_total'=>$cart_total]);
+            return response()->json(['success'=>true,'update_amount_of_product'=>$update_amount_of_product,'cart_total'=>number_format($cart_total,2)]);
         }
     }
 
@@ -130,5 +130,14 @@ class CartController extends Controller
             unset($cart[$id]);
         }
         $request->session()->put('cart',$cart);
+        $cart_products = collect(request()->session()->get('cart'));
+        $cart_total = 0;
+        if(session('cart')){
+            foreach ($cart_products as $key => $product) {
+                
+                $cart_total+= $product['quantity'] * $product['discount_price'];
+            }
+        }
+        return response()->json(['success'=>true,'cart_total'=>number_format($cart_total,2)],200);
     }
 }

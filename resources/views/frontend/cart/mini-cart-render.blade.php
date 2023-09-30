@@ -1,8 +1,8 @@
 <div class="minicart__product">
 
-    @forelse($cart_products as $cart)
+    @forelse($cart_products as $key=> $cart)
 
-    <div class="minicart__product--items d-flex">
+    <div class="minicart__product--items d-flex remove-item-in-cart cart_price_{{$key}} remove-item-in-cart-{{$key}}">
         <div class="minicart__thumbnail">
 
             <a href="product-details.html"><img src="{{$cart['image']}}" alt="prduct-img"></a>
@@ -22,7 +22,7 @@
                     </label>
                     {{-- <button type="button" class="quantity__value increase" aria-label="quantity value" value="Increase Value">+</button> --}}
                 </div>
-                <button class="minicart__product--remove" aria-label="minicart remove btn">Remove</button>
+                <button onclick="deleteFromCart($(this),`{{$key}}`)" class="minicart__product--remove" aria-label="minicart remove btn">Remove</button>
             </div>
         </div>
     </div>

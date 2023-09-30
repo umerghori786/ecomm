@@ -43,10 +43,10 @@
                                     </thead>
                                     <tbody class="cart__table--body">
                                     	@forelse($cart_products as $key => $cart)
-                                        <tr class="cart__table--body__items">
+                                        <tr class="cart__table--body__items remove-item-in-cart remove-item-in-cart-{{$key}}">
                                             <td class="cart__table--body__list ">
                                                 <div class="cart__product d-flex align-items-center">
-                                                    <button class="cart__remove--btn" aria-label="search button" type="button"><svg fill="currentColor" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" width="16px" height="16px"><path d="M 4.7070312 3.2929688 L 3.2929688 4.7070312 L 10.585938 12 L 3.2929688 19.292969 L 4.7070312 20.707031 L 12 13.414062 L 19.292969 20.707031 L 20.707031 19.292969 L 13.414062 12 L 20.707031 4.7070312 L 19.292969 3.2929688 L 12 10.585938 L 4.7070312 3.2929688 z"/></svg></button>
+                                                    <button class="cart__remove--btn" onclick="deleteFromCart($(this),`{{$key}}`)" aria-label="search button" type="button"><svg fill="currentColor" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" width="16px" height="16px"><path d="M 4.7070312 3.2929688 L 3.2929688 4.7070312 L 10.585938 12 L 3.2929688 19.292969 L 4.7070312 20.707031 L 12 13.414062 L 19.292969 20.707031 L 20.707031 19.292969 L 13.414062 12 L 20.707031 4.7070312 L 19.292969 3.2929688 L 12 10.585938 L 4.7070312 3.2929688 z"/></svg></button>
                                                     <div class="cart__thumbnail">
                                                         <a href="product-details.html"><img class="border-radius-5" src="{{$cart['image']}}" alt="cart-product"></a>
                                                     </div>
@@ -62,7 +62,7 @@
                                             </td>
                                             <td class="cart__table--body__list update_quantity_parent">
                                                 <div class="quantity__box">
-                                                    <button type="button" class="quantity__value quickview__value--quantity decrease update_decrease_quantity" aria-label="quantity value" value="Decrease Value">-</button>
+                                                    <button type="button" class="quantity__value quickview__value--quantity decrease update_decrease_quantity" id="{{$key}}" aria-label="quantity value" value="Decrease Value">-</button>
                                                     <label id="update_quantity">
                                                         <input type="number" class="quantity__number update_quantity  quickview__value--number" value="{{(int)$cart['quantity']}}" />
                                                     </label>
@@ -70,7 +70,7 @@
                                                 </div>
                                             </td>
                                             <td class="cart__table--body__list">
-                                                <span class="cart__price cart_price_{{$key}} end">${{$cart['quantity'] * $cart['discount_price'] ?? 0}}</span>
+                                                <span class="cart__price cart_price_{{$key}} end">${{number_format($cart['quantity'] * $cart['discount_price'] ?? 0 ,2)}}</span>
                                             </td>
                                         </tr>
                                         @empty
@@ -105,11 +105,11 @@
                                         <tbody>
                                             <tr class="cart__summary--total__list">
                                                 <td class="cart__summary--total__title text-left">SUBTOTAL</td>
-                                                <td class="cart__summary--amount text-right">${{number_format((float)$cart_total, 2, '.', '')}}</td>
+                                                <td class="cart__summary--amount text-right update-cart-new-total">${{number_format((float)$cart_total, 2, '.', '')}}</td>
                                             </tr>
                                             <tr class="cart__summary--total__list">
                                                 <td class="cart__summary--total__title text-left">GRAND TOTAL</td>
-                                                <td class="cart__summary--amount text-right">${{number_format((float)$cart_total, 2, '.', '')}}</td>
+                                                <td class="cart__summary--amount text-right update-cart-new-total">${{number_format((float)$cart_total, 2, '.', '')}}</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -237,13 +237,37 @@
                 if(data.success){
 
                     
-                    $(".cart_price_"+product_id).html(data.update_amount_of_product)
-                    $('.cart__summary--amount').html(data.cart_total)
+                    $(".cart_price_"+product_id).html('$'+data.update_amount_of_product)
+                    $('.update-cart-new-total').html('$'+data.cart_total)
                 }
             }
 
         })
     })
+    $(document).on('click','.update_decrease_quantity',function(){
+
+        var quantity = $(this).parents('.update_quantity_parent').children().find('label :input').val();
+        var product_id = $(this).attr('id')
+
+        $.ajax({
+
+            type : "get",
+            url : "{{url('/update-cart')}}",
+            data : {product_id : product_id , quantity : quantity},
+
+            success:function(data)
+            {
+                if(data.success){
+
+                    
+                    $(".cart_price_"+product_id).html('$'+data.update_amount_of_product)
+                    $('.update-cart-new-total').html('$'+data.cart_total)
+                }
+            }
+
+        })
+    })
+    
 </script>
 
 @endpush

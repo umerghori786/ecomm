@@ -327,9 +327,9 @@
             <div class="mini-cart-append">
             <div class="minicart__product">
                 @if(session('cart'))
-                @forelse(collect(request()->session()->get('cart')) as $cart)
+                @forelse(collect(request()->session()->get('cart')) as $key => $cart)
 
-                <div class="minicart__product--items d-flex">
+                <div class="minicart__product--items d-flex remove-item-in-cart cart_price_{{$key}} remove-item-in-cart-{{$key}}">
                     <div class="minicart__thumbnail">
 
                         <a href="product-details.html"><img src="{{$cart['image']}}" alt="prduct-img"></a>
@@ -349,7 +349,7 @@
                                 </label>
                                 <button style="display:none;" type="button" class="quantity__value increase" aria-label="quantity value" value="Increase Value">+</button>
                             </div>
-                            <button class="minicart__product--remove" aria-label="minicart remove btn">Remove</button>
+                            <button onclick="deleteFromCart($(this),`{{$key}}`)" class="minicart__product--remove" aria-label="minicart remove btn">Remove</button>
                         </div>
                     </div>
                 </div>
@@ -370,11 +370,11 @@
             <div class="minicart__amount">
                 <div class="minicart__amount_list d-flex justify-content-between">
                     <span>Sub Total:</span>
-                    <span><b>${{number_format($cart_total, 2)}}</b></span>
+                    <span><b class="update-cart-new-total">${{number_format($cart_total, 2)}}</b></span>
                 </div>
                 <div class="minicart__amount_list d-flex justify-content-between">
                     <span>Total:</span>
-                    <span><b>${{number_format($cart_total, 2)}}</b></span>
+                    <span><b class="update-cart-new-total">${{number_format($cart_total, 2)}}</b></span>
                 </div>
             </div>
             <div class="minicart__conditions text-center">
