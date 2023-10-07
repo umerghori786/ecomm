@@ -32,6 +32,7 @@
 	        {
 	            
 	            $('.update-cart-new-total').html('$'+data.cart_total)
+	            $('.cart-items__count').html(data.cart_quantity)
 	        }
 
 	    })

@@ -138,6 +138,7 @@ class CartController extends Controller
                 $cart_total+= $product['quantity'] * $product['discount_price'];
             }
         }
-        return response()->json(['success'=>true,'cart_total'=>number_format($cart_total,2)],200);
+        $cart_quantity = count($cart_products);
+        return response()->json(['success'=>true,'cart_total'=>number_format($cart_total,2),'cart_quantity'=>$cart_quantity],200);
     }
 }
