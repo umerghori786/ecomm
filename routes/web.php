@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\ImageController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController as UserProductController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\WishlistController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +43,14 @@ Route::controller(CartController::class)->group(function(){
     Route::get('/show-cart'       ,'showCart');
     Route::get('/delete-from-cart' ,'destroy');
     Route::get('/update-cart'      ,'update');
+});
+
+//wishlist routes
+Route::controller(WishlistController::class)->group(function(){
+
+    Route::get('/add-to-wishlist'    , 'addToWishlist');
+    Route::get('/show-wishlist'      , 'showWishlist');
+    Route::get('/delete-from-wishlist' ,'destroy');
 });
 /*end*/
 
