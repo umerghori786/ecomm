@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use App\Models\{
     SubCategory,
     Category
@@ -42,6 +43,11 @@ class SubCategoryController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Example validation rules
+        ]);
+        $filename = time().'.'.$request->image->Extension();
+        $request->image->move(public_path('sub_category'),$filename);
+        $request->validate([
             'category_id'=>'required'
         ]);
 
@@ -51,7 +57,7 @@ class SubCategoryController extends Controller
             $status = 0;
         }
 
-        SubCategory::create(['title'=>$request->title,'category_id'=>$request->category_id,'status'=>$status]);
+        SubCategory::create(['title'=>$request->title,'category_id'=>$request->category_id,'image'=>$filename,'status'=>$status]);
         return redirect()->route('subcategories.index')->with('success','created successfully');
     }
 
@@ -89,6 +95,16 @@ class SubCategoryController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+        $subcategory = SubCategory::Find($id);
+        $filename = time().'.'.$request->image->Extension();
+        $request->image->move(public_path('sub_category'),$filename);
+        $distination = 'sub_category/'.$request->image;
+        if(File::exists($distination)){
+            File::delete($distination);
+        }
+        $request->validate([
             'category_id'=>'required'
         ]);
 
@@ -98,7 +114,7 @@ class SubCategoryController extends Controller
             $status = 0;
         }
         $subcategory = SubCategory::findOrFail($id);
-        $subcategory->update(['title'=>$request->title,'category_id'=>$request->category_id,'status'=>$status]);
+        $subcategory->update(['title'=>$request->title,'category_id'=>$request->category_id,'image'=>$filename,'status'=>$status]);
         return redirect()->route('subcategories.index')->with('success','updated successfully');
     }
 

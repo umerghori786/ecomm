@@ -54,4 +54,16 @@ class User extends Authenticatable
     {
         return $this->hasMany(Product::class,'user_id');
     }
+    public function logo() {
+        return $this->hasOne(Logo::class,'user_id');
+    }
+    public function privacy(){
+        return $this->hasOne(Privacy::class,'user_id');
+    }
+    public function question(){
+        return $this->hasMany(Question::class,'user_id');
+    }
+    public function coupon(){
+        return $this->hasMany(Coupon::class,'user_id');
+    }
 }

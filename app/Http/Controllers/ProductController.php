@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use Illuminate\Support\Str;
 
 class ProductController extends Controller
 {
@@ -79,13 +80,17 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        $product = Product::with(['images','subcategory.category'])->findOrFail($id);
+       
+        // dd($slug);
+        $product = Product::with(['images','subcategory.category'])->where('slug',$slug)->first();
+        // dd($product);
         $similar_products = Product::query()
-                            ->where('sub_category_id', $product->sub_category_id)->has('images')->with(['images','subcategory'])->latest()->get()->except([$product->id]);
-
+                            ->where('sub_category_id', $product->sub_category_id)->has('images')->with(['images','subcategory'])->latest()->get()->except([$product->slug]);
+                            // dd($similar_products);
         return view('frontend.products.product',compact('product','similar_products'));
+       // dd($similar_products);
     }
 
     /**

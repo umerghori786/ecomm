@@ -3,7 +3,7 @@
 @section('content')
 
 
-<main class="main__content_wrapper">
+ <main class="main__content_wrapper"> 
     
     <!-- Start breadcrumb section -->
     <!--<section class="breadcrumb__section breadcrumb__bg">
@@ -534,7 +534,7 @@
                                         <div class="col mb-30">
                                             <div class="product__items ">
                                                 <div class="product__items--thumbnail">
-                                                    <a class="product__items--link" href="{{route('allproducts.show',[$product->id])}}">
+                                                    <a class="product__items--link" href="{{route('allproducts.show',[$product->slug])}}">
                                                         <img class="product__items--img product__primary--img" src="{{$product->images[0]->url}}" alt="product-img">
                                                         <img class="product__items--img product__secondary--img" src="{{$product->images[1]->url}}" alt="product-img">
                                                     </a>
@@ -577,7 +577,7 @@
                                                             <li class="product__items--color__list"><a class="product__items--color__link four" href="javascript:void(0)"><span class="visually-hidden">Color 4</span></a></li>
                                                         </ul>
                                                     </div>
-                                                    <h3 class="product__items--content__title h4"><a href="product-details.html">{{$product->title}}</a></h3>
+                                                    <h3 class="product__items--content__title h4"><a href="{{route('allproducts.show',[$product->slug])}}">{{$product->title}}</a></h3>
                                                     <div class="product__items--price">
                                                         <span class="current__price">${{$product->discount_price}}</span>
                                                         <span class="old__price">${{$product->strike_price}}</span>
@@ -762,7 +762,7 @@
         </div>
     </section>
     <!-- End Newsletter banner section -->
-</main>
+</main> 
 
 
 @push('script')

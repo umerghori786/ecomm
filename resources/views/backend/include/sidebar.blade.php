@@ -21,6 +21,26 @@
 <li><a href="{{route('products.index')}}">Products</a></li>
 </ul>
 </li>
+<li class="mm-active">
+<a class="has-arrow" href="#" aria-expanded="false">
+<img src="{{asset('dashboard/img/menu-icon/1.svg')}}" alt="">
+<span>Setting</span>
+</a>
+<ul>
+<li><a  href="{{route('coupon.index')}}">Coupon</a></li>
+</ul>
+</li>
+<li class="mm-active">
+<a class="has-arrow" href="#" aria-expanded="false">
+<img src="{{asset('dashboard/img/menu-icon/1.svg')}}" alt="">
+<span>Setting</span>
+</a>
+<ul>
+<li><a  href="{{route('logos.index')}}">Logo</a></li>
+<li><a  href="{{route('privacy.index')}}">Privacy Policy</a></li>
+<li><a  href="{{route('question.index')}}">Questions</a></li>
+</ul>
+</li>
 
 
 

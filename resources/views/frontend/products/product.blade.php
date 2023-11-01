@@ -493,7 +493,7 @@
                             <div class="swiper-slide">
                                 <div class="product__items ">
                                     <div class="product__items--thumbnail">
-                                        <a class="product__items--link" href="product-details.html">
+                                        <a class="product__items--link" href="{{route('allproducts.show',[$product->id])}}">
                                             <img class="product__items--img product__primary--img" src="{{$similar_product->images[0]->url}}" alt="product-img">
                                             <img class="product__items--img product__secondary--img" src="{{$similar_product->images[1]->url}}" alt="product-img">
                                         </a>

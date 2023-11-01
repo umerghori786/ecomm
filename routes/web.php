@@ -7,10 +7,14 @@ use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ImageController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SettingController;
 use App\Http\Controllers\ProductController as UserProductController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\WishlistController;
-
+use App\Http\Controllers\Admin\LogoController;
+use App\Http\Controllers\Admin\PrivacyController;
+use App\Http\Controllers\Admin\QuestionController;
+use App\Http\Controllers\Admin\CouponController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,6 +34,7 @@ use App\Http\Controllers\WishlistController;
 
 /*frontend routes*/
 Route::get('/new',[HomeController::class,'index'])->name('home');
+Route::get('/policy ',[SettingController::class,'index'])->name('policy');
 Route::resource('/allproducts',UserProductController::class)->only([
     'index','show'
 ]);
@@ -62,7 +67,11 @@ Route::middleware('admin')->prefix('user')->group(function(){
         'categories' => CategoryController::class,
         'subcategories' => SubCategoryController::class,
         'products' => ProductController::class,
-        'images'=>ImageController::class
+        'images' => ImageController::class,
+        'logos' => LogoController::class,
+        'privacy' => PrivacyController::class,
+        'question' => QuestionController::class,
+        'coupon' => CouponController::class,
     ]);
     Route::get('/showsub_category',[ProductController::class,'showSubCategory']);
 });
