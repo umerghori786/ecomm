@@ -6,7 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\{
     SubCategory,
-    Category
+    Category,
+    ContactUs,
 };
 
 class DashboardController extends Controller
@@ -19,6 +20,7 @@ class DashboardController extends Controller
     {   
         $count_category = Category::count();
         $count_sub_category = SubCategory::count();
-        return view('backend.home',compact('count_category','count_sub_category'));
+        $count_contactus = ContactUs::count();
+        return view('backend.home',compact('count_category','count_sub_category','count_contactus'));
     }
 }

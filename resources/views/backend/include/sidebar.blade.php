@@ -19,15 +19,26 @@
 <li><a  href="{{route('categories.index')}}">Category</a></li>
 <li><a  href="{{route('subcategories.index')}}">Sub Category</a></li>
 <li><a href="{{route('products.index')}}">Products</a></li>
+<li><a href="{{route('message.index')}}">Messages</a></li>
+
 </ul>
 </li>
 <li class="mm-active">
 <a class="has-arrow" href="#" aria-expanded="false">
 <img src="{{asset('dashboard/img/menu-icon/1.svg')}}" alt="">
-<span>Setting</span>
+<span>Coupon</span>
 </a>
 <ul>
 <li><a  href="{{route('coupon.index')}}">Coupon</a></li>
+</ul>
+</li>
+<li class="mm-active">
+<a class="has-arrow" href="#" aria-expanded="false">
+<img src="{{asset('dashboard/img/menu-icon/1.svg')}}" alt="">
+<span>Contact Us</span>
+</a>
+<ul>
+<li><a  href="{{route('contact.index')}}">Contact Us</a></li>
 </ul>
 </li>
 <li class="mm-active">

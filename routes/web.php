@@ -15,6 +15,9 @@ use App\Http\Controllers\Admin\LogoController;
 use App\Http\Controllers\Admin\PrivacyController;
 use App\Http\Controllers\Admin\QuestionController;
 use App\Http\Controllers\Admin\CouponController;
+use App\Http\Controllers\Admin\ContactController;
+use App\Http\Controllers\Admin\MessageController;
+use App\Http\Controllers\ContactUsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,7 +37,17 @@ use App\Http\Controllers\Admin\CouponController;
 
 /*frontend routes*/
 Route::get('/new',[HomeController::class,'index'])->name('home');
-Route::get('/policy ',[SettingController::class,'index'])->name('policy');
+Route::get('/policy ',[SettingController::class,'termPolicy'])->name('policy');
+Route::get('/question',[SettingController::class,'question'])->name('question');
+Route::get('/contact',[SettingController::class,'contact'])->name('contact');
+
+Route::resources([
+    'contactus' => ContactUsController::class,
+]);
+// Route::resource('/contactus',ContactUsController::class)->only([
+//     'store'
+// ]);
+
 Route::resource('/allproducts',UserProductController::class)->only([
     'index','show'
 ]);
@@ -72,6 +85,8 @@ Route::middleware('admin')->prefix('user')->group(function(){
         'privacy' => PrivacyController::class,
         'question' => QuestionController::class,
         'coupon' => CouponController::class,
+        'contact' => ContactController::class,
+        'message' => MessageController::class,
     ]);
     Route::get('/showsub_category',[ProductController::class,'showSubCategory']);
 });

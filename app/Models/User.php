@@ -66,4 +66,7 @@ class User extends Authenticatable
     public function coupon(){
         return $this->hasMany(Coupon::class,'user_id');
     }
+    public function contact(){
+        return $this->hasMany(Contact::class,'user_id');
+    }
 }

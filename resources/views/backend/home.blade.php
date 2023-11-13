@@ -32,8 +32,18 @@
 {{-- <img src="{{asset('dashboard/img/icon/wheel.svg')}}" alt=""> --}}
 </div>
 <div class="count_content">
-<h3><span class="counter">7510</span> </h3>
+<h3><span class="counter">7509</span> </h3>
 <p>Products</p>
+</div>
+</div>
+
+<div class="single_quick_activity d-flex">
+<div class="icon">
+{{-- <img src="{{asset('dashboard/img/icon/wheel.svg')}}" alt=""> --}}
+</div>
+<div class="count_content">
+<h3><span class="counter">{{$count_contactus}}</span> </h3>
+<p>Messages</p>
 </div>
 </div>
 
