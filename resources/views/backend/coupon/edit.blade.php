@@ -4,7 +4,7 @@
 
                     <div class="row container">
                         <div class="col-md-9">
-                            <h4 class="page-title d-inline">@lang('Create Coupon')</h4>
+                            <h4 class="page-title d-inline">@lang('Update Coupon')</h4>
                         </div>
                         <div class="col-md-3">
                             <a href="{{ route('coupon.index') }}"

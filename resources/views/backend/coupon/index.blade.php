@@ -7,7 +7,7 @@
   @endif
   <div class="row">
     <div class="col-md-8">
-      <h2>Frequently Asked Questions</h2>
+      <h2>Coupon</h2>
     </div>
     <div class="col-md-4">
       <a href="{{route('coupon.create')}}" class="btn btn-primary">create</a>
