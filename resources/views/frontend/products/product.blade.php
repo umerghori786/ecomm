@@ -63,44 +63,13 @@
                                         <span class="old__price">${{$product->strike_price}}</span>
                                     </div>
                                     <div class="product__details--info__rating d-flex align-items-center mb-15">
-                                        <ul class="rating product__list--rating d-flex">
-                                            <li class="rating__list">
-                                                <span class="rating__list--icon">
-                                                    <svg class="rating__list--icon__svg" xmlns="http://www.w3.org/2000/svg" width="13.105" height="13.732" viewBox="0 0 10.105 9.732">
-                                                    <path data-name="star - Copy" d="M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z" transform="translate(0 -0.018)" fill="currentColor"></path>
-                                                    </svg>
-                                                </span>
-                                            </li>
-                                            <li class="rating__list">
-                                                <span class="rating__list--icon">
-                                                    <svg class="rating__list--icon__svg" xmlns="http://www.w3.org/2000/svg" width="13.105" height="13.732" viewBox="0 0 10.105 9.732">
-                                                    <path data-name="star - Copy" d="M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z" transform="translate(0 -0.018)" fill="currentColor"></path>
-                                                    </svg>
-                                                </span>
-                                            </li>
-                                            <li class="rating__list">
-                                                <span class="rating__list--icon">
-                                                    <svg class="rating__list--icon__svg" xmlns="http://www.w3.org/2000/svg" width="13.105" height="13.732" viewBox="0 0 10.105 9.732">
-                                                    <path data-name="star - Copy" d="M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z" transform="translate(0 -0.018)" fill="currentColor"></path>
-                                                    </svg>
-                                                </span>
-                                            </li>
-                                            <li class="rating__list">
-                                                <span class="rating__list--icon">
-                                                    <svg class="rating__list--icon__svg" xmlns="http://www.w3.org/2000/svg" width="13.105" height="13.732" viewBox="0 0 10.105 9.732">
-                                                    <path data-name="star - Copy" d="M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z" transform="translate(0 -0.018)" fill="currentColor"></path>
-                                                    </svg>
-                                                </span>
-                                            </li>
-                                            <li class="rating__list">
-                                                <span class="rating__list--icon">
-                                                    <svg class="rating__list--icon__svg" xmlns="http://www.w3.org/2000/svg" width="13.105" height="13.732" viewBox="0 0 10.105 9.732">
-                                                    <path data-name="star - Copy" d="M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z" transform="translate(0 -0.018)" fill="currentColor"></path>
-                                                    </svg>
-                                                </span>
-                                            </li>
-                                            <li class="rating__list"><span class="rating__list--text">( 5.0)</span></li>
-                                        </ul>
+                                        <div class="rating product__list--rating d-flex">
+                                            <i class="fas fa-star fa-sm mr-2 text-yellow-400"></i>
+                                            <i class="fas fa-star fa-sm mr-2 text-yellow-400"></i>
+                                            <i class="fas fa-star fa-sm mr-2 text-yellow-400"></i>
+                                            <i class="fas fa-star fa-sm mr-2 text-yellow-400"></i>
+                                            <i class="far fa-star fa-sm mr-2 text-yellow-400"></i>
+                                        </div>
                                     </div>
                                     <p class="product__details--info__desc mb-20">{{$product->short_description}}</p>
                                     <div class="product__variant">
@@ -226,41 +195,11 @@
                                                 <h3 class="product__reviews--header__title mb-20">Customer Reviews</h3>
                                                 <div class="reviews__ratting d-flex align-items-center">
                                                     <ul class="rating d-flex">
-                                                        <li class="rating__list">
-                                                            <span class="rating__list--icon">
-                                                                <svg class="rating__list--icon__svg" xmlns="http://www.w3.org/2000/svg" width="13.105" height="13.732" viewBox="0 0 10.105 9.732">
-                                                                    <path data-name="star - Copy" d="M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z" transform="translate(0 -0.018)" fill="currentColor"></path>
-                                                                </svg>
-                                                            </span>
-                                                        </li>
-                                                        <li class="rating__list">
-                                                            <span class="rating__list--icon">
-                                                                <svg class="rating__list--icon__svg" xmlns="http://www.w3.org/2000/svg" width="13.105" height="13.732" viewBox="0 0 10.105 9.732">
-                                                                    <path data-name="star - Copy" d="M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z" transform="translate(0 -0.018)" fill="currentColor"></path>
-                                                                </svg>
-                                                            </span>
-                                                        </li>
-                                                        <li class="rating__list">
-                                                            <span class="rating__list--icon">
-                                                                <svg class="rating__list--icon__svg" xmlns="http://www.w3.org/2000/svg" width="13.105" height="13.732" viewBox="0 0 10.105 9.732">
-                                                                    <path data-name="star - Copy" d="M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z" transform="translate(0 -0.018)" fill="currentColor"></path>
-                                                                </svg>
-                                                            </span>
-                                                        </li>
-                                                        <li class="rating__list">
-                                                            <span class="rating__list--icon">
-                                                                <svg class="rating__list--icon__svg" xmlns="http://www.w3.org/2000/svg" width="13.105" height="13.732" viewBox="0 0 10.105 9.732">
-                                                                    <path data-name="star - Copy" d="M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z" transform="translate(0 -0.018)" fill="currentColor"></path>
-                                                                </svg>
-                                                            </span>
-                                                        </li>
-                                                        <li class="rating__list">
-                                                            <span class="rating__list--icon">
-                                                                <svg class="rating__list--icon__svg" xmlns="http://www.w3.org/2000/svg" width="13.105" height="13.732" viewBox="0 0 10.105 9.732">
-                                                                    <path data-name="star - Copy" d="M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z" transform="translate(0 -0.018)" fill="currentColor"></path>
-                                                                </svg>
-                                                            </span>
-                                                        </li>
+                                                        <i class="fas fa-star fa-sm mr-2 text-yellow-400"></i>
+                                                        <i class="fas fa-star fa-sm mr-2 text-yellow-400"></i>
+                                                        <i class="fas fa-star fa-sm mr-2 text-yellow-400"></i>
+                                                        <i class="fas fa-star fa-sm mr-2 text-yellow-400"></i>
+                                                        <i class="far fa-star fa-sm mr-2 text-yellow-400"></i>
                                                     </ul>
                                                     <span class="reviews__summary--caption">Based on 2 reviews</span>
                                                 </div>
@@ -273,43 +212,13 @@
                                                     </div>
                                                     <div class="reviews__comment--content">
                                                         <h4 class="reviews__comment--content__title">Richard Smith</h4>
-                                                        <ul class="rating reviews__comment--rating d-flex mb-5">
-                                                            <li class="rating__list">
-                                                                <span class="rating__list--icon">
-                                                                    <svg class="rating__list--icon__svg" xmlns="http://www.w3.org/2000/svg" width="13.105" height="13.732" viewBox="0 0 10.105 9.732">
-                                                                    <path data-name="star - Copy" d="M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z" transform="translate(0 -0.018)" fill="currentColor"></path>
-                                                                    </svg>
-                                                                </span>
-                                                            </li>
-                                                            <li class="rating__list">
-                                                                <span class="rating__list--icon">
-                                                                    <svg class="rating__list--icon__svg" xmlns="http://www.w3.org/2000/svg" width="13.105" height="13.732" viewBox="0 0 10.105 9.732">
-                                                                    <path data-name="star - Copy" d="M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z" transform="translate(0 -0.018)" fill="currentColor"></path>
-                                                                    </svg>
-                                                                </span>
-                                                            </li>
-                                                            <li class="rating__list">
-                                                                <span class="rating__list--icon">
-                                                                    <svg class="rating__list--icon__svg" xmlns="http://www.w3.org/2000/svg" width="13.105" height="13.732" viewBox="0 0 10.105 9.732">
-                                                                    <path data-name="star - Copy" d="M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z" transform="translate(0 -0.018)" fill="currentColor"></path>
-                                                                    </svg>
-                                                                </span>
-                                                            </li>
-                                                            <li class="rating__list">
-                                                                <span class="rating__list--icon">
-                                                                    <svg class="rating__list--icon__svg" xmlns="http://www.w3.org/2000/svg" width="13.105" height="13.732" viewBox="0 0 10.105 9.732">
-                                                                    <path data-name="star - Copy" d="M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z" transform="translate(0 -0.018)" fill="currentColor"></path>
-                                                                    </svg>
-                                                                </span>
-                                                            </li>
-                                                            <li class="rating__list">
-                                                                <span class="rating__list--icon">
-                                                                    <svg class="rating__list--icon__svg" xmlns="http://www.w3.org/2000/svg" width="13.105" height="13.732" viewBox="0 0 10.105 9.732">
-                                                                    <path data-name="star - Copy" d="M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z" transform="translate(0 -0.018)" fill="currentColor"></path>
-                                                                    </svg>
-                                                                </span>
-                                                            </li>
-                                                        </ul>
+                                                        <div class="rating reviews__comment--rating d-flex mb-5">
+                                                            <i class="fas fa-star fa-sm mr-2 text-yellow-400"></i>
+                                                            <i class="fas fa-star fa-sm mr-2 text-yellow-400"></i>
+                                                            <i class="fas fa-star fa-sm mr-2 text-yellow-400"></i>
+                                                            <i class="fas fa-star fa-sm mr-2 text-yellow-400"></i>
+                                                            <i class="far fa-star fa-sm mr-2 text-yellow-400"></i>
+                                                        </div>
                                                         <p class="reviews__comment--content__desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos ex repellat officiis neque. Veniam, rem nesciunt. Assumenda distinctio, autem error repellat eveniet ratione dolor facilis accusantium amet pariatur, non eius!</p>
                                                         <span class="reviews__comment--content__date">January 11, 2022</span>
                                                     </div>
@@ -320,45 +229,18 @@
                                                     </div>
                                                     <div class="reviews__comment--content">
                                                         <h4 class="reviews__comment--content__title">Laura Johnson</h4>
-                                                        <ul class="rating reviews__comment--rating d-flex mb-5">
-                                                            <li class="rating__list">
-                                                                <span class="rating__list--icon">
-                                                                    <svg class="rating__list--icon__svg" xmlns="http://www.w3.org/2000/svg" width="13.105" height="13.732" viewBox="0 0 10.105 9.732">
-                                                                    <path data-name="star - Copy" d="M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z" transform="translate(0 -0.018)" fill="currentColor"></path>
-                                                                    </svg>
-                                                                </span>
-                                                            </li>
-                                                            <li class="rating__list">
-                                                                <span class="rating__list--icon">
-                                                                    <svg class="rating__list--icon__svg" xmlns="http://www.w3.org/2000/svg" width="13.105" height="13.732" viewBox="0 0 10.105 9.732">
-                                                                    <path data-name="star - Copy" d="M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z" transform="translate(0 -0.018)" fill="currentColor"></path>
-                                                                    </svg>
-                                                                </span>
-                                                            </li>
-                                                            <li class="rating__list">
-                                                                <span class="rating__list--icon">
-                                                                    <svg class="rating__list--icon__svg" xmlns="http://www.w3.org/2000/svg" width="13.105" height="13.732" viewBox="0 0 10.105 9.732">
-                                                                    <path data-name="star - Copy" d="M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z" transform="translate(0 -0.018)" fill="currentColor"></path>
-                                                                    </svg>
-                                                                </span>
-                                                            </li>
-                                                            <li class="rating__list">
-                                                                <span class="rating__list--icon">
-                                                                    <svg class="rating__list--icon__svg" xmlns="http://www.w3.org/2000/svg" width="13.105" height="13.732" viewBox="0 0 10.105 9.732">
-                                                                    <path data-name="star - Copy" d="M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z" transform="translate(0 -0.018)" fill="currentColor"></path>
-                                                                    </svg>
-                                                                </span>
-                                                            </li>
-                                                            <li class="rating__list">
-                                                                <span class="rating__list--icon">
-                                                                    <svg class="rating__list--icon__svg" xmlns="http://www.w3.org/2000/svg" width="13.105" height="13.732" viewBox="0 0 10.105 9.732">
-                                                                    <path data-name="star - Copy" d="M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z" transform="translate(0 -0.018)" fill="currentColor"></path>
-                                                                    </svg>
-                                                                </span>
-                                                            </li>
-                                                        </ul>
+                                                        <div class="rating reviews__comment--rating d-flex mb-5">
+                                                            <i class="fas fa-star fa-sm mr-2 text-yellow-400"></i>
+                                                            <i class="fas fa-star fa-sm mr-2 text-yellow-400"></i>
+                                                            <i class="fas fa-star fa-sm mr-2 text-yellow-400"></i>
+                                                            <i class="fas fa-star fa-sm mr-2 text-yellow-400"></i>
+                                                            <i class="far fa-star fa-sm mr-2 text-yellow-400"></i>
+                                                        </div>
                                                         <p class="reviews__comment--content__desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos ex repellat officiis neque. Veniam, rem nesciunt. Assumenda distinctio, autem error repellat eveniet ratione dolor facilis accusantium amet pariatur, non eius!</p>
                                                         <span class="reviews__comment--content__date">January 11, 2022</span>
+                                                        <div class="text-right">
+                                                            <button class="text-red-600">Reply</button>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="reviews__comment--list d-flex">
@@ -367,89 +249,49 @@
                                                     </div>
                                                     <div class="reviews__comment--content">
                                                         <h4 class="reviews__comment--content__title">Richard Smith</h4>
-                                                        <ul class="rating reviews__comment--rating d-flex mb-5">
-                                                            <li class="rating__list">
-                                                                <span class="rating__list--icon">
-                                                                    <svg class="rating__list--icon__svg" xmlns="http://www.w3.org/2000/svg" width="13.105" height="13.732" viewBox="0 0 10.105 9.732">
-                                                                    <path data-name="star - Copy" d="M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z" transform="translate(0 -0.018)" fill="currentColor"></path>
-                                                                    </svg>
-                                                                </span>
-                                                            </li>
-                                                            <li class="rating__list">
-                                                                <span class="rating__list--icon">
-                                                                    <svg class="rating__list--icon__svg" xmlns="http://www.w3.org/2000/svg" width="13.105" height="13.732" viewBox="0 0 10.105 9.732">
-                                                                    <path data-name="star - Copy" d="M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z" transform="translate(0 -0.018)" fill="currentColor"></path>
-                                                                    </svg>
-                                                                </span>
-                                                            </li>
-                                                            <li class="rating__list">
-                                                                <span class="rating__list--icon">
-                                                                    <svg class="rating__list--icon__svg" xmlns="http://www.w3.org/2000/svg" width="13.105" height="13.732" viewBox="0 0 10.105 9.732">
-                                                                    <path data-name="star - Copy" d="M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z" transform="translate(0 -0.018)" fill="currentColor"></path>
-                                                                    </svg>
-                                                                </span>
-                                                            </li>
-                                                            <li class="rating__list">
-                                                                <span class="rating__list--icon">
-                                                                    <svg class="rating__list--icon__svg" xmlns="http://www.w3.org/2000/svg" width="13.105" height="13.732" viewBox="0 0 10.105 9.732">
-                                                                    <path data-name="star - Copy" d="M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z" transform="translate(0 -0.018)" fill="currentColor"></path>
-                                                                    </svg>
-                                                                </span>
-                                                            </li>
-                                                            <li class="rating__list">
-                                                                <span class="rating__list--icon">
-                                                                    <svg class="rating__list--icon__svg" xmlns="http://www.w3.org/2000/svg" width="13.105" height="13.732" viewBox="0 0 10.105 9.732">
-                                                                    <path data-name="star - Copy" d="M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z" transform="translate(0 -0.018)" fill="currentColor"></path>
-                                                                    </svg>
-                                                                </span>
-                                                            </li>
-                                                        </ul>
+                                                        <div class="rating reviews__comment--rating d-flex mb-5">
+                                                            <i class="fas fa-star fa-sm mr-2 text-yellow-400"></i>
+                                                            <i class="fas fa-star fa-sm mr-2 text-yellow-400"></i>
+                                                            <i class="fas fa-star fa-sm mr-2 text-yellow-400"></i>
+                                                            <i class="fas fa-star fa-sm mr-2 text-yellow-400"></i>
+                                                            <i class="far fa-star fa-sm mr-2 text-yellow-400"></i>
+                                                        </div>
                                                         <p class="reviews__comment--content__desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos ex repellat officiis neque. Veniam, rem nesciunt. Assumenda distinctio, autem error repellat eveniet ratione dolor facilis accusantium amet pariatur, non eius!</p>
                                                         <span class="reviews__comment--content__date">January 11, 2022</span>
+                                                        <div class="text-right">
+                                                            <button class="text-red-600">Reply</button>
+                                                        </div>
                                                     </div>
                                                 </div>
+
+                                                <!-- replay comment -->
+                                                <div class="reviews__comment--list margin__left flex gap-10">
+                                                    <div class="reviews__comment--thumbnail col-2">
+                                                        <img src="{{asset('newtheme/assets/img/other/comment-thumb2.webp')}}" alt="comment-thumbnail">
+                                                    </div>
+                                                    <div id="writereview" class="reviews__comment--reply__area col-10">
+                                                        <form action="#">
+                                                            <div class="mb-5">
+                                                                <textarea class="reviews__comment--reply__textarea" placeholder="Your Comments...." ></textarea>
+                                                            </div> 
+                                                            <button class="bg-red-600 text-white px-7 py-4 leading-none rounded-lg hover:bg-black transition">SUBMIT</button>
+                                                        </form>   
+                                                    </div> 
+                                                </div>
+
+
                                             </div>
                                             <div id="writereview" class="reviews__comment--reply__area">
                                                 <form action="#">
                                                     <h3 class="reviews__comment--reply__title mb-15">Add a review </h3>
                                                     <div class="reviews__ratting d-flex align-items-center mb-20">
-                                                        <ul class="rating d-flex">
-                                                            <li class="rating__list">
-                                                                <span class="rating__list--icon">
-                                                                    <svg class="rating__list--icon__svg" xmlns="http://www.w3.org/2000/svg" width="13.105" height="13.732" viewBox="0 0 10.105 9.732">
-                                                                    <path data-name="star - Copy" d="M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z" transform="translate(0 -0.018)" fill="currentColor"></path>
-                                                                    </svg>
-                                                                </span>
-                                                            </li>
-                                                            <li class="rating__list">
-                                                                <span class="rating__list--icon">
-                                                                    <svg class="rating__list--icon__svg" xmlns="http://www.w3.org/2000/svg" width="13.105" height="13.732" viewBox="0 0 10.105 9.732">
-                                                                    <path data-name="star - Copy" d="M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z" transform="translate(0 -0.018)" fill="currentColor"></path>
-                                                                    </svg>
-                                                                </span>
-                                                            </li>
-                                                            <li class="rating__list">
-                                                                <span class="rating__list--icon">
-                                                                    <svg class="rating__list--icon__svg" xmlns="http://www.w3.org/2000/svg" width="13.105" height="13.732" viewBox="0 0 10.105 9.732">
-                                                                    <path data-name="star - Copy" d="M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z" transform="translate(0 -0.018)" fill="currentColor"></path>
-                                                                    </svg>
-                                                                </span>
-                                                            </li>
-                                                            <li class="rating__list">
-                                                                <span class="rating__list--icon">
-                                                                    <svg class="rating__list--icon__svg" xmlns="http://www.w3.org/2000/svg" width="13.105" height="13.732" viewBox="0 0 10.105 9.732">
-                                                                    <path data-name="star - Copy" d="M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z" transform="translate(0 -0.018)" fill="currentColor"></path>
-                                                                    </svg>
-                                                                </span>
-                                                            </li>
-                                                            <li class="rating__list">
-                                                                <span class="rating__list--icon">
-                                                                    <svg class="rating__list--icon__svg" xmlns="http://www.w3.org/2000/svg" width="13.105" height="13.732" viewBox="0 0 10.105 9.732">
-                                                                    <path data-name="star - Copy" d="M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z" transform="translate(0 -0.018)" fill="currentColor"></path>
-                                                                    </svg>
-                                                                </span>
-                                                            </li>
-                                                        </ul>
+                                                        <div class="rating d-flex">
+                                                            <i class="fas fa-star fa-sm mr-2 text-yellow-400"></i>
+                                                            <i class="fas fa-star fa-sm mr-2 text-yellow-400"></i>
+                                                            <i class="fas fa-star fa-sm mr-2 text-yellow-400"></i>
+                                                            <i class="fas fa-star fa-sm mr-2 text-yellow-400"></i>
+                                                            <i class="far fa-star fa-sm mr-2 text-yellow-400"></i>
+                                                        </div>
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-12 mb-10">
