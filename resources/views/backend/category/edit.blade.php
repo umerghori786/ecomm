@@ -23,6 +23,12 @@
                             </div>
 
                         </div>
+                        <div class="row justify-content-center">
+                             <div class="col-12 col-lg-6 form-group">
+                            <label for="myfile">Select a file:</label>
+                            <input type="file" value=""id="image" name="image" required/>
+                            <img src="{{asset('category/'.$category->image)}}" width="100px" height="100px" alt="">
+                            </div>
                         <div class="row justify-content-center">    
                             
                             <div class="col-12 col-lg-6 form-group text-center mt-3">

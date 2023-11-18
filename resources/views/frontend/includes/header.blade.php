@@ -60,7 +60,11 @@
                         </a>
                     </div>
                     <div class="main__logo">
-                        <h1 class="main__logo--title"><a class="main__logo--link" href="index.html"><img class="main__logo--img" src="{{asset('newtheme/assets/img/logo/nav-log.webp')}}" alt="logo-img"></a></h1>
+                       @if(isset($logo))
+                        <h1 class="main__logo--title"><a class="main__logo--link" href="index.html"><img class="main__logo--img" src="{{url('logo/'.$logo->image)}}" height="50px" width="150px" alt="logo-img"></a></h1>
+                       @else
+                       <h1 class="main__logo--title"><a class="main__logo--link" href="index.html"><img class="main__logo--img" src="{{asset('newtheme/assets/img/logo/nav-log.webp')}}" alt="logo-img"></a></h1>                       
+                       @endif
                     </div>
                     <div class="header__menu d-none d-lg-block">
                         <nav class="header__menu--navigation">
@@ -136,7 +140,7 @@
                                         <path  d="M12.263,21.82a1.438,1.438,0,0,1-.948-.356c-.991-.866-1.946-1.681-2.789-2.4l0,0a51.865,51.865,0,0,1-6.089-5.715A9.129,9.129,0,0,1,0,7.371,7.666,7.666,0,0,1,1.946,2.135,6.6,6.6,0,0,1,6.852,0a6.169,6.169,0,0,1,3.854,1.33,7.884,7.884,0,0,1,1.558,1.627A7.885,7.885,0,0,1,13.821,1.33,6.169,6.169,0,0,1,17.675,0,6.6,6.6,0,0,1,22.58,2.135a7.665,7.665,0,0,1,1.945,5.235,9.128,9.128,0,0,1-2.432,5.975,51.86,51.86,0,0,1-6.089,5.715c-.844.719-1.8,1.535-2.794,2.4a1.439,1.439,0,0,1-.948.356ZM6.852,1.437A5.174,5.174,0,0,0,3,3.109,6.236,6.236,0,0,0,1.437,7.371a7.681,7.681,0,0,0,2.1,5.059,51.039,51.039,0,0,0,5.915,5.539l0,0c.846.721,1.8,1.538,2.8,2.411,1-.874,1.965-1.693,2.812-2.415a51.052,51.052,0,0,0,5.914-5.538,7.682,7.682,0,0,0,2.1-5.059,6.236,6.236,0,0,0-1.565-4.262,5.174,5.174,0,0,0-3.85-1.672A4.765,4.765,0,0,0,14.7,2.467a6.971,6.971,0,0,0-1.658,1.918.907.907,0,0,1-1.558,0A6.965,6.965,0,0,0,9.826,2.467a4.765,4.765,0,0,0-2.975-1.03Zm0,0" transform="translate(0 0)" fill="currentColor"/>
                                     </svg>
                                       
-                                    <span class="items__count wishlist">02</span> 
+                                    <span class="items__count wishlist wishlist-item_count">{{session('wishlist') ? count(request()->session()->get('wishlist')) : 0}}</span> 
                                 </a>
                             </li>
                             <li class="header__account--items">
@@ -327,9 +331,9 @@
             <div class="mini-cart-append">
             <div class="minicart__product">
                 @if(session('cart'))
-                @forelse(collect(request()->session()->get('cart')) as $cart)
+                @forelse(collect(request()->session()->get('cart')) as $key => $cart)
 
-                <div class="minicart__product--items d-flex">
+                <div class="minicart__product--items d-flex remove-item-in-cart cart_price_{{$key}} remove-item-in-cart-{{$key}}">
                     <div class="minicart__thumbnail">
 
                         <a href="product-details.html"><img src="{{$cart['image']}}" alt="prduct-img"></a>
@@ -349,7 +353,7 @@
                                 </label>
                                 <button style="display:none;" type="button" class="quantity__value increase" aria-label="quantity value" value="Increase Value">+</button>
                             </div>
-                            <button class="minicart__product--remove" aria-label="minicart remove btn">Remove</button>
+                            <button onclick="deleteFromCart($(this),`{{$key}}`)" class="minicart__product--remove" aria-label="minicart remove btn">Remove</button>
                         </div>
                     </div>
                 </div>
@@ -370,11 +374,11 @@
             <div class="minicart__amount">
                 <div class="minicart__amount_list d-flex justify-content-between">
                     <span>Sub Total:</span>
-                    <span><b>${{number_format($cart_total, 2)}}</b></span>
+                    <span><b class="update-cart-new-total">${{number_format($cart_total, 2)}}</b></span>
                 </div>
                 <div class="minicart__amount_list d-flex justify-content-between">
                     <span>Total:</span>
-                    <span><b>${{number_format($cart_total, 2)}}</b></span>
+                    <span><b class="update-cart-new-total">${{number_format($cart_total, 2)}}</b></span>
                 </div>
             </div>
             <div class="minicart__conditions text-center">

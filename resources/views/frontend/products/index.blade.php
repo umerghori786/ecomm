@@ -3,7 +3,7 @@
 @section('content')
 
 
-<main class="main__content_wrapper">
+ <main class="main__content_wrapper"> 
     
     <!-- Start breadcrumb section -->
     <!--<section class="breadcrumb__section breadcrumb__bg">
@@ -534,7 +534,7 @@
                                         <div class="col mb-30">
                                             <div class="product__items ">
                                                 <div class="product__items--thumbnail">
-                                                    <a class="product__items--link" href="{{route('allproducts.show',[$product->id])}}">
+                                                    <a class="product__items--link" href="{{route('allproducts.show',[$product->slug])}}">
                                                         <img class="product__items--img product__primary--img" src="{{$product->images[0]->url}}" alt="product-img">
                                                         <img class="product__items--img product__secondary--img" src="{{$product->images[1]->url}}" alt="product-img">
                                                     </a>
@@ -557,7 +557,7 @@
                                                             </a>
                                                         </li>
                                                         <li class="product__items--action__list">
-                                                            <a class="product__items--action__btn"  {{-- onclick="updateCart(`{{$product->id}}`)" --}}>
+                                                            <a class="product__items--action__btn"  onclick="addToWishlist(`{{$product->id}}`)">
                                                                 <svg class="product__items--action__btn--svg"  xmlns="http://www.w3.org/2000/svg" width="17.51" height="15.443" viewBox="0 0 24.526 21.82">
                                                                     <path  d="M12.263,21.82a1.438,1.438,0,0,1-.948-.356c-.991-.866-1.946-1.681-2.789-2.4l0,0a51.865,51.865,0,0,1-6.089-5.715A9.129,9.129,0,0,1,0,7.371,7.666,7.666,0,0,1,1.946,2.135,6.6,6.6,0,0,1,6.852,0a6.169,6.169,0,0,1,3.854,1.33,7.884,7.884,0,0,1,1.558,1.627A7.885,7.885,0,0,1,13.821,1.33,6.169,6.169,0,0,1,17.675,0,6.6,6.6,0,0,1,22.58,2.135a7.665,7.665,0,0,1,1.945,5.235,9.128,9.128,0,0,1-2.432,5.975,51.86,51.86,0,0,1-6.089,5.715c-.844.719-1.8,1.535-2.794,2.4a1.439,1.439,0,0,1-.948.356ZM6.852,1.437A5.174,5.174,0,0,0,3,3.109,6.236,6.236,0,0,0,1.437,7.371a7.681,7.681,0,0,0,2.1,5.059,51.039,51.039,0,0,0,5.915,5.539l0,0c.846.721,1.8,1.538,2.8,2.411,1-.874,1.965-1.693,2.812-2.415a51.052,51.052,0,0,0,5.914-5.538,7.682,7.682,0,0,0,2.1-5.059,6.236,6.236,0,0,0-1.565-4.262,5.174,5.174,0,0,0-3.85-1.672A4.765,4.765,0,0,0,14.7,2.467a6.971,6.971,0,0,0-1.658,1.918.907.907,0,0,1-1.558,0A6.965,6.965,0,0,0,9.826,2.467a4.765,4.765,0,0,0-2.975-1.03Zm0,0" transform="translate(0 0)" fill="currentColor"></path>
                                                                 </svg>
@@ -577,7 +577,7 @@
                                                             <li class="product__items--color__list"><a class="product__items--color__link four" href="javascript:void(0)"><span class="visually-hidden">Color 4</span></a></li>
                                                         </ul>
                                                     </div>
-                                                    <h3 class="product__items--content__title h4"><a href="product-details.html">{{$product->title}}</a></h3>
+                                                    <h3 class="product__items--content__title h4"><a href="{{route('allproducts.show',[$product->slug])}}">{{$product->title}}</a></h3>
                                                     <div class="product__items--price">
                                                         <span class="current__price">${{$product->discount_price}}</span>
                                                         <span class="old__price">${{$product->strike_price}}</span>
@@ -682,7 +682,7 @@
                                                                 </a>
                                                             </li>
                                                             <li class="product__list--action__child">
-                                                                <a class="product__list--action__btn"  {{-- onclick="addToCart(`{{$product->id}}`)" --}}>
+                                                                <a class="product__list--action__btn"  onclick="addToWishlist(`{{$product->id}}`)">
                                                                     <svg class="product__list--action__btn--svg" xmlns="http://www.w3.org/2000/svg" width="24.403" height="20.204" viewBox="0 0 24.403 20.204">
                                                                         <g  transform="translate(0)">
                                                                           <g  data-name="Group 473" transform="translate(0 0)">
@@ -762,7 +762,7 @@
         </div>
     </section>
     <!-- End Newsletter banner section -->
-</main>
+</main> 
 
 
 @push('script')
@@ -793,52 +793,10 @@
         location.href = '{{url()->current()}}?from=' + from + '&to=' + to;
     })
 
-    const addToCart = (id)=>{
+    
+    
 
-        var product_id = id;
-        var quantity = 1;
-        $.ajax({
-
-            type : "get",
-            url : "{{url('/add-to-cart')}}",
-            data : {product_id : product_id, quantity : quantity},
-
-            success:function(data)
-            {   
-                $('.mini-cart-append').empty()
-                $('.mini-cart-append').html(data.renderHTML)
-                $('.offCanvas__minicart').addClass('active')
-                $('.cart-items__count').html(data.total_products_count)
-                
-            }
-
-        })
-    }
-
-    const deleteFromCart = (id)=>{
-
-        var product_id = id;
-        $.ajax({
-
-            type : "get",
-            url : "{{url('/delete-from-cart')}}",
-            data : {product_id : product_id}
-
-        })
-    }
-
-    const updateCart = (id)=>{
-
-        var product_id = id;
-        var quantity   = 6;
-        $.ajax({
-
-            type : "get",
-            url : "{{url('/update-cart')}}",
-            data : {product_id : product_id , quantity : quantity}
-
-        })
-    }
+    
 </script>
 @endpush
 

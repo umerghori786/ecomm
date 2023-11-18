@@ -20,6 +20,7 @@
         <th>Sr No</th>
         <th>Category</th>
         <th>Title</th>
+        <th>Image</th>
         <th>Status</th>
         <th>Action</th>
       </tr>
@@ -29,8 +30,11 @@
       @forelse($sub_categories as $sub_category)
       <tr>
         <td>{{$i}}</td>
-        <td>{{$sub_category->category->title}}</td>
+        <td>{{$sub_category->category->title ?? "Null"}}</td>
         <td>{{$sub_category->title}}</td>
+        <td>
+          <img src="{{url('sub_category/'.$sub_category->image)}}" width="100px" height="100px" alt="">
+        </td>
         <td>@if($sub_category->status == 1) Active @else InActive @endif</td>
         <td>
           <a href="{{route('subcategories.edit',[$sub_category->id])}}"><i class="fas fa-edit" style="color: #644141;"></i></a>

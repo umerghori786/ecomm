@@ -31,7 +31,7 @@
       @forelse($products as $product)
       <tr>
         <td>{{$i}}</td>
-        <td>{{$product->subcategory->category->title}}</td>
+        <td>{{$product->subcategory->category->title ??"Null"}}</td>
         <td>{{$product->subcategory->title}}</td>
         <td>{{$product->title}}</td>
         <td>{{$product->strike_price}}</td>

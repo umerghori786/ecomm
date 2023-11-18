@@ -149,7 +149,7 @@
                             <div class="col mb-30">
                                 <div class="product__items ">
                                     <div class="product__items--thumbnail">
-                                        <a class="product__items--link" href="product-details.html">
+                                        <a class="product__items--link" href="{{route('allproducts.show',[$popular->slug])}}">
                                             <img class="product__items--img product__primary--img" src="{{$popular->images[0]->url}}" alt="product-img">
                                             <img class="product__items--img product__secondary--img" src="{{$popular->images[1]->url}}" alt="product-img">
                                         </a>
@@ -176,7 +176,7 @@
                                     </div>
                                     <div class="product__items--content text-center">
                                         
-                                        <h3 class="product__items--content__title h4"><a href="product-details.html">{{$popular->title}}</a></h3>
+                                        <h3 class="product__items--content__title h4"><a href="{{route('allproducts.show',[$popular->slug])}}">{{$popular->title}}</a></h3>
                                         <div class="product__items--price">
                                             <span class="current__price">${{$popular->discount_price}}</span>
                                             <span class="old__price">${{$popular->strike_price}}</span>
@@ -243,7 +243,7 @@
                                 <div class="col mb-25">
                                     <div class="product__items">
                                         <div class="product__items--thumbnail">
-                                            <a class="product__items--link" href="product-details.html">
+                                            <a class="product__items--link" href="{{route('allproducts.show',[$trending->slug])}}">
                                                 <img class="product__items--img product__primary--img" src="{{$trending->images[0]->url}}" alt="product-img">
                                                 <img class="product__items--img product__secondary--img" src="{{$trending->images[1]->url}}" alt="product-img">
                                             </a>
@@ -271,7 +271,7 @@
                                         </div>
                                         <div class="product__items--content style2 position__relative">
                                             
-                                            <h3 class="product__items--content__title h4"><a href="product-details.html">{{$trending->title}}</a></h3>
+                                            <h3 class="product__items--content__title h4"><a href="{{route('allproducts.show',[$trending->slug])}}">{{$trending->title}}</a></h3>
                                             <div class="product__items--price style2">
                                                 <span class="current__price style2">${{$trending->discount_price}}</span>
                                                 <span class="old__price style2">${{$trending->strike_price}}</span>
@@ -616,10 +616,6 @@
         </div>
     </section>
     <!-- End Newsletter banner section -->
-
-    
-
-    
 
 </main>
 
