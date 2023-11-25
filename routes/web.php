@@ -17,6 +17,7 @@ use App\Http\Controllers\Admin\QuestionController;
 use App\Http\Controllers\Admin\CouponController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\MessageController;
+use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\ContactUsController;
 /*
 |--------------------------------------------------------------------------
@@ -37,9 +38,11 @@ use App\Http\Controllers\ContactUsController;
 
 /*frontend routes*/
 Route::get('/new',[HomeController::class,'index'])->name('home');
-Route::get('/policy ',[SettingController::class,'termPolicy'])->name('policy');
-Route::get('/question',[SettingController::class,'question'])->name('question');
-Route::get('/contact',[SettingController::class,'contact'])->name('contact');
+Route::get('/policy ',[SettingController::class,'termPolicy'])->name('policy.index');
+Route::get('/questions',[SettingController::class,'questions'])->name('questions.index');
+Route::get('/contacts',[SettingController::class,'contacts'])->name('contacts.index');
+// Route::get('/news',[HomeController::class,'slide'])->name('slide');
+
 
 Route::resources([
     'contactus' => ContactUsController::class,
@@ -87,6 +90,7 @@ Route::middleware('admin')->prefix('user')->group(function(){
         'coupon' => CouponController::class,
         'contact' => ContactController::class,
         'message' => MessageController::class,
+        'slider' => SliderController::class,
     ]);
     Route::get('/showsub_category',[ProductController::class,'showSubCategory']);
 });

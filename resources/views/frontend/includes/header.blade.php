@@ -106,7 +106,7 @@
                                     <a class="header__menu--link " href="#">Pages <span class="menu__plus--icon">+</span></a>
                                     <ul class="header__sub--menu">
                                         <li class="header__sub--menu__items"><a href="about.html" class="header__sub--menu__link">About Us</a></li>
-                                        <li class="header__sub--menu__items"><a href="contact.html" class="header__sub--menu__link">Contact Us</a></li>
+                                        <li class="header__sub--menu__items"><a href="{{route('contacts.index')}}" class="header__sub--menu__link">Contact Us</a></li>
                                         <li class="header__sub--menu__items"><a href="cart.html" class="header__sub--menu__link">Cart Page</a></li>
                                         <li class="header__sub--menu__items"><a href="portfolio.html" class="header__sub--menu__link">Portfolio Page</a></li>
                                         <li class="header__sub--menu__items"><a href="wishlist.html" class="header__sub--menu__link">Wishlist Page</a></li>
@@ -115,7 +115,7 @@
                                     </ul>
                                 </li>
                                 <li class="header__menu--items">
-                                    <a class="header__menu--link" href="contact.html">Contact </a>  
+                                    <a class="header__menu--link" href="{{route('contacts.index')}}">Contact </a>  
                                 </li>
                             </ul>
                         </nav>
@@ -203,7 +203,7 @@
                             <a class="offcanvas__menu_item" href="#">Pages</a>
                             <ul class="offcanvas__sub_menu">
                                 <li class="offcanvas__sub_menu_li"><a href="about.html" class="offcanvas__sub_menu_item">About Us</a></li>
-                                <li class="offcanvas__sub_menu_li"><a href="contact.html" class="offcanvas__sub_menu_item">Contact Us</a></li>
+                                <li class="offcanvas__sub_menu_li"><a href="{{route('contacts.index')}}" class="offcanvas__sub_menu_item">Contact Us</a></li>
                                 <li class="offcanvas__sub_menu_li"><a href="cart.html" class="offcanvas__sub_menu_item">Cart Page</a></li>
                                 <li class="offcanvas__sub_menu_li"><a href="portfolio.html" class="offcanvas__sub_menu_item">Portfolio Page</a></li>
                                 <li class="offcanvas__sub_menu_li"><a href="wishlist.html" class="offcanvas__sub_menu_item">Wishlist Page</a></li>
@@ -212,7 +212,7 @@
                             </ul>
                         </li>
                         <li class="offcanvas__menu_li"><a class="offcanvas__menu_item" href="about.html">About</a></li>
-                        <li class="offcanvas__menu_li"><a class="offcanvas__menu_item" href="contact.html">Contact</a></li>
+                        <li class="offcanvas__menu_li"><a class="offcanvas__menu_item" href="{{route('contacts.index')}}">Contact</a></li>
                     </ul>
                     <div class="offcanvas__account--items">
                         <a class="offcanvas__account--items__btn d-flex align-items-center" href="login.html">

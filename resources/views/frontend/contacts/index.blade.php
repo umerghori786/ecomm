@@ -3,7 +3,10 @@
 @section('content') 
 
 <meta name="csrf-token" content="{{ csrf_token() }}">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
+<!-- Add this to your HTML file, typically in the head section -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
 
 <main class="main__content_wrapper">
         
@@ -28,7 +31,6 @@
 
         <!-- Start contact section -->
         <section class="contact__section section--padding">
-        <div id="insert_message"></div>
 
             <div class="container">
                 <div class="section__heading mb-40">
@@ -121,8 +123,8 @@
                         </div>
                         <div class="col-lg-7" id="add_model">
                             <div class="contact__form">
-                            <ul id="save_errorlist"></ul>
-
+                            <div id="errorMessage" class="alert alert-danger" style="display: none;">
+                            </div>
                                 <form class="contact__form--inner" id="formdata"  action="#" mathod="POST">
                                     @csrf
  
@@ -139,7 +141,7 @@
                                         </div>
                                         <div class="col-lg-6 col-md-6">
                                             <div class="contact__form--list mb-20">
-                                                <label class="contact__form--label" for="input2">Last Name <span class="contact__form--label__star">*</span></label>
+                                                <label class="contact__form--label" for="input2">Last Name <span class="contact__form--label__star"></span></label>
                                                 <input class="contact__form--input lastname" name="lastname" id="input2" placeholder="Your Last Name" type="text" >
                                                 @error('lastname')
                                                  <div class="alert alert-danger">{{ $message }}</div>
@@ -148,7 +150,7 @@
                                         </div>
                                         <div class="col-lg-6 col-md-6">
                                             <div class="contact__form--list mb-20">
-                                                <label class="contact__form--label" for="input3">Phone Number <span class="contact__form--label__star">*</span></label>
+                                                <label class="contact__form--label" for="input3">Phone Number <span class="contact__form--label__star"></span></label>
                                                 <input class="contact__form--input phone" name="number" id="input3" placeholder="Phone number" type="text" >
                                                 @error('phone')
                                                  <div class="alert alert-danger">{{ $message }}</div>
@@ -166,7 +168,7 @@
                                         </div>
                                         <div class="col-12">
                                             <div class="contact__form--list mb-10">
-                                                <label class="contact__form--label" for="input5">Write Your Message <span class="contact__form--label__star">*</span></label>
+                                                <label class="contact__form--label" for="input5">Write Your Message<span class="contact__form--label__star">*</span></label>
                                                 <textarea class="contact__form--textarea message" input="message" name="message" id="input5" placeholder="Write Your Message" ></textarea>
                                                 @error('message')
                                                  <div class="alert alert-danger">{{ $message }}</div>
@@ -174,13 +176,15 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="account__login--remember position__relative mb-15">
-                                        <input class="checkout__checkbox--input" id="check2" type="checkbox">
-                                        <span class="checkout__checkbox--checkmark"></span>
-                                        <label class="checkout__checkbox--label login__remember--label" for="check2">
-                                            Accept Terms & Condition</label>
-                                    </div>
-                                    <button class="contact__form--btn primary__btn  store_model" type="submit">Submit Now</button>  
+                                   
+                                          
+                                          <div id="insertMessage" class="alert alert-success" style="display: none;">
+                                            Message inserted successfully!
+                                        </div>
+                                        <button class="contact__form--btn primary__btn  store_model" id="myButton"type="submit">
+                                          <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"style="display: none;" ></span>
+                                            Submit Now
+                                        </button>  
                                     <p class="form-messege"></p>
                                 </form>
                             </div>
@@ -229,8 +233,10 @@
     <script>
         $(document).ready(function()
         {
-            $(document).on('click','.store_model',function(e)
+            $(document).on('click','.store_model','#myButton',function(e)
             {
+                $(this).find('.spinner-border').show();
+
                 e.preventDefault();
                 var data ={
                     'firstname': $('.firstname').val(),
@@ -256,22 +262,31 @@
                     if(response.status == 400)
                     {
                         // console.log(response);
-                        $('#save_errorlist').html("");
-                        $('#save_errorlist').addClass('alert alert-danger');
+                        $('#errorMessage').html("");
+                        $('#myButton').find('.spinner-border').hide();
                         $.each(response.errors, function (key, err_values){
                             // console.log(response.errors);
-                            $('#save_errorlist').append('<li>'+err_values+'</li>');
+                            $('#errorMessage').append('<li>'+err_values+'</li>');
+                            
                         });
+                        $('#errorMessage').show();
+                        $('#insertMessage').hide();
                     }
                     else{
-                        $('#save_errorlist').html("");
-                        $("#insert_message").addClass('alert alert-success');
+                        $('#insertMessage').show();
                         $("#insert_message").text(response.message);
-                        $('#myForm').find('input, textarea').val("");                    }
+                        $('#myForm').find('input, textarea').val("");  
+                        $('#myButton').find('.spinner-border').hide();
+                        $('#errorMessage').hide();
+                       
+                  
+                    }
             }
         });
             });
         });
+
+        
     </script>
     @endpush
 @endsection
