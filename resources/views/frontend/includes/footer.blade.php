@@ -62,9 +62,9 @@
                             <ul class="footer__widget--menu footer__widget--inner">
                                 <li class="footer__widget--menu__list"><a class="footer__widget--menu__text" href="about.html">About Us</a></li>
                                 <li class="footer__widget--menu__list"><a class="footer__widget--menu__text" href="wishlist.html">Wishlist</a></li>
-                                <li class="footer__widget--menu__list"><a class="footer__widget--menu__text" href="contact.html">Contact Us</a></li>
-                                <li class="footer__widget--menu__list"><a class="footer__widget--menu__text" href="privacy-policy.html">Privacy Policy</a></li>
-                                <li class="footer__widget--menu__list"><a class="footer__widget--menu__text" href="faq.html">Frequently</a></li>
+                                <li class="footer__widget--menu__list"><a class="footer__widget--menu__text" href="{{route('contacts.index')}}">Contact Us</a></li>
+                                <li class="footer__widget--menu__list"><a class="footer__widget--menu__text" href="{{route('policy.index')}}">Privacy Policy</a></li>
+                                <li class="footer__widget--menu__list"><a class="footer__widget--menu__text" href="{{route('questions.index')}}">Frequently</a></li>
                             </ul>
                         </div>
                     </div>

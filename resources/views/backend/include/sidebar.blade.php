@@ -52,6 +52,7 @@
 </a>
 <ul>
 <li><a  href="{{route('logos.index')}}">Logo</a></li>
+<li><a  href="{{route('slider.index')}}">Slider</a></li>
 <li><a  href="{{route('privacy.index')}}">Privacy Policy</a></li>
 <li><a  href="{{route('question.index')}}">Questions</a></li>
 </ul>

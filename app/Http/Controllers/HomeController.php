@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Product;
+use App\Models\{
+    Product,
+    Slider
+};
 
 class HomeController extends Controller
 {
@@ -18,6 +21,9 @@ class HomeController extends Controller
 
         $topthree_products = Product::has('images')->with('images')->inRandomOrder()->limit(3)->get();
 
-        return view('frontend.home',compact('popular_products','trending_products','topthree_products'));
+        $slides = Slider::get();
+
+        return view('frontend.home',compact('popular_products','trending_products','topthree_products','slides'));
     }
+    
 }

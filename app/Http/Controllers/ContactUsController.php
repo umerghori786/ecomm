@@ -38,8 +38,6 @@ class ContactUsController extends Controller
     {
             $validatedData = Validator::make($request->all(),[
             'firstname' => 'required',
-            'lastname' => 'required',
-            'phone' => 'required',
             'email' => 'required|email',
             'message' => 'required',
         ]);
