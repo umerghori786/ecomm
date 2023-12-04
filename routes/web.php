@@ -38,10 +38,12 @@ use App\Http\Controllers\ContactUsController;
 
 /*frontend routes*/
 Route::get('/new',[HomeController::class,'index'])->name('home');
+Route::get('/logout',[HomeController::class,'destroy'])->name('logout');
+
 Route::get('/policy ',[SettingController::class,'termPolicy'])->name('policy.index');
 Route::get('/questions',[SettingController::class,'questions'])->name('questions.index');
 Route::get('/contacts',[SettingController::class,'contacts'])->name('contacts.index');
-// Route::get('/news',[HomeController::class,'slide'])->name('slide');
+
 
 
 Route::resources([

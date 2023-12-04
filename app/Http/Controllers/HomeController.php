@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
 use App\Models\{
@@ -15,6 +16,7 @@ class HomeController extends Controller
     */
     public function index()
     {   
+        // dd(\Auth()->user()->name);
         $popular_products = Product::has('images')->with('images')->where('popular',1)->latest()->limit(20)->get();
 
         $trending_products = Product::has('images')->with('images')->where('trending',1)->latest()->limit(6)->get();
@@ -24,6 +26,18 @@ class HomeController extends Controller
         $slides = Slider::get();
 
         return view('frontend.home',compact('popular_products','trending_products','topthree_products','slides'));
+    }
+
+    public function destroy(Request $request)
+    {
+        // dd('hello');
+        Auth::guard('web')->logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('/new');
     }
     
 }

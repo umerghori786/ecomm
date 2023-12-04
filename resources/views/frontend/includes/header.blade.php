@@ -1,4 +1,11 @@
 <!-- Start header area -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <header class="header__section header__transparent">
         <!-- Start Header topbar -->
         <div class="header__topbar bg__primary">
@@ -128,12 +135,18 @@
                                     <span class="visually-hidden">Search</span>
                                 </a>
                             </li>
-                            <li class="header__account--items">
-                                <a class="header__account--btn" href="my-account.html">
-                                    <svg xmlns="http://www.w3.org/2000/svg"  width="26.51" height="23.443" viewBox="0 0 512 512"><path d="M344 144c-3.92 52.87-44 96-88 96s-84.15-43.12-88-96c-4-55 35-96 88-96s92 42 88 96z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><path d="M256 304c-87 0-175.3 48-191.64 138.6C62.39 453.52 68.57 464 80 464h352c11.44 0 17.62-10.48 15.65-21.4C431.3 352 343 304 256 304z" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/></svg> 
-                                    <span class="visually-hidden">My Account</span>
-                                </a>
+                            @if(Auth()->user())
+                                <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{ Auth()->user()->name }}</a>
+                                <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                <li><a href="/logout">Logout</a></li>
+                                </ul>
                             </li>
+                            @else
+                                <li><a href="/login">Login</a></li>
+                            @endif
+
                             <li class="header__account--items d-md-none">
                                 <a class="header__account--btn" href="wishlist.html">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24.526" height="21.82" viewBox="0 0 24.526 21.82">
@@ -409,5 +422,6 @@
             </button>
         </div>
         <!-- End serch box area -->
+        
     </header>
     <!-- End header area -->
