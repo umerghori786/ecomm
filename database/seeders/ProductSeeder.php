@@ -18,6 +18,7 @@ class ProductSeeder extends Seeder
         Product::factory()
                  ->count(30)
                  ->hasimages(5)
+                 ->hasreviews(5)
                  ->create();
     }
 }

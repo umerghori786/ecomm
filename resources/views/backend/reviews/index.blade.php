@@ -37,7 +37,7 @@
           {{$review->email}}
         </td>
         <td>{{$review->content}}</td>
-        <td>@if(count($review->replys) > 0) <p class="alert alert-primary">Yes</p> @else <p class="alert alert-danger">No</p> @endif</td>
+        <td>@if(count($review->replys) == 0) <p class="alert">No</p> @else <div class="spinner-grow spinner-grow-sm" style="margin-left: 6px; margin-bottom: 2px; color: #2e6da5 !important"></div> @endif</td>
         <td>
           <form action="{{route('reviews.destroy',[$review->id])}}" method="post" id="delete-form">
             @csrf
