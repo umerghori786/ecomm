@@ -64,11 +64,11 @@
                                     </div>
                                     <div class="product__details--info__rating d-flex align-items-center mb-15">
                                         <div class="rating product__list--rating d-flex">
-                                            <i class="fas fa-star fa-sm mr-2 text-yellow-400"></i>
-                                            <i class="fas fa-star fa-sm mr-2 text-yellow-400"></i>
-                                            <i class="fas fa-star fa-sm mr-2 text-yellow-400"></i>
-                                            <i class="fas fa-star fa-sm mr-2 text-yellow-400"></i>
-                                            <i class="far fa-star fa-sm mr-2 text-yellow-400"></i>
+                                            <i class="fas fa-star fa-sm mr-2" style="color: rgb(250 204 21);"></i>
+                                            <i class="fas fa-star fa-sm mr-2" style="color: rgb(250 204 21);"></i>
+                                            <i class="fas fa-star fa-sm mr-2" style="color: rgb(250 204 21);"></i>
+                                            <i class="fas fa-star fa-sm mr-2" style="color: rgb(250 204 21);"></i>
+                                            <i class="far fa-star fa-sm mr-2" style="color: rgb(250 204 21);"></i>
                                         </div>
                                     </div>
                                     <p class="product__details--info__desc mb-20">{{$product->short_description}}</p>
@@ -193,124 +193,116 @@
                                         <div class="product__reviews">
                                             <div class="product__reviews--header">
                                                 <h3 class="product__reviews--header__title mb-20">Customer Reviews</h3>
+
                                                 <div class="reviews__ratting d-flex align-items-center">
                                                     <ul class="rating d-flex">
-                                                        <i class="fas fa-star fa-sm mr-2 text-yellow-400"></i>
-                                                        <i class="fas fa-star fa-sm mr-2 text-yellow-400"></i>
-                                                        <i class="fas fa-star fa-sm mr-2 text-yellow-400"></i>
-                                                        <i class="fas fa-star fa-sm mr-2 text-yellow-400"></i>
-                                                        <i class="far fa-star fa-sm mr-2 text-yellow-400"></i>
+                                                        @for($i = 1 ; $i <= (int)number_format($product->reviews()->get()->pluck('rating')->avg() ?? 5); $i++)
+                                                            <i class="fas fa-star fa-sm mr-2" style="color: rgb(250 204 21);"></i>
+                                                        @endfor
+                                                        @for($i = 1 ; $i <= (int) 5 - number_format($product->reviews()->get()->pluck('rating')->avg() ?? 5); $i++)
+                                                        <i class="far fa-star fa-sm mr-2" style="color: rgb(250 204 21);"></i>
+                                                        @endfor
                                                     </ul>
-                                                    <span class="reviews__summary--caption">Based on 2 reviews</span>
+                                                    <span class="reviews__summary--caption">Based on {{$product->reviews()->count() ?? 0}} reviews</span>
                                                 </div>
-                                                <a class="actions__newreviews--btn primary__btn" href="#writereview">Write A Review</a>
+                                                <a class="actions__newreviews--btn primary__btn" >Write A Review</a>
                                             </div>
-                                            <div class="reviews__comment--area">
-                                                <div class="reviews__comment--list d-flex">
-                                                    <div class="reviews__comment--thumbnail">
-                                                        <img src="{{asset('newtheme/assets/img/other/comment-thumb1.webp')}}" alt="comment-thumbnail">
-                                                    </div>
-                                                    <div class="reviews__comment--content">
-                                                        <h4 class="reviews__comment--content__title">Richard Smith</h4>
-                                                        <div class="rating reviews__comment--rating d-flex mb-5">
-                                                            <i class="fas fa-star fa-sm mr-2 text-yellow-400"></i>
-                                                            <i class="fas fa-star fa-sm mr-2 text-yellow-400"></i>
-                                                            <i class="fas fa-star fa-sm mr-2 text-yellow-400"></i>
-                                                            <i class="fas fa-star fa-sm mr-2 text-yellow-400"></i>
-                                                            <i class="far fa-star fa-sm mr-2 text-yellow-400"></i>
-                                                        </div>
-                                                        <p class="reviews__comment--content__desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos ex repellat officiis neque. Veniam, rem nesciunt. Assumenda distinctio, autem error repellat eveniet ratione dolor facilis accusantium amet pariatur, non eius!</p>
-                                                        <span class="reviews__comment--content__date">January 11, 2022</span>
-                                                    </div>
-                                                </div>
-                                                <div class="reviews__comment--list margin__left d-flex">
-                                                    <div class="reviews__comment--thumbnail">
-                                                        <img src="{{asset('newtheme/assets/img/other/comment-thumb2.webp')}}" alt="comment-thumbnail">
-                                                    </div>
-                                                    <div class="reviews__comment--content">
-                                                        <h4 class="reviews__comment--content__title">Laura Johnson</h4>
-                                                        <div class="rating reviews__comment--rating d-flex mb-5">
-                                                            <i class="fas fa-star fa-sm mr-2 text-yellow-400"></i>
-                                                            <i class="fas fa-star fa-sm mr-2 text-yellow-400"></i>
-                                                            <i class="fas fa-star fa-sm mr-2 text-yellow-400"></i>
-                                                            <i class="fas fa-star fa-sm mr-2 text-yellow-400"></i>
-                                                            <i class="far fa-star fa-sm mr-2 text-yellow-400"></i>
-                                                        </div>
-                                                        <p class="reviews__comment--content__desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos ex repellat officiis neque. Veniam, rem nesciunt. Assumenda distinctio, autem error repellat eveniet ratione dolor facilis accusantium amet pariatur, non eius!</p>
-                                                        <span class="reviews__comment--content__date">January 11, 2022</span>
-                                                        <div class="text-right">
-                                                            <button class="text-red-600">Reply</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="reviews__comment--list d-flex">
-                                                    <div class="reviews__comment--thumbnail">
-                                                        <img src="{{asset('newtheme/assets/img/other/comment-thumb3.webp')}}" alt="comment-thumbnail">
-                                                    </div>
-                                                    <div class="reviews__comment--content">
-                                                        <h4 class="reviews__comment--content__title">Richard Smith</h4>
-                                                        <div class="rating reviews__comment--rating d-flex mb-5">
-                                                            <i class="fas fa-star fa-sm mr-2 text-yellow-400"></i>
-                                                            <i class="fas fa-star fa-sm mr-2 text-yellow-400"></i>
-                                                            <i class="fas fa-star fa-sm mr-2 text-yellow-400"></i>
-                                                            <i class="fas fa-star fa-sm mr-2 text-yellow-400"></i>
-                                                            <i class="far fa-star fa-sm mr-2 text-yellow-400"></i>
-                                                        </div>
-                                                        <p class="reviews__comment--content__desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos ex repellat officiis neque. Veniam, rem nesciunt. Assumenda distinctio, autem error repellat eveniet ratione dolor facilis accusantium amet pariatur, non eius!</p>
-                                                        <span class="reviews__comment--content__date">January 11, 2022</span>
-                                                        <div class="text-right">
-                                                            <button class="text-red-600">Reply</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <!-- replay comment -->
-                                                <div class="reviews__comment--list margin__left flex gap-10">
-                                                    <div class="reviews__comment--thumbnail col-2">
-                                                        <img src="{{asset('newtheme/assets/img/other/comment-thumb2.webp')}}" alt="comment-thumbnail">
-                                                    </div>
-                                                    <div id="writereview" class="reviews__comment--reply__area col-10">
-                                                        <form action="#">
-                                                            <div class="mb-5">
-                                                                <textarea class="reviews__comment--reply__textarea" placeholder="Your Comments...." ></textarea>
-                                                            </div> 
-                                                            <button class="bg-red-600 text-white px-7 py-4 leading-none rounded-lg hover:bg-black transition">SUBMIT</button>
-                                                        </form>   
-                                                    </div> 
-                                                </div>
-
-
-                                            </div>
-                                            <div id="writereview" class="reviews__comment--reply__area">
-                                                <form action="#">
+                                            <div id="writereview" class="reviews__comment--reply__area d-none">
+                                                <form id="ratingFormSubmit" action="{{route('review.store')}}" method="post">
+                                                    @csrf
+                                                    <input type="hidden" name="rating" value="">
+                                                    <input type="hidden" name="product_id" value="{{$product->id}}">
                                                     <h3 class="reviews__comment--reply__title mb-15">Add a review </h3>
                                                     <div class="reviews__ratting d-flex align-items-center mb-20">
                                                         <div class="rating d-flex">
-                                                            <i class="fas fa-star fa-sm mr-2 text-yellow-400"></i>
-                                                            <i class="fas fa-star fa-sm mr-2 text-yellow-400"></i>
-                                                            <i class="fas fa-star fa-sm mr-2 text-yellow-400"></i>
-                                                            <i class="fas fa-star fa-sm mr-2 text-yellow-400"></i>
-                                                            <i class="far fa-star fa-sm mr-2 text-yellow-400"></i>
+                                                            <i class="far fa-star fa-sm mr-2 star-1 review-count" style="color: rgb(250 204 21); cursor: pointer;" id="1"></i>
+                                                            <i class="far fa-star fa-sm mr-2 star-2 review-count" style="color: rgb(250 204 21); cursor: pointer;" id="2"></i>
+                                                            <i class="far fa-star fa-sm mr-2 star-3 review-count" style="color: rgb(250 204 21); cursor: pointer;" id="3"></i>
+                                                            <i class="far fa-star fa-sm mr-2 star-4 review-count" style="color: rgb(250 204 21); cursor: pointer;" id="4"></i>
+                                                            <i class="far fa-star fa-sm mr-2 star-5 review-count" style="color: rgb(250 204 21); cursor: pointer;" id="5"></i>
                                                         </div>
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-12 mb-10">
-                                                            <textarea class="reviews__comment--reply__textarea" placeholder="Your Comments...." ></textarea>
+                                                            <textarea name="content" class="reviews__comment--reply__textarea" placeholder="Your Comments...." required ></textarea>
                                                         </div> 
                                                         <div class="col-lg-6 col-md-6 mb-15">
                                                             <label>
-                                                        <input class="reviews__comment--reply__input" placeholder="Your Name...." type="text">
+                                                        <input class="reviews__comment--reply__input" placeholder="Your Name...." name="name" required value="" type="text">
                                                     </label>
                                                         </div>  
                                                         <div class="col-lg-6 col-md-6 mb-15">
                                                             <label>
-                                                        <input class="reviews__comment--reply__input" placeholder="Your Email...." type="email">
+                                                        <input class="reviews__comment--reply__input" placeholder="Your Email...." name="email"  type="email">
                                                     </label>
                                                         </div>  
                                                     </div>
                                                     <button class="text-white primary__btn" data-hover="Submit" type="submit">SUBMIT</button>
                                                 </form>   
                                             </div> 
+                                            <div class="reviews__comment--area" id="reviews__comment--area">
+                                                @forelse($product->reviews as $review)
+                                                <div class="reviews__comment--list d-flex">
+                                                    <div class="reviews__comment--thumbnail">
+                                                        <p class="user-short-name">
+                                                            {{ltrim($review->name)[0] ?? 'U'}}
+                                                        </p>
+                                                    </div>
+                                                    <div class="reviews__comment--content">
+                                                        <h4 class="reviews__comment--content__title">{{$review->name}}</h4>
+                                                        <div class="rating reviews__comment--rating d-flex mb-5">
+                                                            @for($i = 1 ; $i <= (int)$review->rating; $i++)
+                                                            <i class="fas fa-star fa-sm mr-2" style="color: rgb(250 204 21);"></i>
+                                                            @endfor
+                                                            @for($i = 1 ; $i <= (int) 5 - $review->rating; $i++)
+                                                            <i class="far fa-star fa-sm mr-2" style="color: rgb(250 204 21);"></i>
+                                                            @endfor
+                                                        </div>
+                                                        <p class="reviews__comment--content__desc">{{$review->content}}</p>
+                                                        <span class="reviews__comment--content__date">{{$review->created_at->diffForHumans()}}</span>
+                                                        <div class="text-right">
+                                                            <button class="text-red-600">Reply</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- replay comment -->
+                                                <div class="reviews__comment--list reply-on-review-admin margin__left flex gap-10" style="display: none;">
+                                                    
+                                                    <div id="writereview" class="reviews__comment--reply__area col-10">
+                                                        <form id="ReplyOnReviewForm" action="{{route('review.replay')}}" method="post">
+                                                            @csrf
+                                                            <input type="hidden" name="review_id" value="{{$review->id}}">
+                                                            <div class="mb-5">
+                                                                <textarea class="reviews__comment--reply__textarea" placeholder="Your Reply...." name="content" required></textarea>
+                                                            </div> 
+                                                            <button type="submit" class="bg-red-600 text-white px-7 py-4 leading-none rounded-lg hover:bg-black transition">SUBMIT</button>
+                                                        </form>   
+                                                    </div> 
+                                                </div>
+
+                                                @forelse($review->replys as $reply)
+                                                <div class="reviews__comment--list margin__left d-flex">
+                                                    <div class="reviews__comment--thumbnail">
+                                                        <img src="https://cdn-icons-png.flaticon.com/128/9322/9322043.png" alt="comment-thumbnail">
+                                                    </div>
+                                                    <div class="reviews__comment--content">
+                                                        <h4 class="reviews__comment--content__title">Admin</h4>
+                                                        
+                                                        <p class="reviews__comment--content__desc">{{$reply->content}}</p>
+                                                        <span class="reviews__comment--content__date">{{$reply->created_at->diffForHumans()}}</span>
+                                                        
+                                                    </div>
+                                                </div>
+                                                @empty
+                                                @endforelse
+
+                                                @empty
+                                                @endforelse
+                                                
+                                                
+
+                                            </div>
+                                            
                                         </div>    
                                     </div>
                                     
@@ -335,7 +327,7 @@
                             <div class="swiper-slide">
                                 <div class="product__items ">
                                     <div class="product__items--thumbnail">
-                                        <a class="product__items--link" href="{{route('allproducts.show',[$product->id])}}">
+                                        <a class="product__items--link" href="{{route('allproducts.show',[$similar_product->slug])}}">
                                             <img class="product__items--img product__primary--img" src="{{$similar_product->images[0]->url}}" alt="product-img">
                                             <img class="product__items--img product__secondary--img" src="{{$similar_product->images[1]->url}}" alt="product-img">
                                         </a>
@@ -424,27 +416,83 @@
 
 @push('script')
 <script type="text/javascript">
-    const addToCart = (id)=>{
-        var quantity = $('.show-product-quantity').val();
-        var product_id = id;
-        var add_or_update_product = true;
+    
+
+    $(document).on('mouseenter', '.review-count', function () {
+    var rating = $(this).attr('id');
+    addrating(rating);
+    });
+    $(document).on('click', '.review-count', function () {
+    var rating = $(this).attr('id');
+    addrating(rating);
+    });
+    function addrating(rating)
+    {   
+        var rating = rating
+        $("input[name~='rating']").val(rating)
+        $('.review-count').removeClass('fas').addClass('far');
+        for(let i = 1 ; i <= rating ; i++)
+        {
+            $('.star-'+i).addClass('fas').removeClass('far')
+        }
+    }
+    $(document).on('submit','#ratingFormSubmit',function(e){
+
+        e.preventDefault();
+        successmsg('Review Submit Successfully')
+        var $this = $(this);
+        $(':input[type="submit"]').prop('disabled', true);
         $.ajax({
 
-            type : "get",
-            url : "{{url('/add-to-cart')}}",
-            data : {product_id : product_id, quantity : quantity ,add_or_update_product :add_or_update_product},
+            type : $this.attr('method'),
+            url : $this.attr('action'),
+            data: $this.serializeArray(),
+            dataType: $this.data('type'),
 
             success:function(data)
             {   
-                $('.mini-cart-append').empty()
-                $('.mini-cart-append').html(data.renderHTML)
-                $('.offCanvas__minicart').addClass('active')
-                $('.cart-items__count').html(data.total_products_count)
-                
+                $('.reviews__comment--reply__area').addClass('d-none')
+                $(':input[type="submit"]').prop('disabled', false);
+                $('#ratingFormSubmit')[0].reset();
+                $('.reviews__comment--area').html(data.renderHTML)
             }
-
         })
-    }
+    })
+
+    $(document).on('submit','#ReplyOnReviewForm',function(e){
+
+        e.preventDefault();
+        var $this = $(this);
+        successmsg('Reply Submit Successfully')
+        $(':input[type="submit"]').prop('disabled', true);
+        $.ajax({
+
+            type : $this.attr('method'),
+            url : $this.attr('action'),
+            data: $this.serializeArray(),
+            dataType: $this.data('type'),
+
+            success:function(data)
+            {   
+                $('.reply-on-review-admin').hide()
+                $(':input[type="submit"]').prop('disabled', false);
+                $('#ReplyOnReviewForm')[0].reset();
+                $('.reviews__comment--area').html(data.renderHTML)
+            }
+        })
+    })
+
+    $('.actions__newreviews--btn').click(function(){
+
+        $('.reviews__comment--reply__area').removeClass('d-none')
+    })
+    $(document).on('click','.text-red-600',function(){
+
+        /*$(this).parents('.reviews__comment--area').sibilings('.reply-on-review-admin').removeClass('d-none')*/
+        $(this).parents('.reviews__comment--list').next().toggle()
+    })
+
+    
 
 </script>
 @endpush

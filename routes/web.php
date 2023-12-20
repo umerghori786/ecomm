@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ImageController;
+use App\Http\Controllers\Admin\ProductReviewController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\ProductController as UserProductController;
@@ -19,6 +20,7 @@ use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\MessageController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\ContactUsController;
+use App\Http\Controllers\ReviewController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -46,7 +48,9 @@ Route::get('/contacts',[SettingController::class,'contacts'])->name('contacts.in
 
 Route::resources([
     'contactus' => ContactUsController::class,
+    'review' => ReviewController::class
 ]);
+Route::post('review-replay',[ReviewController::class,'reviewReply'])->name('review.replay');
 // Route::resource('/contactus',ContactUsController::class)->only([
 //     'store'
 // ]);
@@ -91,6 +95,7 @@ Route::middleware('admin')->prefix('user')->group(function(){
         'contact' => ContactController::class,
         'message' => MessageController::class,
         'slider' => SliderController::class,
+        'reviews' => ProductReviewController::class
     ]);
     Route::get('/showsub_category',[ProductController::class,'showSubCategory']);
 });

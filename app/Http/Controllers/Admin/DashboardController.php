@@ -8,6 +8,7 @@ use App\Models\{
     SubCategory,
     Category,
     ContactUs,
+    Review
 };
 
 class DashboardController extends Controller
@@ -21,6 +22,7 @@ class DashboardController extends Controller
         $count_category = Category::count();
         $count_sub_category = SubCategory::count();
         $count_contactus = ContactUs::count();
-        return view('backend.home',compact('count_category','count_sub_category','count_contactus'));
+        $count_reviews = Review::count();
+        return view('backend.home',compact('count_category','count_sub_category','count_contactus','count_reviews'));
     }
 }

@@ -83,14 +83,12 @@ class ProductController extends Controller
     public function show($slug)
     {
        
-        // dd($slug);
-        $product = Product::with(['images','subcategory.category'])->where('slug',$slug)->first();
-        // dd($product);
+        $product = Product::with(['images','subcategory.category','reviews'])->where('slug',$slug)->first();
         $similar_products = Product::query()
                             ->where('sub_category_id', $product->sub_category_id)->has('images')->with(['images','subcategory'])->latest()->get()->except([$product->slug]);
-                            // dd($similar_products);
+                            
         return view('frontend.products.product',compact('product','similar_products'));
-       // dd($similar_products);
+       
     }
 
     /**

@@ -14,13 +14,41 @@
 
     <!-- Plugin css -->
     <!-- <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css"> -->
-    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- tailwind css -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    
 
     <!-- Custom Style CSS -->
     <link rel="stylesheet" href="{{asset('newtheme/assets/css/style.css')}}">
+    <style type="text/css">
+        .swal2-popup {
+            font-size: 18px !important;
+        }
+
+        .swal2-styled {
+            padding: 10px 32px 10px 32px !important;
+            margin: 20px 10px 0px 10px !important;
+            width: 170px;
+            height: 45px;
+        }
+        .colored-toast.swal2-icon-success {
+          background-color: #a5dc86 !important;
+        }
+        .user-short-name {
+            height: 50px;
+            width: 50px;
+            background-color: #2d2f31;
+            border-radius: 50%;
+            line-height: 50px;
+            text-align: center;
+            color: #fff;
+            font-weight: 900;
+            font-size: 20px;
+            text-transform: uppercase;
+            margin-right: 20px;
+        }
+    </style>
 </head>
 
 

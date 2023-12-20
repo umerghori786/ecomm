@@ -98,6 +98,30 @@
 			}
 		})
 	}
+	function successmsg(msg)
+	{
+	    var msg = msg;
+	    const Toast = Swal.mixin({
+	      toast: true,
+	      width: 400,
+	      position: 'center',
+	      showConfirmButton: false,
+	      timer: 3000,
+	      timerProgressBar: true,
+	      customClass: {
+	        popup: 'colored-toast',
+	      },
+	      
+	    })
+
+	    ;(async () => {
+	      await Toast.fire({
+	        icon: 'success',
+	        title: msg,
+	      })
+	      
+	    })()
+	}
 </script>
 </body>
 </html>
