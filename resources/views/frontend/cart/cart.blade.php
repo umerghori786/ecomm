@@ -27,7 +27,7 @@
     <section class="cart__section section--padding">
         <div class="container-fluid">
             <div class="cart__section--inner">
-                <form action="#"> 
+                
                     <h2 class="cart__title mb-40">Shopping Cart</h2>
                     <div class="row">
                         <div class="col-lg-8">
@@ -85,17 +85,23 @@
                         </div>
                         <div class="col-lg-4">
                             <div class="cart__summary border-radius-10">
-                                <!--
+                                
                                 <div class="coupon__code mb-30">
                                     <h3 class="coupon__code--title">Coupon</h3>
-                                    <p class="coupon__code--desc">Enter your coupon code if you have one.</p>
+                                    <p class="coupon__code--desc">Enter coupon code if you have one.</p>
+                                    <form id="couponForm" method="post" action="{{route('applyCoupon')}}" class="d-flex" >
+                                        @csrf
                                     <div class="coupon__code--field d-flex">
+                                        
                                         <label>
-                                            <input class="coupon__code--field__input border-radius-5" placeholder="Coupon code" type="text">
+                                            <input type="hidden" name="cart_total" value="{{$cart_total}}">
+                                            <input class="coupon__code--field__input border-radius-5" placeholder="Coupon code" name="coupon_code" required type="text">
                                         </label>
                                         <button class="coupon__code--field__btn primary__btn" type="submit">Apply Coupon</button>
+                                        </form>
                                     </div>
                                 </div>
+                                <!--
                                 <div class="cart__note mb-20">
                                     <h3 class="cart__note--title">Note</h3>
                                     <p class="cart__note--desc">Add special instructions for your seller...</p>
@@ -110,8 +116,16 @@
                                                 <td class="cart__summary--amount text-right update-cart-new-total">${{number_format((float)$cart_total, 2, '.', '')}}</td>
                                             </tr>
                                             <tr class="cart__summary--total__list">
+                                                <td class="checkout__total--title text-left">Discount</td>
+
+
+                                                <td class="cart__summary--amount text-right update-cart-new-total">$<span class="coupon_valid_discount">(0.00)</span></td>
+
+                                                
+                                            </tr>
+                                            <tr class="cart__summary--total__list">
                                                 <td class="cart__summary--total__title text-left">GRAND TOTAL</td>
-                                                <td class="cart__summary--amount text-right update-cart-new-total">${{number_format((float)$cart_total, 2, '.', '')}}</td>
+                                                <td class="cart__summary--amount text-right update-cart-new-total">$<span class="update-cart-new-grandtotal">{{number_format((float)$cart_total, 2, '.', '')}}</span></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -126,7 +140,7 @@
                             </div> 
                         </div>
                     </div> 
-                </form> 
+                
             </div>
         </div>     
     </section>
@@ -269,8 +283,39 @@
 
         })
     })
+
+    $(document).on('submit','#couponForm',function(e){
+
+        e.preventDefault()
+        var $this = $(this);
+        $(':input[type="submit"]').prop('disabled', true);
+
+        $.ajax({
+
+            type : $this.attr('method'),
+            url : $this.attr('action'),
+            data : $this.serializeArray(),
+            dataType: $this.data('type'),
+
+            success:function(data)
+            {   
+                $(':input[type="submit"]').prop('disabled', false);
+                $('#couponForm')[0].reset();
+                if(data.success)
+                {   
+                    successmsg('Coupon Applied Successfully')
+                    $('#couponForm').hide()
+                    $('.coupon_valid_discount').html(`(${data.discount})`)
+                    $('.update-cart-new-grandtotal').html(data.newcart_total)
+                }else{
+                    successmsg('Coupon Expire or Not Found')
+                }
+            }
+        })
+    })
     
 </script>
+
 
 @endpush
 @endsection

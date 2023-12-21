@@ -16,10 +16,10 @@
                             <div class="checkout__content--step section__contact--information">
                                 <div class="section__header checkout__section--header d-flex align-items-center justify-content-between mb-25">
                                     <h2 class="section__header--title h3">Contact information</h2>
-                                    <p class="layout__flex--item">
+                                    <!--<p class="layout__flex--item">
                                         Already have an account?
                                         <a class="layout__flex--item__link" href="login.html">Log in</a>  
-                                    </p>
+                                    </p>-->
                                 </div>
                                 <div class="customer__information">
                                     <div class="checkout__email--phone mb-12">
@@ -215,14 +215,7 @@
                                 </tbody>
                             </table> 
                         </div>
-                        <div class="checkout__discount--code">
-                            <form class="d-flex" action="#">
-                                <label>
-                                    <input class="checkout__discount--code__input--field border-radius-5" placeholder="Gift card or discount code"  type="text">
-                                </label>
-                                <button class="checkout__discount--code__btn primary__btn border-radius-5" type="submit">Apply</button>
-                            </form>
-                        </div>
+                        
                         <div class="checkout__total">
                             <table class="checkout__total--table">
                                 <tbody class="checkout__total--body">
@@ -245,12 +238,19 @@
 
                                         
                                     </tr>
+                                    <tr class="checkout__total--items">
+                                        <td class="checkout__total--title text-left">Discount</td>
+
+                                        <td class="checkout__total--calculated__text text-right">$<span class="coupon_valid_discount">({{session('newcart_discount') ? session('newcart_discount') : '0.00'}})</span></td>
+
+                                        
+                                    </tr>
                                 </tbody>
                                 <tfoot class="checkout__total--footer">
                                     <tr class="checkout__total--footer__items">
                                         <td class="checkout__total--footer__title checkout__total--footer__list text-left">Grand Total </td>
-                                        
-                                        <td class="checkout__total--footer__amount checkout__total--footer__list text-right cart__summary--amount text-right update-cart-new-total">${{number_format((float)$cart_total, 2, '.', '')}}</td>
+                                        <?php $grand_total = session('newcart_total') ? session('newcart_total') :  number_format((float)$cart_total, 2, '.', '') ?>
+                                        <td class="checkout__total--footer__amount checkout__total--footer__list text-right cart__summary--amount text-right update-cart-new-total ">$<span class="update-cart-new-grandtotal">{{$grand_total}}</span></td>
                                     </tr>
                                 </tfoot>
                             </table>
@@ -274,5 +274,7 @@
 
     
 </main>
+
+
 
 @endsection

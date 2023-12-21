@@ -81,6 +81,7 @@ Route::controller(WishlistController::class)->group(function(){
 /*checkout routes*/
 Route::controller(CheckoutController::class)->group(function(){
     Route::get('/checkout'     ,  'index');
+    Route::post('/apply-coupon',   'applyCoupon')->name('applyCoupon');
 });
 /*end*/
 
