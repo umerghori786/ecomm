@@ -21,6 +21,7 @@ use App\Http\Controllers\Admin\MessageController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\CheckoutController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -76,6 +77,10 @@ Route::controller(WishlistController::class)->group(function(){
     Route::get('/add-to-wishlist'    , 'addToWishlist');
     Route::get('/show-wishlist'      , 'showWishlist');
     Route::get('/delete-from-wishlist' ,'destroy');
+});
+/*checkout routes*/
+Route::controller(CheckoutController::class)->group(function(){
+    Route::get('/checkout'     ,  'index');
 });
 /*end*/
 

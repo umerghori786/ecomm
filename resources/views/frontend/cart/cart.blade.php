@@ -85,6 +85,7 @@
                         </div>
                         <div class="col-lg-4">
                             <div class="cart__summary border-radius-10">
+                                <!--
                                 <div class="coupon__code mb-30">
                                     <h3 class="coupon__code--title">Coupon</h3>
                                     <p class="coupon__code--desc">Enter your coupon code if you have one.</p>
@@ -100,6 +101,7 @@
                                     <p class="cart__note--desc">Add special instructions for your seller...</p>
                                     <textarea class="cart__note--textarea border-radius-5"></textarea>
                                 </div>
+                                -->
                                 <div class="cart__summary--total mb-20">
                                     <table class="cart__summary--total__table">
                                         <tbody>
@@ -117,8 +119,8 @@
                                 <div class="cart__summary--footer">
                                     <p class="cart__summary--footer__desc">Shipping & taxes calculated at checkout</p>
                                     <ul class="d-flex justify-content-between">
-                                        <li><button class="cart__summary--footer__btn primary__btn cart" type="submit">Update Cart</button></li>
-                                        <li><a class="cart__summary--footer__btn primary__btn checkout" href="checkout.html">Check Out</a></li>
+                                        <!--<li><button class="cart__summary--footer__btn primary__btn cart" type="submit">Update Cart</button></li> -->
+                                        <li><a class="cart__summary--footer__btn primary__btn checkout" href="{{url('/checkout')}}">Check Out</a></li>
                                     </ul>
                                 </div>
                             </div> 

@@ -37,11 +37,11 @@
         <td>{{$product->strike_price}}</td>
         <td>{{$product->discount_price}}</td>
         <td>
-          <form action="{{route('products.destroy',[$product->id])}}" method="post" id="delete-form">
+          <form action="{{route('products.destroy',[$product->id])}}" method="post" id="delete-form" >
             @csrf
             @method('DELETE')
           <a href="{{route('products.edit',[$product->id])}}"><i class="fas fa-edit" style="color: #644141;"></i></a>
-          <button type="submit"><i class="fa fa-trash" style="color:#644141;" onclick="return confirmation();"></i></button>
+          <span onclick="return confirmation();"><button type="submit"><i class="fa fa-trash" style="color:#644141;" ></i></button></span>
           <a href="{{route('images.index',['product_id'=>$product->id])}}"><i class="fas fa-image" style="color: #644141;"></i></a>
           </form>
         </td>

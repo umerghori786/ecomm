@@ -382,12 +382,12 @@
                 </div>
             </div>
             <div class="minicart__conditions text-center">
-                <input class="minicart__conditions--input" id="accept" type="checkbox">
+                <input class="minicart__conditions--input" id="accept" type="checkbox" checked>
                 <label class="minicart__conditions--label" for="accept">I agree with the <a class="minicart__conditions--link" href="privacy-policy.html">Privacy And Policy</a></label>
             </div>
             <div class="minicart__button d-flex justify-content-center">
-                <a class="primary__btn minicart__button--link" href="cart.html">View cart</a>
-                <a class="primary__btn minicart__button--link" href="checkout.html">Checkout</a>
+                <a class="primary__btn minicart__button--link" href="{{url('/show-cart')}}">View cart</a>
+                <a class="primary__btn minicart__button--link" href="{{url('/checkout')}}">Checkout</a>
             </div>
             </div>
         </div>

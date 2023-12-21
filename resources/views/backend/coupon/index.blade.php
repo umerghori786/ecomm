@@ -19,8 +19,8 @@
     <thead>
       <tr>
         <th>Sr no</th>
-        <th>Name</th>
-        <th>Title</th>
+        
+        <th>Code</th>
         <th>Percentage</th>
         <th>Action</th>
       </tr>
@@ -30,11 +30,18 @@
       @foreach($coupon as $coupon)
       <tr>
         <td>{{$i}}</td>
-        <td>{{$coupon->user->name}}</td>
+        
         <td>{{$coupon->title}}</td>
-        <td>{{$coupon->percentage}}</td>
+        <td>{{number_format($coupon->percentage)}} %</td>
         <td>
-            <a href="{{route('coupon.edit',[$coupon->id])}}"><i class="fas fa-edit" style="color: #644141;"></i></a>
+          <form action="{{route('coupon.destroy',[$coupon->id])}}" method="post" id="delete-form" >
+            @csrf
+            @method('DELETE')
+          <a href="{{route('coupon.edit',[$coupon->id])}}"><i class="fas fa-edit" style="color: #644141;"></i></a>
+          <span onclick="return confirmation();"><button type="submit"><i class="fa fa-trash" style="color:#644141;" ></i></button></span>
+          
+          </form>
+            
         </td>
       </tr>
       @php $i++ @endphp

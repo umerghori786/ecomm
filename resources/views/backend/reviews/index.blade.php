@@ -39,11 +39,11 @@
         <td>{{$review->content}}</td>
         <td>@if(count($review->replys) == 0) <p class="alert">No</p> @else <div class="spinner-grow spinner-grow-sm" style="margin-left: 6px; margin-bottom: 2px; color: #2e6da5 !important"></div> @endif</td>
         <td>
-          <form action="{{route('reviews.destroy',[$review->id])}}" method="post" id="delete-form">
+          <form action="{{route('reviews.destroy',[$review->id])}}" method="post" id="delete-form" >
             @csrf
             @method('DELETE')
           <a href="{{route('allproducts.show',[$review->reviewable->slug])}}" target="_blank"><i class="fas fa-eye" style="color: #644141;"></i></a>
-          <button type="submit"><i class="fa fa-trash" style="color:#644141;" onclick="return confirmation();"></i></button>
+          <span onclick="return confirmation();"><button type="submit"><i class="fa fa-trash" style="color:#644141;" ></i></button></span>
           
           </form>
         </td>

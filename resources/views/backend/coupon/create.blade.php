@@ -20,8 +20,8 @@
 
                         <div class="row justify-content-center">
                             <div class="col-12 col-lg-6 form-group">
-                                {!! Form::label('title', 'Title'.' *', ['class' => 'control-label']) !!}
-                                {!! Form::text('title', old('title'), ['class' => 'form-control', 'placeholder' => 'title', 'required' => true]) !!}
+                                {!! Form::label('Code', 'Code'.' *', ['class' => 'control-label']) !!}
+                                {!! Form::text('title', old('title'), ['class' => 'form-control', 'placeholder' => 'coupon code', 'required' => true]) !!}
                             </div>
                         </div>
 
