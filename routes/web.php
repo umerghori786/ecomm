@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ImageController;
 use App\Http\Controllers\Admin\ProductReviewController;
+use App\Http\Controllers\Admin\GeneralSettingController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\ProductController as UserProductController;
@@ -104,6 +105,12 @@ Route::middleware('admin')->prefix('user')->group(function(){
         'reviews' => ProductReviewController::class
     ]);
     Route::get('/showsub_category',[ProductController::class,'showSubCategory']);
+
+    //genereal setting routes
+    Route::controller(GeneralSettingController::class)->group(function(){
+        Route::get('/settings/general'       , 'getGeneralSettings')->name('admin.getGeneralSettings');
+        Route::post('/settings/general'       , 'saveGeneralSettings');
+    });
 });
 
 require __DIR__.'/auth.php';

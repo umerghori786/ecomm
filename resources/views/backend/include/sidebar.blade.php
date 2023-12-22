@@ -52,6 +52,7 @@
 <span>Setting</span>
 </a>
 <ul>
+<li><a  href="{{url('user/settings/general')}}">General setting</a></li>	
 <li><a  href="{{route('logos.index')}}">Logo</a></li>
 <li><a  href="{{route('slider.index')}}">Slider</a></li>
 <li><a  href="{{route('privacy.index')}}">Privacy Policy</a></li>

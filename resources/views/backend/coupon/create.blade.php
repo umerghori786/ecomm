@@ -12,10 +12,11 @@
                         </div>
                         
                     </div>
+                    
                     <div class="mt-5">
                     <form method="POST" id="dynamic-form" action="{{ route('coupon.store') }}" enctype="multipart/form-data">
                     @csrf
-                        <!-- {!! Form::open(['method' => 'POST', 'route' => ['question.store'], 'files' => true,]) !!} -->
+                        
                         <div id="input-fields">
 
                         <div class="row justify-content-center">
@@ -40,7 +41,7 @@
                             </div>
                         </div>
                         </form>
-                        <!-- {!! Form::close() !!} -->
+                        
                     </div>
                     @endsection
                     
