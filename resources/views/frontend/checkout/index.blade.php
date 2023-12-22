@@ -207,7 +207,7 @@
                                             </div>
                                         </td>
                                         <td class="cart__table--body__list">
-                                            <span class="cart__price">${{number_format($cart['quantity'] * $cart['discount_price'] ?? 0 ,2)}}</span>
+                                            <span class="cart__price">{{config('app.currency')}}{{number_format($cart['quantity'] * $cart['discount_price'] ?? 0 ,2)}}</span>
                                         </td>
                                     </tr>
                                     @empty
@@ -222,26 +222,20 @@
                                     <tr class="checkout__total--items">
                                         <td class="checkout__total--title text-left">Subtotal </td>
                                         <!--<td class="checkout__total--amount text-right">$860.00</td> -->
-                                        <td class="cart__summary--amount checkout__total--amount text-right text-right update-cart-new-total">${{number_format((float)$cart_total, 2, '.', '')}}</td>
+                                        <td class="cart__summary--amount checkout__total--amount text-right text-right update-cart-new-total">{{config('app.currency')}}{{number_format((float)$cart_total, 2, '.', '')}}</td>
                                     </tr>
                                     <tr class="checkout__total--items">
                                         <td class="checkout__total--title text-left">Shipping</td>
 
-                                        <td class="checkout__total--calculated__text text-right">$0.00</td>
+                                        <td class="checkout__total--calculated__text text-right">{{config('app.currency')}}0.00</td>
 
 
                                     </tr>
-                                    <tr class="checkout__total--items">
-                                        <td class="checkout__total--title text-left">Taxes</td>
-
-                                        <td class="checkout__total--calculated__text text-right">$0.00</td>
-
-                                        
-                                    </tr>
+                                    
                                     <tr class="checkout__total--items">
                                         <td class="checkout__total--title text-left">Discount</td>
 
-                                        <td class="checkout__total--calculated__text text-right">$<span class="coupon_valid_discount">({{session('newcart_discount') ? session('newcart_discount') : '0.00'}})</span></td>
+                                        <td class="checkout__total--calculated__text text-right">{{config('app.currency')}}<span class="coupon_valid_discount">({{session('newcart_discount') ? session('newcart_discount') : '0.00'}})</span></td>
 
                                         
                                     </tr>
@@ -250,7 +244,7 @@
                                     <tr class="checkout__total--footer__items">
                                         <td class="checkout__total--footer__title checkout__total--footer__list text-left">Grand Total </td>
                                         <?php $grand_total = session('newcart_total') ? session('newcart_total') :  number_format((float)$cart_total, 2, '.', '') ?>
-                                        <td class="checkout__total--footer__amount checkout__total--footer__list text-right cart__summary--amount text-right update-cart-new-total ">$<span class="update-cart-new-grandtotal">{{$grand_total}}</span></td>
+                                        <td class="checkout__total--footer__amount checkout__total--footer__list text-right cart__summary--amount text-right update-cart-new-total ">{{config('app.currency')}}<span class="update-cart-new-grandtotal">{{$grand_total}}</span></td>
                                     </tr>
                                 </tfoot>
                             </table>
