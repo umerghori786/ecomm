@@ -4,7 +4,7 @@
     <meta name="description" content="Morden Bootstrap HTML5 Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
-        
+      
     <!-- ======= All CSS Plugins here ======== -->
     <link rel="stylesheet" href="{{asset('newtheme/assets/css/plugins/swiper-bundle.min.css')}}">
     <link rel="stylesheet" href="{{asset('newtheme/assets/css/plugins/glightbox.min.css')}}">
@@ -49,6 +49,8 @@
             margin-right: 20px;
         }
     </style>
+
+    <script  type="text/javascript" src="https://js.stripe.com/v3/"></script>  
 </head>
 
 

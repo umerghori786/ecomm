@@ -28,6 +28,18 @@
 
 </ul>
 </li>
+
+<li class="mm-active">
+<a class="has-arrow" href="#" aria-expanded="false">
+<img src="{{asset('dashboard/img/menu-icon/1.svg')}}" alt="">
+<span>Orders</span>
+</a>
+<ul>
+<li><a  href="{{route('order.index')}}">Orders</a></li>
+</ul>
+</li>
+
+
 <li class="mm-active">
 <a class="has-arrow" href="#" aria-expanded="false">
 <img src="{{asset('dashboard/img/menu-icon/1.svg')}}" alt="">

@@ -12,176 +12,89 @@
             <div class="row">
                 <div class="col-lg-7 col-md-6">
                     <div class="main checkout__mian">
-                        <form action="#">
+                        <form method="post" action="{{route('stripeCheckoutCharge')}}" id="payment-form">
+                                @csrf
                             <div class="checkout__content--step section__contact--information">
                                 <div class="section__header checkout__section--header d-flex align-items-center justify-content-between mb-25">
                                     <h2 class="section__header--title h3">Contact information</h2>
-                                    <!--<p class="layout__flex--item">
-                                        Already have an account?
-                                        <a class="layout__flex--item__link" href="login.html">Log in</a>  
-                                    </p>-->
+                                    
                                 </div>
                                 <div class="customer__information">
+
                                     <div class="checkout__email--phone mb-12">
-                                        <input class="checkout__input--field border-radius-5" placeholder="Email or mobile phone mumber"  type="text">
+                                        <label class="checkout__input--label mb-5" for="input1">Email <span class="checkout__input--label__star">*</span></label>
+                                        <input class="checkout__input--field border-radius-5" placeholder="Email" required type="email" name="email">
                                     </div>
-                                    <div class="checkout__checkbox">
-                                        <input class="checkout__checkbox--input" id="check1" type="checkbox">
-                                        <span class="checkout__checkbox--checkmark"></span>
-                                        <label class="checkout__checkbox--label" for="check1">
-                                            Email me with news and offers</label>
+                                    <div class="checkout__email--phone mb-12">
+                                        <label class="checkout__input--label mb-5" for="input1">Phone Number <span class="checkout__input--label__star">*</span></label>
+                                        <input class="checkout__input--field border-radius-5" placeholder="mobile phone number" required type="text" name="phone_no">
                                     </div>
                                 </div>
                             </div>
+
                             <div class="checkout__content--step section__shipping--address">
                                 <div class="section__header mb-25">
-                                    <h2 class="section__header--title h3">Billing Details</h2>
+                                    <h2 class="section__header--title h3">Personal Details</h2>
                                 </div>
                                 <div class="section__shipping--address__content">
                                     <div class="row">
                                         <div class="col-lg-6 col-md-6 mb-20">
                                             <div class="checkout__input--list ">
                                                 <label class="checkout__input--label mb-5" for="input1">Fist Name <span class="checkout__input--label__star">*</span></label>
-                                                <input class="checkout__input--field border-radius-5" placeholder="First name (optional)" id="input1"  type="text">
+                                                <input class="checkout__input--field border-radius-5" placeholder="First name (optional)" required name="first_name" id="input1"  type="text">
                                             </div>
                                         </div>
                                         <div class="col-lg-6 col-md-6 mb-20">
                                             <div class="checkout__input--list">
-                                                <label class="checkout__input--label mb-5" for="input2">Last Name <span class="checkout__input--label__star">*</span></label>
-                                                <input class="checkout__input--field border-radius-5" placeholder="Last name" id="input2"  type="text">
+                                                <label class="checkout__input--label mb-5" for="input2">Last Name </label>
+                                                <input class="checkout__input--field border-radius-5" placeholder="Last name" id="input2" name="last_name"  type="text">
                                             </div>
                                         </div>
-                                        <div class="col-12 mb-20">
-                                            <div class="checkout__input--list">
-                                                <label class="checkout__input--label mb-5" for="input3">Company Name <span class="checkout__input--label__star">*</span></label>
-                                                <input class="checkout__input--field border-radius-5" placeholder="Company (optional)" id="input3" type="text">
-                                            </div>
-                                        </div>
+                                        
                                         <div class="col-12 mb-20">
                                             <div class="checkout__input--list">
                                                 <label class="checkout__input--label mb-5" for="input4">Address <span class="checkout__input--label__star">*</span></label>
-                                                <input class="checkout__input--field border-radius-5" placeholder="Address1" id="input4" type="text">
+                                                <input class="checkout__input--field border-radius-5" placeholder="Address1" required name="address" id="input4" type="text">
                                             </div>
                                         </div>
                                         <div class="col-12 mb-20">
                                             <div class="checkout__input--list">
-                                                <input class="checkout__input--field border-radius-5" placeholder="Apartment, suite, etc. (optional)"  type="text">
+                                                <input class="checkout__input--field border-radius-5" placeholder="Apartment, suite, etc. (optional)" name="apartment_no"  type="text">
                                             </div>
                                         </div>
                                         <div class="col-12 mb-20">
                                             <div class="checkout__input--list">
                                                 <label class="checkout__input--label mb-5" for="input5">Town/City <span class="checkout__input--label__star">*</span></label>
-                                                <input class="checkout__input--field border-radius-5" placeholder="City" id="input5" type="text">
+                                                <input class="checkout__input--field border-radius-5" placeholder="City" id="input5" name="city" required type="text">
                                             </div>
                                         </div>
                                         <div class="col-lg-6 mb-20">
                                             <div class="checkout__input--list">
-                                                <label class="checkout__input--label mb-5" for="country">Country/region <span class="checkout__input--label__star">*</span></label>
-                                                <div class="checkout__input--select select">
-                                                    <select class="checkout__input--select__field border-radius-5" id="country">
-                                                        <option value="1">India</option>
-                                                        <option value="2">United States</option>
-                                                        <option value="3">Netherlands</option>
-                                                        <option value="4">Afghanistan</option>
-                                                        <option value="5">Islands</option>
-                                                        <option value="6">Albania</option>
-                                                        <option value="7">Antigua Barbuda</option>
-                                                    </select>
-                                                </div>
+                                                <label class="checkout__input--label mb-5" for="input5">Country/Region <span class="checkout__input--label__star">*</span></label>
+                                                
+                                                <input class="checkout__input--field border-radius-5" placeholder="Country" id="input5" name="country" required type="text">
+                                                
                                             </div>
                                         </div>
                                         <div class="col-lg-6 mb-20">
                                             <div class="checkout__input--list">
-                                                <label class="checkout__input--label mb-5" for="input6">Postal Code <span class="checkout__input--label__star">*</span></label>
-                                                <input class="checkout__input--field border-radius-5" placeholder="Postal code" id="input6" type="text">
+                                                <label class="checkout__input--label mb-5" for="input6">Postal Code </label>
+                                                <input class="checkout__input--field border-radius-5" placeholder="Postal code" name="postal_code" id="input6" type="text">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <details>
-                                    <summary class="checkout__checkbox mb-20">
-                                        <input class="checkout__checkbox--input" type="checkbox">
-                                        <span class="checkout__checkbox--checkmark"></span>
-                                        <span class="checkout__checkbox--label">Ship to a different address?</span>
-                                    </summary>
-                                    <div class="section__shipping--address__content">
-                                        <div class="row">
-                                            <div class="col-lg-6 col-md-6 mb-20">
-                                                <div class="checkout__input--list ">
-                                                    <label class="checkout__input--label mb-5" for="input7">Fist Name <span class="checkout__input--label__star">*</span></label>
-                                                    <input class="checkout__input--field border-radius-5" placeholder="First name (optional)" id="input7"  type="text">
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 col-md-6 mb-20">
-                                                <div class="checkout__input--list">
-                                                    <label class="checkout__input--label mb-5" for="input8">Last Name <span class="checkout__input--label__star">*</span></label>
-                                                    <input class="checkout__input--field border-radius-5" placeholder="Last name" id="input8"  type="text">
-                                                </div>
-                                            </div>
-                                            <div class="col-12 mb-20">
-                                                <div class="checkout__input--list">
-                                                    <label class="checkout__input--label mb-5" for="input9">Company Name <span class="checkout__input--label__star">*</span></label>
-                                                    <input class="checkout__input--field border-radius-5" placeholder="Company (optional)" id="input9" type="text">
-                                                </div>
-                                            </div>
-                                            <div class="col-12 mb-20">
-                                                <div class="checkout__input--list">
-                                                    <label class="checkout__input--label mb-5" for="input10">Address <span class="checkout__input--label__star">*</span></label>
-                                                    <input class="checkout__input--field border-radius-5" placeholder="Address1" id="input10" type="text">
-                                                </div>
-                                            </div>
-                                            <div class="col-12 mb-20">
-                                                <div class="checkout__input--list">
-                                                    <input class="checkout__input--field border-radius-5" placeholder="Apartment, suite, etc. (optional)"  type="text">
-                                                </div>
-                                            </div>
-                                            <div class="col-12 mb-20">
-                                                <div class="checkout__input--list">
-                                                    <label class="checkout__input--label mb-5" for="input11">Town/City <span class="checkout__input--label__star">*</span></label>
-                                                    <input class="checkout__input--field border-radius-5" placeholder="City" id="input11" type="text">
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 mb-20">
-                                                <div class="checkout__input--list">
-                                                    <label class="checkout__input--label mb-5" for="country2">Country/region <span class="checkout__input--label__star">*</span></label>
-                                                    <div class="checkout__input--select select">
-                                                        <select class="checkout__input--select__field border-radius-5" id="country2">
-                                                            <option value="1">India</option>
-                                                            <option value="2">United States</option>
-                                                            <option value="3">Netherlands</option>
-                                                            <option value="4">Afghanistan</option>
-                                                            <option value="5">Islands</option>
-                                                            <option value="6">Albania</option>
-                                                            <option value="7">Antigua Barbuda</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 mb-20">
-                                                <div class="checkout__input--list">
-                                                    <label class="checkout__input--label mb-5" for="input12">Postal Code <span class="checkout__input--label__star">*</span></label>
-                                                    <input class="checkout__input--field border-radius-5" placeholder="Postal code" id="input12" type="text">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </details>
-                                <div class="checkout__checkbox">
-                                    <input class="checkout__checkbox--input" id="checkbox2" type="checkbox">
-                                    <span class="checkout__checkbox--checkmark"></span>
-                                    <label class="checkout__checkbox--label" for="checkbox2">
-                                        Save this information for next time</label>
-                                </div>
+                                
                             </div>
                             <div class="order-notes mb-20">
-                                <label class="checkout__input--label mb-5" for="order">Order Notes <span class="checkout__input--label__star">*</span></label>
-                               <textarea class="checkout__notes--textarea__field border-radius-5" id="order" placeholder="Notes about your order, e.g. special notes for delivery." spellcheck="false"></textarea>
+                                <label class="checkout__input--label mb-5" for="order">Order Notes </label>
+                               <textarea class="checkout__notes--textarea__field border-radius-5" id="order" placeholder="Notes about your order, e.g. special notes for delivery." spellcheck="false" name="order_note"></textarea>
                             </div>
                             <div class="checkout__content--step__footer d-flex align-items-center">
                                 <a class="continue__shipping--btn primary__btn border-radius-5" href="{{route('allproducts.index')}}">Continue To Shipping</a>
                                 <a class="previous__link--content" href="{{url('/show-cart')}}">Return to cart</a>
                             </div>
-                        </form>
+
                     </div>
                 </div>
                 <div class="col-lg-5 col-md-6">
@@ -243,7 +156,9 @@
                                 <tfoot class="checkout__total--footer">
                                     <tr class="checkout__total--footer__items">
                                         <td class="checkout__total--footer__title checkout__total--footer__list text-left">Grand Total </td>
-                                        <?php $grand_total = session('newcart_total') ? session('newcart_total') :  number_format((float)$cart_total, 2, '.', '') ?>
+                                        <?php $grand_total = session('newcart_total') ? session('newcart_total') :  number_format((float)$cart_total, 2, '.', '');
+                                        request()->session()->put('charged_price', $grand_total);
+                                        ?>
                                         <td class="checkout__total--footer__amount checkout__total--footer__list text-right cart__summary--amount text-right update-cart-new-total ">{{config('app.currency')}}<span class="update-cart-new-grandtotal">{{$grand_total}}</span></td>
                                     </tr>
                                 </tfoot>
@@ -257,7 +172,26 @@
                                 <li class="payment__history--list"><button class="payment__history--link primary__btn" type="submit">Paypal</button></li>
                             </ul>
                         </div>
-                        <button class="checkout__now--btn primary__btn" type="submit">Checkout Now</button>
+                        <div>
+                            
+                            
+                            <label for="" class="mt-3">Card details *</label>
+                            <div class="row mt-3">
+                                <div id="card-element" class="col" style="border: 1px solid #e7e2e2; padding: 10px; margin-left: 14px; margin-right: 10px;">
+                                <!-- A Stripe Element will be inserted here. -->
+                                </div>
+                               
+                                <!-- Used to display form errors. -->
+                                
+                            </div>
+                            <div class="mt-2" id="card-errors" role="alert"></div>
+                            
+                            
+                            
+                        </div>
+                        <button class="checkout__now--btn primary__btn stripe_button" type="submit">Checkout Now</button>
+                        </form>
+                        <a href="{{ route('paypal.payment') }}" class="checkout__now--btn primary__btn stripe_button" type="submit">Checkout With Paypal</a>
                     </aside>
                 </div>
                 
@@ -270,5 +204,8 @@
 </main>
 
 
+<script type="text/javascript">
+    @include('frontend.includes.stripe-script')
+</script>
 
 @endsection

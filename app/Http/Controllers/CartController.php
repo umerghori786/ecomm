@@ -74,11 +74,9 @@ class CartController extends Controller
             }
         }
         
-        /*dd($cart_total);*/
         $products = Product::has('images')->with('images')->latest()->limit(10)->get();        
         $total_products_count = request()->session()->get('cart') ? count(request()->session()->get('cart')) : 0;
         return view('frontend.cart.cart',compact('products','cart_products','cart_total','total_products_count'));
-        //return view('frontend.cart.mini-cart-render',compact('cart_products'));
     }
 
     

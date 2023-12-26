@@ -37,6 +37,8 @@
 </div>
 </div>
 
+
+
 <div class="single_quick_activity d-flex">
 <div class="icon">
 {{-- <img src="{{asset('dashboard/img/icon/wheel.svg')}}" alt=""> --}}
@@ -54,6 +56,16 @@
 <div class="count_content">
 <h3><span class="counter">{{$count_reviews}}</span> </h3>
 <p>Product Reviews</p>
+</div>
+</div>
+
+<div class="single_quick_activity d-flex">
+<div class="icon">
+{{-- <img src="{{asset('dashboard/img/icon/wheel.svg')}}" alt=""> --}}
+</div>
+<div class="count_content">
+<h3><span class="counter">{{$count_orders}}</span> </h3>
+<p>New Orders</p>
 </div>
 </div>
 

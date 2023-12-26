@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ImageController;
 use App\Http\Controllers\Admin\ProductReviewController;
 use App\Http\Controllers\Admin\GeneralSettingController;
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\ProductController as UserProductController;
@@ -23,6 +24,7 @@ use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\PayPalController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -83,6 +85,16 @@ Route::controller(WishlistController::class)->group(function(){
 Route::controller(CheckoutController::class)->group(function(){
     Route::get('/checkout'     ,  'index');
     Route::post('/apply-coupon',   'applyCoupon')->name('applyCoupon');
+    Route::post('/stripe-checkout-charge',   'stripeCheckoutCharge')->name('stripeCheckoutCharge');
+    Route::get('/stripe-checkout-confirm',   'stripeCheckoutConfirm')->name('stripeCheckoutConfirm');
+});
+/*paypal checkout controller*/
+
+Route::controller(PayPalController::class)->group(function(){
+    Route::get('paypal'           ,'index')->name('paypal');
+    Route::get('paypal/payment'   , 'payment')->name('paypal.payment');
+    Route::get('paypal/payment/success'   , 'paymentSuccess')->name('paypal.payment.success');
+    Route::get('paypal/payment/cancel'   , 'paymentCancel')->name('paypal.payment/cancel');
 });
 /*end*/
 
@@ -102,7 +114,8 @@ Route::middleware('admin')->prefix('user')->group(function(){
         'contact' => ContactController::class,
         'message' => MessageController::class,
         'slider' => SliderController::class,
-        'reviews' => ProductReviewController::class
+        'reviews' => ProductReviewController::class,
+        'order'   => OrderController::class
     ]);
     Route::get('/showsub_category',[ProductController::class,'showSubCategory']);
 
