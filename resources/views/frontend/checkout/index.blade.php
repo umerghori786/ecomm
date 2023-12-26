@@ -167,9 +167,9 @@
                         <div class="payment__history mb-30">
                             <h3 class="payment__history--title mb-20">Payment</h3>
                             <ul class="payment__history--inner d-flex">
-                                <li class="payment__history--list"><button class="payment__history--link primary__btn" type="submit">Credit Card</button></li>
-                                <li class="payment__history--list"><button class="payment__history--link primary__btn" type="submit">Bank Transfer</button></li>
-                                <li class="payment__history--list"><button class="payment__history--link primary__btn" type="submit">Paypal</button></li>
+                                <li class="payment__history--list"><a class="payment__history--link primary__btn" type="submit">Credit Card</a></li>
+                                
+                                <li class="payment__history--list"><a class="payment__history--link primary__btn" type="submit">Paypal</a></li>
                             </ul>
                         </div>
                         <div>
@@ -190,8 +190,9 @@
                             
                         </div>
                         <button class="checkout__now--btn primary__btn stripe_button" type="submit">Checkout Now</button>
+                        
                         </form>
-                        <a href="{{ route('paypal.payment') }}" class="checkout__now--btn primary__btn stripe_button" type="submit">Checkout With Paypal</a>
+                        
                     </aside>
                 </div>
                 
