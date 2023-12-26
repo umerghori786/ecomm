@@ -54,7 +54,9 @@ class RegisteredUserController extends Controller
             return redirect()->intended(RouteServiceProvider::HOME);
         }else{
             //
-            dd('you are not authorised');
+            // dd('gaseeb');
+            // return redirect()->route('frontend.home')->with('success','created successfully');
+            return redirect('/new');
         }
     }
 }
