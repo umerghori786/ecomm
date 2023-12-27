@@ -17,7 +17,7 @@
   <table class="table table-striped">
     <thead>
       <tr>
-        <th>Sr No</th>
+        <th>Order No</th>
         <th>Name</th>
         <th>Email</th>
         <th>Order Total</th>
@@ -30,7 +30,7 @@
       @php $i = 1 @endphp
       @forelse($orders as $order)
       <tr>
-        <td>{{$i}}</td>
+        <td>Order CZ-{{$i}}</td>
         <td>{{$order->first_name.' '.$order->last_name}}</td>
         <td>{{$order->email}}</td>
         <td>
@@ -48,11 +48,12 @@
           {{$order->created_at->toDateString()}}
         </td>
         <td>
+
+          <a href="{{route('order.show',[$order->id])}}"  class="btn btn-success" target="_blank">show order</a>
           
-          <a href="{{route('products.edit',[$order->id])}}"><i class="fas fa-eye" style="color: #644141;"></i></a>
-          
-          <a href="{{route('images.index',['product_id'=>$order->id])}}"><i class="fas fa-image" style="color: #644141;"></i></a>
-          
+          @if($order->status == 0)
+          <a href="{{route('order.edit',[$order->id])}}" onclick="return confirmation();" class="btn btn-primary">complete order</a>
+          @endif
         </td>
       </tr>
       @php $i++ @endphp

@@ -1,0 +1,103 @@
+.confirmation-wraper {
+  padding: 100px 0;
+}
+.confirmation-wraper p {
+  margin: 0;
+}
+.confirmation-wraper .left-side {
+  border-right: 1px solid #ccc;
+}
+.confirmation-wraper .left-side .gretings p {
+  font-size: 20px;
+  color: #636973;
+  margin-bottom: 5px;
+}
+.confirmation-wraper .left-side .gretings h3 {
+  font-size: 28px;
+  font-weight: 400;
+  margin: 0;
+}
+.confirmation-wraper .left-side .fa-check {
+  font-size: 25px;
+  color: #5a5f69;
+  height: 70px;
+  width: 70px;
+  line-height: 70px;
+  border-radius: 50%;
+  border: 3px solid #ccc;
+  text-align: center;
+  margin-right: 20px;
+}
+.confirmation-wraper .left-side .single-box {
+  padding: 20px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  max-width: 600px;
+}
+.confirmation-wraper .left-side .single-box h4 {
+  font-size: 28px;
+  font-weight: 400;
+  margin-bottom: 20px;
+  color: #000;
+}
+.confirmation-wraper .left-side .single-box .title {
+  color: #5a5f69;
+  font-size: 20px;
+}
+.confirmation-wraper .left-side .single-box .code {
+  color: #000;
+  font-size: 18px;
+}
+.confirmation-wraper .right-side {
+  padding: 20px 60px;
+}
+.confirmation-wraper .right-side .products {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 20px;
+  align-items: center;
+}
+.confirmation-wraper .right-side .products .image {
+  position: relative;
+}
+.confirmation-wraper .right-side .products .image img {
+  height: 100px;
+  width: 100px;
+  border-radius: 15px;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+.confirmation-wraper .right-side .products .image .quantity {
+  position: absolute;
+  right: -12px;
+  top: -12px;
+  z-index: 99;
+  height: 30px;
+  width: 30px;
+  line-height: 30px;
+  text-align: center;
+  background-color: #838083;
+  color: #fff;
+  font-weight: 600;
+  font-size: 18px;
+  border-radius: 50%;
+}
+.confirmation-wraper .right-side .products .des {
+  font-size: 18px;
+}
+.confirmation-wraper .right-side .products .price {
+  font-size: 20px;
+  text-align: right;
+}
+.confirmation-wraper .right-side .total-title {
+  font-weight: 500;
+  color: #707070;
+}
+
+@media only screen and (max-width: 768px) {
+  body {
+    background-color: red;
+  }
+}/*# sourceMappingURL=style.css.map */

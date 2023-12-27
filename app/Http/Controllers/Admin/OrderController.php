@@ -51,8 +51,10 @@ class OrderController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        return view('backend.order.show');
+    {   
+        $order = Order::with('products.images')->findOrFail($id);
+
+        return view('backend.order.show',compact('order'));
     }
 
     /**
@@ -63,7 +65,10 @@ class OrderController extends Controller
      */
     public function edit($id)
     {
-        //
+        $order = Order::with('products.images')->findOrFail($id);
+        $order->update(['status'=>1]);
+
+        return redirect()->route('order.index')->with('success','order complete successfully');
     }
 
     /**
