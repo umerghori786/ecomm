@@ -28,20 +28,28 @@ class GeneralSettingController extends Controller
     public function saveGeneralSettings(Request $request)
     {   
         
-        if(isset($request->services_stripe_key) && isset($request->services_stripe_secret))
-        {
-            $request->merge(["services.stripe.active"=>1,'services.stripe.key'=>$request->services_stripe_key,'services.stripe.secret'=>$request->services_stripe_secret]);
-        }
-        if(isset($request->paypal_client_id) && isset($request->paypal_secret))
-        {
-            $request->merge(["services.apypal.active"=>1,'paypal.client.id'=>$request->paypal_client_id,'paypal.secret'=>$request->paypal_secret]);
-        }
+        
+        
         configModel::truncate();
         
         foreach ($request->except('_token','services_stripe_key','services_stripe_secret','paypal_client_id','paypal_secret') as $key => $value) {
 
-            $key = str_replace('_', '.', $key);
-            configModel::create(['key'=>$key,'value'=>$value]);
+            if(isset($value))
+            {
+                $key = str_replace('__', '.', $key);
+                $record = configModel::create(['key'=>$key,'value'=>$value]);
+            }
+            
+            
+        }
+        
+        if($request->app__currency)
+        {   
+            if(configModel::where('key','app.currency')->first()){
+                configModel::where('key','app.currency')->first()->delete();
+            }
+            configModel::create(['key'=>'app.currency', 'value'=>explode('__', $request->app__currency)[0]]);
+            configModel::create(['key'=>'setting.currencycode', 'value'=>explode('__', $request->app__currency)[1]]);
         }
         return redirect()->route('admin.getGeneralSettings')->with('success','updated successfully');
 
