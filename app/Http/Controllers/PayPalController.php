@@ -7,7 +7,10 @@ use Illuminate\Http\Request;
 use App\Models\Order;
   
 class PayPalController extends Controller
-{
+{   
+    public $order_id;
+
+
     /**
      * Write code on Method
      *
@@ -41,7 +44,7 @@ class PayPalController extends Controller
             "purchase_units" => [
                 0 => [
                     "amount" => [
-                        "currency_code" => "USD",
+                        "currency_code" => config('setting.currencycode'),
                         "value" => $charged_price
                     ]
                 ]
@@ -57,12 +60,12 @@ class PayPalController extends Controller
             }
   
             return redirect()
-                ->route('cancel.payment')
+                ->route('checkout')
                 ->with('error', 'Something went wrong.');
   
         } else {
             return redirect()
-                ->route('create.payment')
+                ->route('checkout')
                 ->with('error', $response['message'] ?? 'Something went wrong.');
         }
     
@@ -76,7 +79,7 @@ class PayPalController extends Controller
     public function paymentCancel()
     {
         return redirect()
-              ->route('paypal')
+              ->route('checkout')
               ->with('error', $response['message'] ?? 'You have canceled the transaction.');
     }
   
@@ -94,12 +97,18 @@ class PayPalController extends Controller
         
         if (isset($response['status']) && $response['status'] == 'COMPLETED') {
             $this->storeOrder($request->amount, $request->session()->get('reqeustData'));
+
+            $request->session()->put('cart',[]);
+            $request->session()->put('newcart_discount',0);
+            $request->session()->put('newcart_total',0);
+            request()->session()->put('charged_price',0);
+            
             return redirect()
-                ->route('paypal')
+                ->route('orderComplete',$this->order_id)
                 ->with('success', 'Transaction complete.');
         } else {
             return redirect()
-                ->route('paypal')
+                ->route('checkout')
                 ->with('error', $response['message'] ?? 'Something went wrong.');
         }
     }
@@ -111,7 +120,18 @@ class PayPalController extends Controller
     {
         $cart_products = collect(request()->session()->get('cart'));
         $order = Order::create($request);
-        $order->update(['grand_total'=>$amount]);
+        $this->order_id = $order->id;
+
+
+        $cart_total = 0;
+        if(session('cart')){
+            foreach ($cart_products as $key => $product) {
+                
+                $cart_total+= $product['quantity'] * $product['discount_price'];
+            }
+        }
+
+        $order->update(['grand_total'=>$amount,'subtotal'=>$cart_total,'discount'=>session('newcart_discount') ?? 0]);
 
         //order product store
         foreach ($cart_products as $id => $product) {

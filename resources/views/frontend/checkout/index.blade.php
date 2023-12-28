@@ -4,15 +4,18 @@
 
 <main class="main__content_wrapper">
 
-    
+    @if(Session::has('error'))
+        <div class="">{{Session()->get('error')}}</div>
+    @endif
 
     <!-- Start checkout page area -->
     <div class="checkout__page--area section--padding">
         <div class="container">
+
             <div class="row">
                 <div class="col-lg-7 col-md-6">
                     <div class="main checkout__mian">
-                        <form method="post" action="{{route('stripeCheckoutCharge')}}" id="payment-form">
+                        <form method="post" action="{{route('stripeCheckoutCharge')}}" id="payment-form" class="payment-form-submit">
                                 @csrf
                             <div class="checkout__content--step section__contact--information">
                                 <div class="section__header checkout__section--header d-flex align-items-center justify-content-between mb-25">
@@ -41,7 +44,7 @@
                                         <div class="col-lg-6 col-md-6 mb-20">
                                             <div class="checkout__input--list ">
                                                 <label class="checkout__input--label mb-5" for="input1">Fist Name <span class="checkout__input--label__star">*</span></label>
-                                                <input class="checkout__input--field border-radius-5" placeholder="First name (optional)" required name="first_name" id="input1"  type="text">
+                                                <input class="checkout__input--field border-radius-5" placeholder="First name" required name="first_name" id="input1"  type="text">
                                             </div>
                                         </div>
                                         <div class="col-lg-6 col-md-6 mb-20">
@@ -103,15 +106,15 @@
                         <div class="cart__table checkout__product--table">
                             <table class="cart__table--inner">
                                 <tbody class="cart__table--body">
-                                	@forelse($cart_products as $key => $cart)
+                                    @forelse($cart_products as $key => $cart)
                                     <tr class="cart__table--body__items">
                                         <td class="cart__table--body__list">
                                             <div class="product__image two  d-flex align-items-center">
                                                 <div class="product__thumbnail border-radius-5">
-                                                	<a href="product-details.html">
+                                                    <a href="product-details.html">
                                                     <img class="display-block border-radius-5" src="{{$cart['image']}}" alt="cart-product">
                                                     <span class="product__thumbnail--quantity">{{(int)$cart['quantity']}} x {{$cart['discount_price']}}</span>
-                                                	</a>
+                                                    </a>
                                                 </div>
                                                 <div class="product__description">
                                                     <h4 class="product__description--name"><a href="product-details.html">{{$cart['title']}}</a></h4>
@@ -140,7 +143,7 @@
                                     <tr class="checkout__total--items">
                                         <td class="checkout__total--title text-left">Shipping</td>
 
-                                        <td class="checkout__total--calculated__text text-right">{{config('app.currency')}}0.00</td>
+                                        <td class="checkout__total--calculated__text text-right">{{config('app.currency')}}{{config('setting.shipping')}}</td>
 
 
                                     </tr>
@@ -148,7 +151,7 @@
                                     <tr class="checkout__total--items">
                                         <td class="checkout__total--title text-left">Discount</td>
 
-                                        <td class="checkout__total--calculated__text text-right">{{config('app.currency')}}<span class="coupon_valid_discount">({{session('newcart_discount') ? session('newcart_discount') : '0.00'}})</span></td>
+                                        <td class="checkout__total--calculated__text text-right">-({{config('app.currency')}}<span class="coupon_valid_discount">{{session('newcart_discount') ? session('newcart_discount') : '0.00'}}</span>)</td>
 
                                         
                                     </tr>
@@ -156,7 +159,11 @@
                                 <tfoot class="checkout__total--footer">
                                     <tr class="checkout__total--footer__items">
                                         <td class="checkout__total--footer__title checkout__total--footer__list text-left">Grand Total </td>
-                                        <?php $grand_total = session('newcart_total') ? session('newcart_total') :  number_format((float)$cart_total, 2, '.', '');
+                                        <?php 
+                                        
+                                        $grand_total = session('newcart_total') ? session('newcart_total') :  number_format((float)$cart_total, 2, '.', '');
+
+                                        $grand_total = number_format((int)config('setting.shipping') + $grand_total,2);
                                         request()->session()->put('charged_price', $grand_total);
                                         ?>
                                         <td class="checkout__total--footer__amount checkout__total--footer__list text-right cart__summary--amount text-right update-cart-new-total ">{{config('app.currency')}}<span class="update-cart-new-grandtotal">{{$grand_total}}</span></td>
@@ -167,12 +174,12 @@
                         <div class="payment__history mb-30">
                             <h3 class="payment__history--title mb-20">Payment</h3>
                             <ul class="payment__history--inner d-flex">
-                                <li class="payment__history--list"><a class="payment__history--link primary__btn" type="submit">Credit Card</a></li>
+                                <li class="payment__history--list credit_card_payment"><a class="payment__history--link primary__btn " type="submit">Credit Card</a></li>
                                 
-                                <li class="payment__history--list"><a class="payment__history--link primary__btn" type="submit">Paypal</a></li>
+                                <li class="payment__history--list paypal_cart_paypment"><a class="payment__history--link primary__btn " type="submit">Paypal</a></li>
                             </ul>
                         </div>
-                        <div>
+                        <div class="credit_card_payment_field">
                             
                             
                             <label for="" class="mt-3">Card details *</label>
@@ -192,7 +199,8 @@
                         <button class="checkout__now--btn primary__btn stripe_button" type="submit">Checkout Now</button>
                         
                         </form>
-                        
+
+                        <a  class="checkout__now--btn primary__btn paypal_button" type="submit" style="display:none;">Checkout with PayPal</a>
                     </aside>
                 </div>
                 
@@ -207,6 +215,40 @@
 
 <script type="text/javascript">
     @include('frontend.includes.stripe-script')
+
+    $(document).on('click','.credit_card_payment',function(data){
+
+        $(this).addClass('active')
+        $('.paypal_cart_paypment').removeClass('active')
+        $('.paypal_button').hide()
+        $('.stripe_button').show()
+        $('.credit_card_payment_field').show()
+        $('.payment-form-submit').attr('id','payment-form');
+    })
+    $(document).on('click','.paypal_cart_paypment',function(data){
+
+        $(this).addClass('active')
+        $('.credit_card_payment').removeClass('active')
+        $('.stripe_button').hide()
+        $('.credit_card_payment_field').hide()
+        $('.paypal_button').show()
+        $('.payment-form-submit').removeAttr('id');
+    })
+    $(document).on('click','.paypal_button',function(){
+        var data = $('.payment-form-submit').serializeArray()
+        if(data[1].value == '' || data[2].value == '' || data[3].value == '' || data[5].value == '' || data[7].value == '' || data[8].value == '')
+        {
+            successmsg('fields with * are required!')
+        }else{
+
+            $(this).attr("disabled", true )
+            
+            var url = '{{route('paypal.payment')}}?email='+data[1].value+'&phone_no='+data[2].value+'&first_name='+data[3].value+'&last_name='+data[4].value+'&address='+data[5].value+'&apartment_no='+data[6].value+'&city='+data[7].value+'&country='+data[8].value+'&postal_code='+data[9].value+'&postal_code='+data[10].value;
+            location.href = url;
+
+        }
+    })
+    
 </script>
 
 @endsection

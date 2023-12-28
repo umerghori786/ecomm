@@ -62,7 +62,7 @@
                         </div>
                     </div>
                     <div class="col-md-6 right-side">
-                        @forelse($order->products as $product)
+                    	@forelse($order->products as $product)
                         <div class="products mb-4">
                                 <div class="image">
                                     <p class="quantity">{{$product->pivot->quantity}}</p>

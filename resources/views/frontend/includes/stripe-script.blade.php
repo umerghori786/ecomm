@@ -1,7 +1,7 @@
 
 
 // Create a Stripe client.
-var stripe = Stripe('pk_test_77');
+var stripe = Stripe(`{{config('setting.stripeKey')}}`);
   
 // Create an instance of Elements.
 var elements = stripe.elements();

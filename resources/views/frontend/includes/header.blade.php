@@ -135,7 +135,7 @@
                                     <span class="visually-hidden">Search</span>
                                 </a>
                             </li>
-                            @if(Auth()->user())
+                            {{-- @if(Auth()->user())
                                 <li class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{ Auth()->user()->name }}</a>
                                 <span class="caret"></span></a>
@@ -145,7 +145,7 @@
                             </li>
                             @else
                                 <li><a href="/login">Login</a></li>
-                            @endif
+                            @endif --}}
 
                             <li class="header__account--items d-md-none">
                                 <a class="header__account--btn" href="wishlist.html">

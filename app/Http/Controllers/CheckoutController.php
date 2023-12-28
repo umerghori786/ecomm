@@ -10,11 +10,12 @@ use App\Models\Order;
 class CheckoutController extends Controller
 {
     public $gateway;
+    public $order_id;
     
     public function __construct()
     {
         $this->gateway = Omnipay::create('Stripe\PaymentIntents');
-        $this->gateway->setApiKey('sk_tes_123');
+        $this->gateway->setApiKey(config('setting.stripeSecret'));
     }
     
     /**
@@ -23,7 +24,9 @@ class CheckoutController extends Controller
      * @return Illuminate\Http\Response
      */
     public function index()
-    {
+    {   
+        request()->session()->put('charged_price',0);
+
         $cart_products = collect(request()->session()->get('cart'));
 
         $cart_total = 0;
@@ -97,7 +100,15 @@ class CheckoutController extends Controller
                 $arr_payment_data = $response->getData();
 
                 $this->storeOrder($amount, $request->session()->get('reqeustData'));
-                dd('payment done');
+                
+                $request->session()->put('cart',[]);
+                $request->session()->put('newcart_discount',0);
+                $request->session()->put('newcart_total',0);
+                request()->session()->put('charged_price',0);
+                
+                return redirect()
+                    ->route('orderComplete',$this->order_id)
+                    ->with('success', 'Transaction complete.');
                  
     
                 
@@ -109,7 +120,7 @@ class CheckoutController extends Controller
             }
             else
             {
-                return redirect()->back()->with('message', 'error');
+                return redirect()->back()->with('error', 'Something went wrong.');
             
         }
     }
@@ -134,12 +145,19 @@ class CheckoutController extends Controller
             $email = $arr_payment_data['description'];
             $this->storeOrder($request->cart_amount, $request->session()->get('reqeustData'));
     
-            dd('3d done');
+            $request->session()->put('cart',[]);
+            $request->session()->put('newcart_discount',0);
+            $request->session()->put('newcart_total',0);
+            request()->session()->put('charged_price',0);
+            
+            return redirect()
+                ->route('orderComplete',$this->order_id)
+                ->with('success', 'Transaction complete.');
          
         }
         else
         {
-            return redirect()->back()->with('message', 'error');
+            return redirect()->back()->with('error', 'Something went wrong.');
         }
     }
 
@@ -151,7 +169,18 @@ class CheckoutController extends Controller
     {
         $cart_products = collect(request()->session()->get('cart'));
         $order = Order::create($request);
-        $order->update(['grand_total'=>$amount]);
+        $this->order_id = $order->id;
+
+
+        $cart_total = 0;
+        if(session('cart')){
+            foreach ($cart_products as $key => $product) {
+                
+                $cart_total+= $product['quantity'] * $product['discount_price'];
+            }
+        }
+
+        $order->update(['grand_total'=>$amount,'subtotal'=>$cart_total,'discount'=>session('newcart_discount') ?? 0]);
 
         //order product store
         foreach ($cart_products as $id => $product) {
@@ -159,6 +188,17 @@ class CheckoutController extends Controller
             $order->products()->attach([$id],['quantity'=>$product['quantity'],'price'=>$product['discount_price']]);
         }
         
+    }
+    /**
+     * order complete
+     * 
+     * @return Illuminate\Http\Response
+     */
+    public function orderComplete($id)
+    {
+        $order = Order::with('products.images')->findOrFail($id);
+
+        return view('frontend.checkout.order-complete',compact('order'));
     }
 
 }

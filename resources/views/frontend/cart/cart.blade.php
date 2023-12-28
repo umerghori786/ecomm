@@ -58,7 +58,7 @@
                                                 </div>
                                             </td>
                                             <td class="cart__table--body__list">
-                                                <span class="cart__price">${{$cart['discount_price']}}</span>
+                                                <span class="cart__price">{{config('app.currency')}}{{$cart['discount_price']}}</span>
                                             </td>
                                             <td class="cart__table--body__list update_quantity_parent">
                                                 <div class="quantity__box">
@@ -113,19 +113,19 @@
                                         <tbody>
                                             <tr class="cart__summary--total__list">
                                                 <td class="cart__summary--total__title text-left">SUBTOTAL</td>
-                                                <td class="cart__summary--amount text-right update-cart-new-total">${{number_format((float)$cart_total, 2, '.', '')}}</td>
+                                                <td class="cart__summary--amount text-right update-cart-new-total">{{config('app.currency')}}{{number_format((float)$cart_total, 2, '.', '')}}</td>
                                             </tr>
                                             <tr class="cart__summary--total__list">
                                                 <td class="checkout__total--title text-left">Discount</td>
 
 
-                                                <td class="cart__summary--amount text-right update-cart-new-total">$<span class="coupon_valid_discount">(0.00)</span></td>
+                                                <td class="cart__summary--amount text-right update-cart-new-total">-{{config('app.currency')}}<span class="coupon_valid_discount">(0.00)</span></td>
 
                                                 
                                             </tr>
                                             <tr class="cart__summary--total__list">
                                                 <td class="cart__summary--total__title text-left">GRAND TOTAL</td>
-                                                <td class="cart__summary--amount text-right update-cart-new-total">$<span class="update-cart-new-grandtotal">{{number_format((float)$cart_total, 2, '.', '')}}</span></td>
+                                                <td class="cart__summary--amount text-right update-cart-new-total">{{config('app.currency')}}<span class="update-cart-new-grandtotal">{{number_format((float)$cart_total, 2, '.', '')}}</span></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -205,8 +205,8 @@
                                 </div>
                                 <h3 class="product__items--content__title h4"><a href="product-details.html">{{$product->title}}</a></h3>
                                 <div class="product__items--price">
-                                    <span class="current__price">${{$product->discount_price}}</span>
-                                    <span class="old__price">${{$product->strike_price}}</span>
+                                    <span class="current__price">{{config('app.currency')}}{{$product->discount_price}}</span>
+                                    <span class="old__price">{{config('app.currency')}}{{$product->strike_price}}</span>
                                 </div>
                                 <a class="product__items--action__cart--btn primary__btn" href="cart.html">
                                     <svg class="product__items--action__cart--btn__icon" xmlns="http://www.w3.org/2000/svg" width="13.897" height="14.565" viewBox="0 0 18.897 21.565">

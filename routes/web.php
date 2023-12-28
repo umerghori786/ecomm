@@ -85,10 +85,11 @@ Route::controller(WishlistController::class)->group(function(){
 });
 /*checkout routes*/
 Route::controller(CheckoutController::class)->group(function(){
-    Route::get('/checkout'     ,  'index');
+    Route::get('/checkout'     ,  'index')->name('checkout');
     Route::post('/apply-coupon',   'applyCoupon')->name('applyCoupon');
     Route::post('/stripe-checkout-charge',   'stripeCheckoutCharge')->name('stripeCheckoutCharge');
     Route::get('/stripe-checkout-confirm',   'stripeCheckoutConfirm')->name('stripeCheckoutConfirm');
+    Route::get('/order-complete/{id}',   'orderComplete')->name('orderComplete');
 });
 /*paypal checkout controller*/
 
