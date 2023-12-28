@@ -42,181 +42,29 @@
             <div class="single__widget widget__bg">
                 <h2 class="widget__title position__relative h3">Categories</h2>
                 <ul class="widget__categories--menu">
+                    @forelse($categories as $category)
                     <li class="widget__categories--menu__list">
                         <label class="widget__categories--menu__label d-flex align-items-center">
-                            <img class="widget__categories--menu__img" src="assets/img/product/small-product1.webp" alt="categories-img">
-                            <span class="widget__categories--menu__text">Denim Jacket</span>
+                            <img class="widget__categories--menu__img" src="{{asset('newtheme/assets/img/product/small-product1.webp')}}" alt="categories-img">
+                            <span class="widget__categories--menu__text">{{$category->title}}</span>
                             <svg class="widget__categories--menu__arrowdown--icon" xmlns="http://www.w3.org/2000/svg" width="12.355" height="8.394">
                                 <path  d="M15.138,8.59l-3.961,3.952L7.217,8.59,6,9.807l5.178,5.178,5.178-5.178Z" transform="translate(-6 -8.59)" fill="currentColor"></path>
                             </svg>
                         </label>
                         <ul class="widget__categories--sub__menu">
+                            @forelse($category->subcategories as $subcat)
                             <li class="widget__categories--sub__menu--list">
-                                <a class="widget__categories--sub__menu--link d-flex align-items-center" href="shop.html">
-                                    <img class="widget__categories--sub__menu--img" src="assets/img/product/small-product2.webp" alt="categories-img">
-                                    <span class="widget__categories--sub__menu--text">Jacket, Women</span>
+                                <a class="widget__categories--sub__menu--link d-flex align-items-center" href="{{route('allproducts.index',['subcategory_id'=>$subcat->id])}}">
+                                    <img class="widget__categories--sub__menu--img" src="{{asset('newtheme/assets/img/product/small-product2.webp')}}" alt="categories-img">
+                                    <span class="widget__categories--sub__menu--text">{{$subcat->title}}</span>
                                 </a>
                             </li>
-                            <li class="widget__categories--sub__menu--list">
-                                <a class="widget__categories--sub__menu--link d-flex align-items-center" href="shop.html">
-                                    <img class="widget__categories--sub__menu--img" src="assets/img/product/small-product3.webp" alt="categories-img">
-                                    <span class="widget__categories--sub__menu--text">Woolend Jacket</span>
-                                </a>
-                            </li>
-                            <li class="widget__categories--sub__menu--list">
-                                <a class="widget__categories--sub__menu--link d-flex align-items-center" href="shop.html">
-                                    <img class="widget__categories--sub__menu--img" src="assets/img/product/small-product4.webp" alt="categories-img">
-                                    <span class="widget__categories--sub__menu--text">Western denim</span>
-                                </a>
-                            </li>
-                            <li class="widget__categories--sub__menu--list">
-                                <a class="widget__categories--sub__menu--link d-flex align-items-center" href="shop.html">
-                                    <img class="widget__categories--sub__menu--img" src="assets/img/product/small-product5.webp" alt="categories-img">
-                                    <span class="widget__categories--sub__menu--text">Mini Dresss</span>
-                                </a>
-                            </li>
+                            @empty
+                            @endforelse
                         </ul>
                     </li>
-                    <li class="widget__categories--menu__list">
-                        <label class="widget__categories--menu__label d-flex align-items-center">
-                            <img class="widget__categories--menu__img" src="assets/img/product/small-product2.webp" alt="categories-img">
-                            <span class="widget__categories--menu__text">Oversize Cotton</span>
-                            <svg class="widget__categories--menu__arrowdown--icon" xmlns="http://www.w3.org/2000/svg" width="12.355" height="8.394" >
-                                <path  d="M15.138,8.59l-3.961,3.952L7.217,8.59,6,9.807l5.178,5.178,5.178-5.178Z" transform="translate(-6 -8.59)" fill="currentColor"></path>
-                            </svg>
-                        </label>
-                        <ul class="widget__categories--sub__menu">
-                            <li class="widget__categories--sub__menu--list">
-                                <a class="widget__categories--sub__menu--link d-flex align-items-center" href="shop.html">
-                                    <img class="widget__categories--sub__menu--img" src="assets/img/product/small-product2.webp" alt="categories-img">
-                                    <span class="widget__categories--sub__menu--text">Jacket, Women</span>
-                                </a>
-                            </li>
-                            <li class="widget__categories--sub__menu--list">
-                                <a class="widget__categories--sub__menu--link d-flex align-items-center" href="shop.html">
-                                    <img class="widget__categories--sub__menu--img" src="assets/img/product/small-product3.webp" alt="categories-img">
-                                    <span class="widget__categories--sub__menu--text">Woolend Jacket</span>
-                                </a>
-                            </li>
-                            <li class="widget__categories--sub__menu--list">
-                                <a class="widget__categories--sub__menu--link d-flex align-items-center" href="shop.html">
-                                    <img class="widget__categories--sub__menu--img" src="assets/img/product/small-product4.webp" alt="categories-img">
-                                    <span class="widget__categories--sub__menu--text">Western denim</span>
-                                </a>
-                            </li>
-                            <li class="widget__categories--sub__menu--list">
-                                <a class="widget__categories--sub__menu--link d-flex align-items-center" href="shop.html">
-                                    <img class="widget__categories--sub__menu--img" src="assets/img/product/small-product5.webp" alt="categories-img">
-                                    <span class="widget__categories--sub__menu--text">Mini Dresss</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="widget__categories--menu__list">
-                        <label class="widget__categories--menu__label d-flex align-items-center">
-                            <img class="widget__categories--menu__img" src="assets/img/product/small-product3.webp" alt="categories-img">
-                            <span class="widget__categories--menu__text">Dairy & chesse</span>
-                            <svg class="widget__categories--menu__arrowdown--icon" xmlns="http://www.w3.org/2000/svg" width="12.355" height="8.394">
-                                <path  d="M15.138,8.59l-3.961,3.952L7.217,8.59,6,9.807l5.178,5.178,5.178-5.178Z" transform="translate(-6 -8.59)" fill="currentColor"></path>
-                            </svg>
-                        </label>
-                        <ul class="widget__categories--sub__menu">
-                            <li class="widget__categories--sub__menu--list">
-                                <a class="widget__categories--sub__menu--link d-flex align-items-center" href="shop.html">
-                                    <img class="widget__categories--sub__menu--img" src="assets/img/product/small-product2.webp" alt="categories-img">
-                                    <span class="widget__categories--sub__menu--text">Jacket, Women</span>
-                                </a>
-                            </li>
-                            <li class="widget__categories--sub__menu--list">
-                                <a class="widget__categories--sub__menu--link d-flex align-items-center" href="shop.html">
-                                    <img class="widget__categories--sub__menu--img" src="assets/img/product/small-product3.webp" alt="categories-img">
-                                    <span class="widget__categories--sub__menu--text">Woolend Jacket</span>
-                                </a>
-                            </li>
-                            <li class="widget__categories--sub__menu--list">
-                                <a class="widget__categories--sub__menu--link d-flex align-items-center" href="shop.html">
-                                    <img class="widget__categories--sub__menu--img" src="assets/img/product/small-product4.webp" alt="categories-img">
-                                    <span class="widget__categories--sub__menu--text">Western denim</span>
-                                </a>
-                            </li>
-                            <li class="widget__categories--sub__menu--list">
-                                <a class="widget__categories--sub__menu--link d-flex align-items-center" href="shop.html">
-                                    <img class="widget__categories--sub__menu--img" src="assets/img/product/small-product5.webp" alt="categories-img">
-                                    <span class="widget__categories--sub__menu--text">Mini Dresss</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="widget__categories--menu__list">
-                        <label class="widget__categories--menu__label d-flex align-items-center">
-                            <img class="widget__categories--menu__img" src="assets/img/product/small-product4.webp" alt="categories-img">
-                            <span class="widget__categories--menu__text">Shoulder Bag</span>
-                            <svg class="widget__categories--menu__arrowdown--icon" xmlns="http://www.w3.org/2000/svg" width="12.355" height="8.394">
-                                <path  d="M15.138,8.59l-3.961,3.952L7.217,8.59,6,9.807l5.178,5.178,5.178-5.178Z" transform="translate(-6 -8.59)" fill="currentColor"></path>
-                            </svg>
-                        </label>
-                        <ul class="widget__categories--sub__menu">
-                            <li class="widget__categories--sub__menu--list">
-                                <a class="widget__categories--sub__menu--link d-flex align-items-center" href="shop.html">
-                                    <img class="widget__categories--sub__menu--img" src="assets/img/product/small-product2.webp" alt="categories-img">
-                                    <span class="widget__categories--sub__menu--text">Jacket, Women</span>
-                                </a>
-                            </li>
-                            <li class="widget__categories--sub__menu--list">
-                                <a class="widget__categories--sub__menu--link d-flex align-items-center" href="shop.html">
-                                    <img class="widget__categories--sub__menu--img" src="assets/img/product/small-product3.webp" alt="categories-img">
-                                    <span class="widget__categories--sub__menu--text">Woolend Jacket</span>
-                                </a>
-                            </li>
-                            <li class="widget__categories--sub__menu--list">
-                                <a class="widget__categories--sub__menu--link d-flex align-items-center" href="shop.html">
-                                    <img class="widget__categories--sub__menu--img" src="assets/img/product/small-product4.webp" alt="categories-img">
-                                    <span class="widget__categories--sub__menu--text">Western denim</span>
-                                </a>
-                            </li>
-                            <li class="widget__categories--sub__menu--list">
-                                <a class="widget__categories--sub__menu--link d-flex align-items-center" href="shop.html">
-                                    <img class="widget__categories--sub__menu--img" src="assets/img/product/small-product5.webp" alt="categories-img">
-                                    <span class="widget__categories--sub__menu--text">Mini Dresss</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="widget__categories--menu__list">
-                        <label class="widget__categories--menu__label d-flex align-items-center">
-                            <img class="widget__categories--menu__img" src="assets/img/product/small-product5.webp" alt="categories-img">
-                            <span class="widget__categories--menu__text">Denim Jacket</span>
-                            <svg class="widget__categories--menu__arrowdown--icon" xmlns="http://www.w3.org/2000/svg" width="12.355" height="8.394">
-                                <path  d="M15.138,8.59l-3.961,3.952L7.217,8.59,6,9.807l5.178,5.178,5.178-5.178Z" transform="translate(-6 -8.59)" fill="currentColor"></path>
-                            </svg>
-                        </label>
-                        <ul class="widget__categories--sub__menu">
-                            <li class="widget__categories--sub__menu--list">
-                                <a class="widget__categories--sub__menu--link d-flex align-items-center" href="shop.html">
-                                    <img class="widget__categories--sub__menu--img" src="assets/img/product/small-product2.webp" alt="categories-img">
-                                    <span class="widget__categories--sub__menu--text">Jacket, Women</span>
-                                </a>
-                            </li>
-                            <li class="widget__categories--sub__menu--list">
-                                <a class="widget__categories--sub__menu--link d-flex align-items-center" href="shop.html">
-                                    <img class="widget__categories--sub__menu--img" src="assets/img/product/small-product3.webp" alt="categories-img">
-                                    <span class="widget__categories--sub__menu--text">Woolend Jacket</span>
-                                </a>
-                            </li>
-                            <li class="widget__categories--sub__menu--list">
-                                <a class="widget__categories--sub__menu--link d-flex align-items-center" href="shop.html">
-                                    <img class="widget__categories--sub__menu--img" src="assets/img/product/small-product4.webp" alt="categories-img">
-                                    <span class="widget__categories--sub__menu--text">Western denim</span>
-                                </a>
-                            </li>
-                            <li class="widget__categories--sub__menu--list">
-                                <a class="widget__categories--sub__menu--link d-flex align-items-center" href="shop.html">
-                                    <img class="widget__categories--sub__menu--img" src="assets/img/product/small-product5.webp" alt="categories-img">
-                                    <span class="widget__categories--sub__menu--text">Mini Dresss</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
+                    @empty
+                    @endforelse
                 </ul>
             </div>
             <div class="single__widget price__filter widget__bg">
@@ -244,50 +92,23 @@
                     <button class="price__filter--btn primary__btn" type="submit">Filter</button>
                 </form>
             </div>
-            <div class="single__widget widget__bg">
-                <h2 class="widget__title position__relative h3">Dietary Needs</h2>
-                <ul class="widget__form--check">
-                    <li class="widget__form--check__list">
-                        <label class="widget__form--check__label" for="check6">Denim shirt</label>
-                        <input class="widget__form--check__input" id="check6" type="checkbox">
-                        <span class="widget__form--checkmark"></span>
-                    </li>
-                    <li class="widget__form--check__list">
-                        <label class="widget__form--check__label" for="check7">Need Winter</label>
-                        <input class="widget__form--check__input" id="check7" type="checkbox">
-                        <span class="widget__form--checkmark"></span>
-                    </li>
-                    <li class="widget__form--check__list">
-                        <label class="widget__form--check__label" for="check8">Fashion Trends</label>
-                        <input class="widget__form--check__input" id="check8" type="checkbox">
-                        <span class="widget__form--checkmark"></span>
-                    </li>
-                    <li class="widget__form--check__list">
-                        <label class="widget__form--check__label" for="check9">Oversize Cotton</label>
-                        <input class="widget__form--check__input" id="check9" type="checkbox">
-                        <span class="widget__form--checkmark"></span>
-                    </li>
-                    <li class="widget__form--check__list">
-                        <label class="widget__form--check__label" for="check10">Baking material</label>
-                        <input class="widget__form--check__input" id="check10" type="checkbox">
-                        <span class="widget__form--checkmark"></span>
-                    </li>
-                </ul>
-            </div>
+            
             <div class="single__widget widget__bg">
                 <h2 class="widget__title position__relative h3">Top Rated Product</h2>
                 <div class="product__grid--inner">
+                    @if(count($trending_products) > 0)
+                    @foreach($trending_products as $trending)
                     <div class="product__items product__items--grid d-flex align-items-center">
                         <div class="product__items--grid__thumbnail position__relative">
-                            <a class="product__items--link" href="product-details.html">
-                                <img class="product__items--img product__primary--img" src="assets/img/product/small-product1.webp" alt="product-img">
-                                <img class="product__items--img product__secondary--img" src="assets/img/product/small-product2.webp" alt="product-img">
+                            <a class="product__items--link" href="{{route('allproducts.show',[$trending->slug])}}">
+                                <img class="product__items--img product__primary--img" src="{{$trending->images[0]->url}}" alt="product-img">
+                                <img class="product__items--img product__secondary--img" src="{{$trending->images[1]->url}}" alt="product-img">
                             </a>
                         </div>
                         <div class="product__items--grid__content">
-                            <h3 class="product__items--content__title h4"><a href="product-details.html">Modern Chair</a></h3>
+                            <h3 class="product__items--content__title h4"><a href="{{route('allproducts.show',[$trending->slug])}}">{{$trending->title}}</a></h3>
                             <div class="product__items--price">
-                                <span class="current__price">$165.00</span>
+                                <span class="current__price">${{$trending->discount_price}}</span>
                             </div>
                             <div class="product__items--color">
                                 <ul class="product__items--color__wrapper d-flex">
@@ -299,65 +120,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="product__items product__items--grid d-flex align-items-center">
-                        <div class="product__items--grid__thumbnail position__relative">
-                            <a class="product__items--link" href="product-details.html">
-                                <img class="product__items--img product__primary--img" src="assets/img/product/small-product3.webp" alt="product-img">
-                                <img class="product__items--img product__secondary--img" src="assets/img/product/small-product4.webp" alt="product-img">
-                            </a>
-                        </div>
-                        <div class="product__items--grid__content">
-                            <h3 class="product__items--content__title h4"><a href="product-details.html">Plastic Chair</a></h3>
-                            <div class="product__items--price">
-                                <span class="current__price">$165.00</span>
-                            </div>
-                            <div class="product__items--color">
-                                <ul class="product__items--color__wrapper d-flex">
-                                    <li class="product__items--color__list"><a class="product__items--color__link one" href="javascript:void(0)"></a></li>
-                                    <li class="product__items--color__list"><a class="product__items--color__link two" href="javascript:void(0)"></a></li>
-                                    <li class="product__items--color__list"><a class="product__items--color__link three" href="javascript:void(0)"></a></li>
-                                    <li class="product__items--color__list"><a class="product__items--color__link four" href="javascript:void(0)"></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product__items product__items--grid d-flex align-items-center">
-                        <div class="product__items--grid__thumbnail position__relative">
-                            <a class="product__items--link" href="product-details.html">
-                                <img class="product__items--img product__primary--img" src="assets/img/product/small-product5.webp" alt="product-img">
-                                <img class="product__items--img product__secondary--img" src="assets/img/product/small-product6.webp" alt="product-img">
-                            </a>
-                        </div>
-                        <div class="product__items--grid__content">
-                            <h3 class="product__items--content__title h4"><a href="product-details.html">Design Rooms</a></h3>
-                            <div class="product__items--price">
-                                <span class="current__price">$165.00</span>
-                            </div>
-                            <div class="product__items--color">
-                                <ul class="product__items--color__wrapper d-flex">
-                                    <li class="product__items--color__list"><a class="product__items--color__link one" href="javascript:void(0)"></a></li>
-                                    <li class="product__items--color__list"><a class="product__items--color__link two" href="javascript:void(0)"></a></li>
-                                    <li class="product__items--color__list"><a class="product__items--color__link three" href="javascript:void(0)"></a></li>
-                                    <li class="product__items--color__list"><a class="product__items--color__link four" href="javascript:void(0)"></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
+                    @endif
                 </div>
             </div>
-            <div class="single__widget widget__bg">
-                <h2 class="widget__title position__relative h3">Brands</h2>
-                <ul class="widget__tagcloud">
-                    <li class="widget__tagcloud--list"><a class="widget__tagcloud--link" href="shop.html">Wooden</a></li>
-                    <li class="widget__tagcloud--list"><a class="widget__tagcloud--link" href="shop.html">Chair</a></li>
-                    <li class="widget__tagcloud--list"><a class="widget__tagcloud--link" href="shop.html">Modern</a></li>
-                    <li class="widget__tagcloud--list"><a class="widget__tagcloud--link" href="shop.html">Fabric  </a></li>
-                    <li class="widget__tagcloud--list"><a class="widget__tagcloud--link" href="shop.html">Shoulder </a></li>
-                    <li class="widget__tagcloud--list"><a class="widget__tagcloud--link" href="shop.html">Winter</a></li>
-                    <li class="widget__tagcloud--list"><a class="widget__tagcloud--link" href="shop.html">Accessories</a></li>
-                    <li class="widget__tagcloud--list"><a class="widget__tagcloud--link" href="shop.html">Dress </a></li>
-                </ul>
-            </div>
+            
         </div>
     </div>
     <!-- End offcanvas filter sidebar -->
@@ -441,13 +208,13 @@
                                 @foreach($trending_products as $trending)
                                 <div class="product__items product__items--grid d-flex align-items-center">
                                     <div class="product__items--grid__thumbnail position__relative">
-                                        <a class="product__items--link" href="product-details.html">
+                                        <a class="product__items--link" href="{{route('allproducts.show',[$trending->slug])}}">
                                             <img class="product__items--img product__primary--img" src="{{$trending->images[0]->url}}" alt="product-img">
                                             <img class="product__items--img product__secondary--img" src="{{$trending->images[1]->url}}" alt="product-img">
                                         </a>
                                     </div>
                                     <div class="product__items--grid__content">
-                                        <h3 class="product__items--content__title h4"><a href="product-details.html">{{$trending->title}}</a></h3>
+                                        <h3 class="product__items--content__title h4"><a href="{{route('allproducts.show',[$trending->slug])}}">{{$trending->title}}</a></h3>
                                         <div class="product__items--price">
                                             <span class="current__price">${{$trending->discount_price}}</span>
                                         </div>
@@ -543,7 +310,7 @@
                                                     </div>
                                                     <ul class="product__items--action d-flex justify-content-center">
                                                         <li class="product__items--action__list">
-                                                            <a class="product__items--action__btn" data-open="modal1" href="javascript:void(0)">
+                                                            <a class="product__items--action__btn" data-open="modal1" href="{{route('allproducts.show',[$product->slug])}}">
                                                                 <svg class="product__items--action__btn--svg" xmlns="http://www.w3.org/2000/svg"  width="20.51" height="19.443" viewBox="0 0 512 512"><path d="M255.66 112c-77.94 0-157.89 45.11-220.83 135.33a16 16 0 00-.27 17.77C82.92 340.8 161.8 400 255.66 400c92.84 0 173.34-59.38 221.79-135.25a16.14 16.14 0 000-17.47C428.89 172.28 347.8 112 255.66 112z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><circle cx="256" cy="256" r="80" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/></svg>
                                                                 <span class="visually-hidden">Quick View</span>
                                                             </a>
@@ -582,7 +349,7 @@
                                                         <span class="current__price">${{$product->discount_price}}</span>
                                                         <span class="old__price">${{$product->strike_price}}</span>
                                                     </div>
-                                                    <a class="product__items--action__cart--btn primary__btn" href="cart.html">
+                                                    <a class="product__items--action__cart--btn primary__btn" onclick="addToCart(`{{$product->id}}`)">
                                                         <svg class="product__items--action__cart--btn__icon" xmlns="http://www.w3.org/2000/svg" width="13.897" height="14.565" viewBox="0 0 18.897 21.565">
                                                             <path  d="M16.84,8.082V6.091a4.725,4.725,0,1,0-9.449,0v4.725a.675.675,0,0,0,1.35,0V9.432h5.4V8.082h-5.4V6.091a3.375,3.375,0,0,1,6.75,0v4.691a.675.675,0,1,0,1.35,0V9.433h3.374V21.581H4.017V9.432H6.041V8.082H2.667V21.641a1.289,1.289,0,0,0,1.289,1.29h16.32a1.289,1.289,0,0,0,1.289-1.29V8.082Z" transform="translate(-2.667 -1.366)" fill="currentColor"></path>
                                                         </svg>
@@ -604,17 +371,17 @@
                                             <div class="product__items product__list--items border-radius-5 d-flex align-items-center">
                                                 <div class="product__list--items__left d-flex align-items-center">
                                                     <div class="product__items--thumbnail product__list--items__thumbnail">
-                                                        <a class="product__items--link" href="product-details.html">
+                                                        <a class="product__items--link" href="{{route('allproducts.show',[$product->slug])}}">
                                                             <img class="product__items--img product__primary--img" src="{{$product->images[0]->url}}" alt="product-img">
                                                             <img class="product__items--img product__secondary--img" src="{{$product->images[1]->url}}" alt="product-img">
                                                         </a>
                                                         <div class="product__badge">
-                                                            <span class="product__badge--items sale">Sale</span>
+                                                            <span class="product__badge--items sale">New</span>
                                                         </div>
                                                     </div>
                                                     <div class="product__list--items__content">
                                                         <span class="product__items--content__subtitle mb-5">{{$product->subcategory->title}}</span>
-                                                        <h4 class="product__list--items__content--title mb-15"><a href="product-details.html">{{$product->title}}</a></h4>
+                                                        <h4 class="product__list--items__content--title mb-15"><a href="{{route('allproducts.show',[$product->slug])}}">{{$product->title}}</a></h4>
                                                         <p class="product__list--items__content--desc m-0">{!! \Illuminate\Support\Str::limit($product->short_description , 155) !!}</p>
                                                     </div>
                                                 </div>
@@ -659,7 +426,7 @@
                                                         <li class="rating__list"><span class="rating__list--text">( 5.0)</span></li>
                                                     </ul>
                                                     <div class="product__list--action">
-                                                        <a class="product__list--action__cart--btn primary__btn" href="cart.html">
+                                                        <a class="product__list--action__cart--btn primary__btn" onclick="addToCart(`{{$product->id}}`)">
                                                             <svg class="product__list--action__cart--btn__icon" xmlns="http://www.w3.org/2000/svg" width="16.897" height="17.565" viewBox="0 0 18.897 21.565">
                                                                 <path  d="M16.84,8.082V6.091a4.725,4.725,0,1,0-9.449,0v4.725a.675.675,0,0,0,1.35,0V9.432h5.4V8.082h-5.4V6.091a3.375,3.375,0,0,1,6.75,0v4.691a.675.675,0,1,0,1.35,0V9.433h3.374V21.581H4.017V9.432H6.041V8.082H2.667V21.641a1.289,1.289,0,0,0,1.289,1.29h16.32a1.289,1.289,0,0,0,1.289-1.29V8.082Z" transform="translate(-2.667 -1.366)" fill="currentColor"></path>
                                                             </svg>
@@ -667,11 +434,7 @@
                                                         </a>
                                                         <ul class="product__list--action__wrapper d-flex align-items-center">
                                                             <li class="product__list--action__child">
-                                                                <a class="product__list--action__btn" data-open="modal1" href="javascript:void(0)">
-                                                                    <svg class="product__list--action__btn--svg" xmlns="http://www.w3.org/2000/svg" width="30.51" height="25.443" viewBox="0 0 512 512"><path d="M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"></path><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="32" d="M338.29 338.29L448 448"></path></svg>
-
-                                                                    <span class="visually-hidden">Quick View</span>
-                                                                </a>
+                                                                
                                                             </li>
                                                             <li class="product__items--action__list">
                                                                 <a class="product__items--action__btn"  onclick="addToCart(`{{$product->id}}`)">

@@ -43,7 +43,7 @@ use App\Http\Controllers\PayPalController;
 })->middleware(['auth'])->name('dashboard');*/
 
 /*frontend routes*/
-Route::get('/new',[HomeController::class,'index'])->name('home');
+Route::get('/',[HomeController::class,'index'])->name('home');
 Route::get('/logout',[HomeController::class,'destroy'])->name('logout');
 
 Route::get('/policy ',[SettingController::class,'termPolicy'])->name('policy.index');
@@ -130,11 +130,4 @@ Route::middleware('admin')->prefix('user')->group(function(){
 });
 
 require __DIR__.'/auth.php';
-
-
-
-//below route is for vue route
-Route::get('/{any?}', function () {
-    return view('vuecheck');
-})->where('any', '^(?!api\/)[\/\w\.\,-]*');
 

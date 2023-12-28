@@ -68,7 +68,7 @@
                     </div>
                     <div class="main__logo">
                        @if(isset($logo))
-                        <h1 class="main__logo--title"><a class="main__logo--link" href="index.html"><img class="main__logo--img" src="{{url('logo/'.$logo->image)}}" height="50px" width="150px" alt="logo-img"></a></h1>
+                        <h1 class="main__logo--title"><a class="main__logo--link" href="index.html"><img class="main__logo--img" src="{{url('logo/'.$logo->image)}}" height="50px" width="70px" alt="logo-img"></a></h1>
                        @else
                        <h1 class="main__logo--title"><a class="main__logo--link" href="index.html"><img class="main__logo--img" src="{{asset('newtheme/assets/img/logo/nav-log.webp')}}" alt="logo-img"></a></h1>                       
                        @endif
