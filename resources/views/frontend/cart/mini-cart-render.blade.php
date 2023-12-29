@@ -11,8 +11,8 @@
             <h4 class="minicart__subtitle"><a href="{{route('allproducts.show',[$cart['slug']])}}">{{$cart['title']}}</a></h4>
             
             <div class="minicart__price">
-                <span class="current__price">${{$cart['discount_price']}}</span>
-                <span class="old__price">${{$cart['strike_price']}}</span>
+                <span class="current__price">{{config('app.currency')}}{{$cart['discount_price']}}</span>
+                <span class="old__price">{{config('app.currency')}}{{$cart['strike_price']}}</span>
             </div>
             <div class="minicart__text--footer d-flex align-items-center">
                 <div class="quantity__box minicart__quantity">
@@ -32,11 +32,11 @@
 <div class="minicart__amount">
     <div class="minicart__amount_list d-flex justify-content-between">
         <span>Sub Total:</span>
-        <span><b class="update-cart-new-total">${{number_format($cart_total, 2)}}</b></span>
+        <span><b class="update-cart-new-total">{{config('app.currency')}}{{number_format($cart_total, 2)}}</b></span>
     </div>
     <div class="minicart__amount_list d-flex justify-content-between">
         <span>Total:</span>
-        <span><b class="update-cart-new-total">${{number_format($cart_total, 2)}}</b></span>
+        <span><b class="update-cart-new-total">{{config('app.currency')}}{{number_format($cart_total, 2)}}</b></span>
     </div>
 </div>
 <div class="minicart__conditions text-center">

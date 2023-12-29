@@ -42,7 +42,7 @@
                                         </div>
                                     </td>
                                     <td class="cart__table--body__list">
-                                        <span class="cart__price">${{$wishlist['discount_price']}}</span>
+                                        <span class="cart__price">{{config('app.currency')}}{{$wishlist['discount_price']}}</span>
                                     </td>
                                     <td class="cart__table--body__list text-center">
                                         <span class="in__stock text__secondary">in stock</span>
@@ -117,8 +117,8 @@
                                         </div>
                                         <h3 class="product__items--content__title h4"><a href="{{route('allproducts.show',[$similar_product->slug])}}">{{$similar_product->title}}</a></h3>
                                         <div class="product__items--price">
-                                            <span class="current__price">${{$similar_product->discount_price}}</span>
-                                            <span class="old__price">${{$similar_product->strike_price}}</span>
+                                            <span class="current__price">{{config('app.currency')}}{{$similar_product->discount_price}}</span>
+                                            <span class="old__price">{{config('app.currency')}}{{$similar_product->strike_price}}</span>
                                         </div>
                                         <a class="product__items--action__cart--btn primary__btn" onclick="addToCart(`{{$similar_product->id}}`)">
                                             <svg class="product__items--action__cart--btn__icon" xmlns="http://www.w3.org/2000/svg" width="13.897" height="14.565" viewBox="0 0 18.897 21.565">

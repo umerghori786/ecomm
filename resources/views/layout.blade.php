@@ -60,7 +60,7 @@
 	        success:function(data)
 	        {
 	            
-	            $('.update-cart-new-total').html('$'+data.cart_total)
+	            $('.update-cart-new-total').html(`{{config('app.currency')}}`+data.cart_total)
 	            $('.cart-items__count').html(data.cart_quantity)
 	        }
 

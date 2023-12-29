@@ -119,7 +119,7 @@
                                                 <td class="checkout__total--title text-left">Discount</td>
 
 
-                                                <td class="cart__summary--amount text-right update-cart-new-total">-{{config('app.currency')}}<span class="coupon_valid_discount">(0.00)</span></td>
+                                                <td class="cart__summary--amount text-right ">-{{config('app.currency')}}<span class="coupon_valid_discount">(0.00)</span></td>
 
                                                 
                                             </tr>

@@ -108,7 +108,7 @@
                         <div class="product__items--grid__content">
                             <h3 class="product__items--content__title h4"><a href="{{route('allproducts.show',[$trending->slug])}}">{{$trending->title}}</a></h3>
                             <div class="product__items--price">
-                                <span class="current__price">${{$trending->discount_price}}</span>
+                                <span class="current__price">{{config('app.currency')}}{{$trending->discount_price}}</span>
                             </div>
                             <div class="product__items--color">
                                 <ul class="product__items--color__wrapper d-flex">
@@ -216,7 +216,7 @@
                                     <div class="product__items--grid__content">
                                         <h3 class="product__items--content__title h4"><a href="{{route('allproducts.show',[$trending->slug])}}">{{$trending->title}}</a></h3>
                                         <div class="product__items--price">
-                                            <span class="current__price">${{$trending->discount_price}}</span>
+                                            <span class="current__price">{{config('app.currency')}}{{$trending->discount_price}}</span>
                                         </div>
                                         <div class="product__items--color">
                                             <ul class="product__items--color__wrapper d-flex">
@@ -310,7 +310,7 @@
                                                     </div>
                                                     <ul class="product__items--action d-flex justify-content-center">
                                                         <li class="product__items--action__list">
-                                                            <a class="product__items--action__btn" data-open="modal1" href="{{route('allproducts.show',[$product->slug])}}">
+                                                            <a class="product__items--action__btn"  href="{{route('allproducts.show',[$product->slug])}}">
                                                                 <svg class="product__items--action__btn--svg" xmlns="http://www.w3.org/2000/svg"  width="20.51" height="19.443" viewBox="0 0 512 512"><path d="M255.66 112c-77.94 0-157.89 45.11-220.83 135.33a16 16 0 00-.27 17.77C82.92 340.8 161.8 400 255.66 400c92.84 0 173.34-59.38 221.79-135.25a16.14 16.14 0 000-17.47C428.89 172.28 347.8 112 255.66 112z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><circle cx="256" cy="256" r="80" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/></svg>
                                                                 <span class="visually-hidden">Quick View</span>
                                                             </a>
@@ -346,8 +346,8 @@
                                                     </div>
                                                     <h3 class="product__items--content__title h4"><a href="{{route('allproducts.show',[$product->slug])}}">{{$product->title}}</a></h3>
                                                     <div class="product__items--price">
-                                                        <span class="current__price">${{$product->discount_price}}</span>
-                                                        <span class="old__price">${{$product->strike_price}}</span>
+                                                        <span class="current__price">{{config('app.currency')}}{{$product->discount_price}}</span>
+                                                        <span class="old__price">{{config('app.currency')}}{{$product->strike_price}}</span>
                                                     </div>
                                                     <a class="product__items--action__cart--btn primary__btn" onclick="addToCart(`{{$product->id}}`)">
                                                         <svg class="product__items--action__cart--btn__icon" xmlns="http://www.w3.org/2000/svg" width="13.897" height="14.565" viewBox="0 0 18.897 21.565">
@@ -386,44 +386,14 @@
                                                     </div>
                                                 </div>
                                                 <div class="product__list--items__right">
-                                                    <span class="product__list--current__price">${{$product->discount_price}}</span>
+                                                    <span class="product__list--current__price">{{config('app.currency')}}{{$product->discount_price}}</span>
                                                     <ul class="rating product__list--rating d-flex">
-                                                        <li class="rating__list">
-                                                            <span class="rating__list--icon">
-                                                                <svg class="rating__list--icon__svg" xmlns="http://www.w3.org/2000/svg" width="11.105" height="11.732" viewBox="0 0 10.105 9.732">
-                                                                <path data-name="star - Copy" d="M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z" transform="translate(0 -0.018)" fill="currentColor"></path>
-                                                                </svg>
-                                                            </span>
-                                                        </li>
-                                                        <li class="rating__list">
-                                                            <span class="rating__list--icon">
-                                                                <svg class="rating__list--icon__svg" xmlns="http://www.w3.org/2000/svg" width="11.105" height="11.732" viewBox="0 0 10.105 9.732">
-                                                                <path data-name="star - Copy" d="M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z" transform="translate(0 -0.018)" fill="currentColor"></path>
-                                                                </svg>
-                                                            </span>
-                                                        </li>
-                                                        <li class="rating__list">
-                                                            <span class="rating__list--icon">
-                                                                <svg class="rating__list--icon__svg" xmlns="http://www.w3.org/2000/svg" width="11.105" height="11.732" viewBox="0 0 10.105 9.732">
-                                                                <path data-name="star - Copy" d="M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z" transform="translate(0 -0.018)" fill="currentColor"></path>
-                                                                </svg>
-                                                            </span>
-                                                        </li>
-                                                        <li class="rating__list">
-                                                            <span class="rating__list--icon">
-                                                                <svg class="rating__list--icon__svg" xmlns="http://www.w3.org/2000/svg" width="11.105" height="11.732" viewBox="0 0 10.105 9.732">
-                                                                <path data-name="star - Copy" d="M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z" transform="translate(0 -0.018)" fill="currentColor"></path>
-                                                                </svg>
-                                                            </span>
-                                                        </li>
-                                                        <li class="rating__list">
-                                                            <span class="rating__list--icon">
-                                                                <svg class="rating__list--icon__svg" xmlns="http://www.w3.org/2000/svg" width="11.105" height="11.732" viewBox="0 0 10.105 9.732">
-                                                                <path data-name="star - Copy" d="M9.837,3.5,6.73,3.039,5.338.179a.335.335,0,0,0-.571,0L3.375,3.039.268,3.5a.3.3,0,0,0-.178.514L2.347,6.242,1.813,9.4a.314.314,0,0,0,.464.316L5.052,8.232,7.827,9.712A.314.314,0,0,0,8.292,9.4L7.758,6.242l2.257-2.231A.3.3,0,0,0,9.837,3.5Z" transform="translate(0 -0.018)" fill="currentColor"></path>
-                                                                </svg>
-                                                            </span>
-                                                        </li>
-                                                        <li class="rating__list"><span class="rating__list--text">( 5.0)</span></li>
+                                                        @for($i = 1 ; $i <= (int)number_format($product->reviews()->get()->pluck('rating')->avg() ?? 5); $i++)
+                                                            <i class="fas fa-star fa-sm mr-2" style="color: rgb(250 204 21);"></i>
+                                                        @endfor
+                                                        @for($i = 1 ; $i <= (int) 5 - number_format($product->reviews()->get()->pluck('rating')->avg() ?? 5); $i++)
+                                                        <i class="far fa-star fa-sm mr-2" style="color: rgb(250 204 21);"></i>
+                                                        @endfor
                                                     </ul>
                                                     <div class="product__list--action">
                                                         <a class="product__list--action__cart--btn primary__btn" onclick="addToCart(`{{$product->id}}`)">
