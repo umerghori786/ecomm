@@ -94,7 +94,7 @@
                                <textarea class="checkout__notes--textarea__field border-radius-5" id="order" placeholder="Notes about your order, e.g. special notes for delivery." spellcheck="false" name="order_note"></textarea>
                             </div>
                             <div class="checkout__content--step__footer d-flex align-items-center">
-                                <a class="continue__shipping--btn primary__btn border-radius-5" href="{{route('allproducts.index')}}">Continue To Shipping</a>
+                               
                                 <a class="previous__link--content" href="{{url('/show-cart')}}">Return to cart</a>
                             </div>
 

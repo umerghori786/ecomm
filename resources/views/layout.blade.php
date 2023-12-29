@@ -47,6 +47,7 @@
 
 	const deleteFromCart = (obj,id)=>{
 
+		successmsg('Remove From Cart')
 	    obj.parents('.remove-item-in-cart').fadeOut(1000)
 	    $(".remove-item-in-cart-"+id).fadeOut(1000)
 	    var product_id = id;
@@ -85,7 +86,7 @@
 
 	const deleteFromWishlist = (obj , id)=>{
 
-		successmsg('Remove From Wishlist')
+		successmsg('Removed From Wishlist')
 		obj.parents('.remove-item-in-wishlist').fadeOut(1000);
 		var product_id = id;
 		$.ajax({

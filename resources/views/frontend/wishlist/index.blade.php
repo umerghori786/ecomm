@@ -94,6 +94,7 @@
                                                     <span class="visually-hidden">Quick View</span>
                                                 </a>
                                             </li>
+                                            <!--
                                             <li class="product__items--action__list">
                                                 <a class="product__items--action__btn" onclick="addToWishlist(`{{$similar_product->id}}`)">
                                                     <svg class="product__items--action__btn--svg"  xmlns="http://www.w3.org/2000/svg" width="17.51" height="15.443" viewBox="0 0 24.526 21.82">
@@ -101,7 +102,7 @@
                                                     </svg>
                                                     <span class="visually-hidden">Wishlist</span>
                                                 </a>
-                                            </li>
+                                            </li> -->
                                             
                                         </ul>
                                     </div>
