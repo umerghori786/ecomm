@@ -5,10 +5,10 @@
     <div class="minicart__product--items d-flex remove-item-in-cart cart_price_{{$key}} remove-item-in-cart-{{$key}}">
         <div class="minicart__thumbnail">
 
-            <a href="product-details.html"><img src="{{$cart['image']}}" alt="prduct-img"></a>
+            <a href="{{route('allproducts.show',[$cart['slug']])}}"><img src="{{$cart['image']}}" alt="prduct-img"></a>
         </div>
         <div class="minicart__text">
-            <h4 class="minicart__subtitle"><a href="product-details.html">{{$cart['title']}}</a></h4>
+            <h4 class="minicart__subtitle"><a href="{{route('allproducts.show',[$cart['slug']])}}">{{$cart['title']}}</a></h4>
             
             <div class="minicart__price">
                 <span class="current__price">${{$cart['discount_price']}}</span>

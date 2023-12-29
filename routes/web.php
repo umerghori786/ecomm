@@ -71,7 +71,7 @@ Route::resource('/shopingcart',CartController::class)->only([
 Route::controller(CartController::class)->group(function(){
 
     Route::get('/add-to-cart'     ,'addToCart');
-    Route::get('/show-cart'       ,'showCart');
+    Route::get('/show-cart'       ,'showCart')->name('showCart');
     Route::get('/delete-from-cart' ,'destroy');
     Route::get('/update-cart'      ,'update');
 });
@@ -80,7 +80,7 @@ Route::controller(CartController::class)->group(function(){
 Route::controller(WishlistController::class)->group(function(){
 
     Route::get('/add-to-wishlist'    , 'addToWishlist');
-    Route::get('/show-wishlist'      , 'showWishlist');
+    Route::get('/show-wishlist'      , 'showWishlist')->name('wishlist');
     Route::get('/delete-from-wishlist' ,'destroy');
 });
 /*checkout routes*/

@@ -29,7 +29,8 @@ class WishlistController extends Controller
                 "quantity" => $request->quantity,
                 "discount_price" => $product->discount_price,
                 "strike_price" => $product->strike_price,
-                "image" => $product->images[0]->url
+                "image" => $product->images[0]->url,
+                "slug"  => $product->slug
             ];
         $request->session()->put('wishlist', $wishlist);    
 

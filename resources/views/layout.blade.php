@@ -35,10 +35,10 @@
 	            $('.offCanvas__minicart').addClass('active')
 	            $('.cart-items__count').html(data.total_products_count)
 
-	            const myTimeout = setTimeout(showminicart, 2000);
+	            /*const myTimeout = setTimeout(showminicart, 10000);
 	            function showminicart() {
 	              $('.offCanvas__minicart').removeClass('active')
-	            }
+	            }*/
 	            
 	        }
 
@@ -68,6 +68,7 @@
 
 	const addToWishlist = (id)=>{
 
+		successmsg('Added To Wishlist')
 		var product_id = id;
 		$.ajax({
 
@@ -84,6 +85,7 @@
 
 	const deleteFromWishlist = (obj , id)=>{
 
+		successmsg('Remove From Wishlist')
 		obj.parents('.remove-item-in-wishlist').fadeOut(1000);
 		var product_id = id;
 		$.ajax({
