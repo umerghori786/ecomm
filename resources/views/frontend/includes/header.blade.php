@@ -1,5 +1,5 @@
    <!-- Start header area -->
-   <header class="header__section header__others border-bottom header__transparent mb-30">
+   <header class="header__section header__others border-bottom header__transparent">
         <div class="header__topbar bg__primary">
             <div class="container">
                 <div class="header__topbar--inner d-flex align-items-center justify-content-between">
