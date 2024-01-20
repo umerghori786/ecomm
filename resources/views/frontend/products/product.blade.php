@@ -104,7 +104,6 @@
                                         </div>
                                         <div class="product__variant--list mb-15">
                                             <div class="product__details--info__meta">
-                                                
                                                 <p class="product__details--info__meta--list"><strong>Type:</strong>  <span>{{$product->subcategory->category->title}}</span> </p>
                                             </div>
                                         </div>
@@ -122,162 +121,159 @@
             </section>
             <!-- End product details section -->
 
-            <!-- Start product details tab section -->
+            <!-- Start product description section -->
             <section class="product__details--tab__section section--padding">
                 <div class="container">
-                    <div class="row row-cols-1">
-                        <div class="col">
-                            <ul class="product__details--tab d-flex mb-30">
-                                <li class="product__details--tab__list active" data-toggle="tab" data-target="#description">Description</li>
-                                <li class="product__details--tab__list" data-toggle="tab" data-target="#reviews">Product Reviews</li>
-                                
-                            </ul>
-                            <div class="product__details--tab__inner border-radius-10">
-                                <div class="tab_content">
-                                    <div id="description" class="tab_pane active show">
-                                        <div class="product__tab--content">
-                                            <div class="product__tab--content__items mb-40 d-flex align-items-center">
-                                                <div class="product__tab--content__thumbnail">
-                                                    <img class="product__tab--content__thumbnail--img display-block" src="{{$product->images[0]->url}}" alt="product-tab">
-                                                </div>
-                                                <div class="product__tab--content__right">
-                                                    <div class="product__tab--content__step mb-20">
-                                                        <h4 class="product__tab--content__title">{{$product->title}}</h4>
-                                                        <p class="product__tab--content__desc">{!! $product->long_description !!}</p>
-                                                    </div>
-                                                    <div class="product__tab--content__step">
-                                                        <h4 class="product__tab--content__title">Fashion Plastic Chair</h4>
-                                                        <p class="product__tab--content__desc">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum,</p>
-                                                    </div>
-                                                </div>
-                                            </div> 
-                                            
-                                        </div> 
-                                    </div>
-                                    <div id="reviews" class="tab_pane">
-                                        <div class="product__reviews">
-                                            <div class="product__reviews--header">
-                                                <h3 class="product__reviews--header__title mb-20">Customer Reviews</h3>
-
-                                                <div class="reviews__ratting d-flex align-items-center">
-                                                    <ul class="rating d-flex">
-                                                        @for($i = 1 ; $i <= (int)number_format($product->reviews()->get()->pluck('rating')->avg() ?? 5); $i++)
-                                                            <i class="fas fa-star fa-sm mr-2" style="color: rgb(250 204 21);"></i>
-                                                        @endfor
-                                                        @for($i = 1 ; $i <= (int) 5 - number_format($product->reviews()->get()->pluck('rating')->avg() ?? 5); $i++)
-                                                        <i class="far fa-star fa-sm mr-2" style="color: rgb(250 204 21);"></i>
-                                                        @endfor
-                                                    </ul>
-                                                    <span class="reviews__summary--caption">Based on {{$product->reviews()->count() ?? 0}} reviews</span>
-                                                </div>
-                                                <a class="actions__newreviews--btn primary__btn" >Write A Review</a>
-                                            </div>
-                                            <div id="writereview" class="reviews__comment--reply__area d-none">
-                                                <form id="ratingFormSubmit" action="{{route('review.store')}}" method="post">
-                                                    @csrf
-                                                    <input type="hidden" name="rating" value="">
-                                                    <input type="hidden" name="product_id" value="{{$product->id}}">
-                                                    <h3 class="reviews__comment--reply__title mb-15">Add a review </h3>
-                                                    <div class="reviews__ratting d-flex align-items-center mb-20">
-                                                        <div class="rating d-flex">
-                                                            <i class="far fa-star fa-sm mr-2 star-1 review-count" style="color: rgb(250 204 21); cursor: pointer;" id="1"></i>
-                                                            <i class="far fa-star fa-sm mr-2 star-2 review-count" style="color: rgb(250 204 21); cursor: pointer;" id="2"></i>
-                                                            <i class="far fa-star fa-sm mr-2 star-3 review-count" style="color: rgb(250 204 21); cursor: pointer;" id="3"></i>
-                                                            <i class="far fa-star fa-sm mr-2 star-4 review-count" style="color: rgb(250 204 21); cursor: pointer;" id="4"></i>
-                                                            <i class="far fa-star fa-sm mr-2 star-5 review-count" style="color: rgb(250 204 21); cursor: pointer;" id="5"></i>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-12 mb-10">
-                                                            <textarea name="content" class="reviews__comment--reply__textarea" placeholder="Your Comments...." required ></textarea>
-                                                        </div> 
-                                                        <div class="col-lg-6 col-md-6 mb-15">
-                                                            <label>
-                                                        <input class="reviews__comment--reply__input" placeholder="Your Name...." name="name" required value="" type="text">
-                                                    </label>
-                                                        </div>  
-                                                        <div class="col-lg-6 col-md-6 mb-15">
-                                                            <label>
-                                                        <input class="reviews__comment--reply__input" placeholder="Your Email...." name="email"  type="email">
-                                                    </label>
-                                                        </div>  
-                                                    </div>
-                                                    <button class="text-white primary__btn" data-hover="Submit" type="submit">SUBMIT</button>
-                                                </form>   
-                                            </div> 
-                                            <div class="reviews__comment--area" id="reviews__comment--area">
-                                                @forelse($product->reviews as $review)
-                                                <div class="reviews__comment--list d-flex">
-                                                    <div class="reviews__comment--thumbnail">
-                                                        <p class="user-short-name">
-                                                            {{ltrim($review->name)[0] ?? 'U'}}
-                                                        </p>
-                                                    </div>
-                                                    <div class="reviews__comment--content">
-                                                        <h4 class="reviews__comment--content__title">{{$review->name}}</h4>
-                                                        <div class="rating reviews__comment--rating d-flex mb-5">
-                                                            @for($i = 1 ; $i <= (int)$review->rating; $i++)
-                                                            <i class="fas fa-star fa-sm mr-2" style="color: rgb(250 204 21);"></i>
-                                                            @endfor
-                                                            @for($i = 1 ; $i <= (int) 5 - $review->rating; $i++)
-                                                            <i class="far fa-star fa-sm mr-2" style="color: rgb(250 204 21);"></i>
-                                                            @endfor
-                                                        </div>
-                                                        <p class="reviews__comment--content__desc">{{$review->content}}</p>
-                                                        <span class="reviews__comment--content__date">{{$review->created_at->diffForHumans()}}</span>
-                                                        <div class="text-right">
-                                                            <button class="text-red-600">Reply</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- replay comment -->
-                                                <div class="reviews__comment--list reply-on-review-admin margin__left flex gap-10" style="display: none;">
-                                                    
-                                                    <div id="writereview" class="reviews__comment--reply__area col-10">
-                                                        <form id="ReplyOnReviewForm" action="{{route('review.replay')}}" method="post">
-                                                            @csrf
-                                                            <input type="hidden" name="review_id" value="{{$review->id}}">
-                                                            <div class="mb-5">
-                                                                <textarea class="reviews__comment--reply__textarea" placeholder="Your Reply...." name="content" required></textarea>
-                                                            </div> 
-                                                            <button type="submit" class="bg-red-600 text-white px-7 py-4 leading-none rounded-lg hover:bg-black transition">SUBMIT</button>
-                                                        </form>   
-                                                    </div> 
-                                                </div>
-
-                                                @forelse($review->replys as $reply)
-                                                <div class="reviews__comment--list margin__left d-flex">
-                                                    <div class="reviews__comment--thumbnail">
-                                                        <img src="https://cdn-icons-png.flaticon.com/128/9322/9322043.png" alt="comment-thumbnail">
-                                                    </div>
-                                                    <div class="reviews__comment--content">
-                                                        <h4 class="reviews__comment--content__title">Admin</h4>
-                                                        
-                                                        <p class="reviews__comment--content__desc">{{$reply->content}}</p>
-                                                        <span class="reviews__comment--content__date">{{$reply->created_at->diffForHumans()}}</span>
-                                                        
-                                                    </div>
-                                                </div>
-                                                @empty
-                                                @endforelse
-
-                                                @empty
-                                                @endforelse
-                                                
-                                                
-
-                                            </div>
-                                            
-                                        </div>    
-                                    </div>
-                                    
+                    <div class="product__descriptions">
+                        <h3 class="product__reviews--header__title mb-20">Description</h3>
+                        <div class="product__tab--content">
+                            <div class="product__tab--content__items mb-40 d-flex align-items-center">
+                                <div class="product__tab--content__thumbnail">
+                                    <img class="product__tab--content__thumbnail--img display-block" src="{{$product->images[0]->url}}" alt="product-tab">
                                 </div>
-                            </div>
+                                <div class="product__tab--content__right">
+                                    <div class="product__tab--content__step mb-20">
+                                        <h4 class="product__tab--content__title">{{$product->title}}</h4>
+                                        <p class="product__tab--content__desc">{!! $product->long_description !!}</p>
+                                    </div>
+                                    <div class="product__tab--content__step">
+                                        <h4 class="product__tab--content__title">Fashion Plastic Chair</h4>
+                                        <p class="product__tab--content__desc">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum,</p>
+                                    </div>
+                                </div>
+                            </div> 
                         </div>
-                    </div>
+                    </div> 
                 </div>
             </section>
             <!-- End product details tab section -->
+
+
+            <!-- Start product review section -->
+            <section class="section--padding">
+                <div class="container">
+
+                    <div class="product__reviews">
+                        <div class="product__reviews--header">
+                            <h3 class="product__reviews--header__title mb-20">Customer Reviews</h3>
+
+                            <div class="reviews__ratting d-flex align-items-center">
+                                <ul class="rating d-flex">
+                                    @for($i = 1 ; $i <= (int)number_format($product->reviews()->get()->pluck('rating')->avg() ?? 5); $i++)
+                                        <i class="fas fa-star fa-sm mr-2" style="color: rgb(250 204 21);"></i>
+                                    @endfor
+                                    @for($i = 1 ; $i <= (int) 5 - number_format($product->reviews()->get()->pluck('rating')->avg() ?? 5); $i++)
+                                    <i class="far fa-star fa-sm mr-2" style="color: rgb(250 204 21);"></i>
+                                    @endfor
+                                </ul>
+                                <span class="reviews__summary--caption">Based on {{$product->reviews()->count() ?? 0}} reviews</span>
+                            </div>
+                            <a class="actions__newreviews--btn primary__btn" >Write A Review</a>
+                        </div>
+                        <div id="writereview" class="reviews__comment--reply__area d-none mb-60">
+                            <form id="ratingFormSubmit" action="{{route('review.store')}}" method="post">
+                                @csrf
+                                <input type="hidden" name="rating" value="">
+                                <input type="hidden" name="product_id" value="{{$product->id}}">
+                                <h3 class="reviews__comment--reply__title mb-15">Add a review </h3>
+                                <div class="reviews__ratting d-flex align-items-center mb-20">
+                                    <div class="rating d-flex">
+                                        <i class="far fa-star fa-sm mr-2 star-1 review-count" style="color: rgb(250 204 21); cursor: pointer;" id="1"></i>
+                                        <i class="far fa-star fa-sm mr-2 star-2 review-count" style="color: rgb(250 204 21); cursor: pointer;" id="2"></i>
+                                        <i class="far fa-star fa-sm mr-2 star-3 review-count" style="color: rgb(250 204 21); cursor: pointer;" id="3"></i>
+                                        <i class="far fa-star fa-sm mr-2 star-4 review-count" style="color: rgb(250 204 21); cursor: pointer;" id="4"></i>
+                                        <i class="far fa-star fa-sm mr-2 star-5 review-count" style="color: rgb(250 204 21); cursor: pointer;" id="5"></i>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 mb-10">
+                                        <textarea name="content" class="reviews__comment--reply__textarea" placeholder="Your Comments...." required ></textarea>
+                                    </div> 
+                                    <div class="col-lg-6 col-md-6 mb-15">
+                                        <label>
+                                    <input class="reviews__comment--reply__input" placeholder="Your Name...." name="name" required value="" type="text">
+                                </label>
+                                    </div>  
+                                    <div class="col-lg-6 col-md-6 mb-15">
+                                        <label>
+                                    <input class="reviews__comment--reply__input" placeholder="Your Email...." name="email"  type="email">
+                                </label>
+                                    </div>  
+                                </div>
+                                <button class="text-white primary__btn" data-hover="Submit" type="submit">SUBMIT</button>
+                            </form>   
+                        </div> 
+                        <div class="reviews__comment--area" id="reviews__comment--area">
+                            @forelse($product->reviews as $review)
+                            <div class="reviews__comment--list d-flex">
+                                <div class="reviews__comment--thumbnail">
+                                    <p class="user-short-name">
+                                        {{ltrim($review->name)[0] ?? 'U'}}
+                                    </p>
+                                </div>
+                                <div class="reviews__comment--content">
+                                    <h4 class="reviews__comment--content__title">{{$review->name}}</h4>
+                                    <div class="rating reviews__comment--rating d-flex mb-5">
+                                        @for($i = 1 ; $i <= (int)$review->rating; $i++)
+                                        <i class="fas fa-star fa-sm mr-2" style="color: rgb(250 204 21);"></i>
+                                        @endfor
+                                        @for($i = 1 ; $i <= (int) 5 - $review->rating; $i++)
+                                        <i class="far fa-star fa-sm mr-2" style="color: rgb(250 204 21);"></i>
+                                        @endfor
+                                    </div>
+                                    <p class="reviews__comment--content__desc">{{$review->content}}</p>
+                                    <span class="reviews__comment--content__date">{{$review->created_at->diffForHumans()}}</span>
+                                    <div class="text-right">
+                                        <button class="text-white primary__btn">Reply</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- replay comment -->
+                            <div class="reviews__comment--list reply-on-review-admin margin__left flex gap-10" style="display: none;">
+                                
+                                <div id="writereview" class="reviews__comment--reply__area col-10">
+                                    <form id="ReplyOnReviewForm" action="{{route('review.replay')}}" method="post">
+                                        @csrf
+                                        <input type="hidden" name="review_id" value="{{$review->id}}">
+                                        <div class="mb-5">
+                                            <textarea class="reviews__comment--reply__textarea" placeholder="Your Reply...." name="content" required></textarea>
+                                        </div> 
+                                        <button type="submit" class="bg-red-600 text-white px-7 py-4 leading-none rounded-lg hover:bg-black transition">SUBMIT</button>
+                                    </form>   
+                                </div> 
+                            </div>
+
+                            @forelse($review->replys as $reply)
+                            <div class="reviews__comment--list margin__left d-flex">
+                                <div class="reviews__comment--thumbnail">
+                                    <img src="https://cdn-icons-png.flaticon.com/128/9322/9322043.png" alt="comment-thumbnail">
+                                </div>
+                                <div class="reviews__comment--content">
+                                    <h4 class="reviews__comment--content__title">Admin</h4>
+                                    
+                                    <p class="reviews__comment--content__desc">{{$reply->content}}</p>
+                                    <span class="reviews__comment--content__date">{{$reply->created_at->diffForHumans()}}</span>
+                                    
+                                </div>
+                            </div>
+                            @empty
+                            @endforelse
+
+                            @empty
+                            @endforelse
+                            
+                            
+
+                        </div>
+                        
+                    </div>    
+
+                </div>
+            </section>
+            <!-- End product details tab section -->
+
+
+
 
             <!-- Start product section -->
             <section class="product__section section--padding">
