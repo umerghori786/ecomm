@@ -16,16 +16,16 @@ class HomeController extends Controller
     */
     public function index()
     {   
-        // dd(\Auth()->user()->name);
         $popular_products = Product::has('images')->with('images')->where('popular',1)->latest()->limit(20)->get();
 
         $trending_products = Product::has('images')->with('images')->where('trending',1)->latest()->limit(6)->get();
 
         $topthree_products = Product::has('images')->with('images')->inRandomOrder()->limit(3)->get();
+        $latest_products = Product::has('images')->with('images')->latest()->get();
 
         $slides = Slider::get();
 
-        return view('frontend.home',compact('popular_products','trending_products','topthree_products','slides'));
+        return view('frontend.home',compact('popular_products','trending_products','topthree_products','slides','latest_products'));
     }
 
     public function destroy(Request $request)
