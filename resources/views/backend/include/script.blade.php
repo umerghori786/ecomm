@@ -41,6 +41,10 @@
 <script src="{{asset('dashboard/js/custom.js')}}"></script>
 <script src="{{asset('dashboard/vendors/apex_chart/bar_active_1.js')}}"></script>
 <script src="{{asset('dashboard/vendors/apex_chart/apex_chart_list.js')}}"></script>
+<script src="//cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript">
+  let table = new DataTable('#myTable');
+</script>
 <script type="text/javascript">
 	$(document).ready(function() {
 	  $('#summernote').summernote();
