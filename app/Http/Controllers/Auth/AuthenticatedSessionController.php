@@ -35,8 +35,7 @@ class AuthenticatedSessionController extends Controller
             
             return redirect()->route('admin.dashboard');
         }else{
-            //
-            dd('you are not authorised');
+            return redirect('/');
         }
         
     }

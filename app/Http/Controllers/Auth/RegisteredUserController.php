@@ -53,10 +53,8 @@ class RegisteredUserController extends Controller
             
             return redirect()->intended(RouteServiceProvider::HOME);
         }else{
-            //
-            // dd('gaseeb');
-            // return redirect()->route('frontend.home')->with('success','created successfully');
-            return redirect('/new');
+            
+            return redirect('/');
         }
     }
 }
