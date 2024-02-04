@@ -53,7 +53,7 @@
                                     </div>
                                     <button class="account__login--btn primary__btn" type="submit">Login</button>
                                     
-                                    <p class="account__login--signup__text">Don,t Have an Account? <button type="submit">Sign up now</button></p>
+                                    <p class="account__login--signup__text">Don,t Have an Account? <a href="{{url('register')}}" type="submit">Sign up now</a></p>
                                 </div>
                                 </form>
                             </div>

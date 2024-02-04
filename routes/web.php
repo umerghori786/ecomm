@@ -25,6 +25,7 @@ use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\PayPalController;
+use App\Http\Controllers\UserDashboardController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -74,6 +75,12 @@ Route::controller(CartController::class)->group(function(){
     Route::get('/show-cart'       ,'showCart')->name('showCart');
     Route::get('/delete-from-cart' ,'destroy');
     Route::get('/update-cart'      ,'update');
+});
+
+//user dashboard routes
+Route::controller(UserDashboardController::class)->middleware('auth')->group(function(){
+
+    Route::get('user_dashboard'    , 'index');
 });
 
 //wishlist routes

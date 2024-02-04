@@ -54,7 +54,7 @@ class RegisteredUserController extends Controller
             return redirect()->intended(RouteServiceProvider::HOME);
         }else{
             
-            return redirect('/');
+            return redirect('/user_dashboard');
         }
     }
 }
