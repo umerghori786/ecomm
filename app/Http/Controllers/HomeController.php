@@ -6,7 +6,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\{
     Product,
-    Slider
+    Slider,
+    Review
 };
 
 class HomeController extends Controller
@@ -21,23 +22,15 @@ class HomeController extends Controller
         $trending_products = Product::has('images')->with('images')->where('trending',1)->latest()->limit(6)->get();
 
         $topthree_products = Product::has('images')->with('images')->inRandomOrder()->limit(3)->get();
-        $latest_products = Product::has('images')->with('images')->latest()->get();
+        $latest_products = Product::has('images')->with('images','reviews')->latest()->get();
 
         $slides = Slider::get();
 
-        return view('frontend.home',compact('popular_products','trending_products','topthree_products','slides','latest_products'));
+        $reviews = Review::inRandomOrder()->limit(5)->latest()->select(['name','email','content','rating'])->get();
+
+
+        return view('frontend.home',compact('popular_products','trending_products','topthree_products','slides','latest_products','reviews'));
     }
 
-    public function destroy(Request $request)
-    {
-        // dd('hello');
-        Auth::guard('web')->logout();
-
-        $request->session()->invalidate();
-
-        $request->session()->regenerateToken();
-
-        return redirect('/new');
-    }
     
 }
