@@ -17,7 +17,6 @@ class SliderController extends Controller
     public function index()
     {
         $slider = Slider::OrderByDesc('id')->get();
-        // dd($slider);
        return view('backend.slider.index', compact('slider'));
     }
 
@@ -28,7 +27,6 @@ class SliderController extends Controller
      */
     public function create()
     {
-        // dd('hello');
         return view('backend.slider.create');
     }
 
@@ -45,8 +43,7 @@ class SliderController extends Controller
         ]);
         $filename = time().'.'.$request->image->Extension();
         $request->image->move(public_path('slider'),$filename);
-        // dd($filename);
-        Slider::create(['title'=>$request->title,'des'=>$request->des,'url'=>$request->url,'image'=>$filename]);
+        Slider::create(['title'=>$request->title,'des'=>$request->des,'url'=>$request->url,'image'=>$filename,'title_two'=>$request->title_two]);
 
         return redirect()->route('slider.index')->with('success','created successfully');
     }
@@ -71,7 +68,6 @@ class SliderController extends Controller
     public function edit($id)
     {
         $slider = Slider::findOrFail($id);
-        // dd($slider);
         return view('backend.slider.edit',compact('slider'));
     }
 
@@ -86,14 +82,19 @@ class SliderController extends Controller
     {
         $slider = Slider::find($id);
 
-        $filename = time().'.'.$request->image->Extension();
-        $request->image->move(public_path('slider'),$filename);
-        $destination = 'slider/'.$slider->image;
-        if(File::exists($destination)){
-            File::delete($destination);
+        if($request->has('image'))
+        {
+            $filename = time().'.'.$request->image->Extension();
+            $request->image->move(public_path('slider'),$filename);
+            $destination = 'slider/'.$slider->image;
+            if(File::exists($destination)){
+                File::delete($destination);
+            }
+            $slider->update(['image'=>$filename]);
         }
-        // dd($filename);
-        $slider->update(['title'=>$request->title,'des'=>$request->des,'image'=>$filename,'url'=>$request->url]);
+        
+        
+        $slider->update(['title'=>$request->title,'des'=>$request->des,'url'=>$request->url,'title_two'=>$request->title_two]);
 
         return redirect()->route('slider.index')->with('success','Update successfully');
     }
@@ -106,7 +107,6 @@ class SliderController extends Controller
      */
     public function destroy($id)
     {
-        // dd(request()->all());
         $slider = Slider::find($id);
         if(!$slider){
             return redirect()->route('slider.index')->with('error','Resource not found');

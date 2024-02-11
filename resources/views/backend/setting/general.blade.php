@@ -126,7 +126,7 @@
                             <div class="col-8">
                                 
                                 <input type="checkbox"   name="setting__showslider" value="1" @if(config('setting.showslider') == 1)   checked  @endif>
-                                            <label for="html">show slider on home page</label>
+                                            <label for="html">Show Slider on Home Page</label>
                             </div>
                         
                         

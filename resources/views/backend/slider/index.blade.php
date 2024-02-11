@@ -19,7 +19,8 @@
       <tr>
         <th>Sr no</th>
         
-        <th>Slider Title</th>
+        <th>Slider Title One</th>
+        <th>Slider Title Two</th>
         <th>Button Title</th>
         <th>Button URL</th>
         <th>Slider Image</th>
@@ -33,6 +34,7 @@
         <td>{{$i}}</td>
         
         <td>{{$slider->des}}</td>
+        <td>{{$slider->title_two}}</td>
         <td>{{$slider->title}}</td>
         <td>{{$slider->url}}</td>
         <td>

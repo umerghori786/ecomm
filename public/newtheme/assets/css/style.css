@@ -3623,7 +3623,7 @@ input[type="number"]::-webkit-outer-spin-button {
     }
 }
 .hero__slider--bg3.slider2 {
-    background: url(../img/slider/home3-slider2.webp);
+    /*background: url(../img/slider/home3-slider2.webp);*/
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-position: center center;

@@ -24,12 +24,12 @@ class HomeController extends Controller
         $topthree_products = Product::has('images')->with('images')->inRandomOrder()->limit(3)->get();
         $latest_products = Product::has('images')->with('images','reviews')->latest()->get();
 
-        $slides = Slider::get();
+        $sliders = Slider::get();
 
         $reviews = Review::inRandomOrder()->limit(5)->latest()->select(['name','email','content','rating'])->get();
 
 
-        return view('frontend.home',compact('popular_products','trending_products','topthree_products','slides','latest_products','reviews'));
+        return view('frontend.home',compact('popular_products','trending_products','topthree_products','sliders','latest_products','reviews'));
     }
 
     

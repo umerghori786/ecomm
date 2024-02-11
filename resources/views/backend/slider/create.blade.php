@@ -17,8 +17,14 @@
 
                         <div class="row justify-content-center">
                             <div class="col-6 col-lg-6 form-group">
-                                <label for="exampleTextarea">Slider Tilte</label>
-                                {!! Form::text('des', old('des'), ['class' => 'form-control', 'placeholder' => 'title', 'required' => true]) !!}
+                                <label for="exampleTextarea">Slider Tilte One (not required)</label>
+                                {!! Form::text('des', old('des'), ['class' => 'form-control', 'placeholder' => 'title']) !!}
+                            </div>
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="col-6 col-lg-6 form-group">
+                                <label for="exampleTextarea">Slider Tilte Two (not required)</label>
+                                {!! Form::text('title_two', old('title_two'), ['class' => 'form-control', 'placeholder' => 'title two']) !!}
                             </div>
                         </div>
                         <div class="row justify-content-center">
