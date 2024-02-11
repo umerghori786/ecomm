@@ -51,6 +51,7 @@ class GeneralSettingController extends Controller
             configModel::create(['key'=>'app.currency', 'value'=>explode('__', $request->app__currency)[0]]);
             configModel::create(['key'=>'setting.currencycode', 'value'=>explode('__', $request->app__currency)[1]]);
         }
+        
         return redirect()->route('admin.getGeneralSettings')->with('success','updated successfully');
 
     }

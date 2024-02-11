@@ -119,6 +119,16 @@
                                 </div>
                              </div>
                         </div><!--form-group-->
+
+                        <div class="alert alert-danger text-center mt-5">Home Page Slider</div>
+                        <div class="row">
+                            <div class="col-4"></div>
+                            <div class="col-8">
+                                
+                                <input type="checkbox"   name="setting__showslider" value="1" @if(config('setting.showslider') == 1)   checked  @endif>
+                                            <label for="html">show slider on home page</label>
+                            </div>
+                        
                         
                         
                         
