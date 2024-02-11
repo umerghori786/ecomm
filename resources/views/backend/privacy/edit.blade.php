@@ -19,18 +19,11 @@
                         <div class="row justify-content-center">
                         <div class="col-12 col-lg-6 form-group">
                         <label for="myfile">Privacy Policy</label><br>
-                            <textarea class="editor"rows="4" cols="50" name="privacy"></textarea>
+                            {!! Form::textarea('privacy', old('privacy'), ['class' => 'form-control editor','placeholder'=>"write here" ,'id'=>"summernote"]) !!}
                             </div>
 
                         </div>
-                        <!-- <div class="row justify-content-center">    
-                            
-                            <div class="col-12 col-lg-6 form-group text-center mt-3">
-                                {!! Form::checkbox('status', 1 ,old('published'), []) !!}
-                                {!! Form::label('status',  trans('status'), ['class' => 'checkbox control-label font-weight-bold']) !!}
-                                
-                            </div>
-                        </div> -->
+                        
                         <div class="row justify-content-center">    
                             
                             <div class="col-12 col-lg-6 form-group text-center mt-3">

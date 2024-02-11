@@ -19,7 +19,6 @@
     <thead>
       <tr>
         <th>Sr no</th>
-        <th>Name</th>
         <th>Quetion</th>
         <th>Answer</th>
         <th>Action</th>
@@ -30,7 +29,6 @@
       @foreach($ques as $ques)
       <tr>
         <td>{{$i}}</td>
-        <td>{{$ques->user->name}}</td>
         <td>{{$ques->question}}</td>
         <td>{{$ques->answer}}</td>
       

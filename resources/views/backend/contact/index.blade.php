@@ -7,19 +7,20 @@
   @endif
   <div class="row">
     <div class="col-md-8">
-      <h2>Contact Us</h2>
+      <h2>Address</h2>
     </div>
+    @if(count($contact) == 0)
     <div class="col-md-4">
       <a href="{{route('contact.create')}}" class="btn btn-primary">create</a>
     </div>
+    @endif
   </div>
   
   <table class="table table-striped" id="myTable">
     <thead>
       <tr>
         <th>Sr no</th>
-        <th>Name</th>
-        <th>Countact Us</th>
+        <th>Phone No</th>
         <th>Email</th>
         <th>Office Location</th>
         <th>Soical Media Occount</th>
@@ -32,7 +33,6 @@
       @if(isset($contact))
       <tr>
         <td>{{$i}}</td>
-        <td>{{$contact->user->name}}</td>
         <td>{{$contact->contact}}</td>
         <td>{{$contact->email}}</td>
         <td>{{$contact->location}}</td>

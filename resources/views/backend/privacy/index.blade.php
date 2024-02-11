@@ -20,7 +20,7 @@
     <thead>
       <tr>
         <th>Sr no</th>
-        <th>Name</th>
+        
         <th>Privacy Policy</th>
         <th>Action</th>
       </tr>
@@ -30,8 +30,8 @@
       @if(isset($privacy))
       <tr>
         <td>{{$i}}</td>
-        <td>{{$privacy->user->name}}</td>
-        <td>{{$privacy->privacy}}</td>
+        
+        <td>{!! \Illuminate\Support\Str::limit($privacy->privacy , 500) !!}</td>
         <td>
         <a href="{{route('privacy.edit',[$privacy->id])}}"><i class="fas fa-edit" style="color: #644141;"></i></a>
         </td>

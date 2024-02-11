@@ -7,11 +7,11 @@
   @endif
   <div class="row">
     <div class="col-md-8">
-      <h2>Logo</h2>
+      <h2>About Us</h2>
     </div>
-    @if(is_null($logo))
+    @if(is_null($data))
     <div class="col-md-4">
-      <a href="{{route('logos.create')}}" class="btn btn-primary">create</a>
+      <a href="{{route('aboutus.create')}}" class="btn btn-primary">create</a>
     </div>
     @endif
   </div>
@@ -20,22 +20,19 @@
     <thead>
       <tr>
         <th>Sr no</th>
-        <th>Logo</th>
+        <th>Content</th>
         <th>Action</th>
       </tr>
     </thead>
     <tbody>
       @php $i = 1 @endphp
-      @if(isset($logo))
+      @if(isset($data))
       <tr>
         <td>{{$i}}</td>
+        <td>{!! \Illuminate\Support\Str::limit($data->content , 500) !!}</td>
         <td>
-        <img src="{{url('logo/'.$logo->image)}}" width="100px" height="100px" alt="">
+        <a href="{{route('aboutus.edit',[$data->id])}}"><i class="fas fa-edit" style="color: #644141;"></i></a>
         </td>
-        <td>
-          <a href="{{route('logos.edit',[$logo->id])}}"><i class="fas fa-edit" style="color: #644141;"></i></a>
-        </td>
-        
       </tr>
       @endif
     </tbody>

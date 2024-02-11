@@ -24,7 +24,6 @@
 <li><a  href="{{route('subcategories.index')}}">Sub Category</a></li>
 <li><a href="{{route('products.index')}}">Products</a></li>
 <li><a href="{{route('products.index')}}">Products Reviews</a></li>
-<li><a href="{{route('message.index')}}">Messages</a></li>
 
 </ul>
 </li>
@@ -39,6 +38,16 @@
 </ul>
 </li>
 
+<li class="mm-active">
+<a class="has-arrow" href="#" aria-expanded="false">
+<img src="{{asset('dashboard/img/menu-icon/1.svg')}}" alt="">
+<span>Messages</span>
+</a>
+<ul>
+<li><a  href="{{route('message.index')}}">Messages</a></li>
+</ul>
+</li>
+
 
 <li class="mm-active">
 <a class="has-arrow" href="#" aria-expanded="false">
@@ -49,15 +58,7 @@
 <li><a  href="{{route('coupon.index')}}">Coupon</a></li>
 </ul>
 </li>
-<li class="mm-active">
-<a class="has-arrow" href="#" aria-expanded="false">
-<img src="{{asset('dashboard/img/menu-icon/1.svg')}}" alt="">
-<span>Contact Us</span>
-</a>
-<ul>
-<li><a  href="{{route('contact.index')}}">Contact Us</a></li>
-</ul>
-</li>
+
 <li class="mm-active">
 <a class="has-arrow" href="#" aria-expanded="false">
 <img src="{{asset('dashboard/img/menu-icon/1.svg')}}" alt="">
@@ -68,7 +69,9 @@
 <li><a  href="{{route('logos.index')}}">Logo</a></li>
 <li><a  href="{{route('slider.index')}}">Slider</a></li>
 <li><a  href="{{route('privacy.index')}}">Privacy Policy</a></li>
-<li><a  href="{{route('question.index')}}">Questions</a></li>
+<li><a  href="{{route('aboutus.index')}}">About Us</a></li>
+<li><a href="{{route('contact.index')}}">Address</a></li>
+<li><a  href="{{route('question.index')}}">FAQ's</a></li>
 </ul>
 </li>
 

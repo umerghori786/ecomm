@@ -7,7 +7,7 @@
   @endif
   <div class="row">
     <div class="col-md-8">
-      <h2>Contact Us</h2>
+      <h2>Contact Us Messages</h2>
     </div>
   </div>
   
@@ -27,7 +27,7 @@
      @foreach($contactus as $message)
       <tr>
         <td>{{$i}}</td>
-        <td>{{$message->firstname}} {{$message->lastname}}</td>
+        <td>{{$message->firstname}} {{$message->lastname ?? ''}}</td>
         <td>{{$message->phone}}</td>
         <td>{{$message->email}}</td>
         <td>{{$message->message}}</td>

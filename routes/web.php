@@ -21,6 +21,7 @@ use App\Http\Controllers\Admin\CouponController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\MessageController;
 use App\Http\Controllers\Admin\SliderController;
+use App\Http\Controllers\Admin\AboutUsController;
 use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\CheckoutController;
@@ -125,7 +126,8 @@ Route::middleware('admin')->prefix('user')->group(function(){
         'message' => MessageController::class,
         'slider' => SliderController::class,
         'reviews' => ProductReviewController::class,
-        'order'   => OrderController::class
+        'order'   => OrderController::class,
+        'aboutus' => AboutUsController::class,
     ]);
     Route::get('/showsub_category',[ProductController::class,'showSubCategory']);
 

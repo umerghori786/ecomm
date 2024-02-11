@@ -18,10 +18,11 @@
     <thead>
       <tr>
         <th>Sr no</th>
-        <th>Title</th>
-        <th>Description</th>
-        <th>URL</th>
-        <th>Image</th>
+        
+        <th>Slider Title</th>
+        <th>Button Title</th>
+        <th>Button URL</th>
+        <th>Slider Image</th>
         <th>Action</th>
       </tr>
     </thead>
@@ -30,8 +31,9 @@
       @foreach($slider as $slider)
       <tr>
         <td>{{$i}}</td>
-        <td>{{$slider->title}}</td>
+        
         <td>{{$slider->des}}</td>
+        <td>{{$slider->title}}</td>
         <td>{{$slider->url}}</td>
         <td>
             @if(isset($slider))
@@ -39,11 +41,12 @@
         @endif
             </td>
         <td>
-        <a href="{{route('slider.edit',[$slider->id])}}"><i class="fas fa-edit" style="color: #644141;"></i></a>
         <form action="{{ route('slider.destroy', $slider->id) }}" method="POST">
                         @csrf
-                        @method('DELETE')
-                        <button type="submit"> <i class="fa fa-trash" style="color:#644141;"></i></button>
+        <a href="{{route('slider.edit',[$slider->id])}}"><i class="fas fa-edit" style="color: #644141;"></i></a>
+        
+        @method('DELETE')
+        <button type="submit"> <i class="fa fa-trash" style="color:#644141;"></i></button>
           </form>
         </td>
         

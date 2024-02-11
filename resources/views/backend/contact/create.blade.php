@@ -4,11 +4,11 @@
 
                     <div class="row container">
                         <div class="col-md-9">
-                            <h4 class="page-title d-inline">@lang('Create Contact Us')</h4>
+                            <h4 class="page-title d-inline">@lang('Create Office Address')</h4>
                         </div>
                         <div class="col-md-3">
                             <a href="{{ route('contact.index') }}"
-                               class="btn btn-primary">@lang('View Contact')</a>
+                               class="btn btn-primary">@lang('View Office Address')</a>
                         </div>
                         
                     </div>
@@ -17,7 +17,7 @@
                        
                         <div class="row justify-content-center container">
                             <div class="col-12 col-lg-12 form-group">
-                                {!! Form::label('contact', 'Contact Us'.' *', ['class' => 'control-label']) !!}
+                                {!! Form::label('Phone no', 'Phone no'.' *', ['class' => 'control-label']) !!}
                                 {!! Form::text('contact', old('number'), ['class' => 'form-control', 'placeholder' => 'Contact Us', 'required' => true]) !!}
                                 @error('contact')
                                     <div class="alert alert-danger">{{ $message }}</div>
