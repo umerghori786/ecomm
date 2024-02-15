@@ -561,9 +561,10 @@
                         Subscribe Our Newsletter <br />
                         for Get Daily Update
                     </h2>
-                    <form class="newsletter__subscribe--form position__relative" action="#">
+                    <form class="newsletter__subscribe--form position__relative newsletter_subscribe" action="{{url('subcribe_email')}}" autocomplete="off">
+                        @csrf
                         <label>
-                            <input class="newsletter__subscribe--input border-radius-20" placeholder="Enter your email address" type="email" />
+                            <input class="newsletter__subscribe--input border-radius-20" placeholder="Enter your email address" value="" name="email" type="email" / required>
                         </label>
                         <button class="newsletter__subscribe--button primary__btn btn__style2" type="submit">
                             Subscribe

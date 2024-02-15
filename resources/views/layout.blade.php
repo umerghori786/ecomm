@@ -84,6 +84,25 @@
 		})
 	}
 
+	$(".newsletter_subscribe").submit(function(e){
+		e.preventDefault();
+		successmsg('Thanks for Subscribe')
+
+		var $this = $(this);
+		$.ajax({
+			type : 'post',
+			url : $this.attr('action'),
+			data: $this.serializeArray(),
+            dataType: $this.data('type'),
+            sucess:function(data)
+            {
+            	$('.newsletter_subscribe')[0].reset();
+            	$('.newsletter__subscribe--input').val('')
+            }
+		})
+		$('.newsletter__subscribe--input').val('')
+	})
+
 	const deleteFromWishlist = (obj , id)=>{
 
 		successmsg('Removed From Wishlist')

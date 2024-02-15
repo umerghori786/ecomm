@@ -5,7 +5,8 @@ use App\Models\{
     Privacy,
     Question,
     Contact,
-    Slider
+    Slider,
+    Subscriber
 };
 use Illuminate\Http\Request;
 
@@ -22,14 +23,17 @@ class SettingController extends Controller
     }
     public function contacts(){
         $contact = Contact::get();
-        // dd($contact);
         return view('frontend.contacts.index',compact('contact'));
     }
 
     public function slide(){
-        // dd(request()->all());
         $slide = Slider::get();
-        // dd($slide);
         return view('frontend.home',compact('slide'));
+    }
+    public function subscribe(Request $request)
+    {
+        Subscriber::create(['email'=>$request->email]);
+
+        return response()->json();
     }
 }

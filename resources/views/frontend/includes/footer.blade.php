@@ -94,9 +94,10 @@
                             <div class="footer__newsletter footer__widget--inner">
                                 <p class="footer__newsletter--desc">Get updates by subscribe our
                                     weekly newsletter</p>
-                                <form class="newsletter__subscribe--form__style position__relative" action="#">
+                                <form class="newsletter__subscribe--form__style position__relative newsletter_subscribe" action="{{url('subcribe_email')}}" autocomplete="off">
+                                    @csrf
                                     <label>
-                                        <input class="footer__newsletter--input newsletter__subscribe--input" placeholder="Enter your email address" type="email">
+                                        <input class="footer__newsletter--input newsletter__subscribe--input" placeholder="Enter your email address" name="email" type="email" / value="" required>
                                     </label>
                                     <button class="footer__newsletter--button newsletter__subscribe--button primary__btn" type="submit">Subscribe
                                         <svg class="newsletter__subscribe--button__icon" xmlns="http://www.w3.org/2000/svg" width="9.159" height="7.85" viewBox="0 0 9.159 7.85">
