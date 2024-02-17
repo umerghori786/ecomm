@@ -31,6 +31,16 @@
 <li class="mm-active">
 <a class="has-arrow" href="#" aria-expanded="false">
 <img src="{{asset('dashboard/img/menu-icon/1.svg')}}" alt="">
+<span>Coupon</span>
+</a>
+<ul>
+<li><a  href="{{route('coupon.index')}}">Coupon</a></li>
+</ul>
+</li>
+
+<li class="mm-active">
+<a class="has-arrow" href="#" aria-expanded="false">
+<img src="{{asset('dashboard/img/menu-icon/1.svg')}}" alt="">
 <span>Orders</span>
 </a>
 <ul>
@@ -48,16 +58,18 @@
 </ul>
 </li>
 
-
 <li class="mm-active">
 <a class="has-arrow" href="#" aria-expanded="false">
 <img src="{{asset('dashboard/img/menu-icon/1.svg')}}" alt="">
-<span>Coupon</span>
+<span>Subscribers</span>
 </a>
 <ul>
-<li><a  href="{{route('coupon.index')}}">Coupon</a></li>
+<li><a  href="{{route('admin.subscribers')}}">Subscribers</a></li>
 </ul>
 </li>
+
+
+
 
 <li class="mm-active">
 <a class="has-arrow" href="#" aria-expanded="false">

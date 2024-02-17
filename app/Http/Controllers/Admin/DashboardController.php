@@ -9,7 +9,8 @@ use App\Models\{
     Category,
     ContactUs,
     Review,
-    Order
+    Order,
+    Subscriber
 };
 
 class DashboardController extends Controller
@@ -26,5 +27,11 @@ class DashboardController extends Controller
         $count_reviews = Review::count();
         $count_orders = Order::where('status',0)->count();
         return view('backend.home',compact('count_category','count_sub_category','count_contactus','count_reviews','count_orders'));
+    }
+    public function subscribers()
+    {
+        $subscribers = Subscriber::latest()->get();
+
+        return view('backend.subscribers.index',compact('subscribers'));
     }
 }

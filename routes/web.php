@@ -113,6 +113,7 @@ Route::controller(PayPalController::class)->group(function(){
 Route::middleware('admin')->prefix('user')->group(function(){
 
     Route::get('dashboard',[DashboardController::class,'index'])->name('admin.dashboard');
+    Route::get('subscribers',[DashboardController::class,'subscribers'])->name('admin.subscribers');
 
     Route::resources([
         'categories' => CategoryController::class,
