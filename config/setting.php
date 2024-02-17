@@ -8,4 +8,5 @@ return [
 	'stripKey' => '',
     'stripeSecret' => '',
     'showslider' => 0,
+    'homepage' => 1,
 ];
