@@ -15,7 +15,6 @@ class ProductController extends Controller
      */
     public function index()
     {   
-        //dd(request()->all());
         match(request()->type){
             'trending'   => $products = Product::query()
                             ->has('images')->with(['images','subcategory'])->where('trending',1)->latest()->paginate(25),
@@ -30,6 +29,14 @@ class ProductController extends Controller
 
             $products = Product::query()
                             ->where('sub_category_id',request()->get('subcategory_id'))->has('images')->with(['images','subcategory'])->latest()->paginate(25);
+        }
+        if(request()->has('category_id')){
+
+            $products = Product::query()
+                            ->whereHas('subcategory.category',function($q){
+                                $q->where('id',request()->category_id);
+                            })
+                            ->has('images')->with(['images','subcategory'])->latest()->paginate(25);
         }
 
         if(request()->has('search')){

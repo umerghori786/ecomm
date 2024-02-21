@@ -144,6 +144,21 @@
 	      
 	    })()
 	}
+	$(document).ready(function(){
+        $(document).on('change','#category-by',function(){
+
+        	if($(this).val() == 'all')
+        	{
+        		location.href = '{{url('allproducts')}}';
+        	}else{
+        		location.href = '{{url('allproducts')}}?category_id=' + $(this).val()
+        	}
+            
+        })
+        @if(request('category_id') != "")
+        $('#category-by').find('option[value="' + "{{request('category_id')}}" + '"]').attr('selected', true);
+        @endif
+    })
 </script>
 </body>
 </html>
