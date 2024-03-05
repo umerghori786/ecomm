@@ -25,12 +25,28 @@ class ProductController extends Controller
             default      => $products = Product::query()
                             ->has('images')->with(['images','subcategory'])->latest()->paginate(25),                
         };  
-        if(request()->has('subcategory_id')){
+        if(request()->subcategory_id){
 
             $products = Product::query()
                             ->where('sub_category_id',request()->get('subcategory_id'))->has('images')->with(['images','subcategory'])->latest()->paginate(25);
         }
-        if(request()->has('category_id')){
+        /*if request has subscategory_id and type*/
+        if(request()->subcategory_id && request()->type){
+
+                match(request()->type){
+                'trending'   => $products = Product::query()
+                                ->has('images')->where('sub_category_id',request()->get('subcategory_id'))->with(['images','subcategory'])->where('trending',1)->latest()->paginate(25),
+                'highToLow'  => $products = Product::query()
+                                ->has('images')->where('sub_category_id',request()->get('subcategory_id'))->with(['images','subcategory'])->orderBy('discount_price','Desc')->paginate(25),
+                'lowToHigh'  => $products = Product::query()
+                                ->has('images')->where('sub_category_id',request()->get('subcategory_id'))->with(['images','subcategory'])->orderBy('discount_price','asc')->paginate(25),
+                default      => $products = Product::query()
+                                ->has('images')->where('sub_category_id',request()->get('subcategory_id'))->with(['images','subcategory'])->latest()->paginate(25),                
+            };  
+        }
+
+        /*===================================================================================*/    
+        if(request()->category_id){
 
             $products = Product::query()
                             ->whereHas('subcategory.category',function($q){
@@ -38,6 +54,33 @@ class ProductController extends Controller
                             })
                             ->has('images')->with(['images','subcategory'])->latest()->paginate(25);
         }
+        /*if request has category_id and type*/
+        if(request()->category_id && request()->type){
+                match(request()->type){
+                'trending'   => $products = Product::query()
+                                ->whereHas('subcategory.category',function($q){
+                                    $q->where('id',request()->category_id);
+                                })
+                                ->has('images')->with(['images','subcategory'])->where('trending',1)->latest()->paginate(25),
+                'highToLow'  => $products = Product::query()
+                                 ->whereHas('subcategory.category',function($q){
+                                     $q->where('id',request()->category_id);
+                                 })   
+                                ->has('images')->with(['images','subcategory'])->orderBy('discount_price','Desc')->paginate(25),
+                'lowToHigh'  => $products = Product::query()
+                                ->whereHas('subcategory.category',function($q){
+                                    $q->where('id',request()->category_id);
+                                })
+                                ->has('images')->with(['images','subcategory'])->orderBy('discount_price','asc')->paginate(25),
+                default      => $products = Product::query()
+                                ->whereHas('subcategory.category',function($q){
+                                    $q->where('id',request()->category_id);
+                                })    
+                                ->has('images')->with(['images','subcategory'])->latest()->paginate(25),                
+            };  
+        }
+
+        /*===================================================================================*/    
 
         if(request()->has('search')){
 
@@ -54,6 +97,24 @@ class ProductController extends Controller
 
                             })->has('images')->with(['images','subcategory'])->latest()->paginate(25);
         }
+        if(request()->has('to') && request()->subcategory_id){
+            $products = Product::query()
+                            ->where(function($query){
+                                $query->whereBetween('discount_price', [request()->from ?? 0, request()->to]);
+
+                            })->where('sub_category_id',request()->get('subcategory_id'))->has('images')->with(['images','subcategory'])->latest()->paginate(25);
+        }
+        if(request()->has('to') && request()->category_id){
+            $products = Product::query()
+                            ->where(function($query){
+                                $query->whereBetween('discount_price', [request()->from ?? 0, request()->to]);
+
+                            })
+                            ->whereHas('subcategory.category',function($q){
+                                    $q->where('id',request()->category_id);
+                                })
+                            ->has('images')->with(['images','subcategory'])->latest()->paginate(25);
+        }
 
 
         $trending_products = Product::has('images')->with('images')->where('trending',1)->latest()->limit(6)->get();           
@@ -64,7 +125,7 @@ class ProductController extends Controller
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
-     */
+     
     public function create()
     {
         //

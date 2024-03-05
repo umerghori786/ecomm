@@ -75,7 +75,7 @@
                             <label class="price__filter--label" for="Filter-Price-GTE2">From</label>
                             <div class="price__filter--input border-radius-5 d-flex align-items-center">
                                 <span class="price__filter--currency">$</span>
-                                <input class="price__filter--input__field border-0" id="Filter-Price-GTE2" name="filter.v.price.gte" type="number" placeholder="0" min="0" max="250.00">
+                                <input class="price__filter--input__field border-0" id="Filter-Price-GTE2" name="filter.v.price.gte" type="number" placeholder="0" min="0" >
                             </div>
                         </div>
                         <div class="price__divider">
@@ -85,7 +85,7 @@
                             <label class="price__filter--label" for="Filter-Price-LTE2">To</label>
                             <div class="price__filter--input border-radius-5 d-flex align-items-center">
                                 <span class="price__filter--currency">$</span>
-                                <input class="price__filter--input__field border-0" id="Filter-Price-LTE2" name="filter.v.price.lte" type="number" min="0" placeholder="250.00" max="250.00"> 
+                                <input class="price__filter--input__field border-0" id="Filter-Price-LTE2" name="filter.v.price.lte" type="number" min="0" placeholder="250.00" > 
                             </div>  
                         </div>
                     </div>
@@ -183,7 +183,7 @@
                                         <label class="price__filter--label" for="Filter-Price-GTE1">From</label>
                                         <div class="price__filter--input border-radius-5 d-flex align-items-center">
                                             <span class="price__filter--currency">$</span>
-                                            <input name="from" value="0" class="price__filter--input__field border-0" id="Filter-Price-GTE1"  type="number" placeholder="0" min="0" max="250.00">
+                                            <input name="from" value="0" class="price__filter--input__field border-0" id="Filter-Price-GTE1"  type="number" placeholder="0" min="0" >
                                         </div>
                                     </div>
                                     <div class="price__divider">
@@ -193,7 +193,7 @@
                                         <label class="price__filter--label" for="Filter-Price-LTE1">To</label>
                                         <div class="price__filter--input border-radius-5 d-flex align-items-center">
                                             <span class="price__filter--currency">$</span>
-                                            <input name="to" value="" required class="price__filter--input__field border-0" id="Filter-Price-LTE1"  type="number" min="0" placeholder="250.00" max="1000.00"> 
+                                            <input name="to" value="" required class="price__filter--input__field border-0" id="Filter-Price-LTE1"  type="number" min="0" placeholder="250.00" > 
                                         </div>	
                                     </div>
                                 </div>
@@ -504,7 +504,9 @@
     $(document).ready(function(){
         $(document).on('change','#sortBy',function(){
 
-            location.href = '{{url()->current()}}?type=' + $(this).val()
+            var subcategory_id = `{{request('subcategory_id')}}`;
+            var category_id = `{{request('category_id')}}`;
+            location.href = '{{url()->current()}}?type=' + $(this).val()+'&subcategory_id='+subcategory_id + '&category_id='+category_id;
         })
         @if(request('type') != "")
         $('#sortBy').find('option[value="' + "{{request('type')}}" + '"]').attr('selected', true);
@@ -522,8 +524,11 @@
         e.preventDefault()
         var from = $('input[name~="from"]').val()
         var to = $('input[name~="to"]').val()
-        
-        location.href = '{{url()->current()}}?from=' + from + '&to=' + to;
+
+        var subcategory_id = `{{request('subcategory_id')}}`;
+        var category_id = `{{request('category_id')}}`;
+
+        location.href = '{{url()->current()}}?from=' + from + '&to=' + to+'&subcategory_id='+subcategory_id + '&category_id='+category_id;;
     })
 
     
