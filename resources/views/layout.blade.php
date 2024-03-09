@@ -159,6 +159,12 @@
         $('#category-by').find('option[value="' + "{{request('category_id')}}" + '"]').attr('selected', true);
         @endif
     })
+
+    $('#searchProductFormHome').submit(function(e){
+        e.preventDefault()
+        var search = $('input[name~="searchProduct"]').val()
+        location.href = '{{url('allproducts')}}?search=' + search;
+    })
 </script>
 </body>
 </html>

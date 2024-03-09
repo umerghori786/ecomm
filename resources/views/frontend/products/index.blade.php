@@ -30,9 +30,9 @@
         <div class="offcanvas__filter--sidebar__inner">
             <div class="single__widget widget__bg">
                 <h2 class="widget__title position__relative h3">Search</h2>
-                <form class="widget__search--form" action="#">
+                <form id="searchProductFormSmallScreen" autocomplete="off" class="widget__search--form" >
                     <label>
-                        <input class="widget__search--form__input border-0" placeholder="Search by" type="text">
+                        <input name="searchProductindexSmallScreen" class="widget__search--form__input border-0" placeholder="Search by" type="text">
                     </label>
                     <button class="widget__search--form__btn"  type="submit">
                         Search 
@@ -69,13 +69,13 @@
             </div>
             <div class="single__widget price__filter widget__bg">
                 <h2 class="widget__title position__relative h3">Filter By Price</h2>
-                <form class="price__filter--form" action="#"> 
+                <form id="fromToPriceSmallScreen" class="price__filter--form" autocomplete="off"> 
                     <div class="price__filter--form__inner mb-15 d-flex align-items-center">
                         <div class="price__filter--group">
                             <label class="price__filter--label" for="Filter-Price-GTE2">From</label>
                             <div class="price__filter--input border-radius-5 d-flex align-items-center">
                                 <span class="price__filter--currency">$</span>
-                                <input class="price__filter--input__field border-0" id="Filter-Price-GTE2" name="filter.v.price.gte" type="number" placeholder="0" min="0" >
+                                <input class="price__filter--input__field border-0" id="Filter-Price-GTE2" name="fromSmallScreen" value="0"  type="number" placeholder="0" min="0" >
                             </div>
                         </div>
                         <div class="price__divider">
@@ -85,7 +85,7 @@
                             <label class="price__filter--label" for="Filter-Price-LTE2">To</label>
                             <div class="price__filter--input border-radius-5 d-flex align-items-center">
                                 <span class="price__filter--currency">$</span>
-                                <input class="price__filter--input__field border-0" id="Filter-Price-LTE2" name="filter.v.price.lte" type="number" min="0" placeholder="250.00" > 
+                                <input class="price__filter--input__field border-0" id="Filter-Price-LTE2" name="toSmallScreen" value="" required  type="number" min="0" placeholder="250.00" > 
                             </div>  
                         </div>
                     </div>
@@ -137,9 +137,9 @@
                     <div class="shop__sidebar--widget widget__area d-md-none">
                         <div class="single__widget widget__bg">
                             <h2 class="widget__title position__relative h3">Search</h2>
-                            <form id="searchProductForm" class="widget__search--form">
+                            <form id="searchProductForm" class="widget__search--form" autocomplete="off">
                                 <label>
-                                    <input name="searchProduct" class="widget__search--form__input border-0" value="" placeholder="Search by" type="text" required>
+                                    <input name="searchProductindex" class="widget__search--form__input border-0" value="" placeholder="Search by" type="text" required>
                                 </label>
                                 <button class="widget__search--form__btn searchProductButton"  type="submit">
                                     Search 
@@ -515,7 +515,13 @@
 
     $('#searchProductForm').submit(function(e){
         e.preventDefault()
-        var search = $('input[name~="searchProduct"]').val()
+        var search = $('input[name~="searchProductindex"]').val()
+        location.href = '{{url()->current()}}?search=' + search;
+    })
+    
+    $('#searchProductFormSmallScreen').submit(function(e){
+        e.preventDefault()
+        var search = $('input[name~="searchProductindexSmallScreen"]').val()
         location.href = '{{url()->current()}}?search=' + search;
     })
 
@@ -524,6 +530,17 @@
         e.preventDefault()
         var from = $('input[name~="from"]').val()
         var to = $('input[name~="to"]').val()
+
+        var subcategory_id = `{{request('subcategory_id')}}`;
+        var category_id = `{{request('category_id')}}`;
+
+        location.href = '{{url()->current()}}?from=' + from + '&to=' + to+'&subcategory_id='+subcategory_id + '&category_id='+category_id;;
+    })
+    $("#fromToPriceSmallScreen").submit(function(e){
+
+        e.preventDefault()
+        var from = $('input[name~="fromSmallScreen"]').val()
+        var to = $('input[name~="toSmallScreen"]').val()
 
         var subcategory_id = `{{request('subcategory_id')}}`;
         var category_id = `{{request('category_id')}}`;
