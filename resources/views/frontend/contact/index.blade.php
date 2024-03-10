@@ -5,28 +5,13 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
 <!-- Add this to your HTML file, typically in the head section -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
 
 
 <main class="main__content_wrapper">
         
         <!-- Start breadcrumb section -->
-        <section class="breadcrumb__section breadcrumb__bg">
-            <div class="container">
-                <!-- <div id="insert_message"></div> -->
-                <div class="row row-cols-1">
-                    <div class="col">
-                        <div class="breadcrumb__content">
-                            <h1 class="breadcrumb__content--title text-white mb-10">Contact Us</h1>
-                            <ul class="breadcrumb__content--menu d-flex">
-                                <li class="breadcrumb__content--menu__items"><a class="text-white" href="index.html">Home</a></li>
-                                <li class="breadcrumb__content--menu__items"><span class="text-white">Contact Us</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        
         <!-- End breadcrumb section -->
 
         <!-- Start contact section -->

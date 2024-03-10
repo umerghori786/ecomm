@@ -97,6 +97,6 @@ class ImageController extends Controller
             File::delete(public_path('/product/'.$file_name));
         }
         $pro->delete();
-        return redirect()->route('images.index',['product_id'=>$request->product_id])->with('success','deleted successfully');
+        return redirect()->back()->with('success','deleted successfully');
     }
 }

@@ -20,7 +20,8 @@
                         <div class="row justify-content-center container">
                             <div class="col-6 col-lg-6 form-group">
                             {!! Form::label('category_id',trans('Category'), ['class' => 'control-label ']) !!}
-                            {!! Form::select('category_id', $categories, old('category_id'), ['class' => 'form-control ', 'required' => true]) !!}
+
+                            {!! Form::select('category_id', $categories, old('category_id'), ['class' => 'form-control category_id', 'required' => true]) !!}
                             </div>
                             <div class="col-6 col-lg-6 form-group">
                             {!! Form::label('sub_category_id',trans('Sub Category'), ['class' => 'control-label']) !!}
@@ -62,6 +63,16 @@
                                 {!! Form::number('discount_price', old('discount_price'), ['class' => 'form-control', 'placeholder' => trans(''),'step' => 'any', 'pattern' => "[0-9]"]) !!}
                             </div>
                         </div>
+                        
+                        <div class="alert alert-danger text-center mt-5">Select Product Images (you can select more than one images by click on + icon)</div>
+                        <div class="row append">
+                          <div class="col-md-4 mt-2">
+                            
+                            <input type="file" name="image_url[]" accept="image/*">
+                            <a class="btn btn-primary btn1" onclick="add()">+</a>
+                          </div>
+                          
+                        </div>
                         <div class="row justify-content-center container">    
                             
                             <div class="col-4 col-lg-4 form-group text-center mt-3">
@@ -90,13 +101,46 @@
 
                         {!! Form::close() !!}
                     </div>
+                    <div class="alert alert-danger text-center mt-5">Delete Product Image by click on delete icon (if you want to delete) </div>
+                    <div class="row">
 
+                      @if(count($product->images) > 0)
+                      @foreach($product->images as $image)
+                      
+                        <div  style="margin-top: 3%" class="form-check col-md-3">
+                          <form action="{{route('images.destroy',[$image->id])}}" method="post" id="delete-form">
+                              @csrf
+                              @method('DELETE')
+                              <input  type="hidden" name="product_id" value="{{$product->id}}">
+                              <button type="submit"  class="close">
+                                    <span style="margin-right: 150px;"><i class="fa fa-trash" style="color:black;" onclick="return confirmation();"></i></span>
+                              </button>
+                          </form>
+                              <img src="{{ $image->url }}" width="100">
+
+                        </div>
+                      
+                      
+                      @endforeach
+                      @endif
+                    </div>
                     
 <script type="text/javascript">
 	var id = {{$product->subcategory->category->id}}
 	$('.category_id').val(id)
 </script>
+<script type="text/javascript">
+  const add = ()=>{
 
+    var htmlData = '<div class="col-md-4 mt-2"><input type="file" name="image_url[]" required accept="image/*"><a class="btn btn-danger btn2">-</a></div>';
+
+    $('.append').append(htmlData);
+  }
+  $(document).on('click','.btn2',function(){
+
+    $(this).parent().remove()
+  })
+</script>
                
 @endsection
 

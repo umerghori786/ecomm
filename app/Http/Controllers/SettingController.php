@@ -23,7 +23,7 @@ class SettingController extends Controller
     }
     public function contacts(){
         $contact = Contact::get();
-        return view('frontend.contacts.index',compact('contact'));
+        return view('frontend.contact.index',compact('contact'));
     }
 
     public function slide(){

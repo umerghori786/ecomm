@@ -94,7 +94,7 @@
                         </a>
                     </div>
                     <div class="main__logo">
-                        <h1 class="main__logo--title"><a class="main__logo--link" href="index.html"><img class="main__logo--img" src="{{asset('newtheme/assets/img/logo/nav-log2.webp')}}" alt="logo-img"></a></h1>
+                        <h1 class="main__logo--title"><a class="main__logo--link" href="{{route('home')}}"><img class="main__logo--img" src="@if(isset($logo)) {{url('logo/'.$logo->image)}} @endif" alt="logo-img"></a></h1>
                     </div>
                     <div class="header__search--widget d-none d-lg-block">
                         <form id="searchProductFormHome" class="d-flex header__search--form" autocomplete="off">
@@ -195,7 +195,7 @@
                                 
                                 
                                 <li class="header__menu--items style3">
-                                    <a class="header__menu--link" href="contact.html">Contact US</a>  
+                                    <a class="header__menu--link" href="{{url('contacts')}}">Contact US</a>  
                                 </li>
                             </ul>
                         </nav>

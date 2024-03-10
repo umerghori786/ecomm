@@ -40,9 +40,10 @@
           <form action="{{route('products.destroy',[$product->id])}}" method="post" id="delete-form" >
             @csrf
             @method('DELETE')
-          <a href="{{route('products.edit',[$product->id])}}"><i class="fas fa-edit" style="color: #644141;"></i></a>
-          <span onclick="return confirmation();"><button type="submit"><i class="fa fa-trash" style="color:#644141;" ></i></button></span>
-          <a href="{{route('images.index',['product_id'=>$product->id])}}"><i class="fas fa-image" style="color: #644141;"></i></a>
+          <a href="{{route('allproducts.show',[$product->slug])}}" target="_blank"><i class="btn btn-light fas fa-eye" style="color: #644141;"></i></a>
+          <a href="{{route('products.edit',[$product->id])}}"><i class="btn btn-light fas fa-edit" style="color: #644141;"></i></a>
+          <span onclick="return confirmation();"><button class="btn btn-light" type="submit"><i class="fa fa-trash" style="color:#644141;" ></i></button></span>
+          
           </form>
         </td>
       </tr>

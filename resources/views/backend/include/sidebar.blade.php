@@ -11,7 +11,7 @@
 </div>
 <ul id="sidebar_menu">
 <li class="side_menu_title">
-<span>Dashboard</span>
+<a href="{{route('admin.dashboard')}}"><span>Dashboard</span></a>
 </li>
 <li class="mm-active">
 <a class="has-arrow" href="#" aria-expanded="false">
@@ -23,7 +23,7 @@
 <li><a  href="{{route('categories.index')}}">Category</a></li>
 <li><a  href="{{route('subcategories.index')}}">Sub Category</a></li>
 <li><a href="{{route('products.index')}}">Products</a></li>
-<li><a href="{{route('products.index')}}">Products Reviews</a></li>
+<li><a href="{{route('reviews.index')}}">Products Reviews</a></li>
 
 </ul>
 </li>

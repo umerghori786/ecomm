@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
+use App\Http\Traits\ImageUploadTrait;
 use App\Models\{
     SubCategory,
     Category,
@@ -14,6 +15,7 @@ use App\Models\{
 
 class ProductController extends Controller
 {   
+    use ImageUploadTrait;
     protected $popular;
     protected $trending;
     /**
@@ -49,6 +51,7 @@ class ProductController extends Controller
     {   
         $data = $request->validated();
         $product = Product::create($data);
+        $this->imageUpload($request,$product,$product->id);
         $product->update(['popular'=>$this->popular,'trending'=>$this->trending,'user_id'=>auth()->user()->id]);
 
         return redirect()->route('products.index')->with('success','created successfully');
@@ -92,6 +95,7 @@ class ProductController extends Controller
         $data = $request->validated();
         $product = Product::where('id',$id)->first();
         $product->update($data);
+        $this->imageUpload($request,$product,$product->id);
         $product->update(['popular'=>$this->popular,'trending'=>$this->trending]);
 
         return redirect()->route('products.index')->with('success','updated successfully');

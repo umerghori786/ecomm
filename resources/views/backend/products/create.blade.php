@@ -62,7 +62,16 @@
                                 {!! Form::number('discount_price', old('discount_price'), ['class' => 'form-control', 'placeholder' => trans(''),'step' => 'any', 'pattern' => "[0-9]"]) !!}
                             </div>
                         </div>
-                        <div class="row justify-content-center container">    
+                        <div class="alert alert-danger text-center mt-5">Select Product Images (you can select more than one images by click on + icon)</div>
+                        <div class="row append">
+                          <div class="col-md-4 mt-2">
+                            
+                            <input type="file" name="image_url[]" accept="image/*" required>
+                            <a class="btn btn-primary btn1" onclick="add()">+</a>
+                          </div>
+                          
+                        </div>
+                        <div class="row justify-content-center container mt-5">    
                             
                             <div class="col-4 col-lg-4 form-group text-center mt-3">
                                 {!! Form::checkbox('trending', 1, 'checked', []) !!}
@@ -93,7 +102,18 @@
 
                     
 
+<script type="text/javascript">
+  const add = ()=>{
 
+    var htmlData = '<div class="col-md-4 mt-2"><input type="file" name="image_url[]" required accept="image/*"><a class="btn btn-danger btn2">-</a></div>';
+
+    $('.append').append(htmlData);
+  }
+  $(document).on('click','.btn2',function(){
+
+    $(this).parent().remove()
+  })
+</script>
                
 @endsection
 
