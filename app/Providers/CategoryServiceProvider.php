@@ -35,7 +35,7 @@ class CategoryServiceProvider extends ServiceProvider
 
         }
         if (Schema::hasTable('categories')) {
-            $categories = Category::with(['subcategories:title,category_id,id'])->get();
+            $categories = Category::with(['subcategories:title,category_id,id'])->where('status',1)->get();
             view()->share(['categories'=>$categories]);
         }
         

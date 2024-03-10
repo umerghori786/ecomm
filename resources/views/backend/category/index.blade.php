@@ -19,7 +19,6 @@
       <tr>
         <th>Sr no</th>
         <th>Title</th>
-        <th>Image</th>
         <th>Status</th>
         <th>Action</th>
       </tr>
@@ -30,9 +29,7 @@
       <tr>
         <td>{{$i}}</td>
         <td>{{$category->title}}</td>
-        <td>
-        <img src="{{url('category/'.($category->image ?? 'Null'))}}" width="100px" height="100px" alt=""/>
-        </td>
+        
         <td>@if($category->status == 1) Active @else InActive @endif</td>
         <td>
           <a href="{{route('categories.edit',[$category->id])}}"><i class="fas fa-edit" style="color: #644141;"></i></a>

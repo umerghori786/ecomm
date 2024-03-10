@@ -19,7 +19,6 @@ class SubCategoryController extends Controller
      */
     public function index()
     {   
-
         $sub_categories = SubCategory::with('category')->orderByDesc('id')->get();
         return view('backend.subcategory.index',compact('sub_categories'));
     }
@@ -43,11 +42,6 @@ class SubCategoryController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Example validation rules
-        ]);
-        $filename = time().'.'.$request->image->Extension();
-        $request->image->move(public_path('sub_category'),$filename);
-        $request->validate([
             'category_id'=>'required'
         ]);
 
@@ -57,7 +51,7 @@ class SubCategoryController extends Controller
             $status = 0;
         }
 
-        SubCategory::create(['title'=>$request->title,'category_id'=>$request->category_id,'image'=>$filename,'status'=>$status]);
+        SubCategory::create(['title'=>$request->title,'category_id'=>$request->category_id,'status'=>$status]);
         return redirect()->route('subcategories.index')->with('success','created successfully');
     }
 
@@ -93,28 +87,18 @@ class SubCategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-        ]);
-        $subcategory = SubCategory::Find($id);
-        $filename = time().'.'.$request->image->Extension();
-        $request->image->move(public_path('sub_category'),$filename);
-        $distination = 'sub_category/'.$request->image;
-        if(File::exists($distination)){
-            File::delete($distination);
-        }
+    {   
         $request->validate([
             'category_id'=>'required'
         ]);
-
+        $subcategory = SubCategory::findOrFail($id);
         if ($request->has('status')) {
             $status = 1;
         }else{
             $status = 0;
         }
-        $subcategory = SubCategory::findOrFail($id);
-        $subcategory->update(['title'=>$request->title,'category_id'=>$request->category_id,'image'=>$filename,'status'=>$status]);
+        
+        $subcategory->update(['title'=>$request->title,'category_id'=>$request->category_id,'status'=>$status]);
         return redirect()->route('subcategories.index')->with('success','updated successfully');
     }
 

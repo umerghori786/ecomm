@@ -21,13 +21,7 @@
                                 {!! Form::text('title', old('title'), ['class' => 'form-control', 'placeholder' => 'title', 'required' => true]) !!}
                             </div>
                         </div>
-                        <div class="row justify-content-center">
-                            <div class="col-12 col-lg-6 form-group">
-                            <label for="myfile">Select a file:</label>
-                            <input type="file" id="image" name="image" required/>
-                            </div>
-
-                        </div>
+                        
                         <div class="row justify-content-center">    
                             
                             <div class="col-12 col-lg-6 form-group text-center mt-3">

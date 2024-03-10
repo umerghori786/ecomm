@@ -40,18 +40,13 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {   
-        $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Example validation rules
-        ]);
-        $filename = time().'.'.$request->image->Extension();
-        $request->image->move(public_path('category'),$filename);
-        // dd($filename);
+        
         if($request->has('status')){
             $status = 1;
         }else{
             $status = 0;
         }
-        Category::create(['title'=>$request->title,'image'=>$filename,'status'=>$status]);
+        Category::create(['title'=>$request->title,'status'=>$status]);
 
         return redirect()->route('categories.index')->with('success','created successfully');
     }
@@ -88,23 +83,13 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {   
-        // dd($category);
-
-        $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Example validation rules
-        ]);
-        $filename = time().'.'.$request->image->Extension();
-        $request->image->move(public_path('category'),$filename);
-        $destination = 'category/'.$category->image;
-        if(File::exists($destination)){
-            File::delete($destination);
-        }
+        
         if($request->has('status')){
             $status = 1;
         }else{
             $status = 0;
         }
-        $category->update(['title'=>$request->title,'image'=>$filename,'status'=>$status]);
+        $category->update(['title'=>$request->title,'status'=>$status]);
         return redirect()->route('categories.index')->with('success','updated successfully');
     }
 
