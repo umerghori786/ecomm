@@ -42,7 +42,7 @@
             @method('DELETE')
           <a href="{{route('allproducts.show',[$product->slug])}}" target="_blank"><i class="btn btn-light fas fa-eye" style="color: #644141;"></i></a>
           <a href="{{route('products.edit',[$product->id])}}"><i class="btn btn-light fas fa-edit" style="color: #644141;"></i></a>
-          <span onclick="return confirmation();"><button class="btn btn-light" type="submit"><i class="fa fa-trash" style="color:#644141;" ></i></button></span>
+          <span onclick="return confirmation();"><button class="btn btn-light" type="submit"><svg style="color:#000" xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" viewBox="0 0 256 256"><path fill="currentColor" d="M216 48h-40v-8a24 24 0 0 0-24-24h-48a24 24 0 0 0-24 24v8H40a8 8 0 0 0 0 16h8v144a16 16 0 0 0 16 16h128a16 16 0 0 0 16-16V64h8a8 8 0 0 0 0-16M96 40a8 8 0 0 1 8-8h48a8 8 0 0 1 8 8v8H96Zm96 168H64V64h128Zm-80-104v64a8 8 0 0 1-16 0v-64a8 8 0 0 1 16 0m48 0v64a8 8 0 0 1-16 0v-64a8 8 0 0 1 16 0"/></svg></button></span>
           
           </form>
         </td>

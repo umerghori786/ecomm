@@ -64,7 +64,7 @@
                     <div class="col-md-6 right-side">
                     	@forelse($order->products as $product)
                         <div class="products mb-4">
-                                <div class="image">
+                                <div class="image" style="width:fit-content">
                                     <p class="quantity">{{$product->pivot->quantity}}</p>
                                     <img src="{{$product->images[0]->url}}" alt="">
                                 </div>

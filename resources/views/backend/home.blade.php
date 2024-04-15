@@ -9,28 +9,22 @@
 <div class="row">
 <div class="col-12">
 <div class="quick_activity_wrap">
-<div class="single_quick_activity d-flex">
-<div class="icon">
-{{-- <img src="{{asset('dashboard/img/icon/man.svg')}}" alt=""> --}}
-</div>
+<div class="single_quick_activity">
+
 <div class="count_content">
 <h3><span class="counter">{{$count_category}}</span> </h3>
 <p>Category</p>
 </div>
 </div>
-<div class="single_quick_activity d-flex">
-<div class="icon">
-{{-- <img src="{{asset('dashboard/img/icon/cap.svg')}}" alt=""> --}}
-</div>
+<div class="single_quick_activity ">
+
 <div class="count_content">
 <h3><span class="counter">{{$count_sub_category}}</span> </h3>
 <p>Sub Category</p>
 </div>
 </div>
-<div class="single_quick_activity d-flex">
-<div class="icon">
-{{-- <img src="{{asset('dashboard/img/icon/wheel.svg')}}" alt=""> --}}
-</div>
+<div class="single_quick_activity ">
+
 <div class="count_content">
 <h3><span class="counter">{{$product_count}}</span> </h3>
 <p>Products</p>
@@ -39,30 +33,24 @@
 
 
 
-<div class="single_quick_activity d-flex">
-<div class="icon">
-{{-- <img src="{{asset('dashboard/img/icon/wheel.svg')}}" alt=""> --}}
-</div>
+<div class="single_quick_activity">
+
 <div class="count_content">
 <h3><span class="counter">{{$count_contactus}}</span> </h3>
 <p>Messages</p>
 </div>
 </div>
 
-<div class="single_quick_activity d-flex">
-<div class="icon">
-{{-- <img src="{{asset('dashboard/img/icon/wheel.svg')}}" alt=""> --}}
-</div>
+<div class="single_quick_activity">
+
 <div class="count_content">
 <h3><span class="counter">{{$count_reviews}}</span> </h3>
 <p>Product Reviews</p>
 </div>
 </div>
 
-<div class="single_quick_activity d-flex">
-<div class="icon">
-{{-- <img src="{{asset('dashboard/img/icon/wheel.svg')}}" alt=""> --}}
-</div>
+<div class="single_quick_activity">
+
 <div class="count_content">
 <h3><span class="counter">{{$count_orders}}</span> </h3>
 <p>New Orders</p>

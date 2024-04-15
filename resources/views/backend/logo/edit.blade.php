@@ -20,7 +20,7 @@
                              <div class="col-12 col-lg-6 form-group">
                             <label for="myfile">Select a file:</label>
                             <input type="file" value=""id="image" name="image" required/>
-                            <img src="{{url('logo/'.$logo->image)}}" width="100px" height="100px" alt="">
+                            <img src="{{url('logo/'.$logo->image)}}" width="100px" alt="">
                             </div>
 
 

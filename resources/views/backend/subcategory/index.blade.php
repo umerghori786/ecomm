@@ -34,7 +34,7 @@
         
         <td>@if($sub_category->status == 1) Active @else InActive @endif</td>
         <td>
-          <a href="{{route('subcategories.edit',[$sub_category->id])}}"><i class="fas fa-edit" style="color: #644141;"></i></a>
+          <a href="{{route('subcategories.edit',[$sub_category->id])}}"><svg style="color:#000;margin-right:15px" xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 21h16M5.666 13.187A2.278 2.278 0 0 0 5 14.797V18h3.223c.604 0 1.183-.24 1.61-.668l9.5-9.505a2.278 2.278 0 0 0 0-3.22l-.938-.94a2.277 2.277 0 0 0-3.222.001z"/></svg></a>
         </td>
       </tr>
       @php $i++ @endphp
