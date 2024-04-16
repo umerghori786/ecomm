@@ -8,7 +8,12 @@
 <i class="ti-menu"></i>
 </div>
 <div>
-    <h3 class="m-0" style="color:#2e4765">Dashboard</h3>
+@if(isset($logo))    
+<a class="mx-auto" href="{{route('admin.dashboard')}}"><img src="{{url('logo/'.$logo->image)}}" alt=""></a>
+@else
+<a class="mx-auto" href="{{route('admin.dashboard')}}"><img src="{{asset('dashboard/img/logo.png')}}" alt=""></a>
+@endif
+    <!-- <h3 class="m-0" style="color:#2e4765">Dashboard</h3> -->
 </div>
 <div class="header_right d-flex justify-content-between align-items-center">
 
@@ -18,7 +23,7 @@
 
 <h5 class="text-left" >{{auth()->user()->name}}</h5>
 <div class="profile_info_details">
-<form method="POST" action="{{ route('logout') }}">
+<form class="mb-0" method="POST" action="{{ route('logout') }}">
 	@csrf
 <x-dropdown-link :href="route('logout')"
         onclick="event.preventDefault();

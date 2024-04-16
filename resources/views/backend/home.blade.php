@@ -8,43 +8,43 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="quick_activity_wrap">
-                                    <a href="#" class="single_quick_activity">
+                                    <a href="#" class="single_quick_activity bg-primary">
                                         <div class="count_content">
-                                            <h3><span class="counter">{{$count_category}}</span></h3>
-                                            <p>Category</p>
+                                            <h3><span class="counter text-white text-white">{{$count_category}}</span></h3>
+                                            <p class="text-white">Category</p>
                                         </div>
                                     </a>
-                                    <a href="#" class="single_quick_activity">
+                                    <a href="#" class="single_quick_activity bg-secondary">
                                         <div class="count_content">
-                                            <h3><span class="counter">{{$count_sub_category}}</span></h3>
-                                            <p>Sub Category</p>
+                                            <h3><span  class="counter text-white">{{$count_sub_category}}</span></h3>
+                                            <p class="text-white">Sub Category</p>
                                         </div>
                                     </a>
-                                    <a href="#" class="single_quick_activity">
+                                    <a href="#" class="single_quick_activity bg-warning">
                                         <div class="count_content">
-                                            <h3><span class="counter">{{$product_count}}</span></h3>
-                                            <p>Products</p>
-                                        </div>
-                                    </a>
-
-                                    <a href="#" class="single_quick_activity">
-                                        <div class="count_content">
-                                            <h3><span class="counter">{{$count_contactus}}</span></h3>
-                                            <p>Messages</p>
+                                            <h3><span class="counter text-white">{{$product_count}}</span></h3>
+                                            <p class="text-white">Products</p>
                                         </div>
                                     </a>
 
-                                    <a href="#" class="single_quick_activity">
+                                    <a href="#" class="single_quick_activity bg-success">
                                         <div class="count_content">
-                                            <h3><span class="counter">{{$count_reviews}}</span></h3>
-                                            <p>Product Reviews</p>
+                                            <h3><span class="counter text-white">{{$count_contactus}}</span></h3>
+                                            <p class="text-white">Messages</p>
                                         </div>
                                     </a>
 
-                                    <a href="#" class="single_quick_activity">
+                                    <a href="#" class="single_quick_activity bg-danger">
                                         <div class="count_content">
-                                            <h3><span class="counter">{{$count_orders}}</span></h3>
-                                            <p>New Orders</p>
+                                            <h3><span class="counter text-white">{{$count_reviews}}</span></h3>
+                                            <p class="text-white">Product Reviews</p>
+                                        </div>
+                                    </a>
+
+                                    <a href="#" class="single_quick_activity bg-info">
+                                        <div class="count_content">
+                                            <h3><span class="counter text-white">{{$count_orders}}</span></h3>
+                                            <p class="text-white">New Orders</p>
                                         </div>
                                     </a>
                                 </div>

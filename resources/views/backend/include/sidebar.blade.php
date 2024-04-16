@@ -1,10 +1,6 @@
 <nav class="sidebar">
 <div class="logo d-flex justify-content-between">
-@if(isset($logo))    
-<a class="mx-auto" href="{{route('admin.dashboard')}}"><img src="{{url('logo/'.$logo->image)}}" alt=""></a>
-@else
-<a class="mx-auto" href="{{route('admin.dashboard')}}"><img src="{{asset('dashboard/img/logo.png')}}" alt=""></a>
-@endif
+<h4 class="m-0 text-center text-white" style="color:#2e4765">Dashboard</h4>
 <div class="sidebar_close_icon d-lg-none">
 <i class="ti-close"></i>
 </div>
