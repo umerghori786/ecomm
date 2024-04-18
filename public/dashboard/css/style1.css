@@ -2319,7 +2319,7 @@ table.dataTable.dtr-inline.collapsed>tbody>tr.parent>th:first-child::before {
 
 @media(max-width:575.98px) {
     .header_iner {
-        justify-content: flex-end !important
+        justify-content: space-evenly !important;
     }
 }
 
@@ -2524,11 +2524,6 @@ table.dataTable.dtr-inline.collapsed>tbody>tr.parent>th:first-child::before {
     cursor: pointer
 }
 
-@media(max-width:991px) {
-    .profile_info img {
-        max-width: 30px
-    }
-}
 
 .profile_info .profile_info_iner {
     position: absolute;
@@ -2852,7 +2847,6 @@ table.dataTable {
     overflow-y: auto;
     transition: .5s;
     background: #794EDA;
-    box-shadow: 0 0 40px #eff1f7
 }
 
 @media only screen and (min-width:992px) and (max-width:1200px) {
@@ -2874,7 +2868,7 @@ table.dataTable {
         transition: .5s;
         top: 0;
         width: 280px;
-        background: #fff
+        background: #794EDA;
     }
 }
 
@@ -3041,17 +3035,15 @@ table.dataTable {
 }
 
 .sidebar_close_icon i {
-    width: 40px;
-    height: 40px;
     display: inline-block;
     text-align: center;
     line-height: 40px;
     position: absolute;
     right: 30px;
-    font-size: 25px;
-    top: 29px;
+    font-size: 20px;
+    top: 23px;
     cursor: pointer;
-    color: #222
+    color: #fff;
 }
 
 .sidebar_widget .white_box {
@@ -3373,7 +3365,7 @@ body::-webkit-scrollbar {
 
 .box_header {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     margin-bottom: 30px;
     align-items: center
 }
@@ -3682,9 +3674,8 @@ body::-webkit-scrollbar {
 }
 
 .single_element .single_quick_activity .count_content {
-    margin-left: 30px;
     flex-basis: 50%;
-    text-align: left
+    text-align: center
 }
 
 .single_element .single_quick_activity .count_content.count_content2 {
