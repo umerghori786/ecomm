@@ -55,6 +55,30 @@
                             </div>
 
                         </div>
+                        <!-- select language-->
+                        <!--
+                        <div class="row justify-content-center container mt-5">
+                            <div class="col-3 col-lg-3 form-group">
+                                {!! Form::label('Select Language', 'Select Language', ['class' => 'control-label fs-5 text-center center']) !!}
+                             </div>
+
+                             <div class="col-9 col-lg-9 form-group">
+                                <select class="form-control" id="app_language" name="app__language">
+                                    @foreach(config('language') as $lang)
+                                        <option 
+                                        @if(config('app.language') == $lang['code'])
+                                        selected
+                                        @endif 
+                                        value="{{$lang['code']}}">
+                                            {{$lang['language']}}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                        </div>
+                    -->
+                        
                         <div class="alert alert-danger text-center mt-5">Stripe details</div>
                         <div class="justify-content-center container mt-5 row">
                             

@@ -1,7 +1,7 @@
 <!-- Start header area -->
     <header class="header__section header__transparent">
         <!-- Start Header topbar -->
-        <div class="header__topbar bg__primary">
+        {{-- <div class="header__topbar bg__primary">
             <div class="container-fluid">
                 <div class="header__topbar--inner d-flex align-items-center justify-content-between">
                     <div class="header__shipping">
@@ -46,7 +46,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <!-- Start Header topbar -->
 
         <!-- Start main header -->
@@ -180,6 +180,7 @@
                         <span class="offcanvas__account--items__label">Login / Register</span>
                         </a>
                     </div>
+                    <!--
                     <div class="language__currency">
                         <ul class="d-flex align-items-center">
                             <li class="language__currency--list">
@@ -216,7 +217,7 @@
                                 </div>
                             </li>
                         </ul>
-                    </div>
+                    </div> -->
                 </nav>
             </div>
         </div>

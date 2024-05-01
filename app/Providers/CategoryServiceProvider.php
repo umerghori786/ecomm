@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use App\Models\Category;
 use App\Models\Config;
 use Illuminate\Support\Facades\Schema;
+use App;
 
 class CategoryServiceProvider extends ServiceProvider
 {
@@ -32,6 +33,7 @@ class CategoryServiceProvider extends ServiceProvider
             foreach (Config::all() as  $config) {
                 config([$config->key =>  $config->value]);
             }
+            App::setLocale(config('app.language'));
 
         }
         if (Schema::hasTable('categories')) {

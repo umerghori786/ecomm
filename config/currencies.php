@@ -13,12 +13,7 @@ return [
         'name' => 'Australian dollar',
         'country' => 'Australia'
     ],
-    [
-        'short_code' => 'BRL',
-        'symbol' => 'R$',
-        'name' => 'Brazilian real',
-        'country' => 'Brazil'
-    ],
+    
 
     [
         'short_code' => 'CAD',
@@ -26,18 +21,27 @@ return [
         'name' => 'Canadian dollar',
         'country' => 'Canada'
     ],
+    
+    [
+        'short_code' => 'EUR',
+        'symbol' => '€',
+        'name' => 'Euro',
+        'country' => 'France'
+    ],
+    
+    /*
+    [
+        'short_code' => 'BRL',
+        'symbol' => 'R$',
+        'name' => 'Brazilian real',
+        'country' => 'Brazil'
+    ],
     [
         'short_code' => 'DKK',
         'symbol' => 'KR',
         'name' => 'Danish krone',
         'country' => 'Denmark',
 
-    ],
-    [
-        'short_code' => 'EUR',
-        'symbol' => '€',
-        'name' => 'Euro',
-        'country' => 'France'
     ],
     [
         'short_code' => 'HKD',
@@ -126,7 +130,7 @@ return [
         'symbol' => '฿',
         'name' => 'Thai baht',
         'country' => 'Thailand'
-    ]
+    ] */
 
 
 ];

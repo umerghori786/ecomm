@@ -1,6 +1,6 @@
 <!-- Start header area -->
     <header class="header__section header__section3 header__transparent mb-20 color-scheme-3">
-        <div class="header__topbar border-bottom">
+        {{-- <div class="header__topbar border-bottom">
             <div class="container">
                 <div class="header__topbar--inner header__topbar--inner2 d-flex align-items-center justify-content-between">
                     <ul class="header__info d-flex align-items-center">
@@ -83,7 +83,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <div class="main__header main__header--style3 header__sticky">
             <div class="container">
                 <div class="main__header--inner position__relative d-flex justify-content-between align-items-center">
@@ -205,6 +205,7 @@
                         <li class="offcanvas__menu_li"><a class="offcanvas__menu_item" href="about.html">About</a></li>
                         <li class="offcanvas__menu_li"><a class="offcanvas__menu_item" href="contact.html">Contact</a></li>
                     </ul>
+                    <!--
                     <div class="offcanvas__account--items">
                         <a class="offcanvas__account--items__btn d-flex align-items-center" href="login.html">
                         <span class="offcanvas__account--items__icon"> 
@@ -249,7 +250,7 @@
                                 </div>
                             </li>
                         </ul>
-                    </div>
+                    </div> -->
                 </nav>
             </div>
         </div>

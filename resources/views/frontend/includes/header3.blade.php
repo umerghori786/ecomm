@@ -1,5 +1,6 @@
 <!-- Start header area -->
     <header class="header__section header__transparent mb-20 color-scheme-2">
+        <!--
         <div class="header__topbar border-bottom">
             <div class="container">
                 <div class="header__topbar--inner header__topbar--inner2 d-flex align-items-center justify-content-between">
@@ -83,7 +84,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div class="main__header main__header--style2">
             <div class="container">
                 <div class="main__header--inner d-flex justify-content-between align-items-center">
@@ -251,6 +252,7 @@
                         <span class="offcanvas__account--items__label">Login / Register</span>
                         </a>
                     </div>
+                    <!--
                     <div class="language__currency">
                         <ul class="d-flex align-items-center">
                             <li class="language__currency--list">
@@ -287,7 +289,7 @@
                                 </div>
                             </li>
                         </ul>
-                    </div>
+                    </div> -->
                 </nav>
             </div>
         </div>
