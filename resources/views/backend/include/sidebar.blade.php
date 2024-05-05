@@ -16,6 +16,7 @@
 <ul>
 <li><a  href="{{route('categories.index')}}">@if(config('app.language') == 'en') Category @else {{ GoogleTranslate::trans('Category', app()->getLocale()) }} @endif</a></li>
 <li><a  href="{{route('subcategories.index')}}">@if(config('app.language') == 'en') Sub Category @else {{ GoogleTranslate::trans('Sub Category', app()->getLocale()) }} @endif</a></li>
+<li><a  href="{{route('colors.index')}}">@if(config('app.language') == 'en') Colors @else {{ GoogleTranslate::trans('Sub Category', app()->getLocale()) }} @endif</a></li>
 <li><a href="{{route('products.index')}}">@if(config('app.language') == 'en') Products @else {{ GoogleTranslate::trans('Products', app()->getLocale()) }} @endif</a></li>
 <li><a href="{{route('reviews.index')}}">@if(config('app.language') == 'en') Products Reviews @else{{ GoogleTranslate::trans('Products Reviews', app()->getLocale()) }} @endif</a></li>
 
