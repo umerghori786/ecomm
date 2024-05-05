@@ -12,7 +12,7 @@ class Product extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $fillable = ['user_id','sub_category_id','title','slug','short_description','long_description','strike_price','discount_price','trending','popular'];
+    protected $fillable = ['user_id','sub_category_id','title','slug','short_description','long_description','strike_price','discount_price','trending','popular','color_id','shoesize_id','clothsize_id'];
 
     public function title() : Attribute
     {
@@ -34,5 +34,10 @@ class Product extends Model
     public function reviews()
     {
         return $this->morphMany(Review::class,'reviewable')->orderBy('id','desc');
+    }
+    public function clothSize($ids)
+    {
+        $cloth_sizes =  Color::whereIn('id',$ids)->pluck('title');
+        return $cloth_sizes;
     }
 }

@@ -17,7 +17,7 @@ class ColorController extends Controller
      */
     public function index()
     {
-        $colors = Color::orderByDesc('id')->get();
+        $colors = Color::orderByDesc('id')->where('status',1)->get();
         return view('backend.color.index', compact('colors'));
     }
 

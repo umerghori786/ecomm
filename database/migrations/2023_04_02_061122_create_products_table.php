@@ -25,6 +25,9 @@ return new class extends Migration
             $table->decimal('discount_price', 15, 2)->nullable();
             $table->integer('trending')->default(1)->nullable();
             $table->integer('popular')->default(1)->nullable();
+            $table->text('color_id')->nullable();
+            $table->text('clothsize_id')->nullable();
+            $table->text('shoesize_id')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

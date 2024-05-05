@@ -28,7 +28,17 @@
                             </div>
                             
                         </div>
-                        <div class="row justify-content-center container">
+                        <div class="row justify-content-center container mt-3">
+                            <div class="col-12 col-lg-12 form-group">
+                                {!! Form::label('Select Product colors', 'Select Product Colors (you can choose more than one color by again click on color in dropdown)', ['class' => 'control-label']) !!}
+                                {!! Form::select('color_id[]', $colors,old('color_id') , ['class' => 'form-control leaderMultiSelctdropdown select2' , 'multiple'=>"multiple",'id'=>'leaderMultiSelctdropdown']) !!}
+
+                            </div>
+                            
+
+                        </div>
+                        
+                        <div class="row justify-content-center container mt-3">
                             <div class="col-12 col-lg-12 form-group">
                                 {!! Form::label('title', 'Title'.' *', ['class' => 'control-label']) !!}
                                 {!! Form::text('title', old('title'), ['class' => 'form-control', 'placeholder' => 'title', 'required' => true]) !!}
@@ -37,14 +47,14 @@
                             
 
                         </div>
-                        <div class="row justify-content-center container">
+                        <div class="row justify-content-center container mt-3">
                             <div class="col-12 col-lg-12 form-group">
                                 {!! Form::label('short description',  trans('short description'), ['class' => 'control-label']) !!}
                                 {!! Form::textarea('short_description', old('short_description'), ['class' => 'form-control editor', 'placeholder' => trans('short description')]) !!}
 
                             </div>
                         </div>
-                        <div class="row justify-content-center container">
+                        <div class="row justify-content-center container mt-3">
                             <div class="col-12 col-lg-12 form-group">
                                 {!! Form::label('Long description',  trans('Long description'), ['class' => 'control-label']) !!}
                                 {!! Form::textarea('long_description', old('long_description'), ['class' => 'form-control editor','placeholder'=>"write here" ,'id'=>"summernote"]) !!}
@@ -52,7 +62,7 @@
                             </div>
                         </div>
                         
-                        <div class="row justify-content-center container">    
+                        <div class="row justify-content-center container mt-3">    
                             <div class="col-12 col-lg-6 form-group">
                                 {!! Form::label('strike price',  trans('strike price'), ['class' => 'control-label']) !!}
                                 {!! Form::number('strike_price', old('strike_price'), ['class' => 'form-control', 'placeholder' => trans(''),'step' => 'any', 'pattern' => "[0-9]"]) !!}
@@ -62,6 +72,27 @@
                                 {!! Form::number('discount_price', old('discount_price'), ['class' => 'form-control', 'placeholder' => trans(''),'step' => 'any', 'pattern' => "[0-9]"]) !!}
                             </div>
                         </div>
+                        <div class="alert alert-danger text-center mt-5">Select Cloth Size if your product related to cloths else you leave it empty</div>
+                        <div class="row justify-content-center container mt-3">
+                            <div class="col-12 col-lg-12 form-group">
+                                {!! Form::label('Select Product Size', 'Select Product Size (you can choose more than one size by again click on size in dropdown)', ['class' => 'control-label']) !!}
+                                {!! Form::select('clothsize_id[]', $cloths, old('clothsize_id[]'), ['class' => 'form-control leaderMultiSelctdropdown select2' , 'multiple'=>"multiple",'id'=>'leaderMultiSelctdropdown1']) !!}
+
+                            </div>
+                            
+
+                        </div>
+                        <div class="alert alert-danger text-center mt-5">Select Shoe Size if your product related to Shoes else you leave it empty</div>
+                        <div class="row justify-content-center container mt-3">
+                            <div class="col-12 col-lg-12 form-group">
+                                {!! Form::label('Select Product Size', 'Select Product Size (you can choose more than one size by again click on size in dropdown)', ['class' => 'control-label']) !!}
+                                {!! Form::select('shoesize_id[]', $shoes ,old('shoesize_id[]'), ['class' => 'form-control leaderMultiSelctdropdown select2' , 'multiple'=>"multiple",'id'=>'leaderMultiSelctdropdown2']) !!}
+
+                            </div>
+                            
+
+                        </div>
+
                         <div class="alert alert-danger text-center mt-5">Select Product Images (you can select more than one images by click on + icon)</div>
                         <div class="row append">
                           <div class="col-md-4 mt-2">
@@ -113,6 +144,9 @@
 
     $(this).parent().remove()
   })
+  $(".leaderMultiSelctdropdown").select2();
+  $(".leaderMultiSelctdropdown1").select2();
+  $(".leaderMultiSelctdropdown2").select2();
 </script>
                
 @endsection

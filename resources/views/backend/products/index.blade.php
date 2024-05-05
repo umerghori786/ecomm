@@ -23,6 +23,7 @@
         <th>Title</th>
         <th>Orig Price</th>
         <th>Disc Price</th>
+        {{-- <th>size</th> --}}
         <th>Action</th>
       </tr>
     </thead>
@@ -36,6 +37,7 @@
         <td>{{$product->title}}</td>
         <td>{{$product->strike_price}}</td>
         <td>{{$product->discount_price}}</td>
+        {{-- <td>@foreach($product->clothSize(explode(',',$product->clothsize_id)) as $size)<p> {{$size}}</p> @endforeach</td> --}}
         <td>
           <form action="{{route('products.destroy',[$product->id])}}" method="post" id="delete-form" >
             @csrf

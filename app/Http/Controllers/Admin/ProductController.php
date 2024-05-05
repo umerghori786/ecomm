@@ -10,7 +10,8 @@ use App\Http\Traits\ImageUploadTrait;
 use App\Models\{
     SubCategory,
     Category,
-    Product
+    Product,
+    Color,
 };
 
 class ProductController extends Controller
@@ -38,7 +39,11 @@ class ProductController extends Controller
     {   
         $categories = Category::pluck('title','id')->prepend('select Category','');
         $subcategories = SubCategory::pluck('title','id')->prepend('select Sub Category','');
-        return view('backend.products.create',compact('categories','subcategories'));
+        $colors = Color::pluck('title','id');
+        $cloths = Color::where('status',2)->pluck('title','id');
+        $shoes = Color::where('status',3)->pluck('title','id');
+
+        return view('backend.products.create',compact('categories','subcategories','colors','cloths','shoes'));
     }
 
     /**
@@ -53,6 +58,18 @@ class ProductController extends Controller
         $product = Product::create($data);
         $this->imageUpload($request,$product,$product->id);
         $product->update(['popular'=>$this->popular,'trending'=>$this->trending,'user_id'=>auth()->user()->id]);
+        if(count($request->color_id) > 0)
+        {
+            $product->update(['color_id'=>implode(',', $request->color_id)]);
+        }
+        if(count($request->clothsize_id) > 0)
+        {
+            $product->update(['clothsize_id'=>implode(',', $request->clothsize_id)]);
+        }
+        if(count($request->shoesize_id) > 0)
+        {
+            $product->update(['shoesize_id'=>implode(',', $request->shoesize_id)]);
+        }
 
         return redirect()->route('products.index')->with('success','created successfully');
     }
@@ -79,8 +96,11 @@ class ProductController extends Controller
         $categories = Category::pluck('title','id')->prepend('select Category','');
         $subcategories = SubCategory::pluck('title','id')->prepend('select Sub Category','');
         $product = Product::findOrFail($id);
+        $colors = Color::pluck('title','id');
+        $cloths = Color::where('status',2)->pluck('title','id');
+        $shoes = Color::where('status',3)->pluck('title','id');
 
-        return view('backend.products.edit',compact('subcategories','categories','product'));
+        return view('backend.products.edit',compact('subcategories','categories','product','colors','cloths','shoes'));
     }
 
     /**
@@ -91,12 +111,24 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(UpdateProductRequest $request, $id)
-    {
+    {   
         $data = $request->validated();
         $product = Product::where('id',$id)->first();
         $product->update($data);
         $this->imageUpload($request,$product,$product->id);
         $product->update(['popular'=>$this->popular,'trending'=>$this->trending]);
+        if(count($request->color_id) > 0)
+        {
+            $product->update(['color_id'=>implode(',', $request->color_id)]);
+        }
+        if(count($request->clothsize_id) > 0)
+        {
+            $product->update(['clothsize_id'=>implode(',', $request->clothsize_id)]);
+        }
+        if(count($request->shoesize_id) > 0)
+        {
+            $product->update(['shoesize_id'=>implode(',', $request->shoesize_id)]);
+        }
 
         return redirect()->route('products.index')->with('success','updated successfully');
     }
