@@ -62,6 +62,12 @@ body {
     color: var(--black-color);
     background-color: var(--white-color);
 }
+
+.testimonial__swiper--column3 .swiper-slide .testimonial__items--style2{
+    min-height: 310px;
+}
+
+
 @media only screen and (max-width: 1599px) {
     body {
         font-size: 1.5rem;
@@ -3402,8 +3408,8 @@ input[type="number"]::-webkit-outer-spin-button {
     }
 }
 .slider__content--btn {
-    background: var(--white-color);
-    color: var(--primary-color);
+    background: #4F5AC2;
+    color: #fff;
 }
 .hero__slider--activation .swiper-button-prev {
     left: 1rem;
@@ -3823,6 +3829,12 @@ input[type="number"]::-webkit-outer-spin-button {
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
 }
+
+.product__items--link .product__items--img{
+    height: auto;
+}
+
+
 .product__items:hover .product__items--img {
     -webkit-transform: scale(1.05);
     transform: scale(1.05);

@@ -111,7 +111,7 @@
                                     
                                     <div class="guarantee__safe--checkout">
                                         <h5 class="guarantee__safe--checkout__title">Guaranteed Safe Checkout</h5>
-                                        <img class="guarantee__safe--checkout__img" src="{{asset('newtheme/assets/img/other/safe-checkout.webp')}}" alt="Payment Image">
+                                        <img class="guarantee__safe--checkout__img" src="https://escuela-ray-bolivar-sosa.com/assets/img/banner/p-1.jpg" alt="Payment Image">
                                     </div>
                                 
                             </div>
