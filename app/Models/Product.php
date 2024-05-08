@@ -35,9 +35,9 @@ class Product extends Model
     {
         return $this->morphMany(Review::class,'reviewable')->orderBy('id','desc');
     }
-    public function clothSize($ids)
+    public function result($ids)
     {
-        $cloth_sizes =  Color::whereIn('id',$ids)->pluck('title');
-        return $cloth_sizes;
+        $result =  Color::whereIn('id',$ids)->pluck('title');
+        return $result;
     }
 }

@@ -108,26 +108,42 @@
                                             </div>
                                             
                                         </div>
+                                        @if(isset($product->color_id))
                                         <div class="product__variant--list mb-15">
                                             <div class="product__details--info__meta">
                                                 <p class="product__details--info__meta--list"><strong>Color:</strong>
-                                                    <span class="single-item">white</span>
-                                                    <span class="single-item">red</span>
-                                                    <span class="single-item active">blue</span>
-                                                    <span class="single-item">green</span>
+
+                                                    @foreach($product->result(explode(',',$product->color_id)) as $color)
+                                                    <span class="single-item">{{$color}}</span>
+                                                    @endforeach
                                                 </p>
                                             </div>
                                         </div>
+                                        @endif
+                                        @if(isset($product->clothsize_id))
                                         <div class="product__variant--list mb-15">
                                             <div class="product__details--info__meta">
                                                 <p class="product__details--info__meta--list"><strong>Size:</strong>
-                                                    <span class="single-item">L</span>
-                                                    <span class="single-item">M</span>
-                                                    <span class="single-item active">XL</span>
-                                                    <span class="single-item">XXl</span>
+                                                    @foreach($product->result(explode(',',$product->clothsize_id)) as $cloth)
+                                                    <span class="single-item">{{$cloth}}</span>
+                                                    @endforeach
+                                                    
                                                 </p>
                                             </div>
                                         </div>
+                                        @endif
+                                         @if(isset($product->shoesize_id))
+                                        <div class="product__variant--list mb-15">
+                                            <div class="product__details--info__meta">
+                                                <p class="product__details--info__meta--list"><strong>Size:</strong>
+                                                    @foreach($product->result(explode(',',$product->shoesize_id)) as $shoe)
+                                                    <span class="single-item">{{$shoe}}</span>
+                                                    @endforeach
+                                                    
+                                                </p>
+                                            </div>
+                                        </div>
+                                        @endif
                                     </div>
                                     
                                     <div class="guarantee__safe--checkout">

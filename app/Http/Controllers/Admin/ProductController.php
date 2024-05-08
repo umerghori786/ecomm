@@ -39,7 +39,7 @@ class ProductController extends Controller
     {   
         $categories = Category::pluck('title','id')->prepend('select Category','');
         $subcategories = SubCategory::pluck('title','id')->prepend('select Sub Category','');
-        $colors = Color::pluck('title','id');
+        $colors = Color::where('status',1)->pluck('title','id');
         $cloths = Color::where('status',2)->pluck('title','id');
         $shoes = Color::where('status',3)->pluck('title','id');
 
@@ -96,7 +96,7 @@ class ProductController extends Controller
         $categories = Category::pluck('title','id')->prepend('select Category','');
         $subcategories = SubCategory::pluck('title','id')->prepend('select Sub Category','');
         $product = Product::findOrFail($id);
-        $colors = Color::pluck('title','id');
+        $colors = Color::where('status',1)->pluck('title','id');
         $cloths = Color::where('status',2)->pluck('title','id');
         $shoes = Color::where('status',3)->pluck('title','id');
 

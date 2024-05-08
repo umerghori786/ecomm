@@ -16,7 +16,8 @@ class ColorController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   
+        
         $colors = Color::orderByDesc('id')->where('status',1)->get();
         return view('backend.color.index', compact('colors'));
     }

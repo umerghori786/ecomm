@@ -30,7 +30,7 @@ class DashboardController extends Controller
         $count_reviews = Review::count();
         $count_orders = Order::where('status',0)->count();
         $product_count = Product::count();
-        $color_count = Color::count();
+        $color_count = Color::where('status',1)->count();
 
         /*income*/
         $today_income  = Order::whereDate('created_at', Carbon::today())->sum('grand_total');
