@@ -21,7 +21,8 @@
 	const addToCart = (id)=>{
 
 	    var product_id = id;
-	    var quantity = 1;
+	    var quantity = parseInt($(`input[name~='product-quantity']`).val())
+	    console.log(quantity)
 	    $.ajax({
 
 	        type : "get",
@@ -164,6 +165,19 @@
         e.preventDefault()
         var search = $('input[name~="searchProduct"]').val()
         location.href = '{{url('allproducts')}}?search=' + search;
+    })
+    $(document).on('click','.decreaseq',function(){
+    	var quantity = $(`input[name~='product-quantity']`).val()
+    	if(quantity > 1)
+    	{
+    		$(`input[name~='product-quantity']`).val(parseInt(quantity) - 1);
+    	}
+    })
+    $(document).on('click','.increaseq',function(){
+    	var quantity = $(`input[name~='product-quantity']`).val()
+    	
+    	$(`input[name~='product-quantity']`).val(parseInt(quantity) + 1);
+    	
     })
 </script>
 </body>

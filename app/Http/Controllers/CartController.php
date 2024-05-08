@@ -31,7 +31,7 @@ class CartController extends Controller
             $cart[$product->id]['quantity'] = $request->quantity;
         }
         elseif(isset($cart[$product->id])) {
-            $cart[$product->id]['quantity']++;
+            $cart[$product->id]['quantity'] = $request->quantity;;
         } else {
             $cart[$product->id] = [
                 "title" => $product->title,
