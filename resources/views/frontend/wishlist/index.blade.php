@@ -107,14 +107,15 @@
                                         </ul>
                                     </div>
                                     <div class="product__items--content text-center">
-                                        <div class="product__items--color">
-                                            <ul class="product__items--color__wrapper d-flex justify-content-center">
-                                                <li class="product__items--color__list"><a class="product__items--color__link one" href="javascript:void(0)"><span class="visually-hidden">Color 1</span></a></li>
-                                                <li class="product__items--color__list"><a class="product__items--color__link two" href="javascript:void(0)"><span class="visually-hidden">Color 2</span></a></li>
-                                                <li class="product__items--color__list"><a class="product__items--color__link three" href="javascript:void(0)"><span class="visually-hidden">Color 3</span></a></li>
-                                                <li class="product__items--color__list"><a class="product__items--color__link four" href="javascript:void(0)"><span class="visually-hidden">Color 4</span></a></li>
-                                            </ul>
-                                        </div>
+                                    <div class="product__details--info__rating justify-content-center d-flex align-items-center mb-15">
+                                        <div class="rating product__list--rating d-flex">
+                                                                                            <i class="fas fa-star fa-sm mr-2" style="color: rgb(250 204 21);"></i>
+                                                                                            <i class="fas fa-star fa-sm mr-2" style="color: rgb(250 204 21);"></i>
+                                                                                            <i class="fas fa-star fa-sm mr-2" style="color: rgb(250 204 21);"></i>
+                                                                                            <i class="fas fa-star fa-sm mr-2" style="color: rgb(250 204 21);"></i>
+                                                                                            <i class="fas fa-star fa-sm mr-2" style="color: rgb(250 204 21);"></i>
+                                                                                                                                </div>
+                                    </div>
                                         <h3 class="product__items--content__title h4"><a href="{{route('allproducts.show',[$similar_product->slug])}}">{{$similar_product->title}}</a></h3>
                                         <div class="product__items--price">
                                             <span class="current__price">{{config('app.currency')}}{{$similar_product->discount_price}}</span>
