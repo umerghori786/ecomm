@@ -21,25 +21,39 @@ class CartController extends Controller
         $array[1] = ['hola'];
         $array[2] = ['hola'];
         $array[3] = ['hola'];
+        $array[3] = ['holaaaa'];
         unset($array[3]);
-
+        
         $product = Product::findOrFail($request->product_id);
 
         $cart = $request->session()->get('cart',[]);
         
         if (isset($cart[$product->id]) && isset($request->add_or_update_product) && $request->quantity > 0) {
-            $cart[$product->id]['quantity'] = $request->quantity;
+            $cart[$product->id]['quantity'] = $request->quantity ?? 1;
         }
-        elseif(isset($cart[$product->id])) {
-            $cart[$product->id]['quantity'] = $request->quantity;;
-        } else {
+        elseif(isset($cart[$product->id]) && isset($cart['color'])) {
+            $cart[$product->id]['quantity'] = $request->quantity ?? 1;
+            $cart[$product->id]['color'] = $request->color;
+        }        
+        elseif(isset($cart[$product->id]) && isset($cart['cloth_size'])) {
+            $cart[$product->id]['quantity'] = $request->quantity ?? 1;
+            $cart[$product->id]['cloth_size'] = $request->cloth_size;
+        }
+        elseif(isset($cart[$product->id]) && isset($cart['shoe_size'])) {
+            $cart[$product->id]['quantity'] = $request->quantity ?? 1;
+            $cart[$product->id]['shoe_size'] = $request->shoe_size;
+        }
+         else {
             $cart[$product->id] = [
                 "title" => $product->title,
-                "quantity" => $request->quantity,
+                "quantity" => $request->quantity ?? 1,
                 "discount_price" => $product->discount_price,
                 "strike_price" => $product->strike_price,
                 "image" => $product->images[0]->url,
-                "slug"  => $product->slug
+                "slug"  => $product->slug,
+                'color' => $request->product_color,
+                'cloth_size' => $request->cloth_size,
+                'shoe_size' => $request->shoe_size
             ];
         }
         

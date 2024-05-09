@@ -77,7 +77,7 @@
                                         
                                         <div class="product__variant--list quantity d-flex align-items-center mb-20">
                                             <div class="quantity__box">
-                                                <button type="button" class="quantity__value quickview__value--quantity decrease" aria-label="quantity value" value="Decrease Value">-</button>
+                                                <button type="button" class="quantity__value quickview__value--quantity decreaseq" aria-label="quantity value" value="Decrease Value">-</button>
                                                 <label>
                                                     @php 
                                                     $quantity = 1;
@@ -89,9 +89,9 @@
                                                         
                                                     
                                                     @endphp
-                                                    <input type="number" class="quantity__number show-product-quantity quickview__value--number" value="{{$quantity}}" />
+                                                    <input type="number" class="quantity__number show-product-quantity quickview__value--number" value="{{$quantity}}" name="product-quantity" />
                                                 </label>
-                                                <button type="button" class="quantity__value quickview__value--quantity increase" aria-label="quantity value" value="Increase Value">+</button>
+                                                <button type="button" class="quantity__value quickview__value--quantity increaseq" aria-label="quantity value" value="Increase Value">+</button>
                                             </div>
                                             <button class="quickview__cart--btn primary__btn" type="submit" onclick="addToCart(`{{$product->id}}`)">Add To Cart</button>  
                                         </div>
@@ -108,13 +108,19 @@
                                             </div>
                                             
                                         </div>
+
                                         @if(isset($product->color_id))
                                         <div class="product__variant--list mb-15">
                                             <div class="product__details--info__meta">
                                                 <p class="product__details--info__meta--list"><strong>Color:</strong>
 
-                                                    @foreach($product->result(explode(',',$product->color_id)) as $color)
-                                                    <span class="single-item">{{$color}}</span>
+                                                    @foreach($product->result(explode(',',$product->color_id)) as $key=> $color)
+                                                    
+                                                    
+                                                    <span class="single-item @if($key == 0) active @endif product-color" id="{{$color}}">{{$color}}</span>
+                                                     @if($key == 0)
+                                                    <input type="hidden" value="{{$color}}"  name="product_color"> 
+                                                    @endif
                                                     @endforeach
                                                 </p>
                                             </div>
@@ -124,8 +130,11 @@
                                         <div class="product__variant--list mb-15">
                                             <div class="product__details--info__meta">
                                                 <p class="product__details--info__meta--list"><strong>Size:</strong>
-                                                    @foreach($product->result(explode(',',$product->clothsize_id)) as $cloth)
-                                                    <span class="single-item">{{$cloth}}</span>
+                                                    @foreach($product->result(explode(',',$product->clothsize_id)) as $key=> $cloth)
+                                                    <span class="single-item @if($key == 0) active @endif cloth_size" id="{{$cloth}}">{{$cloth}}</span>
+                                                    @if($key == 0)
+                                                    <input type="hidden"  value="{{$cloth}}"  name="cloth_size"> 
+                                                    @endif
                                                     @endforeach
                                                     
                                                 </p>
@@ -136,8 +145,11 @@
                                         <div class="product__variant--list mb-15">
                                             <div class="product__details--info__meta">
                                                 <p class="product__details--info__meta--list"><strong>Size:</strong>
-                                                    @foreach($product->result(explode(',',$product->shoesize_id)) as $shoe)
-                                                    <span class="single-item">{{$shoe}}</span>
+                                                    @foreach($product->result(explode(',',$product->shoesize_id)) as $key=> $shoe)
+                                                    <span class="single-item @if($key == 0) active @endif shoe_size" id="{{$shoe}}">{{$shoe}}</span>
+                                                     @if($key == 0)
+                                                    <input type="hidden" value="{{$shoe}}" name="shoe_size"> 
+                                                    @endif
                                                     @endforeach
                                                     
                                                 </p>

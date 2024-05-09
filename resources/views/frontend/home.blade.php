@@ -53,7 +53,16 @@
                                     </ul>
                                 </div>
                                 <div class="product__items--content text-center">
-                                    
+                                    <div class="product__details--info__rating d-flex justify-content-center align-items-center mb-15">
+                                        <div class="rating product__list--rating d-flex">
+                                            @for($i = 1 ; $i <= (int)number_format($product->reviews()->get()->pluck('rating')->avg() ?? 5); $i++)
+                                                <i class="fas fa-star fa-sm mr-2" style="color: rgb(250 204 21);"></i>
+                                            @endfor
+                                            @for($i = 1 ; $i <= (int) 5 - number_format($product->reviews()->get()->pluck('rating')->avg() ?? 5); $i++)
+                                            <i class="far fa-star fa-sm mr-2" style="color: rgb(250 204 21);"></i>
+                                            @endfor
+                                        </div>
+                                    </div>
                                     <h3 class="product__items--content__title h4"><a href="{{route('allproducts.show',[$product->slug])}}">{{$product->title}}</a></h3>
                                     <div class="product__items--price">
                                         <span class="current__price">{{config('app.currency')}}{{$product->discount_price}}</span>
@@ -128,7 +137,16 @@
                                             </ul>
                                         </div>
                                         <div class="product__items--content text-center">
-                                            
+                                            <div class="product__details--info__rating d-flex justify-content-center align-items-center mb-15">
+                                                <div class="rating product__list--rating d-flex">
+                                                    @for($i = 1 ; $i <= (int)number_format($popular->reviews()->get()->pluck('rating')->avg() ?? 5); $i++)
+                                                        <i class="fas fa-star fa-sm mr-2" style="color: rgb(250 204 21);"></i>
+                                                    @endfor
+                                                    @for($i = 1 ; $i <= (int) 5 - number_format($popular->reviews()->get()->pluck('rating')->avg() ?? 5); $i++)
+                                                    <i class="far fa-star fa-sm mr-2" style="color: rgb(250 204 21);"></i>
+                                                    @endfor
+                                                </div>
+                                            </div>
                                             <h3 class="product__items--content__title h4"><a href="{{route('allproducts.show',[$popular->slug])}}">{{$popular->title}}</a></h3>
                                             <div class="product__items--price">
                                                 <span class="current__price">{{config('app.currency')}}{{$popular->discount_price}}</span>
@@ -210,7 +228,16 @@
                                             </ul>
                                         </div>
                                         <div class="product__items--content text-center">
-                                            
+                                            <div class="product__details--info__rating d-flex justify-content-center align-items-center mb-15">
+                                                <div class="rating product__list--rating d-flex">
+                                                    @for($i = 1 ; $i <= (int)number_format($popular->reviews()->get()->pluck('rating')->avg() ?? 5); $i++)
+                                                        <i class="fas fa-star fa-sm mr-2" style="color: rgb(250 204 21);"></i>
+                                                    @endfor
+                                                    @for($i = 1 ; $i <= (int) 5 - number_format($popular->reviews()->get()->pluck('rating')->avg() ?? 5); $i++)
+                                                    <i class="far fa-star fa-sm mr-2" style="color: rgb(250 204 21);"></i>
+                                                    @endfor
+                                                </div>
+                                            </div>
                                             <h3 class="product__items--content__title h4"><a href="{{route('allproducts.show',[$popular->slug])}}">{{$popular->title}}</a></h3>
                                             <div class="product__items--price">
                                                 <span class="current__price">{{config('app.currency')}}{{$popular->discount_price}}</span>

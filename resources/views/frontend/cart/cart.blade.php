@@ -37,6 +37,7 @@
                                         <tr class="cart__table--header__items">
                                             <th class="cart__table--header__list">Product</th>
                                             <th class="cart__table--header__list">Price</th>
+                                            <th class="cart__table--header__list">Size</th>
                                             <th class="cart__table--header__list">Quantity</th>
                                             <th class="cart__table--header__list">Total</th>
                                         </tr>
@@ -51,7 +52,8 @@
                                                         <a href="{{route('allproducts.show',[$cart['slug']])}}"><img class="border-radius-5" src="{{$cart['image']}}" alt="cart-product"></a>
                                                     </div>
                                                     <div class="cart__content">
-                                                        <h4 class="cart__content--title"><a href="{{route('allproducts.show',[$cart['slug']])}}"> {{$cart['title']}}</a></h4>
+                                                        <h4 class="cart__content--title"><a href="{{route('allproducts.show',[$cart['slug']])}}"> {{$cart['title'] }}</a></h4>
+                                                        @if($cart['color'])<span>({{$cart['color']}})</span>@endif
                                                         <!--<span class="cart__content--variant">COLOR: Blue</span>
                                                         <span class="cart__content--variant">WEIGHT: 2 Kg</span> -->
                                                     </div>
@@ -59,6 +61,17 @@
                                             </td>
                                             <td class="cart__table--body__list">
                                                 <span class="cart__price">{{config('app.currency')}}{{$cart['discount_price']}}</span>
+                                            </td>
+                                            <td class="cart__table--body__list">
+                                                <span class="cart__price">
+                                                    @if($cart['cloth_size'])
+                                                    {{$cart['cloth_size']}}
+                                                    @elseif($cart['shoe_size'])
+                                                    {{$cart['shoe_size']}}
+                                                    @else
+                                                    1
+                                                    @endif
+                                                </span>
                                             </td>
                                             <td class="cart__table--body__list update_quantity_parent">
                                                 <div class="quantity__box">

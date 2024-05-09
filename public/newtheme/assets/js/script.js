@@ -332,14 +332,14 @@ quantityWrapper &&
         let input = singleItem.querySelector(".quantity__number"),
             increaseButton = singleItem.querySelector(".increase"),
             decreaseButton = singleItem.querySelector(".decrease");
-        increaseButton.addEventListener("click", function () {
+        /*increaseButton.addEventListener("click", function () {
             let value = parseInt(input.value, 10);
             (value = isNaN(value) ? 0 : value), value++, (input.value = value);
         }),
             decreaseButton.addEventListener("click", function () {
                 let value = parseInt(input.value, 10);
                 (value = isNaN(value) ? 0 : value), value < 1 && (value = 1), value--, (input.value = value);
-            });
+            });*/
     });
 const openEls = document.querySelectorAll("[data-open]"),
     closeEls = document.querySelectorAll("[data-close]"),

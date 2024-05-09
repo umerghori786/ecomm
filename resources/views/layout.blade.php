@@ -21,13 +21,15 @@
 	const addToCart = (id)=>{
 
 	    var product_id = id;
-	    var quantity = parseInt($(`input[name~='product-quantity']`).val())
-	    console.log(quantity)
+	    var quantity = $(`input[name~='product-quantity']`).val() ?? ''
+	    var product_color = $(`input[name~='product_color']`).val() ?? ''
+	    var cloth_size = $(`input[name~='cloth_size']`).val() ?? ''
+	    var shoe_size = $(`input[name~='shoe_size']`).val() ?? ''
 	    $.ajax({
 
 	        type : "get",
 	        url : "{{url('/add-to-cart')}}",
-	        data : {product_id : product_id, quantity : quantity},
+	        data : {product_id : product_id, quantity : quantity, product_color : product_color,cloth_size:cloth_size, shoe_size : shoe_size},
 
 	        success:function(data)
 	        {   
@@ -179,6 +181,24 @@
     	$(`input[name~='product-quantity']`).val(parseInt(quantity) + 1);
     	
     })
+    $(document).on('click','.product-color',function(){
+    	$('.product-color').removeClass('active')
+    	$(this).addClass('active')
+    	$(`input[name~='product_color']`).val($(this).attr('id'));
+    })
+    $(document).on('click','.cloth_size',function(){
+    	$('.cloth_size').removeClass('active')
+    	$(this).addClass('active')
+    	$(`input[name~='cloth_size']`).val($(this).attr('id'));
+    })
+    $(document).on('click','.shoe_size',function(){
+    	$('.shoe_size').removeClass('active')
+    	$(this).addClass('active')
+    	$(`input[name~='shoe_size']`).val($(this).attr('id'));
+    })
+    var product_color = $(`input[name~='product_color']`).val() ?? ''
+    var cloth_size = $(`input[name~='cloth_size']`).val() ?? ''
+    var shoe_size = $(`input[name~='shoe_size']`).val() ?? ''
 </script>
 </body>
 </html>
