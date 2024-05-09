@@ -21,7 +21,7 @@
                                     <th class="cart__table--header__list">Product</th>
                                     <th class="cart__table--header__list">Price</th>
                                     <th class="cart__table--header__list text-center">STOCK STATUS</th>
-                                    <th class="cart__table--header__list text-right">ADD TO CART</th>
+                                    <th class="cart__table--header__list text-right">Action</th>
                                 </tr>
                             </thead>
                             <tbody class="cart__table--body">
@@ -48,7 +48,7 @@
                                         <span class="in__stock text__secondary">in stock</span>
                                     </td>
                                     <td class="cart__table--body__list text-right">
-                                        <a class="wishlist__cart--btn primary__btn" onclick="addToCart(`{{$key}}`)">Add To Cart</a>
+                                        <a class="wishlist__cart--btn primary__btn" href="{{route('allproducts.show',[$wishlist['slug']])}}">View Product</a>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -109,12 +109,13 @@
                                     <div class="product__items--content text-center">
                                     <div class="product__details--info__rating justify-content-center d-flex align-items-center mb-15">
                                         <div class="rating product__list--rating d-flex">
-                                                                                            <i class="fas fa-star fa-sm mr-2" style="color: rgb(250 204 21);"></i>
-                                                                                            <i class="fas fa-star fa-sm mr-2" style="color: rgb(250 204 21);"></i>
-                                                                                            <i class="fas fa-star fa-sm mr-2" style="color: rgb(250 204 21);"></i>
-                                                                                            <i class="fas fa-star fa-sm mr-2" style="color: rgb(250 204 21);"></i>
-                                                                                            <i class="fas fa-star fa-sm mr-2" style="color: rgb(250 204 21);"></i>
-                                                                                                                                </div>
+                                        @for($i = 1 ; $i <= (int)number_format($similar_product->reviews()->get()->pluck('rating')->avg() ?? 5); $i++)
+                                                        <i class="fas fa-star fa-sm mr-2" style="color: rgb(250 204 21);"></i>
+                                        @endfor
+                                        @for($i = 1 ; $i <= (int) 5 - number_format($similar_product->reviews()->get()->pluck('rating')->avg() ?? 5); $i++)
+                                        <i class="far fa-star fa-sm mr-2" style="color: rgb(250 204 21);"></i>
+                                        @endfor
+                                        </div>
                                     </div>
                                         <h3 class="product__items--content__title h4"><a href="{{route('allproducts.show',[$similar_product->slug])}}">{{$similar_product->title}}</a></h3>
                                         <div class="product__items--price">

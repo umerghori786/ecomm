@@ -126,6 +126,7 @@
                                             </div>
                                         </div>
                                         @endif
+                                        
                                         @if(isset($product->clothsize_id))
                                         <div class="product__variant--list mb-15">
                                             <div class="product__details--info__meta">
@@ -272,9 +273,11 @@
                                     </div>
                                     <p class="reviews__comment--content__desc">{{$review->content}}</p>
                                     <span class="reviews__comment--content__date">{{$review->created_at->diffForHumans()}}</span>
+                                    @if(\Auth::check() && auth()->user()->isAdmin)
                                     <div class="text-right">
                                         <button class="text-white primary__btn">Reply</button>
                                     </div>
+                                    @endif
                                 </div>
                             </div>
                             <!-- replay comment -->
@@ -366,12 +369,13 @@
                                     <div class="product__items--content text-center">
                                     <div class="product__details--info__rating d-flex justify-content-center align-items-center mb-15">
                                         <div class="rating product__list--rating d-flex">
-                                                                                            <i class="fas fa-star fa-sm mr-2" style="color: rgb(250 204 21);"></i>
-                                                                                            <i class="fas fa-star fa-sm mr-2" style="color: rgb(250 204 21);"></i>
-                                                                                            <i class="fas fa-star fa-sm mr-2" style="color: rgb(250 204 21);"></i>
-                                                                                            <i class="fas fa-star fa-sm mr-2" style="color: rgb(250 204 21);"></i>
-                                                                                            <i class="fas fa-star fa-sm mr-2" style="color: rgb(250 204 21);"></i>
-                                                                                                                                </div>
+                                        @for($i = 1 ; $i <= (int)number_format($similar_product->reviews()->get()->pluck('rating')->avg() ?? 5); $i++)
+                                                        <i class="fas fa-star fa-sm mr-2" style="color: rgb(250 204 21);"></i>
+                                        @endfor
+                                        @for($i = 1 ; $i <= (int) 5 - number_format($similar_product->reviews()->get()->pluck('rating')->avg() ?? 5); $i++)
+                                        <i class="far fa-star fa-sm mr-2" style="color: rgb(250 204 21);"></i>
+                                        @endfor
+                                        </div>
                                     </div>
                                         <h3 class="product__items--content__title h4"><a href="{{route('allproducts.show',[$similar_product->slug])}}">{{$similar_product->title}}</a></h3>
                                         <div class="product__items--price">

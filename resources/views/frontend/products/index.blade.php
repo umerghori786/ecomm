@@ -224,10 +224,10 @@
                                             <div class="rating product__list--rating d-flex">
                                                 @for($i = 1 ; $i <= (int)number_format($trending->reviews()->get()->pluck('rating')->avg() ?? 5); $i++)
                                                         <i class="fas fa-star fa-sm mr-2" style="color: rgb(250 204 21);"></i>
-                                                    @endfor
-                                                    @for($i = 1 ; $i <= (int) 5 - number_format($trending->reviews()->get()->pluck('rating')->avg() ?? 5); $i++)
-                                                    <i class="far fa-star fa-sm mr-2" style="color: rgb(250 204 21);"></i>
-                                                    @endfor
+                                                @endfor
+                                                @for($i = 1 ; $i <= (int) 5 - number_format($trending->reviews()->get()->pluck('rating')->avg() ?? 5); $i++)
+                                                <i class="far fa-star fa-sm mr-2" style="color: rgb(250 204 21);"></i>
+                                                @endfor
                                             </div>
                                         </div>
                                     </div>
