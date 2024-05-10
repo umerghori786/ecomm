@@ -109,6 +109,9 @@
                                             
                                         </div>
 
+                                        @php  $cart = request()->session()->get('cart',[]);   @endphp
+                                        
+
                                         @if(isset($product->color_id))
                                         <div class="product__variant--list mb-15">
                                             <div class="product__details--info__meta">
@@ -117,10 +120,10 @@
                                                     @foreach($product->result(explode(',',$product->color_id)) as $key=> $color)
                                                     
                                                     
-                                                    <span class="single-item @if($key == 0) active @endif product-color" id="{{$color}}">{{$color}}</span>
-                                                     @if($key == 0)
-                                                    <input type="hidden" value="{{$color}}"  name="product_color"> 
-                                                    @endif
+                                                    <span class="single-item @if($cart && $cart[$product->id] && $cart[$product->id]['color'] == $color) active @endif product-color" id="{{$color}}">{{$color}}</span>
+                                                     
+                                                    <input type="hidden" @if($cart && $cart[$product->id] && $cart[$product->id]['color']) value="{{$cart[$product->id]['color']}}" @endif  name="product_color"> 
+                                                    
                                                     @endforeach
                                                 </p>
                                             </div>
@@ -142,7 +145,7 @@
                                             </div>
                                         </div>
                                         @endif
-                                         @if(isset($product->shoesize_id))
+                                        @if(isset($product->shoesize_id))
                                         <div class="product__variant--list mb-15">
                                             <div class="product__details--info__meta">
                                                 <p class="product__details--info__meta--list"><strong>Size:</strong>

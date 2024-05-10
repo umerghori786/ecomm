@@ -25,27 +25,35 @@
 	    var product_color = $(`input[name~='product_color']`).val() ?? ''
 	    var cloth_size = $(`input[name~='cloth_size']`).val() ?? ''
 	    var shoe_size = $(`input[name~='shoe_size']`).val() ?? ''
-	    $.ajax({
+	    if(!product_color)
+	    {
+	    	successmsg('color and size needed');
+	    }
+	    else
+	    {
+	    	$.ajax({
 
-	        type : "get",
-	        url : "{{url('/add-to-cart')}}",
-	        data : {product_id : product_id, quantity : quantity, product_color : product_color,cloth_size:cloth_size, shoe_size : shoe_size},
+	    	    type : "get",
+	    	    url : "{{url('/add-to-cart')}}",
+	    	    data : {product_id : product_id, quantity : quantity, product_color : product_color,cloth_size:cloth_size, shoe_size : shoe_size},
 
-	        success:function(data)
-	        {   
-	            $('.mini-cart-append').empty()
-	            $('.mini-cart-append').html(data.renderHTML)
-	            $('.offCanvas__minicart').addClass('active')
-	            $('.cart-items__count').html(data.total_products_count)
+	    	    success:function(data)
+	    	    {   
+	    	        $('.mini-cart-append').empty()
+	    	        $('.mini-cart-append').html(data.renderHTML)
+	    	        $('.offCanvas__minicart').addClass('active')
+	    	        $('.cart-items__count').html(data.total_products_count)
 
-	            /*const myTimeout = setTimeout(showminicart, 10000);
-	            function showminicart() {
-	              $('.offCanvas__minicart').removeClass('active')
-	            }*/
-	            
-	        }
+	    	        /*const myTimeout = setTimeout(showminicart, 10000);
+	    	        function showminicart() {
+	    	          $('.offCanvas__minicart').removeClass('active')
+	    	        }*/
+	    	        
+	    	    }
 
-	    })
+	    	})
+	    }
+	    
 	}
 
 	const deleteFromCart = (obj,id)=>{
