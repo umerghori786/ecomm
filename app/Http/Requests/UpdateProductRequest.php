@@ -31,6 +31,7 @@ class UpdateProductRequest extends FormRequest
             'long_description'=>'required',
             'strike_price'=>'required',
             'discount_price'=>'required',
+            'quantity' => 'required'
         ];
     }
 }

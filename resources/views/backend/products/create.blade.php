@@ -56,23 +56,40 @@
                         </div>
                         <div class="row justify-content-center container mt-3">
                             <div class="col-12 col-lg-12 form-group">
-                                {!! Form::label('Long description',  trans('Long description'), ['class' => 'control-label']) !!}
+                                {!! Form::label('Long description',  trans('Long description (wirte description in textbox)'), ['class' => 'control-label']) !!}
                                 {!! Form::textarea('long_description', old('long_description'), ['class' => 'form-control editor','placeholder'=>"write here" ,'id'=>"summernote"]) !!}
 
                             </div>
                         </div>
                         
-                        <div class="row justify-content-center container mt-3">    
-                            <div class="col-12 col-lg-6 form-group">
+                        <div class="row justify-content-center container">    
+                            <div class="col-12 col-lg-4 form-group">
                                 {!! Form::label('strike price',  trans('strike price'), ['class' => 'control-label']) !!}
                                 {!! Form::number('strike_price', old('strike_price'), ['class' => 'form-control', 'placeholder' => trans(''),'step' => 'any', 'pattern' => "[0-9]"]) !!}
                             </div>
-                            <div class="col-12 col-lg-6 form-group">
+                            <div class="col-12 col-lg-4 form-group">
                                 {!! Form::label('discounted price',  trans('discounted price'), ['class' => 'control-label']) !!}
                                 {!! Form::number('discount_price', old('discount_price'), ['class' => 'form-control', 'placeholder' => trans(''),'step' => 'any', 'pattern' => "[0-9]"]) !!}
                             </div>
+                            <div class="col-12 col-lg-4 form-group">
+                                {!! Form::label('discounted price',  trans('quantity'), ['class' => 'control-label']) !!}
+                                {!! Form::number('quantity', old('quantity'), ['class' => 'form-control', 'placeholder' => trans(''),'step' => 'any', 'pattern' => "[0-9]",'required' => true]) !!}
+                            </div>
                         </div>
-                        <div class="alert alert-danger text-center mt-5">Select Cloth Size if your product related to cloths else you leave it empty</div>
+                        <div class="row justify-content-center container mt-3">    
+                            
+                            <div class="col-4 col-lg-4 form-group text-center mt-3">
+                                {!! Form::checkbox('trending', 1, old('trending'), []) !!}
+                                {!! Form::label('trending',  trans('trending'), ['class' => 'checkbox control-label font-weight-bold']) !!}
+                                
+                            </div>
+                            <div class="col-4 col-lg-4 form-group text-center mt-3">
+                                {!! Form::checkbox('popular', 1, old('popular'), []) !!}
+                                {!! Form::label('popular',  trans('popular'), ['class' => 'checkbox control-label font-weight-bold']) !!}
+                                
+                            </div>
+                        </div>
+                        <div class="alert alert-danger text-center mt-5">Select Cloth Size if your product related to "CLOTHS" else you leave it empty</div>
                         <div class="row justify-content-center container mt-3">
                             <div class="col-12 col-lg-12 form-group">
                                 {!! Form::label('Select Product Size', 'Select Product Size (you can choose more than one size by again click on size in dropdown)', ['class' => 'control-label']) !!}
@@ -82,7 +99,7 @@
                             
 
                         </div>
-                        <div class="alert alert-danger text-center mt-5">Select Shoe Size if your product related to Shoes else you leave it empty</div>
+                        <div class="alert alert-danger text-center mt-5">Select Shoe Size if your product related to "SHOES" else you leave it empty</div>
                         <div class="row justify-content-center container mt-3">
                             <div class="col-12 col-lg-12 form-group">
                                 {!! Form::label('Select Product Size', 'Select Product Size (you can choose more than one size by again click on size in dropdown)', ['class' => 'control-label']) !!}
@@ -93,8 +110,13 @@
 
                         </div>
 
-                        <div class="alert alert-danger text-center mt-5">Select Product Images (you can select more than one images by click on + icon)</div>
+                        <div class="alert alert-danger text-center mt-5">Select Product Images (Minimum two images are required. You can select more than two images by click on + icon)</div>
                         <div class="row append">
+                          <div class="col-md-4 mt-2">
+                            
+                            <input type="file" name="image_url[]" accept="image/*" required>
+                            <a class="btn btn-primary btn1" onclick="add()">+</a>
+                          </div>
                           <div class="col-md-4 mt-2">
                             
                             <input type="file" name="image_url[]" accept="image/*" required>
@@ -102,20 +124,7 @@
                           </div>
                           
                         </div>
-                        <div class="row justify-content-center container mt-5">    
-                            
-                            <div class="col-4 col-lg-4 form-group text-center mt-3">
-                                {!! Form::checkbox('trending', 1, 'checked', []) !!}
-                                {!! Form::label('trending',  trans('trending'), ['class' => 'checkbox control-label font-weight-bold']) !!}
-                                
-                            </div>
-                            <div class="col-4 col-lg-4 form-group text-center mt-3">
-                                {!! Form::checkbox('popular', 1,'checked', []) !!}
-                                {!! Form::label('popular',  trans('popular'), ['class' => 'checkbox control-label font-weight-bold']) !!}
-                                
-                            </div>
-                            
-                        </div>
+                        
                         <div class="row justify-content-center container">    
                             
                             
