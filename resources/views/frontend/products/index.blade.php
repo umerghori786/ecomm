@@ -102,7 +102,9 @@
                         <div class="product__items--grid__thumbnail position__relative">
                             <a class="product__items--link" href="{{route('allproducts.show',[$trending->slug])}}">
                                 <img class="product__items--img product__primary--img" src="{{$trending->images[0]->url}}" alt="product-img">
+                                @if(isset($trending->images[1]))
                                 <img class="product__items--img product__secondary--img" src="{{$trending->images[1]->url}}" alt="product-img">
+                                @endif
                             </a>
                         </div>
                         <div class="product__items--grid__content">
@@ -212,7 +214,9 @@
                                     <div class="product__items--grid__thumbnail position__relative">
                                         <a class="product__items--link" href="{{route('allproducts.show',[$trending->slug])}}">
                                             <img class="product__items--img product__primary--img" src="{{$trending->images[0]->url}}" alt="product-img">
+                                            @if(isset($trending->images[1]))
                                             <img class="product__items--img product__secondary--img" src="{{$trending->images[1]->url}}" alt="product-img">
+                                            @endif
                                         </a>
                                     </div>
                                     <div class="product__items--grid__content">
@@ -307,7 +311,9 @@
                                                 <div class="product__items--thumbnail">
                                                     <a class="product__items--link" href="{{route('allproducts.show',[$product->slug])}}">
                                                         <img class="product__items--img product__primary--img" src="{{$product->images[0]->url}}" alt="product-img">
+                                                        @if(isset($product->images[1]))
                                                         <img class="product__items--img product__secondary--img" src="{{$product->images[1]->url}}" alt="product-img">
+                                                        @endif
                                                     </a>
                                                     <div class="product__badge">
                                                         <span class="product__badge--items sale">New</span>
@@ -380,7 +386,9 @@
                                                     <div class="product__items--thumbnail product__list--items__thumbnail">
                                                         <a class="product__items--link" href="{{route('allproducts.show',[$product->slug])}}">
                                                             <img class="product__items--img product__primary--img" src="{{$product->images[0]->url}}" alt="product-img">
+                                                            @if(isset($product->images[1]))
                                                             <img class="product__items--img product__secondary--img" src="{{$product->images[1]->url}}" alt="product-img">
+                                                            @endif
                                                         </a>
                                                         <div class="product__badge">
                                                             <span class="product__badge--items sale">New</span>

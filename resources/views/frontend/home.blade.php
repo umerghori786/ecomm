@@ -22,7 +22,9 @@
                                 <div class="product__items--thumbnail">
                                     <a class="product__items--link" href="{{route('allproducts.show',[$product->slug])}}">
                                         <img class="product__items--img product__primary--img" src="{{$product->images[0]->url}}" alt="product-img">
+                                        @if(isset($product->images[1]))
                                         <img class="product__items--img product__secondary--img" src="{{$product->images[1]->url}}" alt="product-img">
+                                        @endif
                                     </a>
                                     <div class="product__badge style3">
                                         <span class="product__badge--items style3 sale">New</span>
@@ -105,7 +107,9 @@
                                         <div class="product__items--thumbnail">
                                             <a class="product__items--link" href="{{route('allproducts.show',[$popular->slug])}}">
                                                 <img class="product__items--img product__primary--img" src="{{$popular->images[0]->url}}" alt="product-img">
+                                                @if(isset($popular->images[1]))
                                                 <img class="product__items--img product__secondary--img" src="{{$popular->images[1]->url}}" alt="product-img">
+                                                @endif
                                             </a>
                                             <div class="product__badge">
                                                 <span class="product__badge--items sale">Sale</span>
@@ -196,7 +200,9 @@
                                         <div class="product__items--thumbnail">
                                             <a class="product__items--link" href="{{route('allproducts.show',[$popular->slug])}}">
                                                 <img class="product__items--img product__primary--img" src="{{$popular->images[0]->url}}" alt="product-img">
+                                                @if(isset($popular->images[1]))
                                                 <img class="product__items--img product__secondary--img" src="{{$popular->images[1]->url}}" alt="product-img">
+                                                @endif
                                             </a>
                                             <div class="product__badge">
                                                 <span class="product__badge--items sale">Sale</span>

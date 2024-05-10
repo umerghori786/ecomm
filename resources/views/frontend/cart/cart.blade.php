@@ -175,7 +175,9 @@
                                     <div class="product__items--thumbnail">
                                         <a class="product__items--link" href="{{route('allproducts.show',[$similar_product->slug])}}">
                                             <img class="product__items--img product__primary--img" src="{{$similar_product->images[0]->url}}" alt="product-img">
+                                            @if(isset($similar_product->images[1]))
                                             <img class="product__items--img product__secondary--img" src="{{$similar_product->images[1]->url}}" alt="product-img">
+                                            @endif
                                         </a>
                                         <div class="product__badge">
                                             <span class="product__badge--items sale">New</span>
