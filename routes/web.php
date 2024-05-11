@@ -50,6 +50,7 @@ Route::get('/',[HomeController::class,'index'])->name('home');
 Route::get('/logout',[HomeController::class,'destroy'])->name('logout');
 
 Route::get('/policy ',[SettingController::class,'termPolicy'])->name('policy.index');
+Route::get('/about ',[SettingController::class,'about'])->name('about');
 Route::get('/questions',[SettingController::class,'questions'])->name('questions.index');
 Route::get('/contacts',[SettingController::class,'contacts'])->name('contacts.index');
 Route::post('/subcribe_email',[SettingController::class,'subscribe']);

@@ -20,7 +20,7 @@
             <div class="container">
                 <div class="section__heading mb-40">
                     <h2 class="section__heading--maintitle contact__section--hrading mb-10">Get In Touch</h2>
-                    <p class="contact__section--hrading__desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere voluptatibus delectus blanditiis rerum, explicabo <br> aspernatur magni nihil distinctio voluptatum quo sit quidem minima repellat sapiente.</p>
+                    
                 </div>
                 <div class="main__contact--area">
                     <div class="row align-items-center row-md-reverse">
@@ -163,9 +163,9 @@
                                     </div>
                                    
                                           
-                                          <div id="insertMessage" class="alert alert-success" style="display: none;">
-                                            Message inserted successfully!
-                                        </div>
+                                          {{-- <div id="insertMessage" class="alert alert-success" style="display: none;">
+                                            <b>Message sent successfully!</b>
+                                        </div> --}}
                                         <button class="contact__form--btn primary__btn  store_model" id="myButton"type="submit">
                                           <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"style="display: none;" ></span>
                                             Submit Now
@@ -180,36 +180,8 @@
         </section>
         <!-- End contact section -->
 
-        <!-- Start contact map area -->
-        <div class="contact__map--area section--padding pt-0">
-            <iframe class="contact__map--iframe" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7887.465355142307!2d-0.13384360843222626!3d51.4876034467734!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48760532743b90e1%3A0x790260718555a20c!2sU.S.%20Embassy%2C%20London!5e0!3m2!1sen!2sbd!4v1632035375945!5m2!1sen!2sbd" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-        </div>
-        <!-- End contact map area -->
+       
 
-       <!-- Start Newsletter banner section -->
-        <section class="newsletter__banner--section section--padding pt-0">
-            <div class="container">
-                <div class="newsletter__banner--thumbnail position__relative">
-                    <img class="newsletter__banner--thumbnail__img" src="{{asset('newtheme/assets/img/banner/banner-bg2.webp')}}" alt="newsletter-banner">
-                    <div class="newsletter__content newsletter__subscribe">
-                        <h5 class="newsletter__content--subtitle text-white">Want to offer regularly ?</h5>
-                        <h2 class="newsletter__content--title text-white h3 mb-25">Subscribe Our Newsletter <br>
-                            for Get Daily Update</h2>
-                        <form class="newsletter__subscribe--form position__relative" action="#">
-                            <label>
-                                <input class="newsletter__subscribe--input" placeholder="Enter your email address" type="email">
-                            </label>
-                            <button class="newsletter__subscribe--button primary__btn" type="submit">Subscribe
-                                <svg class="newsletter__subscribe--button__icon" xmlns="http://www.w3.org/2000/svg" width="9.159" height="7.85" viewBox="0 0 9.159 7.85">
-                                    <path  data-name="Icon material-send" d="M3,12.35l9.154-3.925L3,4.5,3,7.553l6.542.872L3,9.3Z" transform="translate(-3 -4.5)" fill="currentColor"/>
-                                </svg>
-                            </button>
-                        </form>   
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- End Newsletter banner section -->
 
     </main>
     @push('script')
@@ -258,6 +230,7 @@
                         $('#insertMessage').hide();
                     }
                     else{
+                        successmsg('Sent Successfully');
                         $('#insertMessage').show();
                         $("#insert_message").text(response.message);
                         $('#myForm').find('input, textarea').val("");  

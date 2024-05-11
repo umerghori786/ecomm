@@ -6,7 +6,8 @@ use App\Models\{
     Question,
     Contact,
     Slider,
-    Subscriber
+    Subscriber,
+    AboutUs,
 };
 use Illuminate\Http\Request;
 
@@ -24,6 +25,10 @@ class SettingController extends Controller
     public function contacts(){
         $contact = Contact::get();
         return view('frontend.contact.index',compact('contact'));
+    }
+    public function about(){
+        $about = AboutUs::first();
+        return view('frontend.about-us.index',compact('about'));
     }
 
     public function slide(){

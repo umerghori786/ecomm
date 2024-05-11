@@ -3,7 +3,7 @@
 <div class="row">
 <div class="col-lg-12">
 <div class="footer_iner text-center">
-<p>{{date('Y')}} © umer - Made by <a href="#"> <i class="ti-heart"></i> </a><a href="#"> Umer Ghouri</a></p>
+<p>{{date('Y')}} © {{config('app.name')}} </p>
 </div>
 </div>
 </div>

@@ -9,9 +9,9 @@
 </div>
 <div>
 @if(isset($logo))    
-<a class="mx-auto" href="{{route('admin.dashboard')}}"><img src="{{url('logo/'.$logo->image)}}" alt=""></a>
+{{-- <a class="mx-auto" href="{{route('admin.dashboard')}}"><img src="{{url('logo/'.$logo->image)}}" alt=""></a>
 @else
-<a class="mx-auto" href="{{route('admin.dashboard')}}"><img src="{{asset('dashboard/img/logo.png')}}" alt=""></a>
+<a class="mx-auto" href="{{route('admin.dashboard')}}"><img src="{{asset('dashboard/img/logo.png')}}" alt=""></a> --}}
 @endif
     <!-- <h3 class="m-0" style="color:#2e4765">Dashboard</h3> -->
 </div>
