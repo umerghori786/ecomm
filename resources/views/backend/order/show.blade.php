@@ -66,7 +66,9 @@
                         <div class="products mb-4">
                                 <div class="image" style="width:fit-content">
                                     <p class="quantity">{{$product->pivot->quantity}}</p>
+                                    <a href="{{route('allproducts.show',[$product->slug])}}">
                                     <img src="{{$product->images[0]->url}}" alt="">
+                                    </a>
                                 </div>
                                 <p class="des">{{$product->title}}</p>
                                 <p class="price">{{config('app.currency')}}{{$product->pivot->price}}</p>
