@@ -1,90 +1,22 @@
 <!-- Start header area -->
     <header class="header__section header__transparent mb-20 color-scheme-2">
-        <!--
+        @if($coupon)
         <div class="header__topbar border-bottom">
             <div class="container">
                 <div class="header__topbar--inner header__topbar--inner2 d-flex align-items-center justify-content-between">
                     <ul class="header__info d-flex align-items-center">
-                        <li class="header__info--list">
-                            <svg class="header__info--icon" xmlns="http://www.w3.org/2000/svg" width="15.982" height="22.403" viewBox="0 0 15.982 22.403">
-                            <g id="Icon_feather-smartphone" data-name="Icon feather-smartphone" transform="translate(-4.5 -1.5)">
-                              <path id="Path_112" data-name="Path 112" d="M7.14,2h10.7a2.14,2.14,0,0,1,2.14,2.14V21.262a2.14,2.14,0,0,1-2.14,2.14H7.14A2.14,2.14,0,0,1,5,21.262V4.14A2.14,2.14,0,0,1,7.14,2Z" transform="translate(0 0)" fill="none" stroke="#121a25" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-                              <path id="Path_113" data-name="Path 113" d="M12,18h0" transform="translate(0.491 1.122)" fill="none" stroke="#121a25" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-                            </g>
-                          </svg>
-                          <a class="header__info--text" href="tel:+001-234-567-890">+001-234-567-890 </a>
-                        </li>
-                        <li class="header__info--list">
-                            <svg class="header__info--icon" xmlns="http://www.w3.org/2000/svg" width="25.712" height="17.142" viewBox="0 0 25.712 17.142">
-                            <g id="email" transform="translate(0 -85.333)">
-                              <g id="Group_265" data-name="Group 265" transform="translate(0 85.333)">
-                                <g id="Group_264" data-name="Group 264">
-                                  <path id="Path_140" data-name="Path 140" d="M23.034,85.333H2.678A2.682,2.682,0,0,0,0,88.011V99.8a2.682,2.682,0,0,0,2.678,2.678H23.034A2.682,2.682,0,0,0,25.712,99.8V88.011A2.682,2.682,0,0,0,23.034,85.333ZM24.641,99.8a1.609,1.609,0,0,1-1.607,1.607H2.678A1.609,1.609,0,0,1,1.071,99.8V88.011A1.609,1.609,0,0,1,2.678,86.4H23.034a1.609,1.609,0,0,1,1.607,1.607V99.8Z" transform="translate(0 -85.333)" fill="#121a25"/>
-                                </g>
-                              </g>
-                              <g id="Group_267" data-name="Group 267" transform="translate(2.143 87.476)">
-                                <g id="Group_266" data-name="Group 266">
-                                  <path id="Path_141" data-name="Path 141" d="M64,128.234a.536.536,0,0,0-.745-.139l-8.786,6.011a1.918,1.918,0,0,1-2.178,0l-8.786-6.011a.535.535,0,1,0-.6.884l8.786,6.011a2.98,2.98,0,0,0,3.388,0l8.786-6.011A.535.535,0,0,0,64,128.234Z" transform="translate(-42.67 -128)" fill="#121a25"/>
-                                </g>
-                              </g>
-                              <g id="Group_269" data-name="Group 269" transform="translate(2.142 93.904)">
-                                <g id="Group_268" data-name="Group 268">
-                                  <path id="Path_142" data-name="Path 142" d="M50.022,256.188a.539.539,0,0,0-.755-.069l-6.428,5.357a.536.536,0,0,0,.687.824l6.428-5.357A.537.537,0,0,0,50.022,256.188Z" transform="translate(-42.646 -255.996)" fill="#121a25"/>
-                                </g>
-                              </g>
-                              <g id="Group_271" data-name="Group 271" transform="translate(16.07 93.903)">
-                                <g id="Group_270" data-name="Group 270">
-                                  <path id="Path_143" data-name="Path 143" d="M327.309,261.475l-6.428-5.357a.536.536,0,0,0-.687.824l6.428,5.357a.536.536,0,0,0,.687-.824Z" transform="translate(-320.001 -255.995)" fill="#121a25"/>
-                                </g>
-                              </g>
-                            </g>
-                            </svg>
-                          <a class="header__info--text" href="mailto:info@example.com">info@example.com</a>
-                        </li>
+                        
                     </ul>
                     <div class="header__shipping">
-                        <p class="header__shipping--text">Get Up To 80% off In your first Offer!</p>
+                        <p class="header__shipping--text">Get {{$coupon->percentage}}% Off Using Coupon <span style="font-weight:600">{{$coupon->title}}</span></p>
                     </div>
                     <div class="language__currency style2 d-none d-lg-block">
-                        <ul class="d-flex align-items-center">
-                            <li class="language__currency--list">
-                                <a class="account__currency--link style2" href="#">
-                                    <img src="{{asset('newtheme/assets/img/icon/usd-icon.webp')}}" alt="currency">
-                                    <span>Currency</span> 
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="11.797" height="9.05" viewBox="0 0 9.797 6.05">
-                                        <path  d="M14.646,8.59,10.9,12.329,7.151,8.59,6,9.741l4.9,4.9,4.9-4.9Z" transform="translate(-6 -8.59)" fill="currentColor" opacity="0.7"/>
-                                    </svg>
-                                </a>
-                                <div class="dropdown__currency">
-                                    <ul>
-                                        <li class="currency__items"><a class="currency__text" href="#">CAD</a></li>
-                                        <li class="currency__items"><a class="currency__text" href="#">CNY</a></li>
-                                        <li class="currency__items"><a class="currency__text" href="#">EUR</a></li>
-                                        <li class="currency__items"><a class="currency__text" href="#">GBP</a></li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li class="language__currency--list">
-                                <a class="language__switcher style2" href="#">
-                                    <img class="language__switcher--icon__img" src="{{asset('newtheme/assets/img/icon/language-icon.webp')}}" alt="currency">
-                                    <span>English</span> 
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="11.797" height="9.05" viewBox="0 0 9.797 6.05">
-                                        <path  d="M14.646,8.59,10.9,12.329,7.151,8.59,6,9.741l4.9,4.9,4.9-4.9Z" transform="translate(-6 -8.59)" fill="currentColor" opacity="0.7"/>
-                                    </svg>
-                                </a>
-                                <div class="dropdown__language">
-                                    <ul>
-                                        <li class="language__items"><a class="language__text" href="#">France</a></li>
-                                        <li class="language__items"><a class="language__text" href="#">Russia</a></li>
-                                        <li class="language__items"><a class="language__text" href="#">Spanish</a></li>
-                                    </ul>
-                                </div>
-                            </li>
-                        </ul>
+                        
                     </div>
                 </div>
             </div>
-        </div> -->
+        </div> 
+        @endif
         <div class="main__header main__header--style2">
             <div class="container">
                 <div class="main__header--inner d-flex justify-content-between align-items-center">

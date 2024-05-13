@@ -58,15 +58,15 @@ class ProductController extends Controller
         $product = Product::create($data);
         $this->imageUpload($request,$product,$product->id);
         $product->update(['popular'=>$this->popular,'trending'=>$this->trending,'user_id'=>auth()->user()->id]);
-        if(count($request->color_id) > 0)
+        if($request->has('color_id') && count($request->color_id) > 0)
         {
             $product->update(['color_id'=>implode(',', $request->color_id)]);
         }
-        if(count($request->clothsize_id) > 0)
+        if($request->has('clothsize_id') && count($request->clothsize_id) > 0)
         {
             $product->update(['clothsize_id'=>implode(',', $request->clothsize_id)]);
         }
-        if(count($request->shoesize_id) > 0)
+        if($request->has('shoesize_id') && count($request->shoesize_id) > 0)
         {
             $product->update(['shoesize_id'=>implode(',', $request->shoesize_id)]);
         }
@@ -117,15 +117,15 @@ class ProductController extends Controller
         $product->update($data);
         $this->imageUpload($request,$product,$product->id);
         $product->update(['popular'=>$this->popular,'trending'=>$this->trending]);
-        if(count($request->color_id) > 0)
+        if($request->has('color_id') && count($request->color_id) > 0)
         {
             $product->update(['color_id'=>implode(',', $request->color_id)]);
         }
-        if(count($request->clothsize_id) > 0)
+        if($request->has('clothsize_id') && count($request->clothsize_id) > 0)
         {
             $product->update(['clothsize_id'=>implode(',', $request->clothsize_id)]);
         }
-        if(count($request->shoesize_id) > 0)
+        if($request->has('shoesize_id') && count($request->shoesize_id) > 0)
         {
             $product->update(['shoesize_id'=>implode(',', $request->shoesize_id)]);
         }

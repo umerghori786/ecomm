@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use App\Models\Category;
 use App\Models\Config;
+use App\Models\Coupon;
 use Illuminate\Support\Facades\Schema;
 use App;
 
@@ -40,7 +41,8 @@ class CategoryServiceProvider extends ServiceProvider
             $categories = Category::with(['subcategories:title,category_id,id'])->where('status',1)->get();
             $is_stripe = Config::where('key','setting.stripeKey')->first();
             $is_paypal = Config::where('key','paypal.sandbox.client_id')->orWhere('key','paypal.live.client_id')->first();
-            view()->share(['categories'=>$categories,'is_stripe'=>$is_stripe,'is_paypal'=>$is_paypal]);
+            $coupon = Coupon::orderby('id','desc')->first();
+            view()->share(['categories'=>$categories,'is_stripe'=>$is_stripe,'is_paypal'=>$is_paypal,'coupon'=>$coupon]);
         }
         
     }
