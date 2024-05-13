@@ -38,7 +38,9 @@ class CategoryServiceProvider extends ServiceProvider
         }
         if (Schema::hasTable('categories')) {
             $categories = Category::with(['subcategories:title,category_id,id'])->where('status',1)->get();
-            view()->share(['categories'=>$categories]);
+            $is_stripe = Config::where('key','setting.stripeKey')->first();
+            $is_paypal = Config::where('key','paypal.sandbox.client_id')->orWhere('key','paypal.live.client_id')->first();
+            view()->share(['categories'=>$categories,'is_stripe'=>$is_stripe,'is_paypal'=>$is_paypal]);
         }
         
     }

@@ -358,7 +358,7 @@
                     </div>
                     <div class="shipping__style2--content">
                         <h2 class="shipping__style2--content__title">SECURE SHOPPING</h2>
-                        <p class="shipping__style2--content__desc">Free order over $300</p>
+                        {{-- <p class="shipping__style2--content__desc">Free order over $300</p> --}}
                     </div>
                 </div>
                 <div class="shipping__style2--items d-flex align-items-center">
@@ -489,8 +489,8 @@
                         </svg>
                     </div>
                     <div class="shipping__style2--content">
-                        <h2 class="shipping__style2--content__title">30 DAY RETURN</h2>
-                        <p class="shipping__style2--content__desc">30 day guarantee</p>
+                        <h2 class="shipping__style2--content__title">RETURN POLICY</h2>
+                        
                     </div>
                 </div>
                 <div class="shipping__style2--items d-flex align-items-center">

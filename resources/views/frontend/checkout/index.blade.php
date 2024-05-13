@@ -111,7 +111,7 @@
                                         <td class="cart__table--body__list">
                                             <div class="product__image two  d-flex align-items-center">
                                                 <div class="product__thumbnail border-radius-5">
-                                                    <a href="product-details.html">
+                                                    <a href="{{route('allproducts.show',[$cart['slug']])}}">
                                                     <img class="display-block border-radius-5" src="{{$cart['image']}}" alt="cart-product">
                                                     <span class="product__thumbnail--quantity">{{(int)$cart['quantity']}} x {{$cart['discount_price']}}</span>
                                                     </a>
@@ -174,14 +174,17 @@
                         <div class="payment__history mb-30">
                             <h3 class="payment__history--title mb-20">Payment</h3>
                             <ul class="payment__history--inner d-flex">
+                                @if($is_stripe)
                                 <li class="payment__history--list credit_card_payment"><a class="payment__history--link primary__btn " type="submit">Credit Card</a></li>
-                                
+                                @endif
+                                @if($is_paypal)
                                 <li class="payment__history--list paypal_cart_paypment"><a class="payment__history--link primary__btn " type="submit">Paypal</a></li>
+                                @endif
                             </ul>
                         </div>
                         <div class="credit_card_payment_field">
                             
-                            
+                            @if($is_stripe)
                             <label for="" class="mt-3">Card details *</label>
                             <div class="row mt-3">
                                 <div id="card-element" class="col" style="border: 1px solid #e7e2e2; padding: 10px; margin-left: 14px; margin-right: 10px;">
@@ -192,11 +195,13 @@
                                 
                             </div>
                             <div class="mt-2" id="card-errors" role="alert"></div>
-                            
+                            @endif
                             
                             
                         </div>
+                        @if($is_stripe)
                         <button class="checkout__now--btn primary__btn stripe_button" type="submit">Checkout Now</button>
+                        @endif
                         
                         </form>
 
