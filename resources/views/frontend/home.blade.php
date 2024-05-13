@@ -36,14 +36,7 @@
                                                 <span class="visually-hidden">Quick View</span>
                                             </a>
                                         </li>
-                                        <li class="product__items--action__list">
-                                            <a class="product__items--action__btn"  onclick="addToCart(`{{$product->id}}`)">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="17.51" height="15.443" viewBox="0 0 18.897 21.565">
-                                                    <path  d="M16.84,8.082V6.091a4.725,4.725,0,1,0-9.449,0v4.725a.675.675,0,0,0,1.35,0V9.432h5.4V8.082h-5.4V6.091a3.375,3.375,0,0,1,6.75,0v4.691a.675.675,0,1,0,1.35,0V9.433h3.374V21.581H4.017V9.432H6.041V8.082H2.667V21.641a1.289,1.289,0,0,0,1.289,1.29h16.32a1.289,1.289,0,0,0,1.289-1.29V8.082Z" transform="translate(-2.667 -1.366)" fill="currentColor"/>
-                                                </svg>
-                                                <span class="visually-hidden">Add to cart</span>
-                                            </a>
-                                        </li>
+                                        
                                         <li class="product__items--action__list">
                                             <a class="product__items--action__btn" onclick="addToWishlist(`{{$product->id}}`)">
                                                 <svg class="product__items--action__btn--svg"  xmlns="http://www.w3.org/2000/svg" width="17.51" height="15.443" viewBox="0 0 24.526 21.82">
@@ -70,12 +63,7 @@
                                         <span class="current__price">{{config('app.currency')}}{{$product->discount_price}}</span>
                                         <span class="old__price">{{config('app.currency')}}{{$product->strike_price}}</span>
                                     </div>
-                                    <a class="product__items--action__cart--btn primary__btn" onclick="addToCart(`{{$product->id}}`)">
-                                        <svg class="product__items--action__cart--btn__icon" xmlns="http://www.w3.org/2000/svg" width="13.897" height="14.565" viewBox="0 0 18.897 21.565">
-                                            <path  d="M16.84,8.082V6.091a4.725,4.725,0,1,0-9.449,0v4.725a.675.675,0,0,0,1.35,0V9.432h5.4V8.082h-5.4V6.091a3.375,3.375,0,0,1,6.75,0v4.691a.675.675,0,1,0,1.35,0V9.433h3.374V21.581H4.017V9.432H6.041V8.082H2.667V21.641a1.289,1.289,0,0,0,1.289,1.29h16.32a1.289,1.289,0,0,0,1.289-1.29V8.082Z" transform="translate(-2.667 -1.366)" fill="currentColor"></path>
-                                        </svg>
-                                        <span class="add__to--cart__text"> Add to cart</span>
-                                    </a>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -121,14 +109,7 @@
                                                         <span class="visually-hidden">Quick View</span>
                                                     </a>
                                                 </li>
-                                                <li class="product__items--action__list">
-                                                    <a class="product__items--action__btn"  onclick="addToCart(`{{$popular->id}}`)">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="17.51" height="15.443" viewBox="0 0 18.897 21.565">
-                                                            <path  d="M16.84,8.082V6.091a4.725,4.725,0,1,0-9.449,0v4.725a.675.675,0,0,0,1.35,0V9.432h5.4V8.082h-5.4V6.091a3.375,3.375,0,0,1,6.75,0v4.691a.675.675,0,1,0,1.35,0V9.433h3.374V21.581H4.017V9.432H6.041V8.082H2.667V21.641a1.289,1.289,0,0,0,1.289,1.29h16.32a1.289,1.289,0,0,0,1.289-1.29V8.082Z" transform="translate(-2.667 -1.366)" fill="currentColor"/>
-                                                        </svg>
-                                                        <span class="visually-hidden">Add to cart</span>
-                                                    </a>
-                                                </li>
+                                                
                                                 <li class="product__items--action__list">
                                                     <a class="product__items--action__btn" onclick="addToWishlist(`{{$popular->id}}`)">
                                                         <svg class="product__items--action__btn--svg"  xmlns="http://www.w3.org/2000/svg" width="17.51" height="15.443" viewBox="0 0 24.526 21.82">
@@ -156,12 +137,7 @@
                                                 <span class="current__price">{{config('app.currency')}}{{$popular->discount_price}}</span>
                                                 <span class="old__price">{{config('app.currency')}}{{$popular->strike_price}}</span>
                                             </div>
-                                            <a class="product__items--action__cart--btn primary__btn" onclick="addToCart(`{{$popular->id}}`)">
-                                                <svg class="product__items--action__cart--btn__icon" xmlns="http://www.w3.org/2000/svg" width="13.897" height="14.565" viewBox="0 0 18.897 21.565">
-                                                    <path  d="M16.84,8.082V6.091a4.725,4.725,0,1,0-9.449,0v4.725a.675.675,0,0,0,1.35,0V9.432h5.4V8.082h-5.4V6.091a3.375,3.375,0,0,1,6.75,0v4.691a.675.675,0,1,0,1.35,0V9.433h3.374V21.581H4.017V9.432H6.041V8.082H2.667V21.641a1.289,1.289,0,0,0,1.289,1.29h16.32a1.289,1.289,0,0,0,1.289-1.29V8.082Z" transform="translate(-2.667 -1.366)" fill="currentColor"></path>
-                                                </svg>
-                                                <span class="add__to--cart__text"> Add to cart</span>
-                                            </a>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -214,14 +190,7 @@
                                                         <span class="visually-hidden">Quick View</span>
                                                     </a>
                                                 </li>
-                                                <li class="product__items--action__list">
-                                                    <a class="product__items--action__btn"  onclick="addToCart(`{{$popular->id}}`)">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="17.51" height="15.443" viewBox="0 0 18.897 21.565">
-                                                            <path  d="M16.84,8.082V6.091a4.725,4.725,0,1,0-9.449,0v4.725a.675.675,0,0,0,1.35,0V9.432h5.4V8.082h-5.4V6.091a3.375,3.375,0,0,1,6.75,0v4.691a.675.675,0,1,0,1.35,0V9.433h3.374V21.581H4.017V9.432H6.041V8.082H2.667V21.641a1.289,1.289,0,0,0,1.289,1.29h16.32a1.289,1.289,0,0,0,1.289-1.29V8.082Z" transform="translate(-2.667 -1.366)" fill="currentColor"/>
-                                                        </svg>
-                                                        <span class="visually-hidden">Add to cart</span>
-                                                    </a>
-                                                </li>
+                                                
                                                 <li class="product__items--action__list">
                                                     <a class="product__items--action__btn" onclick="addToWishlist(`{{$popular->id}}`)">
                                                         <svg class="product__items--action__btn--svg"  xmlns="http://www.w3.org/2000/svg" width="17.51" height="15.443" viewBox="0 0 24.526 21.82">
@@ -249,12 +218,7 @@
                                                 <span class="current__price">{{config('app.currency')}}{{$popular->discount_price}}</span>
                                                 <span class="old__price">{{config('app.currency')}}{{$popular->strike_price}}</span>
                                             </div>
-                                            <a class="product__items--action__cart--btn primary__btn" onclick="addToCart(`{{$popular->id}}`)">
-                                                <svg class="product__items--action__cart--btn__icon" xmlns="http://www.w3.org/2000/svg" width="13.897" height="14.565" viewBox="0 0 18.897 21.565">
-                                                    <path  d="M16.84,8.082V6.091a4.725,4.725,0,1,0-9.449,0v4.725a.675.675,0,0,0,1.35,0V9.432h5.4V8.082h-5.4V6.091a3.375,3.375,0,0,1,6.75,0v4.691a.675.675,0,1,0,1.35,0V9.433h3.374V21.581H4.017V9.432H6.041V8.082H2.667V21.641a1.289,1.289,0,0,0,1.289,1.29h16.32a1.289,1.289,0,0,0,1.289-1.29V8.082Z" transform="translate(-2.667 -1.366)" fill="currentColor"></path>
-                                                </svg>
-                                                <span class="add__to--cart__text"> Add to cart</span>
-                                            </a>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -279,7 +243,7 @@
                 <div class="col">
                     <div class="testimonial__section--inner">
                         <div class="section__heading text-center mb-40">
-                            <h2 class="section__heading--maintitle">What Say Our Top Clints</h2>
+                            <h2 class="section__heading--maintitle">What Say Our Top Clients</h2>
                         </div>
                         <div class=" testimonial__swiper--column3 testimonial__padding swiper">
                             <div class="swiper-wrapper">
