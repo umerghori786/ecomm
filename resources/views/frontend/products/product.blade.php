@@ -276,7 +276,7 @@
                                     </div>
                                     <p class="reviews__comment--content__desc">{{$review->content}}</p>
                                     <span class="reviews__comment--content__date">{{$review->created_at->diffForHumans()}}</span>
-                                    @if(\Auth::check() && auth()->user()->isAdmin)
+                                    @if(\Auth::check() && auth()->user()->isAdmin())
                                     <div class="text-right">
                                         <button class="text-white primary__btn">Reply</button>
                                     </div>

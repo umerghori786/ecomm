@@ -135,7 +135,7 @@
                                 </a>
                             </li>
                             <li class="header__account--items">
-                                <a class="header__account--btn" @if(\Auth::check()) href="{{url('user_dashboard')}}" @else href="{{url('login')}}" @endif>
+                                <a class="header__account--btn" @if(\Auth::check()) @if(\Auth::user()->isAdmin()) href="{{url('user/dashboard')}}" @else href="{{url('user_dashboard')}}" @endif @else href="{{url('login')}}" @endif>
                                     <svg xmlns="http://www.w3.org/2000/svg"  width="26.51" height="23.443" viewBox="0 0 512 512"><path d="M344 144c-3.92 52.87-44 96-88 96s-84.15-43.12-88-96c-4-55 35-96 88-96s92 42 88 96z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><path d="M256 304c-87 0-175.3 48-191.64 138.6C62.39 453.52 68.57 464 80 464h352c11.44 0 17.62-10.48 15.65-21.4C431.3 352 343 304 256 304z" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/></svg> 
                                     <span class="visually-hidden">My Account</span>
                                 </a>
@@ -170,7 +170,7 @@
                             <nav class="header__menu--navigation">
                             <ul class="d-flex">
                                 <li class="header__menu--items">
-                                    <a class="header__menu--link" href="{{route('allproducts.index')}}">Products </a>
+                                    <a class="header__menu--link" href="{{route('home')}}">Home </a>
                                     
                                 </li>
                                 <li class="header__menu--items mega__menu--items style3">
@@ -190,8 +190,9 @@
                                         @endforelse
                                     </ul>
                                 </li>
-                                <li class="header__menu--items style3">
-                                    <a class="header__menu--link" href="about.html">About US </a>  
+                                <li class="header__menu--items">
+                                    <a class="header__menu--link" href="{{route('allproducts.index')}}">Products </a>
+                                    
                                 </li>
                                 
                                 
@@ -211,15 +212,15 @@
         <div class="offcanvas-header color-scheme-2" tabindex="-1">
             <div class="offcanvas__inner">
                 <div class="offcanvas__logo">
-                    <a class="offcanvas__logo_link" href="index.html">
-                        <img src="{{asset('newtheme/assets/img/logo/nav-log.webp')}}" alt="Furea Logo">
+                    <a class="offcanvas__logo_link" href="{{route('home')}}">
+                        <img src="@if(isset($logo)) {{url('logo/'.$logo->image)}} @endif" alt="Furea Logo">
                     </a>
                     <button class="offcanvas__close--btn" aria-label="offcanvas close btn">close</button>
                 </div>
                 <nav class="offcanvas__menu">
                     <ul class="offcanvas__menu_ul">
                         <li class="offcanvas__menu_li">
-                            <a class="offcanvas__menu_item" href="{{route('allproducts.index')}}">Products</a>
+                            <a class="offcanvas__menu_item" href="{{route('home')}}">Home</a>
                             
                         </li>
                         <li class="offcanvas__menu_li">
@@ -239,19 +240,23 @@
                                 @endforelse
                             </ul>
                         </li>
+                        <li class="offcanvas__menu_li">
+                            <a class="offcanvas__menu_item" href="{{route('allproducts.index')}}">Products</a>
+                            
+                        </li>
                         
                         
-                        <li class="offcanvas__menu_li"><a class="offcanvas__menu_item" href="about.html">About</a></li>
-                        <li class="offcanvas__menu_li"><a class="offcanvas__menu_item" href="contact.html">Contact</a></li>
+                        
+                        <li class="offcanvas__menu_li"><a class="offcanvas__menu_item" href="{{url('contacts')}}">Contact</a></li>
                     </ul>
-                    <div class="offcanvas__account--items">
+                    {{-- <div class="offcanvas__account--items">
                         <a class="offcanvas__account--items__btn d-flex align-items-center" href="login.html">
                         <span class="offcanvas__account--items__icon"> 
                             <svg xmlns="http://www.w3.org/2000/svg"  width="20.51" height="19.443" viewBox="0 0 512 512"><path d="M344 144c-3.92 52.87-44 96-88 96s-84.15-43.12-88-96c-4-55 35-96 88-96s92 42 88 96z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><path d="M256 304c-87 0-175.3 48-191.64 138.6C62.39 453.52 68.57 464 80 464h352c11.44 0 17.62-10.48 15.65-21.4C431.3 352 343 304 256 304z" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/></svg> 
                             </span>
                         <span class="offcanvas__account--items__label">Login / Register</span>
                         </a>
-                    </div>
+                    </div> --}}
                     <!--
                     <div class="language__currency">
                         <ul class="d-flex align-items-center">
@@ -428,9 +433,9 @@
         <div class="predictive__search--box color-scheme-2" tabindex="-1">
             <div class="predictive__search--box__inner">
                 <h2 class="predictive__search--title">Search Products</h2>
-                <form class="predictive__search--form" action="#">
+                <form id="searchProductFormHome1" autocomplete="off" class="predictive__search--form">
                     <label>
-                        <input class="predictive__search--input" placeholder="Search Here" type="text">
+                        <input name="searchProductnew" class="predictive__search--input" placeholder="Search Here" type="text">
                     </label>
                     <button class="predictive__search--button" aria-label="search button"><svg class="header__search--button__svg" xmlns="http://www.w3.org/2000/svg" width="30.51" height="25.443" viewBox="0 0 512 512"><path d="M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="32" d="M338.29 338.29L448 448"/></svg>  </button>
                 </form>

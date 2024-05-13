@@ -1,5 +1,5 @@
 <!-- Start slider section -->
-        @if((config('setting.showslider') == 1) && (count($sliders) > 0) && (config('setting.homepage') == 1) || config('setting.homepage') == 3)
+        @if((config('setting.showslider') == 1) && (count($sliders) > 0) && ((config('setting.homepage') == 1) || (config('setting.homepage') == 3)))
         <section class="hero__slider--section color-scheme-3">
             <div class="container">
                 <div class="row">

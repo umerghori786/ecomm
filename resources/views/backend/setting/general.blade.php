@@ -78,6 +78,38 @@
 
                         </div>
                     -->
+                     
+                        <div class="alert alert-danger text-center mt-5">Select Home Page</div>
+                        <div class="row">
+                            <div class="col-3"></div>
+                            <div class="col-3">
+                                
+                                <input type="radio"   name="setting__homepage" value="1" @if(config('setting.homepage') == 1)   checked  @endif>
+                                            <label for="html">Home Page 1</label>
+                            </div>
+                            <div class="col-3">
+                                
+                                <input type="radio"   name="setting__homepage" value="2" @if(config('setting.homepage') == 2)   checked  @endif>
+                                            <label for="html">Home Page 2</label>
+                            </div>
+                            <div class="col-3">
+                                
+                                <input type="radio"   name="setting__homepage" value="3" @if(config('setting.homepage') == 3)   checked  @endif>
+                                            <label for="html">Home Page 3</label>
+                            </div>
+                        </div>
+
+                        <div class="alert alert-danger text-center mt-5">Home Page Slider</div>
+                        <div class="row">
+                            <div class="col-4"></div>
+                            <div class="col-8">
+                                
+                                <input type="checkbox"   name="setting__showslider" value="1" @if(config('setting.showslider') == 1)   checked  @endif>
+                                            <label for="html">Show Slider on Home Page</label>
+                            </div>
+                        </div>
+                        
+                        
                         
                         <div class="alert alert-danger text-center mt-5">Stripe details</div>
                         <div class="justify-content-center container mt-5 row">
@@ -144,38 +176,7 @@
                              </div>
                         </div><!--form-group-->
 
-                        
-                        <div class="alert alert-danger text-center mt-5">Select Home Page</div>
-                        <div class="row">
-                            <div class="col-3"></div>
-                            <div class="col-3">
-                                
-                                <input type="radio"   name="setting__homepage" value="1" @if(config('setting.homepage') == 1)   checked  @endif>
-                                            <label for="html">Home Page 1</label>
-                            </div>
-                            <div class="col-3">
-                                
-                                <input type="radio"   name="setting__homepage" value="2" @if(config('setting.homepage') == 2)   checked  @endif>
-                                            <label for="html">Home Page 2</label>
-                            </div>
-                            <div class="col-3">
-                                
-                                <input type="radio"   name="setting__homepage" value="3" @if(config('setting.homepage') == 3)   checked  @endif>
-                                            <label for="html">Home Page 3</label>
-                            </div>
-                        </div>
-
-                        <div class="alert alert-danger text-center mt-5">Home Page Slider</div>
-                        <div class="row">
-                            <div class="col-4"></div>
-                            <div class="col-8">
-                                
-                                <input type="checkbox"   name="setting__showslider" value="1" @if(config('setting.showslider') == 1)   checked  @endif>
-                                            <label for="html">Show Slider on Home Page</label>
-                            </div>
-                        </div>
-                        
-                        
+                       
                         
                         
                         

@@ -176,6 +176,11 @@
         var search = $('input[name~="searchProduct"]').val()
         location.href = '{{url('allproducts')}}?search=' + search;
     })
+    $('#searchProductFormHome1').submit(function(e){
+        e.preventDefault()
+        var search = $('input[name~="searchProductnew"]').val()
+        location.href = '{{url('allproducts')}}?search=' + search;
+    })
     $(document).on('click','.decreaseq',function(){
     	var quantity = $(`input[name~='product-quantity']`).val()
     	if(quantity > 1)
