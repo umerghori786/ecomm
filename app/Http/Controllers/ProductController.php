@@ -17,31 +17,31 @@ class ProductController extends Controller
     {   
         match(request()->type){
             'trending'   => $products = Product::query()
-                            ->has('images')->with(['images','subcategory'])->where('trending',1)->latest()->paginate(25),
+                            ->has('images')->with(['images','subcategory'])->where('trending',1)->latest()->paginate(40),
             'highToLow'  => $products = Product::query()
-                            ->has('images')->with(['images','subcategory'])->orderBy('discount_price','Desc')->paginate(25),
+                            ->has('images')->with(['images','subcategory'])->orderBy('discount_price','Desc')->paginate(40),
             'lowToHigh'  => $products = Product::query()
-                            ->has('images')->with(['images','subcategory'])->orderBy('discount_price','asc')->paginate(25),
+                            ->has('images')->with(['images','subcategory'])->orderBy('discount_price','asc')->paginate(40),
             default      => $products = Product::query()
-                            ->has('images')->with(['images','subcategory'])->latest()->paginate(25),                
+                            ->has('images')->with(['images','subcategory'])->latest()->paginate(40),                
         };  
         if(request()->subcategory_id){
 
             $products = Product::query()
-                            ->where('sub_category_id',request()->get('subcategory_id'))->has('images')->with(['images','subcategory'])->latest()->paginate(25);
+                            ->where('sub_category_id',request()->get('subcategory_id'))->has('images')->with(['images','subcategory'])->latest()->paginate(40);
         }
         /*if request has subscategory_id and type*/
         if(request()->subcategory_id && request()->type){
 
                 match(request()->type){
                 'trending'   => $products = Product::query()
-                                ->has('images')->where('sub_category_id',request()->get('subcategory_id'))->with(['images','subcategory'])->where('trending',1)->latest()->paginate(25),
+                                ->has('images')->where('sub_category_id',request()->get('subcategory_id'))->with(['images','subcategory'])->where('trending',1)->latest()->paginate(40),
                 'highToLow'  => $products = Product::query()
-                                ->has('images')->where('sub_category_id',request()->get('subcategory_id'))->with(['images','subcategory'])->orderBy('discount_price','Desc')->paginate(25),
+                                ->has('images')->where('sub_category_id',request()->get('subcategory_id'))->with(['images','subcategory'])->orderBy('discount_price','Desc')->paginate(40),
                 'lowToHigh'  => $products = Product::query()
-                                ->has('images')->where('sub_category_id',request()->get('subcategory_id'))->with(['images','subcategory'])->orderBy('discount_price','asc')->paginate(25),
+                                ->has('images')->where('sub_category_id',request()->get('subcategory_id'))->with(['images','subcategory'])->orderBy('discount_price','asc')->paginate(40),
                 default      => $products = Product::query()
-                                ->has('images')->where('sub_category_id',request()->get('subcategory_id'))->with(['images','subcategory'])->latest()->paginate(25),                
+                                ->has('images')->where('sub_category_id',request()->get('subcategory_id'))->with(['images','subcategory'])->latest()->paginate(40),                
             };  
         }
 
@@ -52,7 +52,7 @@ class ProductController extends Controller
                             ->whereHas('subcategory.category',function($q){
                                 $q->where('id',request()->category_id);
                             })
-                            ->has('images')->with(['images','subcategory'])->latest()->paginate(25);
+                            ->has('images')->with(['images','subcategory'])->latest()->paginate(40);
         }
         /*if request has category_id and type*/
         if(request()->category_id && request()->type){
@@ -61,22 +61,22 @@ class ProductController extends Controller
                                 ->whereHas('subcategory.category',function($q){
                                     $q->where('id',request()->category_id);
                                 })
-                                ->has('images')->with(['images','subcategory'])->where('trending',1)->latest()->paginate(25),
+                                ->has('images')->with(['images','subcategory'])->where('trending',1)->latest()->paginate(40),
                 'highToLow'  => $products = Product::query()
                                  ->whereHas('subcategory.category',function($q){
                                      $q->where('id',request()->category_id);
                                  })   
-                                ->has('images')->with(['images','subcategory'])->orderBy('discount_price','Desc')->paginate(25),
+                                ->has('images')->with(['images','subcategory'])->orderBy('discount_price','Desc')->paginate(40),
                 'lowToHigh'  => $products = Product::query()
                                 ->whereHas('subcategory.category',function($q){
                                     $q->where('id',request()->category_id);
                                 })
-                                ->has('images')->with(['images','subcategory'])->orderBy('discount_price','asc')->paginate(25),
+                                ->has('images')->with(['images','subcategory'])->orderBy('discount_price','asc')->paginate(40),
                 default      => $products = Product::query()
                                 ->whereHas('subcategory.category',function($q){
                                     $q->where('id',request()->category_id);
                                 })    
-                                ->has('images')->with(['images','subcategory'])->latest()->paginate(25),                
+                                ->has('images')->with(['images','subcategory'])->latest()->paginate(40),                
             };  
         }
 
@@ -88,21 +88,21 @@ class ProductController extends Controller
                             ->where(function($query){
                                 $query->where('title','LIKE','%'.request()->search.'%')->orWhere('short_description','LIKE','%'.request()->search.'%');
 
-                            })->has('images')->with(['images','subcategory'])->latest()->paginate(25);
+                            })->has('images')->with(['images','subcategory'])->latest()->paginate(40);
         }
         if(request()->has('to')){
             $products = Product::query()
                             ->where(function($query){
                                 $query->whereBetween('discount_price', [request()->from ?? 0, request()->to]);
 
-                            })->has('images')->with(['images','subcategory'])->latest()->paginate(25);
+                            })->has('images')->with(['images','subcategory'])->latest()->paginate(40);
         }
         if(request()->has('to') && request()->subcategory_id){
             $products = Product::query()
                             ->where(function($query){
                                 $query->whereBetween('discount_price', [request()->from ?? 0, request()->to]);
 
-                            })->where('sub_category_id',request()->get('subcategory_id'))->has('images')->with(['images','subcategory'])->latest()->paginate(25);
+                            })->where('sub_category_id',request()->get('subcategory_id'))->has('images')->with(['images','subcategory'])->latest()->paginate(40);
         }
         if(request()->has('to') && request()->category_id){
             $products = Product::query()
@@ -113,7 +113,7 @@ class ProductController extends Controller
                             ->whereHas('subcategory.category',function($q){
                                     $q->where('id',request()->category_id);
                                 })
-                            ->has('images')->with(['images','subcategory'])->latest()->paginate(25);
+                            ->has('images')->with(['images','subcategory'])->latest()->paginate(40);
         }
 
 

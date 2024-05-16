@@ -219,17 +219,9 @@
 
 
 <script type="text/javascript">
+    @if($is_stripe)
     @include('frontend.includes.stripe-script')
-
-    $(document).on('click','.credit_card_payment',function(data){
-
-        $(this).addClass('active')
-        $('.paypal_cart_paypment').removeClass('active')
-        $('.paypal_button').hide()
-        $('.stripe_button').show()
-        $('.credit_card_payment_field').show()
-        $('.payment-form-submit').attr('id','payment-form');
-    })
+    @endif
     $(document).on('click','.paypal_cart_paypment',function(data){
 
         $(this).addClass('active')
@@ -239,6 +231,16 @@
         $('.paypal_button').show()
         $('.payment-form-submit').removeAttr('id');
     })
+    $(document).on('click','.credit_card_payment',function(data){
+
+        $(this).addClass('active')
+        $('.paypal_cart_paypment').removeClass('active')
+        $('.paypal_button').hide()
+        $('.stripe_button').show()
+        $('.credit_card_payment_field').show()
+        $('.payment-form-submit').attr('id','payment-form');
+    })
+    
     $(document).on('click','.paypal_button',function(){
         var data = $('.payment-form-submit').serializeArray()
         if(data[1].value == '' || data[2].value == '' || data[3].value == '' || data[5].value == '' || data[7].value == '' || data[8].value == '')
