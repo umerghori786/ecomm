@@ -43,7 +43,7 @@ class SliderController extends Controller
         ]);
         $filename = time().'.'.$request->image->Extension();
         $request->image->move(public_path('slider'),$filename);
-        Slider::create(['title'=>$request->title,'des'=>$request->des,'url'=>$request->url,'image'=>$filename,'title_two'=>$request->title_two]);
+        Slider::create(['url'=>$request->url,'image'=>$filename]);
 
         return redirect()->route('slider.index')->with('success','created successfully');
     }
@@ -94,7 +94,7 @@ class SliderController extends Controller
         }
         
         
-        $slider->update(['title'=>$request->title,'des'=>$request->des,'url'=>$request->url,'title_two'=>$request->title_two]);
+        $slider->update(['url'=>$request->url]);
 
         return redirect()->route('slider.index')->with('success','Update successfully');
     }

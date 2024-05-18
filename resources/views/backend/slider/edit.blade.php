@@ -15,28 +15,10 @@
                     <div class="mt-5">
                     {!! Form::model($slider, ['method' => 'PUT', 'route' => ['slider.update', $slider->id], 'files' => true,]) !!}
 
-                        <div class="row justify-content-center">
-                            <div class="col-6 col-lg-6 form-group">
-                                <label for="exampleTextarea">Slider Tilte One (not required)</label>
-                                {!! Form::text('des', old('des'), ['class' => 'form-control', 'placeholder' => 'title']) !!}
-                            </div>
-                        </div>
-                        <div class="row justify-content-center">
-                            <div class="col-6 col-lg-6 form-group">
-                                <label for="exampleTextarea">Slider Tilte Two (not required)</label>
-                                {!! Form::text('title_two', old('title_two'), ['class' => 'form-control', 'placeholder' => 'title two']) !!}
-                            </div>
-                        </div>
-                        <div class="row justify-content-center">
-                            <div class="col-6 col-lg-6 form-group">
-                                {!! Form::label('Slider Button Title', 'Slider Button Title'.' *', ['class' => 'control-label']) !!}
-                                {!! Form::text('title', old('title'), ['class' => 'form-control', 'placeholder' => 'Button Title', 'required' => true]) !!}
-                            </div>
-                            
-                        </div>
+                        
                         <div class="row justify-content-center">
                         <div class="col-6 col-lg-6 form-group">
-                                {!! Form::label('Slider Button URL',  trans('Slider Button URL'), ['class' => 'control-label']) !!}
+                                {!! Form::label('Slider URL',  trans('Slider URL'), ['class' => 'control-label']) !!}
                                 {!! Form::text('url', old('url'), ['class' => 'form-control', 'placeholder' => 'Button URL', 'required' => true]) !!}
                         </div>
                         </div>

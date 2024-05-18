@@ -19,10 +19,8 @@
       <tr>
         <th>Sr no</th>
         
-        <th>Slider Title One</th>
-        <th>Slider Title Two</th>
-        <th>Button Title</th>
-        <th>Button URL</th>
+        
+        <th>Slider URL</th>
         <th>Slider Image</th>
         <th>Action</th>
       </tr>
@@ -33,9 +31,7 @@
       <tr>
         <td>{{$i}}</td>
         
-        <td>{{$slider->des}}</td>
-        <td>{{$slider->title_two}}</td>
-        <td>{{$slider->title}}</td>
+        
         <td>{{$slider->url}}</td>
         <td>
             @if(isset($slider))
