@@ -120,9 +120,9 @@
                                                     @foreach($product->result(explode(',',$product->color_id)) as $key=> $color)
                                                     
                                                     
-                                                    <span class="single-item @if($cart && $cart[$product->id] && $cart[$product->id]['color'] == $color) active @endif product-color" id="{{$color}}">{{$color}}</span>
+                                                    <span class="single-item @if(isset($cart) && isset($cart[$product->id]) && isset($cart[$product->id]['color']) == $color) active @endif product-color" id="{{$color}}">{{$color}}</span>
                                                      
-                                                    <input type="hidden" @if($cart && $cart[$product->id] && $cart[$product->id]['color']) value="{{$cart[$product->id]['color']}}" @endif  name="product_color"> 
+                                                    <input type="hidden" @if(isset($cart) && isset($cart[$product->id]) && isset($cart[$product->id]['color'])) value="{{$cart[$product->id]['color']}}" @endif  name="product_color"> 
                                                     
                                                     @endforeach
                                                 </p>
@@ -189,10 +189,7 @@
                                         <h4 class="product__tab--content__title">{{$product->title}}</h4>
                                         <p class="product__tab--content__desc">{!! $product->long_description !!}</p>
                                     </div>
-                                    <div class="product__tab--content__step">
-                                        <h4 class="product__tab--content__title">Fashion Plastic Chair</h4>
-                                        <p class="product__tab--content__desc">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam provident sequi, nemo sapiente culpa nostrum rem eum perferendis quibusdam, magnam a vitae corporis! Magnam enim modi, illo harum suscipit tempore aut dolore doloribus deserunt voluptatum illum,</p>
-                                    </div>
+                                    
                                 </div>
                             </div> 
                         </div>

@@ -27,7 +27,7 @@
 	    var shoe_size = $(`input[name~='shoe_size']`).val() ?? ''
 	    if(!product_color)
 	    {
-	    	successmsg('color and size needed');
+	    	successmsg('choose color and size');
 	    }
 	    else
 	    {

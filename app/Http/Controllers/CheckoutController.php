@@ -77,7 +77,7 @@ class CheckoutController extends Controller
         if($request->input('stripeToken'))
         {
             $token = $request->input('stripeToken');
-            $currency = 'eur';
+            $currency = config('app.currency');
             $amount = $charged_price;
     
             $response = $this->gateway->authorize([
@@ -132,7 +132,7 @@ class CheckoutController extends Controller
             'paymentIntentReference' => $request->input('payment_intent')
             
         ])->send();
-        $currency = 'eur'; 
+        $currency = config('app.currency'); 
         if($response->isSuccessful())
         {   
             $response = $this->gateway->capture([
@@ -185,7 +185,7 @@ class CheckoutController extends Controller
         //order product store
         foreach ($cart_products as $id => $product) {
             
-            $order->products()->attach([$id],['quantity'=>$product['quantity'],'price'=>$product['discount_price']]);
+            $order->products()->attach([$id],['quantity'=>$product['quantity'],'price'=>$product['discount_price'],'color'=>$product['color'],'cloth_size'=>$product['cloth_size'],'shoe_size'=>$product['shoe_size']]);
         }
         
     }

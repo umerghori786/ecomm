@@ -77,7 +77,7 @@
                                                 <div class="quantity__box">
                                                     <button type="button" class="quantity__value quickview__value--quantity decrease update_decrease_quantity" id="{{$key}}" aria-label="quantity value" value="Decrease Value">-</button>
                                                     <label id="update_quantity">
-                                                        <input type="number" class="quantity__number update_quantity  quickview__value--number" value="{{(int)$cart['quantity']}}" />
+                                                        <input type="number" class="quantity__number update_quantity  quickview__value--number" value="{{(int)$cart['quantity']}}" id="{{"newvalue_{$key}"}}" />
                                                     </label>
                                                     <button type="button" class="quantity__value quickview__value--quantity increase update_increase_quantity" id="{{$key}}" aria-label="quantity value" value="Increase Value">+</button>
                                                 </div>
@@ -242,8 +242,11 @@
 <script type="text/javascript">
     $(document).on('click','.update_increase_quantity',function(){
 
-        var quantity = $(this).parents('.update_quantity_parent').children().find('label :input').val();
+        var old = $(this).parents('.update_quantity_parent').children().find('label :input').val();
         var product_id = $(this).attr('id')
+        $(`#newvalue_${product_id}`).val(parseInt(old) + 1)
+        var quantity = $(`#newvalue_${product_id}`).val()
+        
 
         $.ajax({
 
@@ -265,26 +268,34 @@
     })
     $(document).on('click','.update_decrease_quantity',function(){
 
-        var quantity = $(this).parents('.update_quantity_parent').children().find('label :input').val();
-        var product_id = $(this).attr('id')
+        var old = $(this).parents('.update_quantity_parent').children().find('label :input').val();
+        
+        
 
-        $.ajax({
+        if(old > 1)
+        {   
+            var product_id = $(this).attr('id')
+            $(`#newvalue_${product_id}`).val(parseInt(old) - 1)
+            var quantity = $(`#newvalue_${product_id}`).val()
+            $.ajax({
 
-            type : "get",
-            url : "{{url('/update-cart')}}",
-            data : {product_id : product_id , quantity : quantity},
+                type : "get",
+                url : "{{url('/update-cart')}}",
+                data : {product_id : product_id , quantity : quantity},
 
-            success:function(data)
-            {
-                if(data.success){
+                success:function(data)
+                {
+                    if(data.success){
 
-                    
-                    $(".cart_price_"+product_id).html('$'+data.update_amount_of_product)
-                    $('.update-cart-new-total').html('$'+data.cart_total)
+                        
+                        $(".cart_price_"+product_id).html('$'+data.update_amount_of_product)
+                        $('.update-cart-new-total').html('$'+data.cart_total)
+                    }
                 }
-            }
 
-        })
+            })
+        }
+        
     })
 
     $(document).on('submit','#couponForm',function(e){

@@ -29,6 +29,7 @@
     <tbody>
       @php $i = 1 @endphp
       @forelse($reviews as $review)
+      @if($review->reviewable)
       <tr>
         <td>{{$i}}</td>
         <td>{{$review->reviewable->title}}</td>
@@ -48,6 +49,7 @@
           </form>
         </td>
       </tr>
+      @endif
       @php $i++ @endphp
       @empty
       @endforelse
