@@ -77,7 +77,7 @@ class CheckoutController extends Controller
         if($request->input('stripeToken'))
         {
             $token = $request->input('stripeToken');
-            $currency = config('app.currency');
+            $currency = config('setting.currencycode');
             $amount = $charged_price;
     
             $response = $this->gateway->authorize([
@@ -132,7 +132,7 @@ class CheckoutController extends Controller
             'paymentIntentReference' => $request->input('payment_intent')
             
         ])->send();
-        $currency = config('app.currency'); 
+        $currency = config('setting.currencycode'); 
         if($response->isSuccessful())
         {   
             $response = $this->gateway->capture([

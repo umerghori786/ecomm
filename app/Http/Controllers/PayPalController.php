@@ -28,7 +28,7 @@ class PayPalController extends Controller
      */
     public function payment(Request $request)
     {   
-        $request->session()->put('reqeustData',$request->all());
+        //$request->session()->put('reqeustData',$request->all());
         $charged_price = request()->session()->get('charged_price');
 
         $provider = new PayPalClient;
