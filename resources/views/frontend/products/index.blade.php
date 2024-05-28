@@ -434,8 +434,9 @@
                                 </div>
                             </div>
                         </div>
+                        @if ($products->hasPages())
                         <div class="pagination__area bg__gray--color">
-                            @if ($products->hasPages())
+                            
                             <nav class="pagination">
                                 <ul class="pagination__wrapper d-flex align-items-center justify-content-center">
                                     @if (!$products->onFirstPage())
@@ -457,9 +458,10 @@
                                     @endif    
                                 </ul>
                             </nav>
-                            @endif
+                            
                         
                         </div>
+                        @endif
                     </div>
                 </div>
             </div>
