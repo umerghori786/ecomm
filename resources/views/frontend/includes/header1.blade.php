@@ -27,7 +27,7 @@
                         </a>
                     </div>
                     <div class="main__logo">
-                        <h1 class="main__logo--title"><a class="main__logo--link" href="{{route('home')}}"><img class="main__logo--img" src="@if(isset($logo)) {{url('logo/'.$logo->image)}} @endif" alt="logo-img"></a></h1>
+                        <h1 class="main__logo--title"><a class="main__logo--link" href="{{route('home')}}"><img class="main__logo--img" src="@if(isset($logo)) {{asset('logo/'.$logo->image)}} @endif" alt="logo-img"></a></h1>
                     </div>
                     <div class="header__menu d-none d-lg-block">
                         <nav class="header__menu--navigation">
@@ -108,7 +108,7 @@
             <div class="offcanvas__inner">
                 <div class="offcanvas__logo">
                     <a class="offcanvas__logo_link" href="{{route('home')}}">
-                        <img src="@if(isset($logo)) {{url('logo/'.$logo->image)}} @endif" alt="Furea Logo">
+                        <img src="@if(isset($logo)) {{asset('logo/'.$logo->image)}} @endif" alt="Furea Logo">
                     </a>
                     <button class="offcanvas__close--btn" aria-label="offcanvas close btn">close</button>
                 </div>

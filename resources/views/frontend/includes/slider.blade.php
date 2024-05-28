@@ -9,7 +9,7 @@
                                 @foreach($sliders as $slider)
 
                                 <a href="{{$slider->url}}" class="swiper-slide ">
-                                    <div class="hero__slider3--items hero__slider--bg3 slider2" style="background: url('{{url('slider/'.($slider->image))}}'">
+                                    <div class="hero__slider3--items hero__slider--bg3 slider2" style="background: url('{{asset('slider/'.($slider->image))}}'">
                                         <div class="slider__content3 padding-left text-center">
                                             <!--<h2 class="slider__content3--maintitle text-white">{{$slider->des}} </h2> -->
                                             <!--<p class="slider__content3--desc text-white mb-35">{{$slider->title_two}} </p>  -->
@@ -34,7 +34,7 @@
                 <div class="hero__slider--wrapper swiper-wrapper">
                     @foreach($sliders as $slider)
                     <a href="{{$slider->url}}" class="swiper-slide ">
-                        <div class="hero__slider--items hero__slider--bg slider1" style="background: url('{{url('slider/'.($slider->image))}}'">
+                        <div class="hero__slider--items hero__slider--bg slider1" style="background: url('{{asset('slider/'.($slider->image))}}'">
                             <div class="container-fluid">
                                 <div class="hero__slider--items__inner">
                                     <div class="row row-cols-1">

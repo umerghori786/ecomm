@@ -35,7 +35,7 @@
         <td>{{$slider->url}}</td>
         <td>
             @if(isset($slider))
-        <img src="{{url('slider/'.($slider->image))}}" width="100px" height="100px" alt=""/>
+        <img src="{{asset('slider/'.($slider->image))}}" width="100px" height="100px" alt=""/>
         @endif
             </td>
         <td>

@@ -26,7 +26,7 @@
                             <div class="col-12 col-lg-6 form-group">
                             <label for="myfile">Slider Image:</label>
                             <input type="file" id="image" name="image" />
-                            <img src="{{url('slider/'.$slider->image)}}" width="100px" alt="">
+                            <img src="{{asset('slider/'.$slider->image)}}" width="100px" alt="">
 
                             </div>
 

@@ -9,14 +9,14 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
         <link rel="stylesheet" href="{{asset('newtheme/completeorder/style.css')}}" />
         <title>{{config('app.name')}}</title>
-        <link rel="icon" @if(isset($logo))  href="{{url('logo/'.$logo->image)}}" @else href="{asset('dashboard/img/logo.png')}}"  @endif type="image/png">
+        <link rel="icon" @if(isset($logo))  href="{{asset('logo/'.$logo->image)}}" @else href="{asset('dashboard/img/logo.png')}}"  @endif type="image/png">
     </head>
     <body>
         <div class="container" >
             <div class="py-4">
                 @if(isset($logo))  
                 
-                <a class="oreder-page-logo" href="{{route('home')}}"><img src="{{url('logo/'.$logo->image)}}" alt=""></a>
+                <a class="oreder-page-logo" href="{{route('home')}}"><img src="{{asset('logo/'.$logo->image)}}" alt=""></a>
                 @endif
             </div>
             <div class="confirmation-wraper">

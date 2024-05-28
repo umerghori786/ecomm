@@ -2,7 +2,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <title>{{config('app.name')}}</title>
-<link rel="icon" @if(isset($logo))  href="{{url('logo/'.$logo->image)}}" @else href="{asset('dashboard/img/logo.png')}}"  @endif type="image/png">
+<link rel="icon" @if(isset($logo))  href="{{asset('logo/'.$logo->image)}}" @else href="{asset('dashboard/img/logo.png')}}"  @endif type="image/png">
 
 <link rel="stylesheet" href="{{asset('dashboard/css/bootstrap1.min.css')}}" />
 

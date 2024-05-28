@@ -11,7 +11,7 @@
                                 </svg>
                             </h2> --}}
                             <div class="footer__widget--inner">
-                                <a class="footer__logo" href="index.html"><img src="{{url('logo/'.$logo->image)}}" alt="footer-logo"></a>
+                                <a class="footer__logo" href="index.html"><img src="{{asset('logo/'.$logo->image)}}" alt="footer-logo"></a>
                                 {{-- <p class="footer__widget--desc">Ut enim ad minim veniam, quis <br> nostrud exercitation ullamco laboris <br> nisi ut aliquip ex ea commodo.</p> --}}
                                
                             </div>

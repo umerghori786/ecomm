@@ -2,7 +2,7 @@
 <div class="logo d-flex justify-content-between">
 <div>
 @if(isset($logo))    
-<a class="mx-auto" href="{{route('admin.dashboard')}}"><img src="{{url('logo/'.$logo->image)}}" alt=""></a>
+<a class="mx-auto" href="{{route('admin.dashboard')}}"><img src="{{asset('logo/'.$logo->image)}}" alt=""></a>
 @else
 <a class="mx-auto" href="{{route('admin.dashboard')}}"><img src="{{asset('dashboard/img/logo.png')}}" alt=""></a>
 @endif

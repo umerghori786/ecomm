@@ -17,7 +17,7 @@ trait ImageUploadTrait{
         		
         		$imageName = time().'.'.$image->getClientOriginalName();
         		$image->move(public_path('product'), $imageName);
-        		$image_url = url('product/'.$imageName);
+        		$image_url = asset('product/'.$imageName);
         		$model = $model->findOrFail($id);
         		$model->images()->create(['url'=>$image_url]);
 
