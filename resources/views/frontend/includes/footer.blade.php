@@ -5,14 +5,10 @@
                 <div class="row">
                     <div class="col-lg-3 col-md-6">
                         <div class="footer__widget">
-                            {{-- <h2 class="footer__widget--title d-none d-md-block">About Us <button class="footer__widget--button" aria-label="footer widget button"></button>
-                                <svg class="footer__widget--title__arrowdown--icon" xmlns="http://www.w3.org/2000/svg" width="12.355" height="8.394" viewBox="0 0 10.355 6.394">
-                                    <path  d="M15.138,8.59l-3.961,3.952L7.217,8.59,6,9.807l5.178,5.178,5.178-5.178Z" transform="translate(-6 -8.59)" fill="currentColor"></path>
-                                </svg>
-                            </h2> --}}
+                            
                             <div class="footer__widget--inner">
-                                <a class="footer__logo" href="index.html"><img src="{{asset('logo/'.$logo->image)}}" alt="footer-logo"></a>
-                                {{-- <p class="footer__widget--desc">Ut enim ad minim veniam, quis <br> nostrud exercitation ullamco laboris <br> nisi ut aliquip ex ea commodo.</p> --}}
+                                <a class="footer__logo" href="index.html">@if(isset($logo))<img src="{{asset('logo/'.$logo->image)}}" alt="footer-logo">@endif</a>
+                                
                                
                             </div>
                         </div>

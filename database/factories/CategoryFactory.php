@@ -20,6 +20,7 @@ class CategoryFactory extends Factory
         return [
             'title'=>fake()->name(),
             'status'=>1,
+            'image'=>'noimage.jpg'
         ];
     }
 }

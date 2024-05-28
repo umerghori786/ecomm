@@ -3,6 +3,7 @@
 namespace App\Providers;
 use App\Models\Logo;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Schema;
 
 class LogoServiceProvider extends ServiceProvider
 {
@@ -22,9 +23,12 @@ class LogoServiceProvider extends ServiceProvider
      * @return void
      */
     public function boot()
-    {
-        $logo = Logo::first();
-        // dd($logo);
-        view()->share(['logo'=>$logo]);
+    {   
+        if (Schema::hasTable('logos')) {
+
+            $logo = Logo::first();
+            view()->share(['logo'=>$logo]);
+        }
+        
     }
 }

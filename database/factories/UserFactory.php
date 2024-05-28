@@ -18,11 +18,11 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            'name' => "Kabir Ahmed",
-            'email' => "kabira@gmail.com",
+            'name' => "Admin",
+            'email' => "admin@ecomm.com",
             'email_verified_at' => now(),
             'is_admin' => 1,
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // asdf1234
+            'password' => '$2y$10$pdA.Q/W6lt6I8d9Er9aFreNLO2b4KlaKSNJK7leZLo1mX5K9JiiPO', // adminuser
             'remember_token' => Str::random(10),
         ];
     }
