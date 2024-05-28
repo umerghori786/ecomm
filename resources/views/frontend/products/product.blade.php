@@ -73,45 +73,17 @@
                                         </div>
                                     </div>
                                     <p class="product__details--info__desc mb-20">{{$product->short_description}}</p>
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
                                     <div class="product__variant">
                                         
-                                        <div class="product__variant--list quantity d-flex align-items-center mb-20">
-                                            <div class="quantity__box">
-                                                <button type="button" class="quantity__value quickview__value--quantity decreaseq" aria-label="quantity value" value="Decrease Value">-</button>
-                                                <label>
-                                                    @php 
-                                                    $quantity = 1;
-                                                    if(session('cart')){
-
-                                                        $quantity = request()->session()->get('cart')[$product->id]['quantity'] ?? 1 ;
-                                                        
-                                                    }
-                                                        
-                                                    
-                                                    @endphp
-                                                    <input type="number" class="quantity__number show-product-quantity quickview__value--number" value="{{$quantity}}" name="product-quantity" />
-                                                </label>
-                                                <button type="button" class="quantity__value quickview__value--quantity increaseq" aria-label="quantity value" value="Increase Value">+</button>
-                                            </div>
-                                            <button class="quickview__cart--btn primary__btn" type="submit" onclick="addToCart(`{{$product->id}}`)">Add To Cart</button>  
-                                        </div>
-                                        <div class="product__variant--list mb-15">
-                                            <a class="variant__wishlist--icon mb-15" onclick="addToWishlist(`{{$product->id}}`)" title="Add to wishlist">
-                                                <svg class="quickview__variant--wishlist__svg" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 512 512"><path d="M352.92 80C288 80 256 144 256 144s-32-64-96.92-64c-52.76 0-94.54 44.14-95.08 96.81-1.1 109.33 86.73 187.08 183 252.42a16 16 0 0018 0c96.26-65.34 184.09-143.09 183-252.42-.54-52.67-42.32-96.81-95.08-96.81z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/></svg>
-                                                Add to Wishlist
-                                            </a>
-                                            <!--<button class="variant__buy--now__btn primary__btn" type="submit">Buy it now</button>-->
-                                        </div>
-                                        <div class="product__variant--list mb-15">
-                                            <div class="product__details--info__meta">
-                                                <p class="product__details--info__meta--list"><strong>Type:</strong>  <span>{{$product->subcategory->category->title}}</span> </p>
-                                            </div>
-                                            
-                                        </div>
-
-                                        @php  $cart = request()->session()->get('cart',[]);   @endphp
                                         
-
+                                        
+                                        
                                         @if(isset($product->color_id))
                                         <div class="product__variant--list mb-15">
                                             <div class="product__details--info__meta">
@@ -120,7 +92,7 @@
                                                     @foreach($product->result(explode(',',$product->color_id)) as $key=> $color)
                                                     
                                                     
-                                                    <span class="single-item @if(isset($cart) && isset($cart[$product->id]) && isset($cart[$product->id]['color']) == $color) active @endif product-color" id="{{$color}}">{{$color}}</span>
+                                                    <span class="single-item @if(isset($cart) && isset($cart[$product->id]) && isset($cart[$product->id]['color'])) @if($cart[$product->id]['color']  == $color) active @endif @endif product-color" id="{{$color}}">{{$color}}</span>
                                                      
                                                     <input type="hidden" @if(isset($cart) && isset($cart[$product->id]) && isset($cart[$product->id]['color'])) value="{{$cart[$product->id]['color']}}" @endif  name="product_color"> 
                                                     
@@ -160,6 +132,52 @@
                                             </div>
                                         </div>
                                         @endif
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        <br/>
+                                        
+                                        
+                                        <div class="product__variant--list quantity d-flex align-items-center mb-20">
+                                            <div class="quantity__box">
+                                                <button type="button" class="quantity__value quickview__value--quantity decreaseq" aria-label="quantity value" value="Decrease Value">-</button>
+                                                <label>
+                                                    @php 
+                                                    $quantity = 1;
+                                                    if(session('cart')){
+
+                                                        $quantity = request()->session()->get('cart')[$product->id]['quantity'] ?? 1 ;
+                                                        
+                                                    }
+                                                        
+                                                    
+                                                    @endphp
+                                                    <input type="number" class="quantity__number show-product-quantity quickview__value--number" value="{{$quantity}}" name="product-quantity" />
+                                                </label>
+                                                <button type="button" class="quantity__value quickview__value--quantity increaseq" aria-label="quantity value" value="Increase Value">+</button>
+                                            </div>
+                                            <button class="quickview__cart--btn primary__btn" type="submit" onclick="addToCart(`{{$product->id}}`)">Add To Cart</button>  
+                                        </div>
+                                        <div class="product__variant--list mb-15">
+                                            <a class="variant__wishlist--icon mb-15" onclick="addToWishlist(`{{$product->id}}`)" title="Add to wishlist">
+                                                <svg class="quickview__variant--wishlist__svg" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 512 512"><path d="M352.92 80C288 80 256 144 256 144s-32-64-96.92-64c-52.76 0-94.54 44.14-95.08 96.81-1.1 109.33 86.73 187.08 183 252.42a16 16 0 0018 0c96.26-65.34 184.09-143.09 183-252.42-.54-52.67-42.32-96.81-95.08-96.81z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/></svg>
+                                                Add to Wishlist
+                                            </a>
+                                            <!--<button class="variant__buy--now__btn primary__btn" type="submit">Buy it now</button>-->
+                                        </div>
+                                        <div class="product__variant--list mb-15">
+                                            <div class="product__details--info__meta">
+                                                <p class="product__details--info__meta--list"><strong>Type:</strong>  <span>{{$product->subcategory->category->title}}</span> </p>
+                                            </div>
+                                            
+                                        </div>
+
+                                        @php  $cart = request()->session()->get('cart',[]);   @endphp
+                                        
+
+
                                     </div>
                                     
                                     <div class="guarantee__safe--checkout">
@@ -273,9 +291,10 @@
                                     </div>
                                     <p class="reviews__comment--content__desc">{{$review->content}}</p>
                                     <span class="reviews__comment--content__date">{{$review->created_at->diffForHumans()}}</span>
+
                                     @if(\Auth::check() && auth()->user()->isAdmin())
                                     <div class="text-right">
-                                        <button class="text-white primary__btn">Reply</button>
+                                        <button class="text-white primary__btn text-red-600">Reply</button>
                                     </div>
                                     @endif
                                 </div>
@@ -290,7 +309,7 @@
                                         <div class="mb-5">
                                             <textarea class="reviews__comment--reply__textarea" placeholder="Your Reply...." name="content" required></textarea>
                                         </div> 
-                                        <button type="submit" class="bg-red-600 text-white px-7 py-4 leading-none rounded-lg hover:bg-black transition">SUBMIT</button>
+                                        <button type="submit" class="text-white primary__btn">SUBMIT</button>
                                     </form>   
                                 </div> 
                             </div>

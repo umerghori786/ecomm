@@ -112,7 +112,7 @@
 
                         </div>
                         
-                        <div class="alert alert-danger text-center mt-5">Select Product Images (Minimum two images are required. You can select more than two images by click on + icon) </div>
+                        <div class="alert alert-danger text-center mt-5">Select Product Images (Minimum two images are required. You can select more than two images by click on + icon. for delete image see buttom of page) </div>
                         <div class="row append">
                           <div class="col-md-4 mt-2">
                             
@@ -136,7 +136,7 @@
 
                         {!! Form::close() !!}
                     </div>
-                    <div class="alert alert-danger text-center mt-5">Delete Product Image by click on Bin icon (if you want to delete) </div>
+                    <div class="alert alert-danger text-center ">Delete Product Image by click on Bin icon (if you want to delete) </div>
                     <div class="row">
 
                       @if(count($product->images) > 0)

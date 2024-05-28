@@ -2528,7 +2528,7 @@ table.dataTable.dtr-inline.collapsed>tbody>tr.parent>th:first-child::before {
 .profile_info .profile_info_iner {
     position: absolute;
     right: 0;
-    background-color: #2e4765;
+    background-color: #794EDA;
     text-align: right;
     width: 215px;
     padding: 20px;
@@ -2551,7 +2551,7 @@ table.dataTable.dtr-inline.collapsed>tbody>tr.parent>th:first-child::before {
     top: -14px;
     right: 10px;
     border-width: 0 15px 15px;
-    border-color: transparent transparent #2e4765 transparent
+    border-color: transparent transparent #794EDA transparent
 }
 
 .profile_info .profile_info_iner a {

@@ -100,7 +100,7 @@
                                                 @endif
                                             </a>
                                             <div class="product__badge">
-                                                <span class="product__badge--items sale">Sale</span>
+                                                <span class="product__badge--items sale">New</span>
                                             </div>
                                             <ul class="product__items--action d-flex justify-content-center">
                                                 <li class="product__items--action__list">

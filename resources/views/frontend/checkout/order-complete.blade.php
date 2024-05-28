@@ -9,12 +9,21 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
         <link rel="stylesheet" href="{{asset('newtheme/completeorder/style.css')}}" />
         <title>{{config('app.name')}}</title>
+        <link rel="icon" @if(isset($logo))  href="{{url('logo/'.$logo->image)}}" @else href="{asset('dashboard/img/logo.png')}}"  @endif type="image/png">
     </head>
     <body>
         <div class="container" >
+            <div class="py-4">
+                @if(isset($logo))  
+                
+                <a class="oreder-page-logo" href="{{route('home')}}"><img src="{{url('logo/'.$logo->image)}}" alt=""></a>
+                @endif
+            </div>
             <div class="confirmation-wraper">
-                <div class="row align-items-center">
+                <div class="row">
                     <div class="col-md-6 left-side">
+                        
+
                         <div class="row align-items-center">
                             <i class="fas fa-check"></i>
                             <div class="gretings">
@@ -65,13 +74,15 @@
                         @forelse($order->products as $product)
                         <div class="products mb-4">
                                 <div class="image" style="width:fit-content">
-                                    <p class="quantity">{{$product->pivot->quantity}}</p>
+                                    <p class="quantity">{{$product->pivot->quantity}} x {{$product->pivot->price}}</p>
                                     <a href="{{route('allproducts.show',[$product->slug])}}">
                                     <img src="{{$product->images[0]->url}}" alt="">
                                     </a>
                                 </div>
-                                <p class="des">{{$product->title}}</p>
-                                <p class="price">{{config('app.currency')}}{{$product->pivot->price}}</p>
+                                <p class="des">{{$product->title}} (@if($product->pivot->color) {{$product->pivot->color }} @endif @if($product->pivot->cloth_size) , {{$product->pivot->cloth_size }} @endif @if($product->pivot->cloth_size)  {{$product->pivot->shoe_size}} @endif)</p>
+                                
+                                <p class="price">{{config('app.currency')}}{{number_format($product->pivot->price * $product->pivot->quantity)}}</p>
+                                
                         </div>
                         @empty
                         @endforelse

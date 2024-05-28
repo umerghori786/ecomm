@@ -58,7 +58,7 @@
                                     </ul>
                                 </li>
                                 <li class="header__menu--items">
-                                    <a class="header__menu--link" href="{{route('allproducts.index')}}">Products </a>
+                                    <a class="header__menu--link" href="{{route('allproducts.index')}}">Shop </a>
                                     
                                 </li>
                                 
@@ -140,7 +140,7 @@
                             </ul>
                         </li>
                         <li class="offcanvas__menu_li">
-                            <a class="offcanvas__menu_item" href="{{route('allproducts.index')}}">Products</a>
+                            <a class="offcanvas__menu_item" href="{{route('allproducts.index')}}">Shop</a>
                             
                         </li>
                         

@@ -25,7 +25,7 @@
                         
                         <div class="row justify-content-center mt-3">
                             <div class="col-12 col-lg-6 form-group">
-                            <label for="myfile">Slider Image: (slider image 1700 x 650 shuld be minimum this size)</label>
+                            <label for="myfile">Slider Image: (slider image shuld be minimum 1700 x 650 this size)</label>
                             <input type="file" id="image" name="image" required/>
                             </div>
 

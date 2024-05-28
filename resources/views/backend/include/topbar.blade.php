@@ -18,7 +18,7 @@
 <div class="header_right d-flex justify-content-between align-items-center">
 
 <div class="profile_info">
-<img src="{{asset('dashboard/img/client_img.png')}}" alt="#">
+<img src="https://cdn-icons-png.flaticon.com/128/9322/9322043.png" alt="#">
 <div class="profile_info_iner">
 
 <h5 class="text-left" >{{auth()->user()->name}}</h5>

@@ -1,5 +1,5 @@
 .confirmation-wraper {
-    padding: 100px 0;
+    padding: 50px 0;
 }
 .confirmation-wraper p {
     margin: 0;
@@ -68,21 +68,27 @@
     border-radius: 15px;
     border: 1px solid #ccc;
     padding: 10px;
+    object-fit:contain
+}
+.oreder-page-logo{
+    max-width:160px;
+    width:100%;
+    object-fit:contain;
 }
 .confirmation-wraper .right-side .products .image .quantity {
     position: absolute;
     right: -12px;
     top: -12px;
     z-index: 99;
-    height: 30px;
-    width: 30px;
-    line-height: 30px;
+    line-height: 26px;
     text-align: center;
     background-color: #838083;
     color: #fff;
     font-weight: 600;
-    font-size: 18px;
-    border-radius: 50%;
+    font-size: 15px;
+    border-radius: 10px;
+    padding: 0 5px;
+    min-width:30px;
 }
 .confirmation-wraper .right-side .products .des {
     font-size: 18px;

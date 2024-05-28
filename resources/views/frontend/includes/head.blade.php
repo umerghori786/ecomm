@@ -1,6 +1,6 @@
 <head>
     <meta charset="utf-8">
-    <title>Kabira</title>
+    <title>{{config('app.name')}}</title>
     <meta name="description" content="Morden Bootstrap HTML5 Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" @if(isset($logo))  href="{{url('logo/'.$logo->image)}}" @else href="{asset('dashboard/img/logo.png')}}"  @endif type="image/png">

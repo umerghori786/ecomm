@@ -1,7 +1,7 @@
 @extends('backend.layout')
 
 @section('content')
-<div class="container">
+<div class="container" style="overflow-y:auto">
   @if(Session::has('success'))
   <p class="alert alert-info">{{ Session::get('success') }}</p>
   @endif

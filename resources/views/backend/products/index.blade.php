@@ -1,7 +1,7 @@
 @extends('backend.layout')
 
 @section('content')
-<div class="container">
+<div class="container" style="overflow-x:auto">
   @if(Session::has('success'))
   <p class="alert alert-info">{{ Session::get('success') }}</p>
   @endif
@@ -33,7 +33,7 @@
       <tr>
         <td>{{$i}}</td>
         <td>{{$product->subcategory->category->title ??"Null"}}</td>
-        <td>{{$product->subcategory->title}}</td>
+        <td>{{$product->subcategory->title ??"Null"}}</td>
         <td>{{$product->title}}</td>
         <td>{{$product->strike_price}}</td>
         <td>{{$product->discount_price}}</td>

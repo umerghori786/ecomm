@@ -69,7 +69,7 @@
                                                     @elseif($cart['shoe_size'])
                                                     {{$cart['shoe_size']}}
                                                     @else
-                                                    1
+                                                    
                                                     @endif
                                                 </span>
                                             </td>

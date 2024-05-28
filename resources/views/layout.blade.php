@@ -4,6 +4,13 @@
 @include('frontend.includes.head')
 
 <body>
+    
+    
+<!-- preloader -->
+<div class="preloader-wraper">
+    <div class="spinner"></div>
+</div>
+
 
 @include('frontend.includes.header')
 
@@ -13,10 +20,40 @@
 @include('frontend.includes.footer')
 
 
+
+
+
+
+
 @include('frontend.includes.script')
 
 @stack('script')
 <script type="text/javascript">
+
+
+
+
+const preloader = document.querySelector('.preloader-wraper');
+setTimeout(function () {
+    preloader.style.display = 'none'
+}, 1000);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	
 	const addToCart = (id)=>{
 
@@ -27,7 +64,7 @@
 	    var shoe_size = $(`input[name~='shoe_size']`).val() ?? ''
 	    if(!product_color)
 	    {
-	    	successmsg('choose color and size');
+	    	successmsg('choose color');
 	    }
 	    else
 	    {

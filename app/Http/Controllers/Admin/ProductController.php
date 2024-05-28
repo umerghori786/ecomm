@@ -57,7 +57,7 @@ class ProductController extends Controller
         $data = $request->validated();
         $product = Product::create($data);
         $this->imageUpload($request,$product,$product->id);
-        $product->update(['popular'=>$this->popular,'trending'=>$this->trending,'user_id'=>auth()->user()->id]);
+        $product->update(['popular'=>$this->popular,'trending'=>$this->trending,'user_id'=>auth()->user()->id,'color_id'=>NULL , 'shoesize_id'=>NULL,'clothsize_id'=>NULL]);
         if($request->has('color_id') && count($request->color_id) > 0)
         {
             $product->update(['color_id'=>implode(',', $request->color_id)]);
@@ -116,7 +116,7 @@ class ProductController extends Controller
         $product = Product::where('id',$id)->first();
         $product->update($data);
         $this->imageUpload($request,$product,$product->id);
-        $product->update(['popular'=>$this->popular,'trending'=>$this->trending]);
+        $product->update(['popular'=>$this->popular,'trending'=>$this->trending, 'color_id'=>NULL , 'shoesize_id'=>NULL,'clothsize_id'=>NULL]);
         if($request->has('color_id') && count($request->color_id) > 0)
         {
             $product->update(['color_id'=>implode(',', $request->color_id)]);

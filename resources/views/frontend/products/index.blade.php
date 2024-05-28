@@ -45,7 +45,8 @@
                     @forelse($categories as $category)
                     <li class="widget__categories--menu__list">
                         <label class="widget__categories--menu__label d-flex align-items-center">
-                            <img class="widget__categories--menu__img" src="{{asset('newtheme/assets/img/product/small-product1.webp')}}" alt="categories-img">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="17" cy="7" r="3"/><circle cx="7" cy="17" r="3"/><path d="M14 14h6v5a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1zM4 4h6v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z"/></g></svg>
+                            <!--<img class="widget__categories--menu__img" src="{{asset('newtheme/assets/img/product/small-product1.webp')}}" alt="categories-img">-->
                             <span class="widget__categories--menu__text">{{$category->title}}</span>
                             <svg class="widget__categories--menu__arrowdown--icon" xmlns="http://www.w3.org/2000/svg" width="12.355" height="8.394">
                                 <path  d="M15.138,8.59l-3.961,3.952L7.217,8.59,6,9.807l5.178,5.178,5.178-5.178Z" transform="translate(-6 -8.59)" fill="currentColor"></path>
@@ -55,7 +56,8 @@
                             @forelse($category->subcategories as $subcat)
                             <li class="widget__categories--sub__menu--list">
                                 <a class="widget__categories--sub__menu--link d-flex align-items-center" href="{{route('allproducts.index',['subcategory_id'=>$subcat->id])}}">
-                                    <img class="widget__categories--sub__menu--img" src="{{asset('newtheme/assets/img/product/small-product2.webp')}}" alt="categories-img">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" viewBox="0 0 24 24"><path fill="currentColor" d="M7.885 10.23L12 3.463l4.116 6.769zm9.615 11q-1.567 0-2.649-1.081T13.769 17.5t1.082-2.649t2.649-1.082t2.649 1.082t1.082 2.649t-1.082 2.649t-2.649 1.082m-13.73-.5v-6.462h6.46v6.462zm13.73-.5q1.146 0 1.939-.792t.792-1.939t-.792-1.939t-1.939-.792t-1.939.792t-.792 1.939t.792 1.939t1.939.792m-12.73-.5h4.46v-4.462H4.77zm4.857-10.5h4.746L12 5.427zM17.5 17.5"/></svg>
+                                    <!--<img class="widget__categories--sub__menu--img" src="{{asset('newtheme/assets/img/product/small-product2.webp')}}" alt="categories-img">-->
                                     <span class="widget__categories--sub__menu--text">{{$subcat->title}}</span>
                                 </a>
                             </li>
@@ -156,7 +158,9 @@
                                 @forelse($categories as $category)
                                 <li class="widget__categories--menu__list">
                                     <label class="widget__categories--menu__label d-flex align-items-center">
-                                        <img class="widget__categories--menu__img" src="{{asset('newtheme/assets/img/product/small-product1.webp')}}" alt="categories-img">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="17" cy="7" r="3"/><circle cx="7" cy="17" r="3"/><path d="M14 14h6v5a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1zM4 4h6v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z"/></g></svg>
+                                        
+                                        <!--<img class="widget__categories--menu__img" src="{{asset('newtheme/assets/img/product/small-product1.webp')}}" alt="categories-img">-->
                                         <span class="widget__categories--menu__text">{{$category->title}}</span>
                                         <svg class="widget__categories--menu__arrowdown--icon" xmlns="http://www.w3.org/2000/svg" width="12.355" height="8.394">
                                             <path  d="M15.138,8.59l-3.961,3.952L7.217,8.59,6,9.807l5.178,5.178,5.178-5.178Z" transform="translate(-6 -8.59)" fill="currentColor"></path>
@@ -166,7 +170,8 @@
                                         @forelse($category->subcategories as $subcat)
                                         <li class="widget__categories--sub__menu--list">
                                             <a class="widget__categories--sub__menu--link d-flex align-items-center" href="{{route('allproducts.index',['subcategory_id'=>$subcat->id])}}">
-                                                <img class="widget__categories--sub__menu--img" src="{{asset('newtheme/assets/img/product/small-product2.webp')}}" alt="categories-img">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" viewBox="0 0 24 24"><path fill="currentColor" d="M7.885 10.23L12 3.463l4.116 6.769zm9.615 11q-1.567 0-2.649-1.081T13.769 17.5t1.082-2.649t2.649-1.082t2.649 1.082t1.082 2.649t-1.082 2.649t-2.649 1.082m-13.73-.5v-6.462h6.46v6.462zm13.73-.5q1.146 0 1.939-.792t.792-1.939t-.792-1.939t-1.939-.792t-1.939.792t-.792 1.939t.792 1.939t1.939.792m-12.73-.5h4.46v-4.462H4.77zm4.857-10.5h4.746L12 5.427zM17.5 17.5"/></svg>
+                                                <!--<img class="widget__categories--sub__menu--img" src="{{asset('newtheme/assets/img/product/small-product2.webp')}}" alt="categories-img">-->
                                                 <span class="widget__categories--sub__menu--text">{{$subcat->title}}</span>
                                             </a>
                                         </li>

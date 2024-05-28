@@ -110,7 +110,7 @@
 
                         </div>
 
-                        <div class="alert alert-danger text-center mt-5">Select Product Images (Minimum two images are required. You can select more than two images by click on + icon)</div>
+                        <div class="alert alert-danger text-center mt-5">Select Product Images (Minimum two images are required.image size should be minimum 900 x 900. You can select more than two images by click on + icon)</div>
                         <div class="row append">
                           <div class="col-md-4 mt-2">
                             

@@ -17,9 +17,12 @@
         </div>
         <p class="reviews__comment--content__desc">{{$review->content}}</p>
         <span class="reviews__comment--content__date">{{$review->created_at->diffForHumans()}}</span>
+
+        @if(\Auth::check() && auth()->user()->isAdmin())
         <div class="text-right">
-            <button class="text-red-600">Reply</button>
+            <button class="text-white primary__btn text-red-600">Reply</button>
         </div>
+        @endif
     </div>
 </div>
 <!-- replay comment -->
@@ -32,7 +35,7 @@
             <div class="mb-5">
                 <textarea class="reviews__comment--reply__textarea" placeholder="Your Reply...." name="content" required></textarea>
             </div> 
-            <button type="submit" class="bg-red-600 text-white px-7 py-4 leading-none rounded-lg hover:bg-black transition">SUBMIT</button>
+            <button type="submit" class="text-white primary__btn">SUBMIT</button>
         </form>   
     </div> 
 </div>

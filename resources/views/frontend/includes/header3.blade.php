@@ -97,10 +97,10 @@
         <div class="header__bottom header__sticky">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-10 offset-lg-1">
+                    <div class="col-lg-12">
                         <div class="header__menu position__relative d-none d-lg-block">
                             <nav class="header__menu--navigation">
-                            <ul class="d-flex">
+                            <ul class="d-flex justify-content-center">
                                 <li class="header__menu--items">
                                     <a class="header__menu--link" href="{{route('home')}}">Home </a>
                                     
@@ -123,7 +123,7 @@
                                     </ul>
                                 </li>
                                 <li class="header__menu--items">
-                                    <a class="header__menu--link" href="{{route('allproducts.index')}}">Products </a>
+                                    <a class="header__menu--link" href="{{route('allproducts.index')}}">Shop </a>
                                     
                                 </li>
                                 
@@ -173,7 +173,7 @@
                             </ul>
                         </li>
                         <li class="offcanvas__menu_li">
-                            <a class="offcanvas__menu_item" href="{{route('allproducts.index')}}">Products</a>
+                            <a class="offcanvas__menu_item" href="{{route('allproducts.index')}}">Shop</a>
                             
                         </li>
                         
