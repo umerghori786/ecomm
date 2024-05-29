@@ -11,7 +11,7 @@
         <div class="container">
             
                 <div class="login__section--inner">
-                    <div class="row row-cols-md-2 row-cols-1">
+                    <div class="row row-cols-md-2 row-cols-1 justify-content-center">
                         {{-- login --}}
                         
                         <div class="col">

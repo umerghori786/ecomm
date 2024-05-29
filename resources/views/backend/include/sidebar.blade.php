@@ -1,10 +1,10 @@
 <nav class="sidebar">
 <div class="logo d-flex justify-content-between">
-<div>
+<div class="max-width:200px;max-height:50px;">
 @if(isset($logo))    
-<a class="mx-auto" href="{{route('admin.dashboard')}}"><img src="{{asset('logo/'.$logo->image)}}" alt=""></a>
+<a class="mx-auto" href="{{route('admin.dashboard')}}"><img src="{{asset('logo/'.$logo->image)}}" class="ing-fluid" alt=""></a>
 @else
-<a class="mx-auto" href="{{route('admin.dashboard')}}"><img src="{{asset('dashboard/img/logo.png')}}" alt=""></a>
+<a class="mx-auto" href="{{route('admin.dashboard')}}"><img src="{{asset('dashboard/img/logo.png')}}" class="ing-fluid" alt=""></a>
 @endif
     <!-- <h3 class="m-0" style="color:#2e4765">Dashboard</h3> -->
 </div>

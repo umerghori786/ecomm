@@ -7987,6 +7987,10 @@ input.quickview__value--number {
 .product__details--tab__section.sidebar__tab--section {
     padding: 3.5rem;
 }
+.main__logo--img{
+    max-width:200px;
+    max-height:50px;
+}
 @media only screen and (max-width: 575px) {
     .product__details--tab__section.sidebar__tab--section {
         padding: 2rem;
