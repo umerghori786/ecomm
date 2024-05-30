@@ -4,21 +4,22 @@
 
                     <div class="row container">
                         <div class="col-md-9">
-                            <h4 class="page-title d-inline">@lang('Create Color')</h4>
+                            <h4 class="page-title d-inline">@lang('Create Size')</h4>
+                            <p>here you can add sizes of your products(shoes , cloths etc)</p>
                         </div>
                         <div class="col-md-3">
-                            <a href="{{ route('colors.index') }}"
-                               class="btn btn-primary">@lang('View Colors')</a>
+                            <a href="{{ route('sizes.index') }}"
+                               class="btn btn-primary">@lang('View Sizes')</a>
                         </div>
                         
                     </div>
                     <div class="mt-5">
-                        {!! Form::open(['method' => 'POST', 'route' => ['colors.store'], 'files' => true,]) !!}
+                        {!! Form::open(['method' => 'POST', 'route' => ['sizes.store'], 'files' => true,]) !!}
 
                         <div class="row justify-content-center">
                             <div class="col-12 col-lg-6 form-group">
                                 {!! Form::label('title', 'Title'.' *', ['class' => 'control-label']) !!}
-                                {!! Form::text('title', old('title'), ['class' => 'form-control', 'placeholder' => 'eg: red or blue', 'required' => true]) !!}
+                                {!! Form::text('title', old('title'), ['class' => 'form-control', 'placeholder' => 'eg 10 or XL', 'required' => true]) !!}
                             </div>
                         </div>
                         

@@ -32,6 +32,12 @@
                                             <p class="text-white">Colors</p>
                                         </div>
                                     </a>
+                                    <a href="{{route('sizes.index')}}" class="single_quick_activity bg-primary">
+                                        <div class="count_content">
+                                            <h3><span  class=" text-white">{{$size_count}}</span></h3>
+                                            <p class="text-white">Sizes</p>
+                                        </div>
+                                    </a>
                                     <a href="{{route('products.index')}}" class="single_quick_activity bg-warning">
                                         <div class="count_content">
                                             <h3><span class=" text-white">{{$product_count}}</span></h3>

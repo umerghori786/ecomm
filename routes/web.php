@@ -28,6 +28,7 @@ use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\PayPalController;
 use App\Http\Controllers\UserDashboardController;
 use App\Http\Controllers\Admin\ColorController;
+use App\Http\Controllers\Admin\SizeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -132,7 +133,8 @@ Route::middleware('admin')->prefix('user')->group(function(){
         'reviews' => ProductReviewController::class,
         'order'   => OrderController::class,
         'aboutus' => AboutUsController::class,
-        'colors'  => ColorController::class
+        'colors'  => ColorController::class,
+        'sizes'    => SizeController::class
     ]);
     Route::get('/showsub_category',[ProductController::class,'showSubCategory']);
 
