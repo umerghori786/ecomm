@@ -91,7 +91,7 @@
                             </div>
                             
                         </div>
-                        <div class="alert alert-danger text-center mt-5">Select Cloth Size if your product related to "CLOTHS" else you leave it empty</div>
+                        <div class="alert alert-danger text-center mt-5">Select Size of your product else you leave it empty</div>
                         <div class="row justify-content-center container mt-3">
                             <div class="col-12 col-lg-12 form-group">
                                 {!! Form::label('Select Product Size', 'Select Product Size (you can choose more than one size by again click on size in dropdown)', ['class' => 'control-label']) !!}
@@ -101,16 +101,7 @@
                             
 
                         </div>
-                        <div class="alert alert-danger text-center mt-5">Select Shoe Size if your product related to "SHOES" else you leave it empty</div>
-                        <div class="row justify-content-center container mt-3">
-                            <div class="col-12 col-lg-12 form-group">
-                                {!! Form::label('Select Product Size', 'Select Product Size (you can choose more than one size by again click on size in dropdown)', ['class' => 'control-label']) !!}
-                                {!! Form::select('shoesize_id[]', $shoes, explode(',',$product->shoesize_id) , ['class' => 'form-control leaderMultiSelctdropdown select2' , 'multiple'=>"multiple",'id'=>'leaderMultiSelctdropdown2']) !!}
-
-                            </div>
-                            
-
-                        </div>
+                        
                         
                         <div class="alert alert-danger text-center mt-5">Select Product Images (Minimum two images are required. You can select more than two images by click on + icon. for delete image see buttom of page) </div>
                         <div class="row append">

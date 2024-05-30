@@ -40,7 +40,7 @@ class ProductController extends Controller
         $categories = Category::pluck('title','id')->prepend('select Category','');
         $subcategories = SubCategory::pluck('title','id')->prepend('select Sub Category','');
         $colors = Color::where('status',1)->pluck('title','id');
-        $cloths = Color::where('status',2)->pluck('title','id');
+        $cloths = Color::where('status',2)->orWhere('status',3)->pluck('title','id');
         $shoes = Color::where('status',3)->pluck('title','id');
 
         return view('backend.products.create',compact('categories','subcategories','colors','cloths','shoes'));
@@ -66,10 +66,7 @@ class ProductController extends Controller
         {
             $product->update(['clothsize_id'=>implode(',', $request->clothsize_id)]);
         }
-        if($request->has('shoesize_id') && count($request->shoesize_id) > 0)
-        {
-            $product->update(['shoesize_id'=>implode(',', $request->shoesize_id)]);
-        }
+        
 
         return redirect()->route('products.index')->with('success','created successfully');
     }
@@ -97,7 +94,7 @@ class ProductController extends Controller
         $subcategories = SubCategory::pluck('title','id')->prepend('select Sub Category','');
         $product = Product::findOrFail($id);
         $colors = Color::where('status',1)->pluck('title','id');
-        $cloths = Color::where('status',2)->pluck('title','id');
+        $cloths = Color::where('status',2)->orWhere('status',3)->pluck('title','id');
         $shoes = Color::where('status',3)->pluck('title','id');
 
         return view('backend.products.edit',compact('subcategories','categories','product','colors','cloths','shoes'));
@@ -125,10 +122,7 @@ class ProductController extends Controller
         {
             $product->update(['clothsize_id'=>implode(',', $request->clothsize_id)]);
         }
-        if($request->has('shoesize_id') && count($request->shoesize_id) > 0)
-        {
-            $product->update(['shoesize_id'=>implode(',', $request->shoesize_id)]);
-        }
+        
 
         return redirect()->route('products.index')->with('success','updated successfully');
     }
