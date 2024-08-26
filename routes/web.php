@@ -42,9 +42,15 @@ use App\Http\Controllers\Admin\SizeController;
 
 
 
-/*Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');*/
+Route::get('/clear-cache', function() {
+    \Artisan::call('cache:clear');
+   \Artisan::call('config:clear');
+   \Artisan::call('config:cache');
+   \Artisan::call('view:clear');
+   \Artisan::call('route:clear');
+    // return what you want
+    return redirect()->route('home');
+});
 
 /*frontend routes*/
 Route::get('/',[HomeController::class,'index'])->name('home');
