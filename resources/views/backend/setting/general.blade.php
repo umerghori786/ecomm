@@ -208,6 +208,16 @@
                                      
                                      <input type="text" name="mail__mailers__smtp__encryption" value="{{config('mail.mailers.smtp.encryption')}}" class="form-control" placeholder="Use tls if  site uses HTTP protocol and ssl if site uses HTTPS">
                                  </div>
+                                 <div class="col-12 col-lg-6 form-group">
+                                     {!! Form::label('Sender Name', 'Sender Name', ['class' => 'control-label']) !!}
+                                     
+                                     <input type="text" name="mail__from__name" value="{{config('mail.from.name')}}" class="form-control" placeholder="your business name">
+                                 </div>
+                                 <div class="col-12 col-lg-6 form-group">
+                                     {!! Form::label('Sender Email Address', 'Sender Email Address', ['class' => 'control-label']) !!}
+                                     
+                                     <input type="text" name="mail__from__address" value="{{config('mail.from.address')}}" class="form-control" placeholder="sender email address">
+                                 </div>
                              </div>
                         </div><!--form-group-->
 
