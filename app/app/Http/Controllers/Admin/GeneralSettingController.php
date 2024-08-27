@@ -29,7 +29,7 @@ class GeneralSettingController extends Controller
     {   
         
         
-        
+        dd($request->all());
         configModel::truncate();
         
         foreach ($request->except('_token','services_stripe_key','services_stripe_secret','paypal_client_id','paypal_secret') as $key => $value) {

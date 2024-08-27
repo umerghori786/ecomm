@@ -9,6 +9,7 @@
         @include('frontend.includes.slider')
         
         <!-- Start product section -->
+        <!--
         <section class="product__section section--padding color-scheme-3">
             <div class="container">
                 <div class="section__heading text-center mb-40">
@@ -74,11 +75,11 @@
                     <div class="swiper__nav--btn swiper-button-prev"></div>
                 </div>
             </div>
-        </section>
+        </section> -->
         <!-- End product section -->
 
     <!-- Start product section -->
-    <section class="product__section section--padding pt-0">
+    <section class="product__section section--padding">
             <div class="container-fluid">
                 <div class="section__heading text-center mb-30">
                     <h2 class="section__heading--maintitle">Most Popular Items</h2>

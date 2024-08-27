@@ -174,6 +174,41 @@
                                     </div>
                                 </div>
                              </div>
+                             <div class="alert alert-danger text-center mt-5">Mail Configuration</div>
+                             <div class="row">
+                                 <div class="col-6 col-lg-6 form-group">
+                                     {!! Form::label('Mail Driver', 'Mail Driver', ['class' => 'control-label']) !!}
+                                     
+                                     <input type="text" name="mail__mailers__smtp__transport" value="{{config('mail.mailers.smtp.transport')}}" class="form-control" placeholder="SMTP, Mailgun, Mandrill, SparkPost, Amazon SES etc. Add single driver only.">
+
+                                 </div>
+                                 <div class="col-12 col-lg-6 form-group">
+                                     {!! Form::label('Mail Host', 'Mail Host', ['class' => 'control-label']) !!}
+                                     
+                                     <input type="text" name="mail__mailers__smtp__host" value="{{config('mail.mailers.smtp.host')}}" class="form-control" placeholder="">
+                                 </div>
+                                 <div class="col-6 col-lg-6 form-group">
+                                     {!! Form::label('Mail PORT', 'Mail PORT', ['class' => 'control-label']) !!}
+                                     
+                                     <input type="text" name="mail__mailers__smtp__port" value="{{config('mail.mailers.smtp.port')}}" class="form-control" placeholder="">
+
+                                 </div>
+                                 <div class="col-12 col-lg-6 form-group">
+                                     {!! Form::label('Mail Username', 'Mail Username', ['class' => 'control-label']) !!}
+                                     
+                                     <input type="text" name="mail__mailers__smtp__username" value="{{config('mail.mailers.smtp.username')}}" class="form-control" placeholder="">
+                                 </div>
+                                 <div class="col-12 col-lg-6 form-group">
+                                     {!! Form::label('Mail Password', 'Mail Password', ['class' => 'control-label']) !!}
+                                     
+                                     <input type="text" name="mail__mailers__smtp__password" value="{{config('mail.mailers.smtp.password')}}" class="form-control" placeholder="">
+                                 </div>
+                                 <div class="col-12 col-lg-6 form-group">
+                                     {!! Form::label('Mail Encryption', 'Mail Encryption', ['class' => 'control-label']) !!}
+                                     
+                                     <input type="text" name="mail__mailers__smtp__encryption" value="{{config('mail.mailers.smtp.encryption')}}" class="form-control" placeholder="Use tls if  site uses HTTP protocol and ssl if site uses HTTPS">
+                                 </div>
+                             </div>
                         </div><!--form-group-->
 
                        
